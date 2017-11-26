@@ -3,11 +3,25 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { TopicComponent } from './topic/topic.component';
+import { MainFeedComponent } from './main-feed/main-feed.component';
+import { ProfileComponent } from './profile/profile.component';
+import { CommonComponent } from './common/common.component';
+import { MainFeedContentComponent } from './common/main-feed-content/main-feed-content.component';
+import { NavigatorComponent } from './common/navigator/navigator.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    TopicComponent,
+    MainFeedComponent,
+    ProfileComponent,
+    CommonComponent,
+    MainFeedContentComponent,
+    NavigatorComponent
   ],
   imports: [
     BrowserModule
