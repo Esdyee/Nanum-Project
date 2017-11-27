@@ -1,15 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+//material
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 
+//frame
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { TopicComponent } from './topic/topic.component';
 import { MainFeedComponent } from './main-feed/main-feed.component';
 import { ProfileComponent } from './profile/profile.component';
-import { CommonComponent } from './common/common.component';
 import { MainFeedContentComponent } from './common/main-feed-content/main-feed-content.component';
 import { NavigatorComponent } from './common/navigator/navigator.component';
+
 
 
 @NgModule({
@@ -19,12 +24,14 @@ import { NavigatorComponent } from './common/navigator/navigator.component';
     TopicComponent,
     MainFeedComponent,
     ProfileComponent,
-    CommonComponent,
     MainFeedContentComponent,
     NavigatorComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MatButtonModule, MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
