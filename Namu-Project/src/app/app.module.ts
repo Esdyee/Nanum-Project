@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// import quill Module
+
+import { QuillModule } from 'ngx-quill';
+
 //material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,6 +18,8 @@ import { MainFeedComponent } from './main-feed/main-feed.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MainFeedContentComponent } from './common/main-feed-content/main-feed-content.component';
 import { NavigatorComponent } from './common/navigator/navigator.component';
+import { AnswerComponent } from './answer/answer.component';
+import { QuillEditorComponent } from './common/quill-editor/quill-editor.component';
 
 
 
@@ -25,13 +31,16 @@ import { NavigatorComponent } from './common/navigator/navigator.component';
     MainFeedComponent,
     ProfileComponent,
     MainFeedContentComponent,
-    NavigatorComponent
+    NavigatorComponent,
+    AnswerComponent,
+    QuillEditorComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
-    MatButtonModule, MatCheckboxModule
+    MatButtonModule, MatCheckboxModule,
+    QuillModule
   ],
   providers: [],
   bootstrap: [AppComponent]

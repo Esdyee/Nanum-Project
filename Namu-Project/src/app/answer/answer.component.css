@@ -1,0 +1,69 @@
+.list {
+  width: 600px;
+  height: 140px;
+  border: 2px solid gray;
+  border-radius: 10px 10px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+.about-answer {
+  font-size: 12px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+li {
+  float: left;
+  list-style-type: none;
+  padding-right: 20px;
+}
+
+button {
+  width: 100px;
+  height: 30px;
+  border: 1px solid #000;
+  border-radius: 15px 15px;
+  padding: 2px;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 14px;
+  text-align: center;
+  outline: none;
+}
+
+i {
+  color: gray;
+}
+
+.fa-times {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.fa-bookmark-o {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+
+
+
+
+
