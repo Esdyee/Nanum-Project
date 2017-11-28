@@ -35,6 +35,6 @@ import { NavigatorComponent } from './common/navigator/navigator.component';
     MatButtonModule, MatCheckboxModule, MatSliderModule
   ],
   providers: [],
-  bootstrap: [NavigatorComponent]
+  bootstrap: [LoginComponent]
 })
 export class AppModule { }
