@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   //templateUrl: './app.component.html',
   template:`
-    Namu-Project
+    <app-login></app-login>
   `,
   styleUrls: ['./app.component.css']
 })

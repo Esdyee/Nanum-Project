@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MaterialModule } from './material.module'
+import { MaterialModule } from './module/material.module'
 
-//frame
+//component
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { TopicComponent } from './topic/topic.component';
@@ -11,7 +11,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { MainFeedContentComponent } from './common/main-feed-content/main-feed-content.component';
 import { NavigatorComponent } from './common/navigator/navigator.component';
 
-
+//pipe
+import { ImagePathPipe } from './pipe/image-path.pipe';
 
 @NgModule({
   declarations: [
@@ -21,12 +22,13 @@ import { NavigatorComponent } from './common/navigator/navigator.component';
     MainFeedComponent,
     ProfileComponent,
     MainFeedContentComponent,
-    NavigatorComponent
+    NavigatorComponent,
+    ImagePathPipe
   ],
   imports: [
     BrowserModule, MaterialModule
   ],
   providers: [],
-  bootstrap: [LoginComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
