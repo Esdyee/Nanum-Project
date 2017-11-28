@@ -27,6 +27,6 @@ import { NavigatorComponent } from './common/navigator/navigator.component';
     BrowserModule, MaterialModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [LoginComponent]
 })
 export class AppModule { }
