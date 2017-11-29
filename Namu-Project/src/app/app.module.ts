@@ -29,7 +29,7 @@ import { ImagePathPipe } from './pipe/image-path.pipe';
     ProfileComponent,
     MainFeedContentComponent,
     NavigatorComponent,
-    AnswerComponent
+    AnswerComponent,
     AskModalComponent
   ],
   imports: [
