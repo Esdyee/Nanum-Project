@@ -1,0 +1,17 @@
+.nav {
+    width:100%;
+    background-color: #424377;
+}
+
+.logo {
+    color: white;
+    font-style: bold;
+    font-size: 1.5em;
+}
+
+.nav-container {
+    padding: 2px 10px;
+    width: 400px;
+    margin: 0 auto;
+    position: relative;
+}
