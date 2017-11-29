@@ -6,11 +6,6 @@ import { MaterialModule } from './module/material.module'
 
 import { QuillModule } from 'ngx-quill';
 
-//material
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
-
 //component
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -20,7 +15,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { MainFeedContentComponent } from './common/main-feed-content/main-feed-content.component';
 import { NavigatorComponent } from './common/navigator/navigator.component';
 import { AnswerComponent } from './answer/answer.component';
-import { QuillEditorComponent } from './common/quill-editor/quill-editor.component';
 
 //pipe
 import { ImagePathPipe } from './pipe/image-path.pipe';
@@ -33,25 +27,11 @@ import { ImagePathPipe } from './pipe/image-path.pipe';
     MainFeedComponent,
     ProfileComponent,
     MainFeedContentComponent,
-<<<<<<<
     NavigatorComponent,
-    ImagePathPipe
-=======
-    NavigatorComponent,
-    AnswerComponent,
-    QuillEditorComponent
->>>>>>>
+    AnswerComponent
   ],
   imports: [
-<<<<<<<
     BrowserModule, MaterialModule
-=======
-    BrowserModule,
-    BrowserAnimationsModule,
-    NoopAnimationsModule,
-    MatButtonModule, MatCheckboxModule,
-    QuillModule
->>>>>>>
   ],
   providers: [],
   bootstrap: [AppComponent]
