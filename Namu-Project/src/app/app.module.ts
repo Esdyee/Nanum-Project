@@ -2,14 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from './module/material.module';
 
-<<<<<<< dev
 // import quill Module
 
 import { QuillModule } from 'ngx-quill';
 
-//component
-=======
->>>>>>> pull from upstream-dev
+// component
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { TopicComponent } from './topic/topic.component';
