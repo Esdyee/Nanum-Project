@@ -19,7 +19,7 @@
     "prefix": "app",
     "styles": [
       "reset.css",
-      "styles.css"
+      "styles.scss"
     ],
     "scripts": [],
     "environmentSource": "environments/environment.ts",
