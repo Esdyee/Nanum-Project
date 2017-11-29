@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MaterialModule } from './material.module'
+import { MaterialModule } from './material.module';
 
-//frame
+// frame
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { TopicComponent } from './topic/topic.component';
@@ -10,6 +10,7 @@ import { MainFeedComponent } from './main-feed/main-feed.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MainFeedContentComponent } from './common/main-feed-content/main-feed-content.component';
 import { NavigatorComponent } from './common/navigator/navigator.component';
+import { AskModalComponent } from './common/navigator/ask-modal/ask-modal.component';
 
 
 
@@ -21,12 +22,14 @@ import { NavigatorComponent } from './common/navigator/navigator.component';
     MainFeedComponent,
     ProfileComponent,
     MainFeedContentComponent,
-    NavigatorComponent
+    NavigatorComponent,
+    AskModalComponent
   ],
   imports: [
     BrowserModule, MaterialModule
   ],
+  entryComponents: [AskModalComponent],
   providers: [],
-  bootstrap: [LoginComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
