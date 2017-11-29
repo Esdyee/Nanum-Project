@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
-@Component({
+@Component ({
   selector: 'app-root',
-  //templateUrl: './app.component.html',
-  template:`
-    <app-login></app-login>
+  // templateUrl: './app.component.html',
+  template: `
+    <app-navigator></app-navigator>
   `,
   styleUrls: ['./app.component.css']
 })
