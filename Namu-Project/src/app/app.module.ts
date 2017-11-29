@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MaterialModule } from './module/material.module'
+import { MaterialModule } from './module/material.module';
 
 <<<<<<< dev
 // import quill Module
