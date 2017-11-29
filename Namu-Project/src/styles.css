@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-<<<<<<< HEAD
 
 /* web font load */
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
@@ -382,7 +381,7 @@ body {
 .container_12 {
   zoom: 1;
 }
-=======
+
 html,
 body {
   height: 100vh;
@@ -523,4 +522,3 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
->>>>>>> e43564b28fbeeade386f3df7847898b81a13d019
