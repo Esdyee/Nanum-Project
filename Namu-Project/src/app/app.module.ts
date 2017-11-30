@@ -2,17 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from './module/material.module';
 
-// import quill Module
-
-import { QuillModule } from 'ngx-quill';
-
-//material
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
-import { MatCardModule } from '@angular/material/card';
-
-//component
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { TopicComponent } from './topic/topic.component';
@@ -43,11 +32,7 @@ import { ImagePathPipe } from './pipe/image-path.pipe';
     QuillEditorComponent
   ],
   imports: [
-    BrowserModule, MaterialModule,
-    BrowserAnimationsModule,
-    NoopAnimationsModule,
-    MatButtonModule, MatCheckboxModule, MatCardModule,
-    QuillModule
+    BrowserModule, MaterialModule
   ],
   entryComponents: [AskModalComponent],
   providers: [],
