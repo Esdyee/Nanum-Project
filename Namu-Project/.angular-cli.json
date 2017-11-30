@@ -19,13 +19,10 @@
     "prefix": "app",
     "styles": [
       "reset.css",
-<<<<<<< HEAD
       "../node_modules/quill/dist/quill.snow.css",
       "../node_modules/font-awesome/css/font-awesome.css",
-      "styles.css"
-=======
+      "styles.css",
       "styles.scss"
->>>>>>> KimWon#10
     ],
     "scripts": [],
     "environmentSource": "environments/environment.ts",
