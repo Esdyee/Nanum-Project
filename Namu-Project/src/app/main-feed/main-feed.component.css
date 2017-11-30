@@ -1,0 +1,64 @@
+/* commons; 공통으로 사용할 여지가 있는 룰셋 모음 */
+
+  /*profile img*/
+.mat-card img {
+  border-radius: 50%;
+}
+
+
+/* header component */
+.header {
+  /*position: sticky;*/
+  /*z-index: 1;*/
+  /*top: 0;*/
+  background-color: #25284c;
+  height: 5rem;
+  color: white;
+}
+
+
+/* nav component */
+.nav {
+  /*position: sticky;*/
+  /*top: 5rem;*/
+  /*z-index: 1;*/
+  background-color: white;
+  height: 4rem;
+  border-bottom: 1px solid #bababa;
+}
+
+
+/* main component */
+
+.sidebar,
+.welcome {
+  margin-top: 2rem;
+}
+
+.sidebar_header {
+  background-color: #383d72;
+  width: 100%;
+  height: 4rem;
+  border-radius: 0.5rem;
+  color: #ffffff;
+}
+
+.sidebar_topics {
+  margin-left: 1em;
+}
+
+.mat-card.welcome {
+  height: 3rem;
+}
+
+.post {
+  margin-top: 1rem;
+}
+
+.mat-card-header {
+  display: block;
+}
+
+.post-heading {
+  display: flex;
+}
