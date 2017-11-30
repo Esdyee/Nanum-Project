@@ -8,11 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class AnswerComponent implements OnInit {
   isShow = true;
   isChecked = false;
+  isFollowing = false;
   constructor() { }
 
   ngOnInit() {
   }
-
+  
   removeItem() {
     this.isShow = !this.isShow;
   }
@@ -21,4 +22,7 @@ export class AnswerComponent implements OnInit {
     this.isChecked = !this.isChecked;
   }
 
+  following() {
+    this.isFollowing = !this.isFollowing;
+  }
 }

@@ -11,8 +11,8 @@
       <li>팔로우 200명</li>
       <li>12시간 전</li>
     </ul>
-    <button>답변 달기</button>
-    <button>팔로우</button>
+    <button class="write-answer">답변 달기</button>
+    <button class="follow" (click)="following()">{{ isFollowing ? '팔로우 취소' : '팔로우' }}</button>
     <i (click)="removeItem()" class="fa fa-times fa-2x"></i>
     <i (click)="changeChecked()" class="fa fa-2x" [class.fa-bookmark-o]="!isChecked" [class.fa-bookmark]="isChecked"></i>
   </div>
