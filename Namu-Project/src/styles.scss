@@ -1,17 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 /* web font load */
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 
-/* typography & font */
+// material customize
+@import '~@angular/material/theming';
+
+/* general typography & unit size */
 
 html {
   font-family: 'Spoqa Han Sans', 'sans-serif';
   font-size: 12px;
 }
 
+// custom typography
+$custom-typography: mat-typography-config(
+  $font-family: 'Spoqa Han Sans, sans-serif',
+  // arguments: size, line-height, weight
+  // spoqa han sans weights: 200, 300, 400(regular), 700
+
+  // 별도의 디스플레이 크기 표시용
+  $display-4:     mat-typography-level(112px, 1.6, 400),
+  $display-3:     mat-typography-level(56px, 1.6, 400),
+  $display-2:     mat-typography-level(45px, 1.6, 400),
+  $display-1:     mat-typography-level(1rem, 1.6, 400),
+
+  // headings
+  $headline:      mat-typography-level(1.8rem, 1.6, 400), // .mat-h1
+  $title:         mat-typography-level(1.8rem, 1.6, 700), // .mat-h2
+  $subheading-2:  mat-typography-level(1.25rem, 1.6, 400), // .mat-h3
+  $subheading-1:  mat-typography-level(1.25rem, 1.6, 700), // .mat-h4
+  // paragraphs
+  $body-2:        mat-typography-level(1.25rem, 1.6, 700), // <strong class="mat-body-2">
+  $body-1:        mat-typography-level(1.25rem, 1.6, 400), // .mat-body-1
+  // 캡션, 버튼
+  $caption:       mat-typography-level(1rem, 1.6, 300),
+  $button:        mat-typography-level(1.5rem, 1.6, 500),
+  // input 플레이스홀더
+  $input:         mat-typography-level(1rem, 1.6, 400)
+);
+
+@include mat-core($custom-typography);
 
 /*
   960 Grid System ~ Core CSS.
@@ -369,4 +398,146 @@ body {
 .clearfix,
 .container_12 {
   zoom: 1;
+}
+
+/* reset */
+
+html,
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  /*font-size: 100%;*/
+  /*font: inherit;*/
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }

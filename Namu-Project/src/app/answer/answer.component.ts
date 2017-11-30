@@ -6,10 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./answer.component.css']
 })
 export class AnswerComponent implements OnInit {
-
+  isShow = true;
+  isChecked = false;
+  isFollowing = false;
   constructor() { }
 
   ngOnInit() {
   }
+  
+  removeItem() {
+    this.isShow = !this.isShow;
+  }
 
+  changeChecked() {
+    this.isChecked = !this.isChecked;
+  }
+
+  following() {
+    this.isFollowing = !this.isFollowing;
+  }
 }

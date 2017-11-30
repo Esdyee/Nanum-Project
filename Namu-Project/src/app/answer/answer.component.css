@@ -9,6 +9,9 @@
 }
 
 h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 
@@ -39,11 +42,21 @@ button {
   border: 1px solid #000;
   border-radius: 15px 15px;
   padding: 2px;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-right: 10px;
-  font-size: 14px;
+  font-size: 12px;
   text-align: center;
   outline: none;
+}
+
+.write-answer {
+  background-color: #3E78AD;
+  color: white; 
+}
+
+.follow {
+  background-color: #F6F6F9;
+  color: #656565;
 }
 
 i {
@@ -56,7 +69,7 @@ i {
   top: 20px;
 }
 
-.fa-bookmark-o {
+.fa-bookmark, .fa-bookmark-o {
   position: absolute;
   right: 20px;
   bottom: 20px;
