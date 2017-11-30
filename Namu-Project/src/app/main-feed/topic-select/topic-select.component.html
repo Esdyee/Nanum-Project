@@ -1,0 +1,74 @@
+<h1 mat-dialog-title>주제 선택</h1>
+
+
+
+  <mat-horizontal-stepper>
+    
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel mat-dialog-title>관심 주제 선택</ng-template>
+        <p mat-dialog-title>스텝퍼 설명 내요오오오옹</p>
+        
+        <div mat-dialog-content>
+        <div class="topic-box1">
+          <mat-card class="topic-card">
+            <img mat-card-md-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-actions>
+              <mat-checkbox>토픽 이름</mat-checkbox>
+            </mat-card-actions>
+          </mat-card>
+          <mat-card class="topic-card">
+            <img mat-card-md-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-actions>
+              <mat-checkbox>토픽 이름</mat-checkbox>
+            </mat-card-actions>
+          </mat-card>
+          <mat-card class="topic-card">
+            <img mat-card-md-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-actions>
+              <mat-checkbox>토픽 이름</mat-checkbox>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+        </div>
+
+        <div>
+          <button mat-button matStepperNext>다음</button>
+        </div>
+      </form>
+    </mat-step>
+    
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>전문 주제 선택</ng-template>
+        <p>스텝퍼 설명 내요오오오옹2</p>
+
+        <div class="topic-box2">
+          <mat-card class="topic-card">
+            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-actions>
+              <mat-checkbox>토픽 이름</mat-checkbox>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+        
+        <div>
+          <button mat-button matStepperNext>다음</button>
+        </div>
+      </form>
+    </mat-step>
+    
+    <mat-step>
+      <ng-template matStepLabel>완료</ng-template>
+      <p>주제 선택 완료</p>
+      <div>
+        <button mat-button matStepperPrevious>선택 완료</button>
+      </div>
+    </mat-step>
+  
+  </mat-horizontal-stepper>
+
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" tabindex="-1">닫기</button>
+</div>

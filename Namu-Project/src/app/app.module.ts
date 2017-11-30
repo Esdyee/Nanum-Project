@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from './module/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // import quill Module
 
@@ -19,6 +20,7 @@ import { AskModalComponent } from './common/navigator/ask-modal/ask-modal.compon
 
 // pipe
 import { ImagePathPipe } from './pipe/image-path.pipe';
+import { TopicSelectComponent } from './main-feed/topic-select/topic-select.component';
 
 @NgModule({
   declarations: [
@@ -30,12 +32,19 @@ import { ImagePathPipe } from './pipe/image-path.pipe';
     MainFeedContentComponent,
     NavigatorComponent,
     AnswerComponent,
-    AskModalComponent
+    AskModalComponent,
+    TopicSelectComponent
   ],
   imports: [
-    BrowserModule, MaterialModule
+    BrowserModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  entryComponents: [AskModalComponent],
+  entryComponents: [
+    AskModalComponent,
+    TopicSelectComponent
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
