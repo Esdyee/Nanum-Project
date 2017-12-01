@@ -2,6 +2,13 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
+export interface Topic {
+  name: string;
+  imge: string;
+  follow: boolean;
+}
+
+
 @Component ({
   selector: 'app-topic-select',
   templateUrl: './topic-select.component.html',
@@ -11,6 +18,38 @@ export class TopicSelectComponent implements OnInit {
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  topics: Topic[] = [
+    { name: 'shiba1', imge: 'https://material.angular.io/assets/img/examples/shiba1.jpg', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: false },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'shina2', imge: 'https://material.angular.io/assets/img/examples/shiba2.jpg', follow: false },
+    { name: 'shiba1', imge: 'https://material.angular.io/assets/img/examples/shiba1.jpg', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: false },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'shina2', imge: 'https://material.angular.io/assets/img/examples/shiba2.jpg', follow: false },
+    { name: 'shiba1', imge: 'https://material.angular.io/assets/img/examples/shiba1.jpg', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: false },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'shina2', imge: 'https://material.angular.io/assets/img/examples/shiba2.jpg', follow: false },
+    { name: 'shiba1', imge: 'https://material.angular.io/assets/img/examples/shiba1.jpg', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: false },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'shina2', imge: 'https://material.angular.io/assets/img/examples/shiba2.jpg', follow: false },
+    { name: 'shiba1', imge: 'https://material.angular.io/assets/img/examples/shiba1.jpg', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: false },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'shina2', imge: 'https://material.angular.io/assets/img/examples/shiba2.jpg', follow: false },
+    { name: 'shiba1', imge: 'https://material.angular.io/assets/img/examples/shiba1.jpg', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: false },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'shina2', imge: 'https://material.angular.io/assets/img/examples/shiba2.jpg', follow: false }
+  ];
 
   constructor(private _formBuilder: FormBuilder,
     public thisdialogRef: MatDialogRef<TopicSelectComponent>,
@@ -28,6 +67,5 @@ export class TopicSelectComponent implements OnInit {
   onNoClick(): void {
     this.thisdialogRef.close();
   }
-
 
 }
