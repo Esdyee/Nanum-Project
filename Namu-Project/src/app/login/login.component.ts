@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   //templateUrl: './login.component.html',
   template: `
   <app-main-login></app-main-login>
+  Test
   `,
   styleUrls: ['./login.component.css']
 })
