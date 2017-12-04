@@ -10,9 +10,9 @@
       <button mat-mini-fab color="primary">
         <mat-icon>face</mat-icon>
       </button></div>
-      <button mat-raised-button color="primary" (click)="openAskModal()">
-        <span class="mat-button">질문하기</span>
-      </button>
+    <button mat-raised-button color="primary" (click)="openAskModal()">
+      <span class="mat-button">질문하기</span>
+    </button>
   </div>
 </header>
 
@@ -28,7 +28,6 @@
   </div>
 </nav>
 
-<!--main: 큰 레이아웃(2:8:2 그리드)만 공유가능-->
 <div class="main">
 
   <div class="container_12">
@@ -37,9 +36,8 @@
       <div class="sidebar">
         <div class="sidebar_header mat-h1">피드</div>
         <ul class="mat-display-1">
-          <li><a href="#">인기글</a></li>
-          <li><a href="#">북마크한 답변</a></li>
-          <li><a href="#">최신 글</a></li>
+          <li><a href="#">북마크한 질문</a></li>
+          <li><a href="#">최신 질문</a></li>
           <!--TODO: edit 링크 추가-->
           <li><a href="#">내 토픽</a>
             <ul class="sidebar_topics">
@@ -53,27 +51,9 @@
     </div>
 
     <div class="grid_8">
-      <!--welcome-->
-      <mat-card class="welcome">
-        <!--TODO: login-user 정보와 바인딩-->
-        <a href="#"><img [src]="me.imgPath" alt="" width="36" height="36"></a>
-        <a href="#"><span class="mat-h2">{{ me.name }}님, 질문이 무엇인가요?</span></a>
-      </mat-card>
-
-      <app-main-feed-content [answer]="answer" *ngFor="let answer of answers"></app-main-feed-content>
-
-      <!--typography test-->
-      <!--<h1 class="mat-h1">메인타이틀</h1>-->
-      <!--<h2 class="mat-h2">메인타이틀</h2>-->
-      <!--<h3 class="mat-h3">섹션타이틀</h3>-->
-      <!--<h4 class="mat-h4">섹션타이틀</h4>-->
-      <!--<p class="mat-body-1">본문 본문 본문</p>-->
-      <!--<strong class="mat-body-2">강조 강조 강조</strong>-->
-      <!--<span class="mat-caption">캡션 캡션 캡션</span>-->
-      <!--<span class="mat-button">버튼 공통 활자</span>-->
-      <!--<input type="text" class="mat-input" placeholder="input placeholder">-->
+      <app-question-feed-content [question]="question" *ngFor="let question of questions"></app-question-feed-content>
     </div>
-    <!--우측 메뉴를 위해 남겨둔 공간-->
+
     <div class="grid_2">
     </div>
   </div>
