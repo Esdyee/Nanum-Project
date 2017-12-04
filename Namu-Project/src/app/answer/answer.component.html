@@ -1,5 +1,5 @@
 <div class="answer-container">
-  <div class="list">
+  <div *ngIf="isShow" class="list">
     <ul class="about-question">
       <li>질문</li>
       <li>토픽1</li>
@@ -11,9 +11,9 @@
       <li>팔로우 200명</li>
       <li>12시간 전</li>
     </ul>
-    <button>답변 달기</button>
-    <button>팔로우</button>
-    <i class="fa fa-times fa-2x"></i>
-    <i class="fa fa-bookmark-o fa-2x"></i>
+    <button class="write-answer">답변 달기</button>
+    <button class="follow" (click)="following()">{{ isFollowing ? '팔로우 취소' : '팔로우' }}</button>
+    <i (click)="removeItem()" class="fa fa-times fa-2x"></i>
+    <i (click)="changeChecked()" class="fa fa-2x" [class.fa-bookmark-o]="!isChecked" [class.fa-bookmark]="isChecked"></i>
   </div>
 </div>

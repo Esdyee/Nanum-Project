@@ -1,0 +1,37 @@
+.quill-container {
+  width: 800px;
+  height: 550px;
+  font-size: 14px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.question-box {
+  width: 800px;
+  height: 140px;
+  text-align: center;
+}
+
+.question-name {
+  font-size: 2em;
+  font-weight: bold;
+  line-height: 140px;
+}
+
+.fa-times {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: gray;
+}
+
+.submit {
+  width: 70px;
+  height: 30px;
+  background-color: #3E78AD;
+  color: white;
+  font-weight: bold;
+  outline: none;
+  margin-top: 10px;
+}
+

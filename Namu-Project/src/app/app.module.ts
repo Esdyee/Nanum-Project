@@ -1,12 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+
 import { MaterialModule } from './module/material.module';
 
-// import quill Module
-
-import { QuillModule } from 'ngx-quill';
-
-// component
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { TopicComponent } from './topic/topic.component';
@@ -16,9 +15,10 @@ import { MainFeedContentComponent } from './common/main-feed-content/main-feed-c
 import { NavigatorComponent } from './common/navigator/navigator.component';
 import { AnswerComponent } from './answer/answer.component';
 import { AskModalComponent } from './common/navigator/ask-modal/ask-modal.component';
-
-// pipe
-import { ImagePathPipe } from './pipe/image-path.pipe';
+import { QuillEditorComponent } from './common/quill-editor/quill-editor.component';
+// import { MainLoginComponent } from './login/main-login/main-login.component';
+// import { FindPasswordComponent } from './login/find-password/find-password.component';
+import { NotFoundComponent } from './common/not-found/not-found.coponent';
 
 @NgModule({
   declarations: [
@@ -29,11 +29,16 @@ import { ImagePathPipe } from './pipe/image-path.pipe';
     ProfileComponent,
     MainFeedContentComponent,
     NavigatorComponent,
+    NavigatorComponent,
+    AskModalComponent,
     AnswerComponent,
-    AskModalComponent
+    QuillEditorComponent,
+    // MainLoginComponent,
+    // FindPasswordComponent,
+    NotFoundComponent
   ],
   imports: [
-    BrowserModule, MaterialModule
+    BrowserModule, MaterialModule, AppRoutingModule, FormsModule
   ],
   entryComponents: [AskModalComponent],
   providers: [],
