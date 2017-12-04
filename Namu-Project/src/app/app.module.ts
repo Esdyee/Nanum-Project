@@ -25,8 +25,6 @@ import { CommentsComponent } from './common/comments/comments.component';
     ProfileComponent,
     MainFeedContentComponent,
     NavigatorComponent,
-    AnswerComponent,
-    AskModalComponent,
     QuestionFeedComponent,
     QuestionFeedContentComponent,
     CommentsComponent
