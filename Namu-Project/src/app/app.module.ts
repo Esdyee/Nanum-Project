@@ -1,6 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+
 import { MaterialModule } from './module/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -12,11 +16,14 @@ import { NavigatorComponent } from './common/navigator/navigator.component';
 import { AnswerComponent } from './answer/answer.component';
 import { AskModalComponent } from './common/navigator/ask-modal/ask-modal.component';
 import { QuillEditorComponent } from './common/quill-editor/quill-editor.component';
-import { MainLoginComponent } from './login/main-login/main-login.component'
-import { FindPasswordComponent } from './login/find-password/find-password.component'
+// import { MainLoginComponent } from './login/main-login/main-login.component';
+// import { FindPasswordComponent } from './login/find-password/find-password.component';
+import { NotFoundComponent } from './common/not-found/not-found.coponent';
+import { QuestionFeedComponent } from './question-feed/question-feed.component';
+import { QuestionFeedContentComponent } from './common/question-feed-content/question-feed-content.component';
+import { CommentsComponent } from './common/comments/comments.component';
 
-// pipe
-import { ImagePathPipe } from './pipe/image-path.pipe';
+import { TopicSelectComponent } from './main-feed/topic-select/topic-select.component';
 
 @NgModule({
   declarations: [
@@ -27,18 +34,26 @@ import { ImagePathPipe } from './pipe/image-path.pipe';
     ProfileComponent,
     MainFeedContentComponent,
     NavigatorComponent,
-    ImagePathPipe,
     NavigatorComponent,
     AskModalComponent,
     AnswerComponent,
+    AskModalComponent,
+    TopicSelectComponent
     QuillEditorComponent,
-    MainLoginComponent,
-    FindPasswordComponent
+    // MainLoginComponent,
+    // FindPasswordComponent,
+    NotFoundComponent,
+    QuestionFeedComponent,
+    QuestionFeedContentComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule, MaterialModule
   ],
-  entryComponents: [AskModalComponent],
+  entryComponents: [
+    AskModalComponent,
+    TopicSelectComponent
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
