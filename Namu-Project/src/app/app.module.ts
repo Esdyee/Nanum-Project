@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import { MaterialModule } from './module/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -22,6 +23,8 @@ import { QuestionFeedComponent } from './question-feed/question-feed.component';
 import { QuestionFeedContentComponent } from './common/question-feed-content/question-feed-content.component';
 import { CommentsComponent } from './common/comments/comments.component';
 
+import { TopicSelectComponent } from './main-feed/topic-select/topic-select.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +37,8 @@ import { CommentsComponent } from './common/comments/comments.component';
     NavigatorComponent,
     AskModalComponent,
     AnswerComponent,
+    AskModalComponent,
+    TopicSelectComponent
     QuillEditorComponent,
     // MainLoginComponent,
     // FindPasswordComponent,
@@ -43,9 +48,12 @@ import { CommentsComponent } from './common/comments/comments.component';
     CommentsComponent
   ],
   imports: [
-    BrowserModule, MaterialModule, AppRoutingModule, FormsModule
+    BrowserModule, MaterialModule
   ],
-  entryComponents: [AskModalComponent],
+  entryComponents: [
+    AskModalComponent,
+    TopicSelectComponent
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

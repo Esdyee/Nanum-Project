@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
 
 import { AskModalComponent } from './ask-modal/ask-modal.component';
-import { MatDialog } from '@angular/material';
+
+// test
+import { TopicSelectComponent } from '../../main-feed/topic-select/topic-select.component';
 
 @Component({
   selector: 'app-navigator',
@@ -23,6 +26,20 @@ export class NavigatorComponent {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+  }
+
+  // test 사용자가 토픽 선택 정보가 없을시 작동해야함
+  openTopicSelectModal(): void {
+    const dialogRef = this.dialog.open(TopicSelectComponent, {
+      width: '800px',
+    //  height: '600px',
+      disableClose: true
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+
   }
 
 }
