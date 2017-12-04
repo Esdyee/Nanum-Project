@@ -5,7 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatButtonModule, MatCheckboxModule, MatSliderModule, MatIconModule,
-  MatDialogModule, MatFormFieldModule, MatCardModule, MatInputModule } from '@angular/material';
+  MatDialogModule, MatFormFieldModule, MatCardModule, MatInputModule, MatMenuModule,
+  MatStepperModule, MatGridListModule } from '@angular/material';
 
 
 @NgModule({
@@ -19,7 +20,10 @@ import { MatButtonModule, MatCheckboxModule, MatSliderModule, MatIconModule,
     MatDialogModule,
     MatFormFieldModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    MatMenuModule,
+    MatStepperModule,
+    MatGridListModule
   ],
   declarations: []
 })
