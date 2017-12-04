@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from './module/material.module';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -11,7 +12,9 @@ import { MainFeedContentComponent } from './common/main-feed-content/main-feed-c
 import { NavigatorComponent } from './common/navigator/navigator.component';
 
 // pipe
-import { ImagePathPipe } from './pipe/image-path.pipe';
+import { QuestionFeedComponent } from './question-feed/question-feed.component';
+import { QuestionFeedContentComponent } from './common/question-feed-content/question-feed-content.component';
+import { CommentsComponent } from './common/comments/comments.component';
 
 @NgModule({
   declarations: [
@@ -22,10 +25,14 @@ import { ImagePathPipe } from './pipe/image-path.pipe';
     ProfileComponent,
     MainFeedContentComponent,
     NavigatorComponent,
-    ImagePathPipe
+    AnswerComponent,
+    AskModalComponent,
+    QuestionFeedComponent,
+    QuestionFeedContentComponent,
+    CommentsComponent
   ],
   imports: [
-    BrowserModule, MaterialModule
+    BrowserModule, MaterialModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

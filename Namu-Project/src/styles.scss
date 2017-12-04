@@ -35,7 +35,7 @@ $custom-typography: mat-typography-config(
   $body-1:        mat-typography-level(1.25rem, 1.6, 400), // .mat-body-1
   // 캡션, 버튼
   $caption:       mat-typography-level(1rem, 1.6, 300),
-  $button:        mat-typography-level(1.5rem, 1.6, 500),
+  $button:        mat-typography-level(1.25rem, 1.6, 500),
   // input 플레이스홀더
   $input:         mat-typography-level(1rem, 1.6, 400)
 );
