@@ -1,12 +1,4 @@
-/* commons; 공통으로 사용할 여지가 있는 룰셋 모음 */
-
-  /*profile img*/
-.mat-card img {
-  border-radius: 50%;
-}
-
-
-
+/* <<<<<<< 복붙 요소: 컴포넌트로 분리 시 제거해야 하는 룰셋*/
 
 /* header component */
 .header {
@@ -29,8 +21,9 @@
   border-bottom: 1px solid #bababa;
 }
 
+/* ====================================== */
 
-/* main component */
+/* main component에서 가져온 것 */
 
 .sidebar,
 .welcome {

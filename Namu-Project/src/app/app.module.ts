@@ -19,6 +19,9 @@ import { QuillEditorComponent } from './common/quill-editor/quill-editor.compone
 // import { MainLoginComponent } from './login/main-login/main-login.component';
 // import { FindPasswordComponent } from './login/find-password/find-password.component';
 import { NotFoundComponent } from './common/not-found/not-found.coponent';
+import { QuestionFeedComponent } from './question-feed/question-feed.component';
+import { QuestionFeedContentComponent } from './common/question-feed-content/question-feed-content.component';
+import { CommentsComponent } from './common/comments/comments.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { NotFoundComponent } from './common/not-found/not-found.coponent';
     QuillEditorComponent,
     // MainLoginComponent,
     // FindPasswordComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    QuestionFeedComponent,
+    QuestionFeedContentComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule, MaterialModule, AppRoutingModule, FormsModule
