@@ -37,13 +37,13 @@ $custom-typography: mat-typography-config(
   $display-1:     mat-typography-level(1rem, 1.6, 400),
 
   // headings
-  $headline:      mat-typography-level(1.8rem, 1.6, 400), // .mat-h1
-  $title:         mat-typography-level(1.8rem, 1.6, 700), // .mat-h2
-  $subheading-2:  mat-typography-level(1.25rem, 1.6, 400), // .mat-h3
-  $subheading-1:  mat-typography-level(1.25rem, 1.6, 700), // .mat-h4
+  $headline:      mat-typography-level(1.8rem, 1.6, 700),
+  $title:         mat-typography-level(1.8rem, 1.6, 700),
+  $subheading-2:  mat-typography-level(1.25rem, 1.6, 400),
+  $subheading-1:  mat-typography-level(1.25rem, 1.6, 700),
   // paragraphs
-  $body-2:        mat-typography-level(1.25rem, 1.6, 700), // <strong class="mat-body-2">
-  $body-1:        mat-typography-level(1.25rem, 1.6, 400), // .mat-body-1
+  $body-2:        mat-typography-level(1.25rem, 1.6, 700),
+  $body-1:        mat-typography-level(1.25rem, 1.6, 400),
   // 캡션, 버튼
   $caption:       mat-typography-level(1rem, 1.6, 300),
   $button:        mat-typography-level(1.25rem, 1.6, 500),
