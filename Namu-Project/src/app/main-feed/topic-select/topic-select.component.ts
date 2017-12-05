@@ -9,7 +9,7 @@ export interface Topic {
 }
 
 
-@Component ({
+@Component({
   selector: 'app-topic-select',
   templateUrl: './topic-select.component.html',
   styleUrls: ['./topic-select.component.css']
