@@ -18,7 +18,7 @@ export class MainFeedComponent implements OnInit {
     name: '김경훈',
     credential: 'fastcampus WPS 수강생',
     imgPath: 'assets/images/me.png'
-  }
+  };
 
   constructor() { }
 
