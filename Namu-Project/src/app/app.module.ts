@@ -18,7 +18,7 @@ import { AskModalComponent } from './common/navigator/ask-modal/ask-modal.compon
 import { QuillEditorComponent } from './common/quill-editor/quill-editor.component';
 // import { MainLoginComponent } from './login/main-login/main-login.component';
 // import { FindPasswordComponent } from './login/find-password/find-password.component';
-import { NotFoundComponent } from './common/not-found/not-found.coponent';
+import { NotFoundComponent } from './common/not-found/not-found.component';
 import { QuestionFeedComponent } from './question-feed/question-feed.component';
 import { QuestionFeedContentComponent } from './common/question-feed-content/question-feed-content.component';
 import { CommentsComponent } from './common/comments/comments.component';
