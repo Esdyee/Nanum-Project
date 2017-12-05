@@ -1,37 +1,18 @@
-/* commons; 공통으로 사용할 여지가 있는 룰셋 모음 */
-
-  /*profile img*/
-.mat-card img {
-  border-radius: 50%;
-}
-
-
-
-
 /* header component */
-.header {
-  /*position: sticky;*/
-  /*z-index: 1;*/
-  /*top: 0;*/
+.app_header {
   background-color: #25284c;
   height: 5rem;
   color: white;
 }
 
-
 /* nav component */
 .nav {
-  /*position: sticky;*/
-  /*top: 5rem;*/
-  /*z-index: 1;*/
   background-color: white;
   height: 3rem;
   border-bottom: 1px solid #bababa;
 }
 
-
-/* main component */
-
+/* side: grid_2 */
 .sidebar,
 .welcome {
   margin-top: 2rem;
@@ -49,18 +30,79 @@
   margin-left: 1em;
 }
 
-.mat-card.welcome {
-  height: 3rem;
+
+
+/* profile img 공통 */
+.thumbnail {
+  border-radius: 50%;
 }
 
-.post {
+.thumbnail.md {
+  width: 40px;
+  height: 40px;
+}
+
+.thumbnail.sm {
+  width: 30px;
+  height: 30px;
+}
+
+
+
+/* welcome card */
+
+.mat-card.welcome mat-card-title {
+  display: inline-block;
+}
+
+/* post 공통 */
+.mat-card.post {
   margin-top: 1rem;
 }
 
-.mat-card-header {
-  display: block;
+/* post 상단 공통*/
+.post.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
 }
 
-.post-heading {
-  display: flex;
+.post mat-card-subtitle {
+  height: 40px;
+}
+
+.post .tag {
+  margin-right: 1rem;
+}
+
+.answer-info {
+  margin-left: 0.5rem;
+  display: inline-block;
+  height: 100%;
+}
+
+.answer-info .author {
+  margin-bottom: 0.5rem;
+}
+
+.mat-card-content,
+.post.header>.material-icons,
+.post .topic {
+  cursor: pointer;
+}
+
+
+
+.hidden {
+  display: none;
+}
+
+.mat-card-footer {
+  background-color: #EBEBEB;
+  padding: 2rem;
+}
+
+.mat-card-footer .mat-card-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
 }

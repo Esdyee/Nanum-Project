@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Quill from 'quill';
 
 @Component({
   selector: 'app-quill-editor',
@@ -8,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class QuillEditorComponent implements OnInit {
   isShow = true;
   constructor() { }
+  editor;
 
   ngOnInit() {
   }
   close() {
     this.isShow = !this.isShow;
+  }
+
+  getContents() {
+
   }
 }

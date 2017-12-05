@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // typings
-import { Answer, answers } from './answer';
+import { Answer, answers, expandedContents } from './answer';
 
 @Component({
   selector: 'app-main-feed',

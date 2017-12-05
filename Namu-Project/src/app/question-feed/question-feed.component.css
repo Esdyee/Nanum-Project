@@ -1,7 +1,7 @@
 /* <<<<<<< 복붙 요소: 컴포넌트로 분리 시 제거해야 하는 룰셋*/
 
 /* header component */
-.header {
+.app_header {
   /*position: sticky;*/
   /*z-index: 1;*/
   /*top: 0;*/
@@ -25,8 +25,7 @@
 
 /* main component에서 가져온 것 */
 
-.sidebar,
-.welcome {
+.sidebar {
   margin-top: 2rem;
 }
 
@@ -42,8 +41,8 @@
   margin-left: 1em;
 }
 
-.mat-card.welcome {
-  height: 3rem;
+.post:first-of-type {
+  margin-top: 2rem;
 }
 
 .post {

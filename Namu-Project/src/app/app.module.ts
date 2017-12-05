@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
-
 import { MaterialModule } from './module/material.module';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { TopicComponent } from './topic/topic.component';
@@ -22,6 +20,8 @@ import { NotFoundComponent } from './common/not-found/not-found.component';
 import { QuestionFeedComponent } from './question-feed/question-feed.component';
 import { QuestionFeedContentComponent } from './common/question-feed-content/question-feed-content.component';
 import { CommentsComponent } from './common/comments/comments.component';
+
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
@@ -44,9 +44,12 @@ import { CommentsComponent } from './common/comments/comments.component';
     CommentsComponent
   ],
   imports: [
-    BrowserModule, MaterialModule, AppRoutingModule, FormsModule
+    BrowserModule, MaterialModule, AppRoutingModule, FormsModule, ReactiveFormsModule,
+    QuillModule
   ],
-  entryComponents: [AskModalComponent],
+  entryComponents: [
+    AskModalComponent,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
