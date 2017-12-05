@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { MaterialModule } from './module/material.module';
 
+import { MaterialModule } from './module/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { QuillModule } from 'ngx-quill';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { TopicComponent } from './topic/topic.component';
@@ -20,8 +22,10 @@ import { NotFoundComponent } from './common/not-found/not-found.component';
 import { QuestionFeedComponent } from './question-feed/question-feed.component';
 import { QuestionFeedContentComponent } from './common/question-feed-content/question-feed-content.component';
 import { CommentsComponent } from './common/comments/comments.component';
+import { EditorComponent } from './common/editor/editor.component';
 
-import { QuillModule } from 'ngx-quill';
+import { TopicSelectComponent } from './main-feed/topic-select/topic-select.component';
+
 
 @NgModule({
   declarations: [
@@ -32,23 +36,29 @@ import { QuillModule } from 'ngx-quill';
     ProfileComponent,
     MainFeedContentComponent,
     NavigatorComponent,
-    NavigatorComponent,
     AskModalComponent,
     AnswerComponent,
-    QuillEditorComponent,
+    AskModalComponent,
+    TopicSelectComponent,
+    // QuillEditorComponent,
     // MainLoginComponent,
     // FindPasswordComponent,
     NotFoundComponent,
     QuestionFeedComponent,
     QuestionFeedContentComponent,
-    CommentsComponent
+    CommentsComponent,
+    EditorComponent,
   ],
   imports: [
-    BrowserModule, MaterialModule, AppRoutingModule, FormsModule, ReactiveFormsModule,
-    QuillModule
+    BrowserModule, AppRoutingModule, MaterialModule
+    , QuillModule, FormsModule, ReactiveFormsModule
+  ],
+  exports:[
+    MaterialModule
   ],
   entryComponents: [
     AskModalComponent,
+    TopicSelectComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

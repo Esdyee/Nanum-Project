@@ -1,17 +1,27 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 /* web font load */
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 // material customize
 @import '~@angular/material/theming';
 
 /* general typography & unit size */
+
 html {
-  width: 100%;
-  height: 100%;
   font-family: 'Spoqa Han Sans', 'sans-serif';
   font-size: 12px;
+}
+
+
+/* html, body 넓이 화면에 맞게 100%*/
+
+html,
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
 }
 
 // custom typography
@@ -27,7 +37,7 @@ $custom-typography: mat-typography-config(
   $display-1:     mat-typography-level(1rem, 1.6, 400),
 
   // headings
-  $headline:      mat-typography-level(1.8rem, 1.6, 700), // .mat-h1
+  $headline:      mat-typography-level(1.8rem, 1.6, 400), // .mat-h1
   $title:         mat-typography-level(1.8rem, 1.6, 700), // .mat-h2
   $subheading-2:  mat-typography-level(1.25rem, 1.6, 400), // .mat-h3
   $subheading-1:  mat-typography-level(1.25rem, 1.6, 700), // .mat-h4
@@ -59,8 +69,6 @@ $custom-typography: mat-typography-config(
 */
 
 body {
-  width: 100%;
-  height: 100%;
   min-width: 960px;
 }
 
