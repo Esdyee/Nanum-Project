@@ -1,8 +1,8 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 /* web font load */
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 // material customize
 @import '~@angular/material/theming';
 
@@ -13,33 +13,32 @@ html {
   font-size: 12px;
 }
 
+
+/* html, body 넓이 화면에 맞게 100%*/
+
+html,
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
 // custom typography
-$custom-typography: mat-typography-config(
-  $font-family: 'Spoqa Han Sans, sans-serif',
-  // arguments: size, line-height, weight
-  // spoqa han sans weights: 200, 300, 400(regular), 700
-
-  // 별도의 디스플레이 크기 표시용
-  $display-4:     mat-typography-level(112px, 1.6, 400),
-  $display-3:     mat-typography-level(56px, 1.6, 400),
-  $display-2:     mat-typography-level(45px, 1.6, 400),
-  $display-1:     mat-typography-level(1rem, 1.6, 400),
-
-  // headings
-  $headline:      mat-typography-level(1.8rem, 1.6, 400), // .mat-h1
-  $title:         mat-typography-level(1.8rem, 1.6, 700), // .mat-h2
-  $subheading-2:  mat-typography-level(1.25rem, 1.6, 400), // .mat-h3
-  $subheading-1:  mat-typography-level(1.25rem, 1.6, 700), // .mat-h4
-  // paragraphs
-  $body-2:        mat-typography-level(1.25rem, 1.6, 700), // <strong class="mat-body-2">
-  $body-1:        mat-typography-level(1.25rem, 1.6, 400), // .mat-body-1
-  // 캡션, 버튼
-  $caption:       mat-typography-level(1rem, 1.6, 300),
-  $button:        mat-typography-level(1.5rem, 1.6, 500),
-  // input 플레이스홀더
-  $input:         mat-typography-level(1rem, 1.6, 400)
-);
-
+$custom-typography: mat-typography-config( $font-family: 'Spoqa Han Sans, sans-serif', // arguments: size, line-height, weight
+// spoqa han sans weights: 200, 300, 400(regular), 700
+// 별도의 디스플레이 크기 표시용
+$display-4: mat-typography-level(112px, 1.6, 400), $display-3: mat-typography-level(56px, 1.6, 400), $display-2: mat-typography-level(45px, 1.6, 400), $display-1: mat-typography-level(1rem, 1.6, 400), // headings
+$headline: mat-typography-level(1.8rem, 1.6, 400), // .mat-h1
+$title: mat-typography-level(1.8rem, 1.6, 700), // .mat-h2
+$subheading-2: mat-typography-level(1.25rem, 1.6, 400), // .mat-h3
+$subheading-1: mat-typography-level(1.25rem, 1.6, 700), // .mat-h4
+// paragraphs
+$body-2: mat-typography-level(1.25rem, 1.6, 700), // <strong class="mat-body-2">
+$body-1: mat-typography-level(1.25rem, 1.6, 400), // .mat-body-1
+// 캡션, 버튼
+$caption: mat-typography-level(1rem, 1.6, 300), $button: mat-typography-level(1.25rem, 1.6, 500), // input 플레이스홀더
+$input: mat-typography-level(1rem, 1.6, 400));
 @include mat-core($custom-typography);
 
 /*
@@ -48,6 +47,7 @@ $custom-typography: mat-typography-config(
 
   Licensed under GPL and MIT.
 */
+
 
 /*
   Forces backgrounds to span full width,
@@ -61,6 +61,7 @@ body {
   min-width: 960px;
 }
 
+
 /* `Container
 ----------------------------------------------------------------------------------------------------*/
 
@@ -69,6 +70,7 @@ body {
   margin-right: auto;
   width: 960px;
 }
+
 
 /* `Grid >> Global
 ----------------------------------------------------------------------------------------------------*/
@@ -91,19 +93,31 @@ body {
   margin-right: 10px;
 }
 
-.push_1, .pull_1,
-.push_2, .pull_2,
-.push_3, .pull_3,
-.push_4, .pull_4,
-.push_5, .pull_5,
-.push_6, .pull_6,
-.push_7, .pull_7,
-.push_8, .pull_8,
-.push_9, .pull_9,
-.push_10, .pull_10,
-.push_11, .pull_11 {
+.push_1,
+.pull_1,
+.push_2,
+.pull_2,
+.push_3,
+.pull_3,
+.push_4,
+.pull_4,
+.push_5,
+.pull_5,
+.push_6,
+.pull_6,
+.push_7,
+.pull_7,
+.push_8,
+.pull_8,
+.push_9,
+.pull_9,
+.push_10,
+.pull_10,
+.push_11,
+.pull_11 {
   position: relative;
 }
+
 
 /* `Grid >> Children (Alpha ~ First, Omega ~ Last)
 ----------------------------------------------------------------------------------------------------*/
@@ -115,6 +129,7 @@ body {
 .omega {
   margin-right: 0;
 }
+
 
 /* `Grid >> 12 Columns
 ----------------------------------------------------------------------------------------------------*/
@@ -167,6 +182,7 @@ body {
   width: 940px;
 }
 
+
 /* `Prefix Extra Space >> 12 Columns
 ----------------------------------------------------------------------------------------------------*/
 
@@ -213,6 +229,7 @@ body {
 .container_12 .prefix_11 {
   padding-left: 880px;
 }
+
 
 /* `Suffix Extra Space >> 12 Columns
 ----------------------------------------------------------------------------------------------------*/
@@ -261,6 +278,7 @@ body {
   padding-right: 880px;
 }
 
+
 /* `Push Space >> 12 Columns
 ----------------------------------------------------------------------------------------------------*/
 
@@ -307,6 +325,7 @@ body {
 .container_12 .push_11 {
   left: 880px;
 }
+
 
 /* `Pull Space >> 12 Columns
 ----------------------------------------------------------------------------------------------------*/
@@ -355,8 +374,10 @@ body {
   left: -880px;
 }
 
+
 /* `Clear Floated Elements
 ----------------------------------------------------------------------------------------------------*/
+
 
 /* http://sonspring.com/journal/clearing-floats */
 
@@ -368,6 +389,7 @@ body {
   width: 0;
   height: 0;
 }
+
 
 /* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
 
@@ -390,6 +412,7 @@ body {
   clear: both;
 }
 
+
 /*
   The following zoom:1 rule is specifically for IE6 + IE7.
   Move to separate stylesheet if invalid CSS is a problem.
@@ -398,146 +421,4 @@ body {
 .clearfix,
 .container_12 {
   zoom: 1;
-}
-
-/* reset */
-
-html,
-body {
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  overflow: auto;
-}
-
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  /*font-size: 100%;*/
-  /*font: inherit;*/
-  vertical-align: baseline;
-}
-
-/* HTML5 display-role reset for older browsers */
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-
-body {
-  line-height: 1;
-}
-
-ol,
-ul {
-  list-style: none;
-}
-
-blockquote,
-q {
-  quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
 }

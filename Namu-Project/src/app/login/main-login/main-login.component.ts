@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-login',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainLoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private navRoute: Router) { }
 
   ngOnInit() {
+  }
+
+  findPassword(){
+    this.navRoute.navigate(['find']);
   }
 
 }
