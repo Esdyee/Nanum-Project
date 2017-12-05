@@ -91,6 +91,10 @@
   cursor: pointer;
 }
 
+.mat-card-content .material-icons {
+  position: absolute;
+}
+
 
 
 .hidden {

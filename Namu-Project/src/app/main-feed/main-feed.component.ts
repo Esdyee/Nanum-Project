@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-// typings
+// dummys
 import { Answer, answers, expandedContents } from './answer';
 
 @Component({
@@ -28,5 +28,14 @@ export class MainFeedComponent implements OnInit {
 
   getAnswers(): void {
     this.answers = answers;
+  }
+
+  fetchExpandedContent(id) {
+    this.answers = this.answers.map(answer => {
+      if (answer.id === id) {
+        Object.assign(answer, expandedContents[id]);
+      }
+      return answer;
+    });
   }
 }
