@@ -15,7 +15,6 @@ import { MainFeedContentComponent } from './common/main-feed-content/main-feed-c
 import { NavigatorComponent } from './common/navigator/navigator.component';
 import { AnswerComponent } from './answer/answer.component';
 import { AskModalComponent } from './common/navigator/ask-modal/ask-modal.component';
-import { QuillEditorComponent } from './common/quill-editor/quill-editor.component';
 // import { MainLoginComponent } from './login/main-login/main-login.component';
 // import { FindPasswordComponent } from './login/find-password/find-password.component';
 import { NotFoundComponent } from './common/not-found/not-found.component';
@@ -40,7 +39,6 @@ import { TopicSelectComponent } from './main-feed/topic-select/topic-select.comp
     AnswerComponent,
     AskModalComponent,
     TopicSelectComponent,
-    // QuillEditorComponent,
     // MainLoginComponent,
     // FindPasswordComponent,
     NotFoundComponent,
