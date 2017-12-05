@@ -8,6 +8,8 @@
 
 /* general typography & unit size */
 html {
+  width: 100%;
+  height: 100%;
   font-family: 'Spoqa Han Sans', 'sans-serif';
   font-size: 12px;
 }
@@ -57,6 +59,8 @@ $custom-typography: mat-typography-config(
 */
 
 body {
+  width: 100%;
+  height: 100%;
   min-width: 960px;
 }
 
