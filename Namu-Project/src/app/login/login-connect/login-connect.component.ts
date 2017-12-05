@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
+import { FormControl, FormGroup, Validators, FormGroupDirective, NgForm } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
+
+/** Error when invalid control is dirty, touched, or submitted. */
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 
 @Component({
   selector: 'app-login-connect',
@@ -8,41 +16,60 @@ import { MatInputModule } from '@angular/material/input';
   template: `
   <section class="email-login">
     <h1 class="tit-introduce">NANUM</h1>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
-      <div class="input-login">
-        <label for="email">로그인</label>
-        <input type="text" name="email" placeholder="이메일" formControlName="email">
-        <p *ngIf="email.errors?.required && email.touched" class="alert" style="background-color:red;">
-        이메일을 입력해 주시기 바랍니다.
-        </p>
-        <p *ngIf="email.errors?.pattern && email.touched" class="alert" style="background-color:red;">
-        이메일 양식에 맞추어서 입력해주시기 바랍니다.
-        </p>
-        <input type="text" name="password" placeholder="비밀번호">
-      </div>
-      <button class="btn-login">로그인</button>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate class="login-form">
+      <mat-form-field class="login-full-width">
+        <input matInput placeholder="Email" [formControl]="emailFormControl"
+               [errorStateMatcher]="matcher">
+        <mat-hint>이메일을 입력해주세요.</mat-hint>
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          이메일을 <strong>입력</strong>해 주시기 바랍니다.
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          <strong>이메일 양식</strong>에 맞추어서 입력해주시기 바랍니다.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="login-full-width">
+        <input matInput placeholder="Password" [formControl]="passwordFormControl"
+               [errorStateMatcher]="matcher">
+        <mat-hint>비밀번호를 입력해주세요.</mat-hint>
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+          비밀번호를 <strong>입력</strong>해 주시기 바랍니다.
+        </mat-error>
+      </mat-form-field>
     </form>
 
+    <button mat-button>Basic</button>
   </section>
   `,
   styleUrls: ['./login-connect.component.css']
 })
 export class LoginConnectComponent implements OnInit {
   loginForm: FormGroup;
+  matcher = new MyErrorStateMatcher();
 
   constructor() { }
 
   ngOnInit() {
     this.loginForm = new FormGroup({
-      email: new FormControl('', [
+      emailFormControl: new FormControl('', [
         Validators.required,
-        Validators.pattern(/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i)
+        Validators.email
+      ]),
+      passwordFormControl: new FormControl('', [
+        Validators.required
       ])
     });
   }
 
-  get email() {
-    return this.loginForm.get('email');
+  //Form Data Return
+  get emailFormControl() {
+    return this.loginForm.get('emailFormControl');
+  }
+
+  get passwordFormControl() {
+    return this.loginForm.get('passwordFormControl');
   }
 
 }

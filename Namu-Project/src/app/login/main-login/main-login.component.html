@@ -1,14 +1,14 @@
-<section class="login">
-  <h1 class="tit-introduce">NANUM</h1>
-  <p class="txt-introduce">
-    이제 전문적인 정보를 찾으로 헤메지 마세요.<br> 지식 공유 네트워크, 나눔입니다.
-  </p>
-  <div class="btn-login">
-    <button class="email-login" routerLink="../connect">로그인</button>
-    <button class="facebook-login">페이스북으로 로그인</button>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+  <div class="input-login">
+    <label for="email">로그인</label>
+    <input type="text" name="email" placeholder="이메일" formControlName="email">
+    <p *ngIf="email.errors?.required && email.touched" class="alert" style="background-color:red;">
+      이메일을 입력해 주시기 바랍니다.
+    </p>
+    <p *ngIf="email.errors?.pattern && email.touched" class="alert" style="background-color:red;">
+      이메일 양식에 맞추어서 입력해주시기 바랍니다.
+    </p>
+    <input type="text" name="password" placeholder="비밀번호">
   </div>
-  <div class="account">
-    <button class="find-password" routerLink="../find">비밀번호 찾기</button> |
-    <button class="btn-signup">회원가입</button>
-  </div>
-</section>
+  <button class="btn-login" routerLink="../../main">로그인</button>
+</form>
