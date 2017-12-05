@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-//import { MaterialModule } from './module/material.module';
+import { MatInputModule } from '@angular/material/input';
 
 import { LoginRoutingModule } from './login-routing.module';
 import { MainLoginComponent } from './main-login/main-login.component';
@@ -15,7 +15,8 @@ import { SignupComponent } from './signup/signup.component';
         CommonModule,
         LoginRoutingModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatInputModule
     ],
     declarations: [
         MainLoginComponent,

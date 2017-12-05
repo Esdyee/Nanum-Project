@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import { MaterialModule } from './module/material.module';
@@ -40,7 +39,7 @@ import { TopicSelectComponent } from './main-feed/topic-select/topic-select.comp
     AnswerComponent,
     AskModalComponent,
     TopicSelectComponent,
-    QuillEditorComponent,
+    //QuillEditorComponent,
     // MainLoginComponent,
     // FindPasswordComponent,
     NotFoundComponent,
@@ -50,7 +49,11 @@ import { TopicSelectComponent } from './main-feed/topic-select/topic-select.comp
     EditorComponent,
   ],
   imports: [
-    BrowserModule, AppRoutingModule, MaterialModule, QuillModule, FormsModule, ReactiveFormsModule
+    BrowserModule, AppRoutingModule, MaterialModule
+    , QuillModule, FormsModule, ReactiveFormsModule
+  ],
+  exports:[
+    MaterialModule
   ],
   entryComponents: [
     AskModalComponent,

@@ -5,7 +5,18 @@
   top: 50%;
   transform: translate(-50%, -50%);
   width: 25rem;
-  height: 25rem;
+  height: 30rem;
+}
+
+.login-form {
+  margin-top: 2.5rem;
+  background-color: white;
+  font-size: 1.5rem;
+  padding: 0rem 2.5rem 2.5rem 2.5rem;
+}
+
+mat-form-field {
+  width: 20rem;
 }
 
 .input-login {
@@ -40,10 +51,10 @@
 
 .btn-login {
   display: block;
-  width: 250px;
-  margin: 0px auto;
-  height: 30px;
-  border-radius: 5px;
+  width: 20rem;
+  margin: 2rem auto;
+  height: 2.5rem;
+  border-radius: 0.5rem;
   background-color: rgba(255, 255, 255, 1);
   border: 0px;
   color: #181818;
