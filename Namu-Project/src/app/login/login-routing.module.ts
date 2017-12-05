@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LoginComponent } from './login.component' 
+import { LoginComponent } from './login.component';
 import { MainLoginComponent } from './main-login/main-login.component';
 import { FindPasswordComponent } from './find-password/find-password.component';
+import { LoginConnectComponent } from './login-connect/login-connect.component';
 import { NotFoundComponent } from 'app/common/not-found/not-found.coponent';
 
 const routes: Routes = [{
@@ -12,6 +13,7 @@ const routes: Routes = [{
     children: [
         { path: 'main', component: MainLoginComponent },
         { path: 'find', component: FindPasswordComponent },
+        { path: 'connect', component: LoginConnectComponent },
         { path: '**', component: NotFoundComponent },
     ]
 }];

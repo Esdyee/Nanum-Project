@@ -1,44 +1,44 @@
 @import "../login.component.css";
-.find-password {
+.email-login {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   width: 25rem;
-  height: 20rem;
+  height: 25rem;
 }
 
-.input-password {
+.input-login {
   width: 20rem;
-  height: 4rem;
+  height: 10rem;
   margin: 1.5rem auto;
 }
 
-.input-password label {
+.input-login label {
   display: block;
   font-size: 1.5rem;
   color: #ffffff;
 }
 
-.input-password input {
+.input-login input {
   padding-left: 1rem;
   margin-top: 1rem;
   height: 2.5rem;
   width: 100%;
   border: 0px;
   border-radius: 0.5rem;
-}
-
-.txt-introduce {
-  color: #ffffff;
-  width: 250px;
-  margin: 10px auto;
-  font-size: 12px;
-  padding: 15px;
   box-sizing: border-box;
 }
 
-.btn-change {
+.alert {
+  background-color: red;
+  width: 100%;
+  color: white;
+}
+
+.input-login {}
+
+.btn-login {
   display: block;
   width: 250px;
   margin: 0px auto;
