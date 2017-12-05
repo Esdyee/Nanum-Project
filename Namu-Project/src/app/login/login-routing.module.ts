@@ -4,7 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login.component';
 import { MainLoginComponent } from './main-login/main-login.component';
 import { FindPasswordComponent } from './find-password/find-password.component';
-import { NotFoundComponent } from '../common/not-found/not-found.component';
+import { LoginConnectComponent } from './login-connect/login-connect.component';
+import { NotFoundComponent } from 'app/common/not-found/not-found.coponent';
 
 const routes: Routes = [{
     path: 'login',
@@ -12,6 +13,7 @@ const routes: Routes = [{
     children: [
         { path: 'main', component: MainLoginComponent },
         { path: 'find', component: FindPasswordComponent },
+        { path: 'connect', component: LoginConnectComponent },
         { path: '**', component: NotFoundComponent },
     ]
 }];
