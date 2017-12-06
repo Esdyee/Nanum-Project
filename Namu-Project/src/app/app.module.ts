@@ -51,7 +51,7 @@ import { TopicSelectComponent } from './main-feed/topic-select/topic-select.comp
     BrowserModule, AppRoutingModule, MaterialModule
     , QuillModule, FormsModule, ReactiveFormsModule
   ],
-  exports:[
+  exports: [
     MaterialModule
   ],
   entryComponents: [
