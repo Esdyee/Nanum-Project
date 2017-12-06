@@ -1,0 +1,20 @@
+//@import '~@angular/cdk/overlay';
+
+//@mixin cdk-overlay() {
+//  $cdk-global-scrollblock
+//}
+
+.thumbnail {
+  margin-top: -20%;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.mat-form-field input {
+
+}
+
+//html.cdk-global-scrollblock {
+//  overflow-y: auto !important;
+//}

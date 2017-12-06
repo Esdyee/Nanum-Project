@@ -24,6 +24,7 @@ body {
   overflow: auto;
 }
 
+// TODO: 전역 글꼴 컬러 설정하기 theming 혹은 오버라이드 color: #100c08
 // custom typography
 $custom-typography: mat-typography-config(
   $font-family: 'Spoqa Han Sans, sans-serif',
@@ -52,6 +53,15 @@ $custom-typography: mat-typography-config(
 );
 
 @include mat-core($custom-typography);
+
+
+html.cdk-global-scrollblock {
+  overflow-y: auto !important;
+}
+
+.cdk-global-overlay-wrapper {
+  margin-left: -7px !important;
+}
 
 /*
   960 Grid System ~ Core CSS.
