@@ -11,8 +11,26 @@
   height: 3rem;
   border-bottom: 1px solid #bababa;
 }
+/***********************************/
 
-/* side: grid_2 */
+div.actions {
+  display: flex;
+  align-content: center;
+}
+
+div.actions * {
+  cursor: pointer;
+  margin-right: 0.5rem;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+div.actions .ask {
+  padding-top: 3px;
+}
+
+
+
 .sidebar,
 .welcome {
   margin-top: 2rem;
@@ -48,11 +66,23 @@
 }
 
 
-
 /* welcome card */
 
 .mat-card.welcome mat-card-title {
   display: inline-block;
+}
+
+.welcom.actions {
+  vertical-align: middle;
+}
+
+.welcome .ask {
+  color: #999999;
+}
+
+.welcome .ask:hover {
+  color: #25274D;
+  /*color: #383B74;*/
 }
 
 /* post 공통 */
@@ -68,6 +98,8 @@
 }
 
 .post mat-card-subtitle {
+  display: flex;
+  align-items: center;
   height: 40px;
 }
 
@@ -82,7 +114,7 @@
 }
 
 .answer-info .author {
-  margin-bottom: 0.5rem;
+  margin: 5px 0;
 }
 
 .mat-card-content,
@@ -94,7 +126,6 @@
 .mat-card-content .material-icons {
   position: absolute;
 }
-
 
 
 .hidden {

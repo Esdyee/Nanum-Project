@@ -1,20 +1,22 @@
 <!--header: 범용 컴포넌트-->
-<header class="app_header">
-  <div class="container_12">
-    <div class="grid_3"><h1 class="mat-h2">Nanum</h1></div>
-    <div class="grid_6"><input type="text" class="mat-input" placeholder="search-bar"></div>
-    <div class="grid_3">
-      <button mat-icon-button color="primary">
-        <mat-icon>notifications</mat-icon>
-      </button>
-      <button mat-mini-fab color="primary">
-        <mat-icon>face</mat-icon>
-      </button></div>
-      <button mat-raised-button color="primary" (click)="openAskModal()">
-        <span class="mat-button">질문하기</span>
-      </button>
-  </div>
-</header>
+<!--<header class="app_header">-->
+  <!--<div class="container_12">-->
+    <!--<div class="grid_3"><h1 class="mat-h2">Nanum</h1></div>-->
+    <!--<div class="grid_6"><input type="text" class="mat-input" placeholder="search-bar"></div>-->
+    <!--<div class="grid_3">-->
+      <!--<button mat-icon-button color="primary">-->
+        <!--<mat-icon>notifications</mat-icon>-->
+      <!--</button>-->
+      <!--<button mat-mini-fab color="primary">-->
+        <!--<mat-icon>face</mat-icon>-->
+      <!--</button></div>-->
+      <!--<button mat-raised-button color="primary" (click)="openAskModal()">-->
+        <!--<span class="mat-button">질문하기</span>-->
+      <!--</button>-->
+  <!--</div>-->
+<!--</header>-->
+
+<app-navigator></app-navigator>
 
 <!--TODO: component 분리-->
 <nav class="nav">
@@ -53,12 +55,15 @@
     </div>
 
     <div class="grid_8">
+
       <!--welcome-->
       <mat-card class="welcome">
         <!--TODO: routing to profile page-->
-        <img class="thumbnail md" [src]="me.imgPath">
-        <!--TODO: event to askModal-->
-        <mat-card-title>{{ me.name }}님, 질문이 무엇인가요?</mat-card-title>
+        <div class="actions">
+          <img class="thumbnail md" [src]="me.imgPath">
+          <!--TODO: event to askModal-->
+          <a class="ask mat-h1" (click)="openAskModal(me.name)">{{ me.name }}님, 질문이 무엇인가요?</a>
+        </div>
       </mat-card>
 
       <!--main-feed-content-->
@@ -66,7 +71,6 @@
         *ngFor="let answer of answers" class="post">
         <!--post action: topic links-->
         <div class="post header">
-          <!--TODO: bullet 삽입-->
           <span class="post metadata mat-caption"><a class="tag">답변</a><a class="topic">연관토픽</a></span>
           <i (click)="negativeFeedback(answer.id)" class="material-icons md-18">close</i>
         </div>

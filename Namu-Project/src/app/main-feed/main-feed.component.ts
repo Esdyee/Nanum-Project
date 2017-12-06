@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+
+import { AskModalComponent } from '../common/navigator/ask-modal/ask-modal.component';
 
 // dummys
 import { Answer, answers, expandedContents } from './answer';
@@ -20,7 +23,7 @@ export class MainFeedComponent implements OnInit {
     imgPath: 'assets/images/me.png'
   };
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getAnswers();
@@ -36,6 +39,17 @@ export class MainFeedComponent implements OnInit {
         Object.assign(answer, expandedContents[id]);
       }
       return answer;
+    });
+  }
+
+  openAskModal(name): void {
+    const dialogRef = this.dialog.open(AskModalComponent, {
+      width: '620px',
+      data: { name }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
     });
   }
 }
