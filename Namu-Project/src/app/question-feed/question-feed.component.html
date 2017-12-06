@@ -53,7 +53,6 @@
     <div class="grid_8">
       <mat-card class="post question" *ngFor="let question of questions">
         <div class="post metadata mat-caption">답변
-          <!--TODO: nth child :before? 구분점 삽입-->
           <span><a href="#">연관토픽</a></span>
           <span><a href="#">연관토픽</a></span>
         </div>
@@ -65,9 +64,6 @@
           <button class="mat-button" color="primary">팔로우</button>
         </mat-card-actions>
       </mat-card>
-      <app-question-feed-content
-        [question]="question" *ngFor="let question of questions">
-      </app-question-feed-content>
     </div>
 
     <div class="grid_2">
