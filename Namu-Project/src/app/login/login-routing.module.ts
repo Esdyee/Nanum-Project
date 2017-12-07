@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LoginComponent } from './login.component' 
+import { LoginComponent } from './login.component';
 import { MainLoginComponent } from './main-login/main-login.component';
 import { FindPasswordComponent } from './find-password/find-password.component';
 import { NotFoundComponent } from 'app/common/not-found/not-found.coponent';

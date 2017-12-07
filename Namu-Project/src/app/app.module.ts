@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import { MaterialModule } from './module/material.module';
@@ -24,6 +23,7 @@ import { QuestionFeedContentComponent } from './common/question-feed-content/que
 import { CommentsComponent } from './common/comments/comments.component';
 
 import { TopicSelectComponent } from './main-feed/topic-select/topic-select.component';
+import { NavTabComponent } from './common/nav-tab/nav-tab.component';
 
 @NgModule({
   declarations: [
@@ -38,17 +38,22 @@ import { TopicSelectComponent } from './main-feed/topic-select/topic-select.comp
     AskModalComponent,
     AnswerComponent,
     AskModalComponent,
-    TopicSelectComponent
+    TopicSelectComponent,
     QuillEditorComponent,
     // MainLoginComponent,
     // FindPasswordComponent,
     NotFoundComponent,
     QuestionFeedComponent,
     QuestionFeedContentComponent,
-    CommentsComponent
+    CommentsComponent,
+    NavTabComponent
   ],
   imports: [
-    BrowserModule, MaterialModule
+    BrowserModule,
+    MaterialModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   entryComponents: [
     AskModalComponent,
