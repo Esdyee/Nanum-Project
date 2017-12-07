@@ -65,10 +65,7 @@ export class LoginConnectComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(1);
-    console.log(this.emailFormControl.value);
-    this.auth.id = this.emailFormControl.value;
-    this.auth.password = this.passwordFormControl.value;
+    
   }
 
   //Form Data Return
