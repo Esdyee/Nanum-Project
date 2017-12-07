@@ -3,6 +3,9 @@ import { MatDialog } from '@angular/material';
 
 import { AskModalComponent } from './ask-modal/ask-modal.component';
 
+// 더미 유저 import
+import { users } from '../../main-feed/user';
+
 // test
 import { TopicSelectComponent } from '../../main-feed/topic-select/topic-select.component';
 
@@ -13,14 +16,16 @@ import { TopicSelectComponent } from '../../main-feed/topic-select/topic-select.
 })
 export class NavigatorComponent {
 
-  name = '신지섭';
+  // 더미에서 me(김경훈)만 가져오기
+  user = users.me;
 
   constructor(public dialog: MatDialog) { }
   // 모달 오픈
   openAskModal(): void {
     const dialogRef = this.dialog.open(AskModalComponent, {
-      width: '600px',
-      data: { name: this.name }
+      width: '620px',
+      // 이름 참조해서 사용
+      data: { name: this.user.name }
     });
 
     dialogRef.afterClosed().subscribe(result => {

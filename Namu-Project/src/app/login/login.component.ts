@@ -5,7 +5,11 @@ import { Router } from '@angular/router';
   selector: 'app-login',
   //templateUrl: './login.component.html',
   template: `
-    <router-outlet></router-outlet> 
+    <div class="back-image">
+      <div class="layer">
+        <router-outlet></router-outlet>
+      </div>  
+    </div>
   `,
   styleUrls: ['./login.component.css']
 })
