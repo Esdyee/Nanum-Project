@@ -2,13 +2,21 @@
   <div class="nav-container">
     <label class="logo">NANUM</label>
     <input type="text">
-    <button mat-raised-button color="primary"
-     (click)="openAskModal()">질문하기</button>
+    <button mat-raised-button color="primary" (click)="openAskModal()">질문하기</button>
     <button mat-icon-button color="primary">
       <mat-icon>notifications</mat-icon>
     </button>
-    <button mat-mini-fab color="primary">
+
+    <button mat-mini-fab color="primary" [matMenuTriggerFor]="menu">
       <mat-icon>face</mat-icon>
     </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <span>내 프로필</span>
+      </button>
+      <button mat-menu-item>
+        <span>로그아웃</span>
+      </button>
+    </mat-menu>
   </div>
 </div>
