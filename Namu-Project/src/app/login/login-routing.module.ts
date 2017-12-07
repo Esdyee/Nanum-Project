@@ -8,13 +8,16 @@ import { LoginConnectComponent } from './login-connect/login-connect.component';
 import { SignupComponent } from './signup/signup.component'
 import { NotFoundComponent } from 'app/common/not-found/not-found.component';
 
+//Guard
+//import { LoginGuard } from './login.guard'
+
 const routes: Routes = [{
     path: 'login',
     component: LoginComponent,
     children: [
         { path: 'main', component: MainLoginComponent },
         { path: 'find', component: FindPasswordComponent },
-        { path: 'connect', component: LoginConnectComponent },
+        { path: 'connect', component: LoginConnectComponent},
         { path: 'signup', component: SignupComponent },
         { path: '**', component: NotFoundComponent },
     ]

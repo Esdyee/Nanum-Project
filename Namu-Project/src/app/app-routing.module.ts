@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LoginGuard } from './login/login.guard'
 
 import { LoginModule } from './login/login.module';
 import { LoginComponent } from './login/login.component';
@@ -13,7 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   // 필수 추가 요망
   // 메인피드 임시 path 입니다
-  { path: 'main', component: MainFeedComponent },
+  { path: 'main', component: MainFeedComponent, canActivate:[LoginGuard] },
   { path: '**', component: NotFoundComponent}
 ];
 
@@ -23,6 +24,7 @@ const routes: Routes = [
     LoginModule,
     RouterModule.forRoot(routes)
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [LoginGuard]
 })
 export class AppRoutingModule { }
