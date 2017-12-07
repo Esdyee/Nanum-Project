@@ -1,19 +1,34 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+import { LoginGuard } from './login/login.guard'
 
+import { LoginModule } from './login/login.module';
+import { LoginComponent } from './login/login.component';
+import { MainFeedComponent } from './main-feed/main-feed.component';
+// 라우트에 해당되는 것이 없을 때 나타나는 페이지
+import { NotFoundComponent } from './common/not-found/not-found.component';
+import { QuestionFeedComponent } from './question-feed/question-feed.component';
+import { NavigatorComponent } from './common/navigator/navigator.component';
 
 // 라우트 구성
-// const routes: Routes = [
-//   { path: '', component: HomeComponent },
-//   { path: 'service', component: ServiceComponent },
-//   { path: 'about', component: AboutComponent },
-//   { path: '**', component: NotFoundComponent }
-// ];
+const routes: Routes = [
+  { path: '', redirectTo: '/login/main', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'main', component: MainFeedComponent },
+  { path: '**', component: NotFoundComponent},
+  // 필수 추가 요망
+  // 메인피드 임시 path 입니다
+  { path: 'main', component: MainFeedComponent, canActivate:[LoginGuard] },
+  { path: '**', component: NotFoundComponent}
+];
+
 
 @NgModule({
-  // imports: [RouterModule.forRoot(routes)], /* 모든 라우트 구성을 포함한 모듈을 생성하고 라우팅 모듈에 추가 */
-  // exports: [RouterModule],
-  // declarations: []
+  imports: [
+    LoginModule,
+    RouterModule.forRoot(routes)
+  ],
+  exports: [RouterModule],
+  providers: [LoginGuard]
 })
 export class AppRoutingModule { }

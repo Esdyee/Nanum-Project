@@ -1,0 +1,15 @@
+<div class="comment-area">
+  <div class="comment-input">
+    <img mat-card-avatar src="../../../assets/images/me.png">
+    <mat-form-field>
+      <textarea [(ngModel)]="commentText" matInput placeholder="댓글을 입력하세요" matTextareaAutosize matAutosizeMinRows="1"
+                matAutosizeMaxRows="100"></textarea>
+    </mat-form-field>
+    <button mat-button (click)="test()" [disabled]="!commentText">댓글달기</button>
+  </div>
+  <div class="comment-list">
+    <div class="comment level-1">
+      <img mat-card-avatar src="../../../assets/images/me.png">
+    </div>
+  </div>
+</div>

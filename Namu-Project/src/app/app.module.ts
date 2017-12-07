@@ -1,6 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+
 import { MaterialModule } from './module/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { QuillModule } from 'ngx-quill';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -11,12 +15,16 @@ import { MainFeedContentComponent } from './common/main-feed-content/main-feed-c
 import { NavigatorComponent } from './common/navigator/navigator.component';
 import { AnswerComponent } from './answer/answer.component';
 import { AskModalComponent } from './common/navigator/ask-modal/ask-modal.component';
-import { QuillEditorComponent } from './common/quill-editor/quill-editor.component';
-import { MainLoginComponent } from './login/main-login/main-login.component'
-import { FindPasswordComponent } from './login/find-password/find-password.component'
+// import { MainLoginComponent } from './login/main-login/main-login.component';
+// import { FindPasswordComponent } from './login/find-password/find-password.component';
+import { NotFoundComponent } from './common/not-found/not-found.component';
+import { QuestionFeedComponent } from './question-feed/question-feed.component';
+import { QuestionFeedContentComponent } from './common/question-feed-content/question-feed-content.component';
+import { CommentsComponent } from './common/comments/comments.component';
+import { EditorComponent } from './common/editor/editor.component';
 
-// pipe
-import { ImagePathPipe } from './pipe/image-path.pipe';
+import { TopicSelectComponent } from './main-feed/topic-select/topic-select.component';
+
 
 @NgModule({
   declarations: [
@@ -27,18 +35,29 @@ import { ImagePathPipe } from './pipe/image-path.pipe';
     ProfileComponent,
     MainFeedContentComponent,
     NavigatorComponent,
-    ImagePathPipe,
-    NavigatorComponent,
     AskModalComponent,
     AnswerComponent,
-    QuillEditorComponent,
-    MainLoginComponent,
-    FindPasswordComponent
+    AskModalComponent,
+    TopicSelectComponent,
+    // MainLoginComponent,
+    // FindPasswordComponent,
+    NotFoundComponent,
+    QuestionFeedComponent,
+    QuestionFeedContentComponent,
+    CommentsComponent,
+    EditorComponent,
   ],
   imports: [
-    BrowserModule, MaterialModule
+    BrowserModule, AppRoutingModule, MaterialModule
+    , QuillModule, FormsModule, ReactiveFormsModule
   ],
-  entryComponents: [AskModalComponent],
+  exports: [
+    MaterialModule
+  ],
+  entryComponents: [
+    AskModalComponent,
+    TopicSelectComponent
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
