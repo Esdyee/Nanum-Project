@@ -39,7 +39,6 @@ import { TopicSelectComponent } from './main-feed/topic-select/topic-select.comp
     AnswerComponent,
     AskModalComponent,
     TopicSelectComponent,
-    //QuillEditorComponent,
     // MainLoginComponent,
     // FindPasswordComponent,
     NotFoundComponent,
@@ -52,7 +51,7 @@ import { TopicSelectComponent } from './main-feed/topic-select/topic-select.comp
     BrowserModule, AppRoutingModule, MaterialModule
     , QuillModule, FormsModule, ReactiveFormsModule
   ],
-  exports:[
+  exports: [
     MaterialModule
   ],
   entryComponents: [

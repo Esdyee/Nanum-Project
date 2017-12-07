@@ -1,20 +1,22 @@
 <!--header: 범용 컴포넌트-->
-<header class="header">
-  <div class="container_12">
-    <div class="grid_3"><h1 class="mat-h2">Nanum</h1></div>
-    <div class="grid_6"><input type="text" class="mat-input" placeholder="search-bar"></div>
-    <div class="grid_3">
-      <button mat-icon-button color="primary">
-        <mat-icon>notifications</mat-icon>
-      </button>
-      <button mat-mini-fab color="primary">
-        <mat-icon>face</mat-icon>
-      </button></div>
-      <button mat-raised-button color="primary" (click)="openAskModal()">
-        <span class="mat-button">질문하기</span>
-      </button>
-  </div>
-</header>
+<!--<header class="app_header">-->
+  <!--<div class="container_12">-->
+    <!--<div class="grid_3"><h1 class="mat-h2">Nanum</h1></div>-->
+    <!--<div class="grid_6"><input type="text" class="mat-input" placeholder="search-bar"></div>-->
+    <!--<div class="grid_3">-->
+      <!--<button mat-icon-button color="primary">-->
+        <!--<mat-icon>notifications</mat-icon>-->
+      <!--</button>-->
+      <!--<button mat-mini-fab color="primary">-->
+        <!--<mat-icon>face</mat-icon>-->
+      <!--</button></div>-->
+      <!--<button mat-raised-button color="primary" (click)="openAskModal()">-->
+        <!--<span class="mat-button">질문하기</span>-->
+      <!--</button>-->
+  <!--</div>-->
+<!--</header>-->
+
+<app-navigator></app-navigator>
 
 <!--TODO: component 분리-->
 <nav class="nav">
@@ -53,25 +55,71 @@
     </div>
 
     <div class="grid_8">
+
       <!--welcome-->
       <mat-card class="welcome">
-        <!--TODO: login-user 정보와 바인딩-->
-        <a href="#"><img [src]="me.imgPath" alt="" width="36" height="36"></a>
-        <a href="#"><span class="mat-h2">{{ me.name }}님, 질문이 무엇인가요?</span></a>
+        <!--TODO: routing to profile page-->
+        <div class="actions">
+          <img class="thumbnail md" [src]="me.imgPath">
+          <!--TODO: event to askModal-->
+          <a class="ask mat-h1" (click)="openAskModal(me.name)">{{ me.name }}님, 질문이 무엇인가요?</a>
+        </div>
       </mat-card>
 
-      <app-main-feed-content [answer]="answer" *ngFor="let answer of answers"></app-main-feed-content>
+      <!--main-feed-content-->
+      <mat-card
+        *ngFor="let answer of answers" class="post">
+        <!--post action: topic links-->
+        <div class="post header">
+          <span class="post metadata mat-caption"><a class="tag">답변</a><a class="topic">연관토픽</a></span>
+          <i (click)="negativeFeedback(answer.id)" class="material-icons md-18">close</i>
+        </div>
+        <!--TODO: routing to answer detail page-->
+        <mat-card-title>
+          {{ answer.question }}
+        </mat-card-title>
+        <mat-card-subtitle>
+          <img class="thumbnail md" [src]="answer.user.imgPath" [alt]="answer.user.name" width="50" height="50">
+          <!--TODO: 답변시간 표시방법- 타임스탬프와 브라우저 시간차 계산(서버에서? 클라이언트에서?)-->
+          <div class="answer-info">
+            <div class="author">
+              {{ answer.user.name }}, {{ answer.user.credential }}
+            </div>
+            <div class="timestamp">
+              답변 시간 표시란
+            </div>
+          </div>
+        </mat-card-subtitle>
+        <mat-card-content (click)="fetchExpandedContent(answer.id)">
+          <p class="mat-body-1">
+            {{ answer.content }} <i class="material-icons md-18">expand_more</i>
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button><i class="material-icons md-18">star_border</i>{{ answer.stats.starHits }}</button>
+          <span class="mat-body-1"><i class="material-icons md-18">chat_bubble_outline</i>{{ answer.stats.comments }}</span>
+        </mat-card-actions>
 
-      <!--typography test-->
-      <!--<h1 class="mat-h1">메인타이틀</h1>-->
-      <!--<h2 class="mat-h2">메인타이틀</h2>-->
-      <!--<h3 class="mat-h3">섹션타이틀</h3>-->
-      <!--<h4 class="mat-h4">섹션타이틀</h4>-->
-      <!--<p class="mat-body-1">본문 본문 본문</p>-->
-      <!--<strong class="mat-body-2">강조 강조 강조</strong>-->
-      <!--<span class="mat-caption">캡션 캡션 캡션</span>-->
-      <!--<span class="mat-button">버튼 공통 활자</span>-->
-      <!--<input type="text" class="mat-input" placeholder="input placeholder">-->
+        <!--확장 시 표시-->
+        <mat-card-footer *ngIf="false">
+          <div class="comment-area">
+            <div class="comment-input">
+              <img class="thumbnail sm" src="assets/images/me.png">
+              <mat-form-field>
+              <textarea [(ngModel)]="commentText" matInput placeholder="댓글을 입력하세요" matTextareaAutosize matAutosizeMinRows="1"
+                matAutosizeMaxRows="100"></textarea>
+              </mat-form-field>
+              <button mat-button (click)="test()" [disabled]="!commentText">댓글달기</button>
+            </div>
+            <div class="comment-list">
+              <!--<div class="comment level-1">-->
+                <!--<img mat-card-avatar src="assets/images/me.png">-->
+              <!--</div>-->
+            </div>
+          </div>
+        </mat-card-footer>
+      </mat-card>
+
     </div>
     <!--우측 메뉴를 위해 남겨둔 공간-->
     <div class="grid_2">
