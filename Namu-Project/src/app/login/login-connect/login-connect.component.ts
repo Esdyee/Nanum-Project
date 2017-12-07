@@ -40,7 +40,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
       </mat-form-field>
     </form>
 
-    <button mat-button>Basic</button>
+    <button mat-button routerLink="../../main">Basic</button>
   </section>
   `,
   styleUrls: ['./login-connect.component.css']
