@@ -1,3 +1,152 @@
 <p>
   profile works!
 </p>
+<div class="container_12">
+  <div class="grid_2">
+  </div>
+
+
+  <div class="grid_8">
+    <!-- Top -->
+    <mat-card class="profile profile-top">
+      <div class="user-profile-img" (click)="imgUpload.click()">
+        <input id="img-upload" type='file' accept="image/*" (change)="readUrl($event)" #imgUpload>
+        <img *ngFor="let img of dataUrl" [src]="img">
+      </div>
+      <!-- 사진 업로드 구현 테스트용! -->
+
+
+      <div class="profile-top-content">
+        <span>
+          <mat-card-title class="profile-title">
+            <strong class="mat-h2">{{ getUserName() }}</strong>
+          </mat-card-title>
+        </span>
+        <br>
+
+        <mat-card-content>
+          <span *ngIf="!isClicked" class="profile-top-user-article">{{ getUserArticle() }}
+            <!-- <span class="show-rest-user-article-button" *ngIf="isArticleOvered" (click)="toggleShowArticle()">...더보기</span> -->
+          </span>
+          <!-- <span *ngIf="isClicked">{{ userArticle }}</span> -->
+
+          <div class="profile-top-chips-container">
+            <div class="profile-top-chips">
+              <button *ngIf="isSignIn" class="profile-top-chip-follow">팔로워</button>
+              <!-- 자기 자신 프로필이면 *ngIf로 안보이도록 설정하기-->
+              <button class="profile-top-chip-ask">질문하기</button>
+            </div>
+          </div>
+        </mat-card-content>
+      </div>
+    </mat-card>
+
+
+
+
+
+    <!-- Middle -->
+    <mat-card class="profile profile-middle">
+      <div class="profile-middle-content">
+        <div class="profile-middle-left-content">
+          <span class="user-resume">
+            <strong class="mat-h2">교육 및 배경</strong>
+          </span>
+          <ul class="user-resume-list-container">
+            <li *ngFor="let resume of userResume">
+              <mat-icon>{{ getUserResumeIcon(resume.type) }}</mat-icon>
+              <span>{{ resume.content }}</span>
+            </li>
+          </ul>
+        </div>
+
+
+        <div class="profile-middle-right-content">
+          <span class="user-activity-summary">
+            <strong class="mat-h2">활동 요약</strong>
+          </span>
+          <ul class="user-activity-summary-list-container">
+            <li>
+              <mat-icon>remove_red_eye</mat-icon>
+              <span class="test">{{ DUMMY_USER_PROFILE.Activity.Answer_View }}건의 답변 뷰</span>
+            </li>
+            <li>
+              <mat-icon>create</mat-icon>
+              <span>{{ DUMMY_USER_PROFILE.Activity.Answers }}건의 답변</span>
+            </li>
+            <li>
+              <mat-icon>star_border</mat-icon>
+              <span>{{ DUMMY_USER_PROFILE.Activity.Stars }}건의 추천</span>
+            </li>
+            <li>
+              <mat-icon>person_add</mat-icon>
+              <span>{{ DUMMY_USER_PROFILE.Activity.Follow }}명 팔로잉</span>
+            </li>
+            <li>
+              <mat-icon>people</mat-icon>
+              <span>{{ DUMMY_USER_PROFILE.Activity.Follower }}명의 팔로워</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </mat-card>
+
+
+
+
+    <!-- Bottom -->
+    <mat-card class="profile profile-bottom">
+      <mat-tab-group class="profile-tab-conatainer">
+        <mat-tab class="interested-in" label="관심분야">
+          <ul class="list-of-interests">
+            <li *ngFor="let list of interestContainer">
+              <div class="profile-list-box interested-box">{{ list.content }}</div>
+            </li>
+          </ul>
+        </mat-tab>
+
+
+
+        <mat-tab class="experts-in" label="전문분야">
+          <ul class="list-of-experts">
+            <li *ngFor="let list of expertContainer">
+              <div class="profile-list-box experts-box">{{ list.content }}</div>
+            </li>
+          </ul>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card>
+
+
+
+
+    <!-- Test Page용 템플릿 -->
+    <br>
+    <br>
+    <br>
+
+    <div class="test-container">
+      <mat-card>
+        <mat-form-field>
+          <input matInput placeholder="유저 이름을 입력해 주세요" [(ngModel)]="TEST_userName" (keyup.enter)="TEST_modifyUserName()">
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field>
+          <input matInput placeholder="유저 소개글을 입력해 주세요" [(ngModel)]="TEST_userArticle" (keyup.enter)="TEST_modifyUserArticle()">
+        </mat-form-field>
+      </mat-card>
+    </div>
+
+  </div>
+  <!-- 그리드 메인(8단) 종료 태그 -->
+
+
+
+
+
+  <div class="grid_2">
+  </div>
+
+</div>
