@@ -38,9 +38,18 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
           비밀번호를 <strong>입력</strong>해 주시기 바랍니다.
         </mat-error>
       </mat-form-field>
+      
+      <mat-form-field class="login-full-width">
+        <input type="password" matInput placeholder="Password-conf" [formControl]="passwordConfFormControl"
+               [errorStateMatcher]="matcher">
+        <mat-hint>비밀번호를 입력해주세요.</mat-hint>
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+          비밀번호를 <strong>입력</strong>해 주시기 바랍니다.
+        </mat-error>
+      </mat-form-field>
     </form>
 
-    <button mat-button>Basic</button>
+    <button class="btn-signup" mat-raised-button routerLink="../main">회원가입</button>
   </section>
   `,
   styleUrls: ['./signup.component.css']
@@ -60,6 +69,9 @@ export class SignupComponent implements OnInit {
       ]),
       passwordFormControl: new FormControl('', [
         Validators.required
+      ]),
+      passwordConfFormControl: new FormControl('', [
+        Validators.required
       ])
     });
   }
@@ -71,5 +83,9 @@ export class SignupComponent implements OnInit {
 
   get passwordFormControl() {
     return this.signupForm.get('passwordFormControl');
+  }
+
+  get passwordConfFormControl() {
+    return this.signupForm.get('passwordConfFormControl');
   }
 }

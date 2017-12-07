@@ -2,7 +2,7 @@
   margin-top: 1rem;
 }
 
-.post.action {
+.post.metadata {
   display: flex;
   justify-content: space-between;
 }
@@ -19,7 +19,6 @@
 .mat-icon-button .material-icons {
   font-size: 1.4rem;
 }
-
 
 .hidden {
   display: none;

@@ -1,5 +1,5 @@
 <!--header: 범용 컴포넌트-->
-<header class="header">
+<header class="app_header">
   <div class="container_12">
     <div class="grid_3"><h1 class="mat-h2">Nanum</h1></div>
     <div class="grid_6"><input type="text" class="mat-input" placeholder="search-bar"></div>
@@ -51,7 +51,19 @@
     </div>
 
     <div class="grid_8">
-      <app-question-feed-content [question]="question" *ngFor="let question of questions"></app-question-feed-content>
+      <mat-card class="post question" *ngFor="let question of questions">
+        <div class="post metadata mat-caption">답변
+          <span><a href="#">연관토픽</a></span>
+          <span><a href="#">연관토픽</a></span>
+        </div>
+
+        <h2 class="mat-h2">{{ question.question }}</h2>
+
+        <mat-card-actions>
+          <button class="mat-button" color="primary">답변 달기</button>
+          <button class="mat-button" color="primary">팔로우</button>
+        </mat-card-actions>
+      </mat-card>
     </div>
 
     <div class="grid_2">
