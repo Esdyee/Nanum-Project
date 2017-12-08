@@ -1,32 +1,21 @@
-/* <<<<<<< 복붙 요소: 컴포넌트로 분리 시 제거해야 하는 룰셋*/
-
 /* header component */
-.header {
-  /*position: sticky;*/
-  /*z-index: 1;*/
-  /*top: 0;*/
+.app_header {
   background-color: #25284c;
   height: 5rem;
   color: white;
 }
 
-
 /* nav component */
 .nav {
-  /*position: sticky;*/
-  /*top: 5rem;*/
-  /*z-index: 1;*/
   background-color: white;
   height: 3rem;
   border-bottom: 1px solid #bababa;
 }
+/***********************************/
 
-/* ====================================== */
 
-/* main component에서 가져온 것 */
 
-.sidebar,
-.welcome {
+.sidebar {
   margin-top: 2rem;
 }
 
@@ -42,8 +31,8 @@
   margin-left: 1em;
 }
 
-.mat-card.welcome {
-  height: 3rem;
+.mat-card.post:first-of-type {
+  margin-top: 2rem;
 }
 
 .post {

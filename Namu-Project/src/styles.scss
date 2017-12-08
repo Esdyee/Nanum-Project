@@ -1,17 +1,30 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 /* web font load */
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 // material customize
 @import '~@angular/material/theming';
 
 /* general typography & unit size */
+
 html {
   font-family: 'Spoqa Han Sans', 'sans-serif';
   font-size: 12px;
 }
 
+
+/* html, body 넓이 화면에 맞게 100%*/
+
+html,
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+// TODO: 전역 글꼴 컬러 설정하기 theming 혹은 오버라이드 color: #100c08
 // custom typography
 $custom-typography: mat-typography-config(
   $font-family: 'Spoqa Han Sans, sans-serif',
@@ -25,13 +38,13 @@ $custom-typography: mat-typography-config(
   $display-1:     mat-typography-level(1rem, 1.6, 400),
 
   // headings
-  $headline:      mat-typography-level(1.8rem, 1.6, 400), // .mat-h1
-  $title:         mat-typography-level(1.8rem, 1.6, 700), // .mat-h2
-  $subheading-2:  mat-typography-level(1.25rem, 1.6, 400), // .mat-h3
-  $subheading-1:  mat-typography-level(1.25rem, 1.6, 700), // .mat-h4
+  $headline:      mat-typography-level(1.8rem, 1.6, 700),
+  $title:         mat-typography-level(1.8rem, 1.6, 700),
+  $subheading-2:  mat-typography-level(1.25rem, 1.6, 400),
+  $subheading-1:  mat-typography-level(1.25rem, 1.6, 700),
   // paragraphs
-  $body-2:        mat-typography-level(1.25rem, 1.6, 700), // <strong class="mat-body-2">
-  $body-1:        mat-typography-level(1.25rem, 1.6, 400), // .mat-body-1
+  $body-2:        mat-typography-level(1.25rem, 1.6, 700),
+  $body-1:        mat-typography-level(1.25rem, 1.6, 400),
   // 캡션, 버튼
   $caption:       mat-typography-level(1rem, 1.6, 300),
   $button:        mat-typography-level(1.25rem, 1.6, 500),
@@ -40,6 +53,15 @@ $custom-typography: mat-typography-config(
 );
 
 @include mat-core($custom-typography);
+
+
+html.cdk-global-scrollblock {
+  overflow-y: auto !important;
+}
+
+.cdk-global-overlay-wrapper {
+  margin-left: -7px !important;
+}
 
 /*
   960 Grid System ~ Core CSS.

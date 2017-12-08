@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 
 import { AskModalComponent } from './ask-modal/ask-modal.component';
 
+// 더미 유저 import
+import { users } from '../../main-feed/user';
+
 // test 나중에 main-feed로 이동
 import { TopicSelectComponent } from '../../main-feed/topic-select/topic-select.component';
 
@@ -18,8 +21,9 @@ interface TabLink {
   styleUrls: ['./navigator.component.css']
 })
 export class NavigatorComponent implements OnInit {
-  name = '신지섭';
   inputText: string;
+  // 더미에서 me(김경훈)만 가져오기
+  user = users.me;
 
   tabLinks: TabLink[];
 
@@ -49,8 +53,9 @@ export class NavigatorComponent implements OnInit {
   // 모달 오픈
   openAskModal(): void {
     const dialogRef = this.dialog.open(AskModalComponent, {
-      width: '600px',
-      data: { name: this.name }
+      width: '620px',
+      // 이름 참조해서 사용
+      data: { name: this.user.name }
     });
 
     dialogRef.afterClosed().subscribe(result => {
