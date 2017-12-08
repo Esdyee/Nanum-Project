@@ -45,7 +45,9 @@
               <li><a href="#"><i class="material-icons">trending_up</i>최신 글</a></li>
               <!--TODO: edit 링크 추가-->
             </ul>
-            <div class="sidebar_edit mat-caption"><span><i class="material-icons">folder_special</i>내 토픽</span><a href="#">edit</a></div>
+            <div class="sidebar_edit mat-caption">
+              <span><i class="material-icons">folder_special</i>내 토픽</span><a href="#">edit</a>
+            </div>
             <ul class="sidebar_topics mat-caption">
               <li><a href="#">토픽 1</a></li>
               <li><a href="#">토픽 2</a></li>
@@ -68,11 +70,11 @@
       </mat-card>
 
       <!--main-feed-content-->
-      <mat-card
-        *ngFor="let answer of answers" class="post">
+        <!--TODO: class: post answer 아닌지?-->
+      <mat-card *ngFor="let answer of answers" class="post">
         <!--post action: topic links-->
         <div class="post header">
-          <span class="post metadata mat-caption"><a class="tag">답변</a><a class="topic">연관토픽</a></span>
+          <span class="post metadata mat-caption">답변<a href="#" class="topic">연관토픽</a></span>
           <i (click)="negativeFeedback(answer.id)" class="material-icons md-18">close</i>
         </div>
         <!--TODO: routing to answer detail page-->
@@ -86,7 +88,7 @@
             <div class="author">
               {{ answer.user.name }}, {{ answer.user.credential }}
             </div>
-            <div class="timestamp">
+            <div class="timestamp mat-caption">
               답변 시간 표시란
             </div>
           </div>
