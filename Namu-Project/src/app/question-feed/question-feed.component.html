@@ -34,31 +34,40 @@
     <div class="grid_2">
       <!--TODO: component 분리-->
       <div class="sidebar">
-        <div class="sidebar_header mat-h1">피드</div>
-        <ul class="mat-display-1">
-          <li><a href="#">북마크한 질문</a></li>
-          <li><a href="#">최신 질문</a></li>
-          <!--TODO: edit 링크 추가-->
-          <li><a href="#">내 토픽</a>
-            <ul class="sidebar_topics">
-              <li><a href="#">토픽 1</a></li>
-              <li><a href="#">토픽 2</a></li>
-              <li><a href="#">토픽 3</a></li>
-            </ul>
-          </li>
-        </ul>
+        <h1 class="sidebar_header mat-h1">피드</h1>
+        <div class="sidebar_lists">
+          <ul class="sidebar_filters mat-caption">
+            <li><a href="#"><i class="material-icons">bookmark_border</i>북마크한 질문</a></li>
+            <li><a href="#"><i class="material-icons">trending_up</i>최신 질문</a></li>
+            <!--TODO: edit 링크 추가-->
+          </ul>
+          <div class="sidebar_edit mat-caption">
+            <span><i class="material-icons">folder_special</i>내 토픽</span><a href="#">edit</a>
+          </div>
+          <ul class="sidebar_topics mat-caption">
+            <li><a href="#">토픽 1</a></li>
+            <li><a href="#">토픽 2</a></li>
+            <li><a href="#">토픽 3</a></li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <div class="grid_8">
-      <mat-card class="post question" *ngFor="let question of questions">
-        <div class="post metadata mat-caption">답변
-          <span><a href="#">연관토픽</a></span>
-          <span><a href="#">연관토픽</a></span>
+      <mat-card *ngFor="let question of questions" class="post question">
+        <div class="post header">
+          <span class="post metadata mat-caption">질문<a href="#" class="topic">연관토픽</a></span>
+          <!--TODO: negativeFeedback answer feed에만 구현돼있음-->
+          <i (click)="negativeFeedback(question.id)" class="material-icons md-18">close</i>
         </div>
-
-        <h2 class="mat-h2">{{ question.question }}</h2>
-
+        <mat-card-title>
+          {{ question.question }}
+        </mat-card-title>
+        <div class="question-info">
+          <div class="timestamp mat-caption">
+            답변 시간 표시란(질문인 경우 답변, 팔로우 수, 경과시간 표시
+          </div>
+        </div>
         <mat-card-actions>
           <button class="mat-button" color="primary">답변 달기</button>
           <button class="mat-button" color="primary">팔로우</button>
