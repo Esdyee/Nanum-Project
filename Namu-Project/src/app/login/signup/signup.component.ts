@@ -18,6 +18,16 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     <h1 class="tit-introduce">NANUM</h1>
 
     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" novalidate class="signup-form">
+
+      <mat-form-field class="signup-full-width">
+        <input matInput placeholder="Name" [formControl]="nameFormControl"
+               [errorStateMatcher]="matcher">
+        <mat-hint>이름을 입력해주세요.</mat-hint>
+        <mat-error *ngIf="nameFormControl.hasError('required')">
+          <strong>이름</strong>을 입력해주시기 바랍니다.
+        </mat-error>
+      </mat-form-field>
+
       <mat-form-field class="signup-full-width">
         <input matInput placeholder="Email" [formControl]="emailFormControl"
                [errorStateMatcher]="matcher">
@@ -38,9 +48,18 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
           비밀번호를 <strong>입력</strong>해 주시기 바랍니다.
         </mat-error>
       </mat-form-field>
+      
+      <mat-form-field class="login-full-width">
+        <input type="password" matInput placeholder="Password-conf" [formControl]="passwordConfFormControl"
+               [errorStateMatcher]="matcher">
+        <mat-hint>비밀번호를 입력해주세요.</mat-hint>
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+          비밀번호를 <strong>입력</strong>해 주시기 바랍니다.
+        </mat-error>
+      </mat-form-field>
     </form>
 
-    <button mat-button>Basic</button>
+    <button class="btn-signup" mat-raised-button routerLink="../main">회원가입</button>
   </section>
   `,
   styleUrls: ['./signup.component.css']
@@ -54,22 +73,36 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.signupForm = new FormGroup({
+      nameFormControl: new FormControl('', [
+        Validators.required
+      ]),
       emailFormControl: new FormControl('', [
         Validators.required,
         Validators.email
       ]),
       passwordFormControl: new FormControl('', [
         Validators.required
+      ]),
+      passwordConfFormControl: new FormControl('', [
+        Validators.required
       ])
     });
   }
 
   //Form Data Return
+  get nameFormControl() {
+    return this.signupForm.get('nameFormControl');
+  }
+
   get emailFormControl() {
     return this.signupForm.get('emailFormControl');
   }
 
   get passwordFormControl() {
     return this.signupForm.get('passwordFormControl');
+  }
+
+  get passwordConfFormControl() {
+    return this.signupForm.get('passwordConfFormControl');
   }
 }
