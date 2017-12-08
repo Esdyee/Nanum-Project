@@ -13,7 +13,7 @@ import { NotFoundComponent } from './common/not-found/not-found.component';
 
 // 라우트 구성
 const routes: Routes = [
-  { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: '', redirectTo: '/login/main', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'main', component: MainFeedComponent, canActivate: [LoginGuard]  },
   { path: '**', component: NotFoundComponent},
