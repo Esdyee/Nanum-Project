@@ -1,6 +1,10 @@
 .nav {
-    width:100%;
-    background-color: #424377;
+ background-color: #25284c;
+     position: fixed;
+     top: 0;
+     width: 100%;
+     z-index: 1;
+
 }
 
 .logo {
@@ -9,9 +13,27 @@
     font-size: 1.5em;
 }
 
-.nav-container {
-    padding: 2px 10px;
-    width: 400px;
-    margin: 0 auto;
-    position: relative;
+
+.search-input {
+    background-color: #fff;
+    width: 100%;
 }
+
+
+.container_12 {
+}
+
+.mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: #FFFFFF !important;
+}
+.mat-focused .mat-form-field-label {
+  color: #FFFFFF !important;
+}
+
+.mat-form-field-ripple {
+  background-color: #FFFFFF !important;
+
+}
+
+
+
