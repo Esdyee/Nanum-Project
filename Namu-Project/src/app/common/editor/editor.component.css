@@ -1,11 +1,13 @@
 .quill-container {
+  width: 800px;
   height: 550px;
   font-size: 14px;
   position: relative;
-  background-color: yellow;
+  margin: 0 auto;
 }
 
 .question-box {
+  width: 800px;
   height: 140px;
   text-align: center;
 }

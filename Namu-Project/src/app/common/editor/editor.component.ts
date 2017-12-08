@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class EditorComponent implements OnInit{
   isShow = true;
   constructor() { }
+
   ngOnInit() {
   }
   close() {
