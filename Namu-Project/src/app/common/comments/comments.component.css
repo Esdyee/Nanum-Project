@@ -3,11 +3,11 @@
   background-color: #EBEBEB;
 }
 
-.comment-editor {
+.comment-input {
   background-color: tan;
 }
 
-.comment-editor .mat-card-avatar {
+.comment-input .mat-card-avatar {
   float: left;
   width: 2.5rem;
   height: 2.5rem;

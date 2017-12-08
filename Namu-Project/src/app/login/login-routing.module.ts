@@ -14,7 +14,7 @@ const routes: Routes = [{
     children: [
         { path: 'main', component: MainLoginComponent },
         { path: 'find', component: FindPasswordComponent },
-        { path: 'connect', component: LoginConnectComponent },
+        { path: 'connect', component: LoginConnectComponent},
         { path: 'signup', component: SignupComponent },
         { path: '**', component: NotFoundComponent },
     ]

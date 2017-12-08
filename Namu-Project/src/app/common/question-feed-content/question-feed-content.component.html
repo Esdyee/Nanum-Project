@@ -1,12 +1,12 @@
 <!--question-->
 <mat-card class="post question">
-  <div class="post action mat-caption">답변
+  <div class="post metadata mat-caption">답변
     <!--TODO: nth child :before? 구분점 삽입-->
     <span><a href="#">연관토픽</a></span>
     <span><a href="#">연관토픽</a></span>
   </div>
 
-  <h2 class="mat-h2">사이드바 선택에 따라 답변된 질문 로드</h2>
+  <h2 class="mat-h2">{{ question.question }}</h2>
 
   <mat-card-actions>
     <button class="mat-button" color="primary">답변 달기</button>
@@ -14,4 +14,3 @@
   </mat-card-actions>
 </mat-card>
 
-<!--<app-answer></app-answer>-->

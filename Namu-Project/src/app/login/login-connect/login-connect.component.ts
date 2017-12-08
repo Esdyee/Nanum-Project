@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormGroupDirective, NgForm } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { LoginGuard } from '../login.guard';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -31,16 +32,16 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
       </mat-form-field>
 
       <mat-form-field class="login-full-width">
-        <input matInput placeholder="Password" [formControl]="passwordFormControl"
+        <input type="password" matInput placeholder="Password" [formControl]="passwordFormControl"
                [errorStateMatcher]="matcher">
         <mat-hint>비밀번호를 입력해주세요.</mat-hint>
         <mat-error *ngIf="passwordFormControl.hasError('required')">
           비밀번호를 <strong>입력</strong>해 주시기 바랍니다.
         </mat-error>
       </mat-form-field>
-    </form>
 
-    <button mat-button routerLink="../../main">Basic</button>
+    </form>
+    <button class="btn-login" mat-raised-button routerLink="../../main">로그인</button>
   </section>
   `,
   styleUrls: ['./login-connect.component.css']
@@ -49,7 +50,7 @@ export class LoginConnectComponent implements OnInit {
   loginForm: FormGroup;
   matcher = new MyErrorStateMatcher();
 
-  constructor() { }
+  constructor(public auth : LoginGuard) { }
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -61,6 +62,10 @@ export class LoginConnectComponent implements OnInit {
         Validators.required
       ])
     });
+  }
+
+  onSubmit(){
+    
   }
 
   //Form Data Return
