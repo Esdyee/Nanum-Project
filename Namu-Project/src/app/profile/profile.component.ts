@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
 
-
+import { ProfileTopicModalComponent } from './profile-topic-modal/profile-topic-modal.component';
 
 @Component({
   selector: 'app-profile',
@@ -48,6 +49,8 @@ export class ProfileComponent implements OnInit {
       { pk: 8, type: 'Experts', content: 'Experts-test7' }
     ]
   };
+
+  constructor(public dialog: MatDialog) { }
 
 
 
@@ -150,4 +153,17 @@ export class ProfileComponent implements OnInit {
       this.TEST_userArticle = '';
     }
   }
+  
+  openProfileTopicModal(): void {
+    const dialogRef = this.dialog.open(ProfileTopicModalComponent, {
+      width: '620px',
+      // 이름 참조해서 사용
+      data: { }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
 }
