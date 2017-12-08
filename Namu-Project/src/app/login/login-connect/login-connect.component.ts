@@ -28,28 +28,31 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
         <input matInput placeholder="Email" [formControl]="emailFormControl"
                [errorStateMatcher]="matcher">
         <mat-hint>이메일을 입력해주세요.</mat-hint>
+        
+        <mat-error *ngIf="emailError && !emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          {{emailError}}
+        </mat-error>
         <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-          이메일을 <strong>입력</strong>해 주시기 바랍니다.
+          <strong>이메일 양식</strong>에 맞추어서 입력해주시기 바랍니다.
         </mat-error>
         <mat-error *ngIf="emailFormControl.hasError('required')">
-          <strong>이메일 양식</strong>에 맞추어서 입력해주시기 바랍니다.
+          이메일을 <strong>입력</strong>해 주시기 바랍니다.
         </mat-error>
       </mat-form-field>
 
       <mat-form-field class="login-full-width">
         <input type="password" matInput placeholder="Password" [formControl]="passwordFormControl"
-               [errorStateMatcher]="matcher">
+               [errorStateMatcher]="matcher" (keyup.enter)="onSubmit()">
         <mat-hint>비밀번호를 입력해주세요.</mat-hint>
-        <mat-error *ngIf="error && passwordFormControl.hasError('required')">
-          이메일 혹은 비밀번호가 일치하지 않습니다.
+        <mat-error *ngIf="passwordError && passwordFormControl.hasError('required')">
+          {{passwordError}}
         </mat-error>
-        <mat-error *ngIf="!error && passwordFormControl.hasError('required')">
+        <mat-error *ngIf="!passwordError && passwordFormControl.hasError('required')">
           비밀번호를 <strong>입력</strong>해 주시기 바랍니다.
         </mat-error>
       </mat-form-field>
-      <button type="submit" class="btn-login" mat-raised-button>로그인</button>
-      {{error}}
-      {{!passwordFormControl.hasError('required')}}
+      <button type="submit" class="btn-login" mat-raised-button 
+      [disabled]="!(emailFormControl.valid && passwordFormControl.valid)">로그인</button>
     </form>
     
   </section>
@@ -59,7 +62,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class LoginConnectComponent implements OnInit {
   loginForm: FormGroup;
   matcher = new MyErrorStateMatcher();
-  error:string = '';
+  emailError:string = '';
+  passwordError:string = '';
 
   constructor(private http: HttpClient, private path: AppService, private auth: AuthService, private router:Router) { }
 
@@ -84,15 +88,26 @@ export class LoginConnectComponent implements OnInit {
           this.router.navigate(['/main']);
         } else {
           // login failed
-          this.error = 'Username or password is incorrect';
+          //this.error = 'Username or password is incorrect';
           //this.loading = false;
         }
       }, err => {
         console.log(err);
-        this.error = JSON.parse(err._body).email[0];
+        if(err.status == 400){
+          console.log(400)
+          //이메일 validation
+          this.emailError = JSON.parse(err._body).email[0];
+        } else{
+          console.log(401)
+          //this.error = JSON.parse(err._body)
+          console.log(err._body);
+          this.passwordError = JSON.parse(err._body).message;
+          this.loginForm.patchValue({ passwordFormControl: "" })
+        }
+        
         //this.loginForm.reset();
         console.log(this.loginForm);
-        this.loginForm.patchValue({ passwordFormControl:""})
+        
       });
   }
 
