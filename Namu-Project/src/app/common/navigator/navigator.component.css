@@ -1,5 +1,10 @@
 .nav {
  background-color: #25284c;
+     position: fixed;
+     top: 0;
+     width: 100%;
+     z-index: 1;
+
 }
 
 .logo {

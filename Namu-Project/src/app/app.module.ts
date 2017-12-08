@@ -25,6 +25,7 @@ import { EditorComponent } from './common/editor/editor.component';
 
 import { TopicSelectComponent } from './main-feed/topic-select/topic-select.component';
 import { NavTabComponent } from './common/nav-tab/nav-tab.component';
+import { ProfileTopicModalComponent } from './profile/profile-topic-modal/profile-topic-modal.component';
 
 
 @NgModule({
@@ -47,13 +48,16 @@ import { NavTabComponent } from './common/nav-tab/nav-tab.component';
     QuestionFeedContentComponent,
     CommentsComponent,
     EditorComponent,
-    NavTabComponent
+    NavTabComponent,
+    ProfileTopicModalComponent
   ],
   imports: [
     BrowserModule,
     MaterialModule,
     AppRoutingModule,
-    , QuillModule, FormsModule, ReactiveFormsModule
+    QuillModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     MaterialModule
