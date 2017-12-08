@@ -9,11 +9,10 @@ import { MainFeedComponent } from './main-feed/main-feed.component';
 import { NotFoundComponent } from './common/not-found/not-found.component';
 import { QuestionFeedComponent } from './question-feed/question-feed.component';
 import { NavigatorComponent } from './common/navigator/navigator.component';
-import { AnswerComponent } from './answer/answer.component';
 
 // 라우트 구성
 const routes: Routes = [
-  { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: '', redirectTo: '/login/main', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'main', component: MainFeedComponent, canActivate: [LoginGuard]  },
   { path: '**', component: NotFoundComponent},
