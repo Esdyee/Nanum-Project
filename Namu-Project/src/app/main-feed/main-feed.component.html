@@ -16,19 +16,19 @@
   <!--</div>-->
 <!--</header>-->
 
-
+<app-navigator></app-navigator>
 
 <!--TODO: component 분리-->
-<!-- <nav class="nav">
-  <div class="container_12">
+<div class="container_12">
+  <nav class="nav">
     <div class="grid_2 prefix_4">
       <a href="#"><span>읽기</span></a>
     </div>
     <div class="grid_2 suffix_4">
       <a href="#"><span>답변하기</span></a>
     </div>
-  </div>
-</nav> -->
+  </nav>
+</div>
 
 <!--main: 큰 레이아웃(2:8:2 그리드)만 공유가능-->
 <div class="main">
@@ -36,22 +36,25 @@
   <div class="container_12">
     <div class="grid_2">
       <!--TODO: component 분리-->
-      <div class="sidebar">
-        <div class="sidebar_header mat-h1">피드</div>
-        <ul class="mat-display-1">
-          <li><a href="#">인기글</a></li>
-          <li><a href="#">북마크한 답변</a></li>
-          <li><a href="#">최신 글</a></li>
-          <!--TODO: edit 링크 추가-->
-          <li><a href="#">내 토픽</a>
-            <ul class="sidebar_topics">
+        <div class="sidebar">
+          <h1 class="sidebar_header mat-h1">피드</h1>
+          <div class="sidebar_lists">
+            <ul class="sidebar_filters mat-caption">
+              <li><a href="#"><i class="material-icons">whatshot</i>인기글</a></li>
+              <li><a href="#"><i class="material-icons">bookmark_border</i>북마크한 답변</a></li>
+              <li><a href="#"><i class="material-icons">trending_up</i>최신 글</a></li>
+              <!--TODO: edit 링크 추가-->
+            </ul>
+            <div class="sidebar_edit mat-caption">
+              <span><i class="material-icons">folder_special</i>내 토픽</span><a href="#">edit</a>
+            </div>
+            <ul class="sidebar_topics mat-caption">
               <li><a href="#">토픽 1</a></li>
               <li><a href="#">토픽 2</a></li>
               <li><a href="#">토픽 3</a></li>
             </ul>
-          </li>
-        </ul>
-      </div>
+          </div>
+        </div>
     </div>
 
     <div class="grid_8">
@@ -67,11 +70,11 @@
       </mat-card>
 
       <!--main-feed-content-->
-      <mat-card
-        *ngFor="let answer of answers" class="post">
+        <!--TODO: class: post answer 아닌지?-->
+      <mat-card *ngFor="let answer of answers" class="post">
         <!--post action: topic links-->
         <div class="post header">
-          <span class="post metadata mat-caption"><a class="tag">답변</a><a class="topic">연관토픽</a></span>
+          <span class="post metadata mat-caption">답변<a href="#" class="topic">연관토픽</a></span>
           <i (click)="negativeFeedback(answer.id)" class="material-icons md-18">close</i>
         </div>
         <!--TODO: routing to answer detail page-->
@@ -85,7 +88,7 @@
             <div class="author">
               {{ answer.user.name }}, {{ answer.user.credential }}
             </div>
-            <div class="timestamp">
+            <div class="timestamp mat-caption">
               답변 시간 표시란
             </div>
           </div>
@@ -96,12 +99,12 @@
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button><i class="material-icons md-18">star_border</i>{{ answer.stats.starHits }}</button>
-          <span class="mat-body-1"><i class="material-icons md-18">chat_bubble_outline</i>{{ answer.stats.comments }}</span>
+          <button mat-button><i class="material-icons">star_border</i>{{ answer.stats.starHits }}</button>
+          <span class="mat-body-1"><i class="material-icons">chat_bubble_outline</i>{{ answer.stats.comments }}</span>
         </mat-card-actions>
 
         <!--확장 시 표시-->
-        <mat-card-footer *ngIf="false">
+        <mat-card-footer *ngIf="true">
           <div class="comment-area">
             <div class="comment-input">
               <img class="thumbnail sm" src="assets/images/me.png">
@@ -111,10 +114,48 @@
               </mat-form-field>
               <button mat-button (click)="test()" [disabled]="!commentText">댓글달기</button>
             </div>
+
             <div class="comment-list">
-              <!--<div class="comment level-1">-->
-                <!--<img mat-card-avatar src="assets/images/me.png">-->
-              <!--</div>-->
+              <div class="comment">
+                <div class="comment_wrapper">
+                  <img src="assets/images/zuckerberg.jpg" class="thumbnail sm">
+                  <div class="comment_header">
+                    <div class="comment_user mat-caption">user.name</div>
+                    <div class="comment_metadata mat-caption">"modified_at"</div>
+                  </div>
+                  <div class="comment_content">
+                    <p>Hello world</p>
+                  </div>
+                  <div class="comment_actions">
+
+                  </div>
+                </div>
+                <div class="comment depth1">
+                  <div class="comment_wrapper">
+                    <img src="assets/images/zuckerberg.jpg" class="thumbnail sm">
+                    <div class="comment_header">
+                      <div class="comment_user mat-caption">"user.name"</div>
+                      <div class="comment_metadata mat-caption">"modified_at"</div>
+                    </div>
+                    <div class="comment_content">
+                      <p>Hello world</p>
+                    </div>
+                  </div>
+                  <div class="comment depth2">
+                    <div class="comment_wrapper">
+                      <img src="assets/images/zuckerberg.jpg" class="thumbnail sm">
+                      <div class="comment_header">
+                        <div class="comment_user mat-caption">user.name</div>
+                        <div class="comment_metadata mat-caption">"modified_at"</div>
+                      </div>
+                      <div class="comment_content">
+                        <p>Hello world</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <span class="comment-list action">댓글 더보기<i class="material-icons md-18">expand_more</i></span>
             </div>
           </div>
         </mat-card-footer>

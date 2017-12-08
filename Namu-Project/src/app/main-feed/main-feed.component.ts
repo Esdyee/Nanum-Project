@@ -52,4 +52,8 @@ export class MainFeedComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
+
+  test() {
+    console.log('test');
+  }
 }
