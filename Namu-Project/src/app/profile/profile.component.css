@@ -1,0 +1,110 @@
+    .profile {
+      position: relative;
+      width: 630px;
+      height: auto;
+      margin-top: 50px;
+    }
+    /* 사진 업로드 테스트 */
+    
+    #img-upload {
+      display: none;
+    }
+    
+    img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+    }
+    
+    .user-profile-img {
+      display: inline-block;
+      position: absolute;
+      /* float: left; */
+      top: 65px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+    }
+    
+    .user-profile-img:hover {
+      cursor: pointer;
+    }
+    /* 여기까지 사진 업로드 테스트 */
+    
+    .profile-top-content {
+      margin-left: 140px;
+      padding-top: 30px;
+      overflow: hidden;
+      height: auto;
+    }
+    
+    .show-rest-user-article-button {
+      display: inline-block;
+    }
+    
+    .show-rest-user-article-button:hover {
+      cursor: pointer;
+    }
+    
+    .profile-top-user-article {
+      display: inline-block;
+    }
+    
+    .profile-top-chips-container {
+      margin-top: 20px;
+    }
+    
+    .profile-top-chip-follow,
+    .profile-top-chip-ask {
+      width: 70px;
+    }
+    /* 여기까지 프로필 상단 */
+    
+    .profile-middle {
+      min-height: 230px;
+    }
+    
+    .profile-middle-left-content {
+      position: relative;
+      display: inline-block;
+      font-size: 1.2rem;
+    }
+    
+    .profile-middle-right-content {
+      float: right;
+      margin-right: 180px;
+      font-size: 1.2rem;
+      clear: right;
+    }
+    
+    .user-resume-list-container,
+    .user-activity-summary-list-container {
+      margin-top: 20px;
+    }
+    
+    .user-activity-summary-list-container li {
+      display: block;
+    }
+    /* 
+    .user-activity-summary-list-container li mat-icon {
+      padding-top: 5px;
+    } */
+    /* 
+    .user-activity-summary-list-container > li > span {
+      float: right;
+      display: block;
+      margin-top: 4px;
+      clear: both;
+    } 
+*/
+    /* 여기까지 중단 */
+    
+    .profile-list-box {
+      display: inline-block;
+      width: 140px;
+      height: 140px;
+      background-color: gray;
+      box-sizing: border-box;
+      float: left;
+      margin: 0 0 5px 5px;
+    }
