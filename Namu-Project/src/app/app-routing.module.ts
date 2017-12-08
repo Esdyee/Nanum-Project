@@ -15,16 +15,9 @@ import { AnswerComponent } from './answer/answer.component';
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'main', component: MainFeedComponent },
+  { path: 'main', component: MainFeedComponent, canActivate: [LoginGuard]  },
   { path: '**', component: NotFoundComponent},
-  // 필수 추가 요망
-  // 메인피드 임시 path 입니다
-  { path: 'main', component: MainFeedComponent, canActivate:[LoginGuard] },
-  // 답변 임시 path 입니다
-  { path: 'answer', component: AnswerComponent},
-  { path: '**', component: NotFoundComponent}
 ];
-
 
 @NgModule({
   imports: [

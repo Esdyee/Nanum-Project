@@ -18,6 +18,16 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     <h1 class="tit-introduce">NANUM</h1>
 
     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" novalidate class="signup-form">
+
+      <mat-form-field class="signup-full-width">
+        <input matInput placeholder="Name" [formControl]="nameFormControl"
+               [errorStateMatcher]="matcher">
+        <mat-hint>이름을 입력해주세요.</mat-hint>
+        <mat-error *ngIf="nameFormControl.hasError('required')">
+          <strong>이름</strong>을 입력해주시기 바랍니다.
+        </mat-error>
+      </mat-form-field>
+
       <mat-form-field class="signup-full-width">
         <input matInput placeholder="Email" [formControl]="emailFormControl"
                [errorStateMatcher]="matcher">
@@ -63,6 +73,9 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.signupForm = new FormGroup({
+      nameFormControl: new FormControl('', [
+        Validators.required
+      ]),
       emailFormControl: new FormControl('', [
         Validators.required,
         Validators.email
@@ -77,6 +90,10 @@ export class SignupComponent implements OnInit {
   }
 
   //Form Data Return
+  get nameFormControl() {
+    return this.signupForm.get('nameFormControl');
+  }
+
   get emailFormControl() {
     return this.signupForm.get('emailFormControl');
   }
