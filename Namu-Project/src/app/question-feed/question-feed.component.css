@@ -13,36 +13,143 @@
 }
 /***********************************/
 
+.main {
+  background-color: #FAFAFA;
+  height: 100%;
+}
+
 
 
 .sidebar {
   margin-top: 2rem;
 }
 
-.sidebar_header {
-  background-color: #383d72;
-  width: 100%;
-  height: 4rem;
-  border-radius: 0.5rem;
-  color: #ffffff;
+.sidebar * {
+  /*TODO: position: fixed 정리하기*/
+  /*position: fixed;*/
+  /*top: 8rem;*/
+  box-sizing: border-box;
 }
 
-.sidebar_topics {
-  margin-left: 1em;
+.sidebar_header {
+  padding-left: 1rem;
+  background-color: #383d72;
+  width: 100%;
+  line-height: 4rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  color: #F2F3F4;
+  margin-bottom: 0;
 }
+
+.sidebar_lists {
+  background-color: rgba(235, 235, 235, 0.50);
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.sidebar_lists li {
+  border-radius: 0.5rem;
+}
+
+.sidebar_lists i {
+  font-size: 1.5rem;
+  float: left;
+}
+
+.sidebar_lists a {
+  color: #44403E;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.sidebar_lists a:hover {
+  color: #5256AA;
+}
+
+.sidebar_filters a {
+  display: inline-block;
+  padding: 0.7rem 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar_lists li:hover {
+  /*background-color: #E2E3F1;*/
+}
+
+.sidebar_edit {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  color: #44403E;
+  padding: 0.7rem 1rem;
+}
+
+.sidebar_edit a:hover {
+  text-decoration: underline;
+}
+
+.sidebar_topics li {
+  position: relative;
+}
+
+.sidebar_topics li::before {
+  position: absolute;
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #5256AA;
+  top: calc(50% - 0.25rem);
+  left: 1rem;
+}
+
+.sidebar_topics a {
+  margin-left: 1rem;
+  display: inline-block;
+  padding: 0.5rem 0 0.5rem 1rem;
+  width: calc(100% - 1rem);
+  height: 100%;
+}
+
+
 
 .mat-card.post:first-of-type {
   margin-top: 2rem;
 }
 
-.post {
+.mat-card.post {
   margin-top: 1rem;
 }
 
-.mat-card-header {
-  display: block;
+.post.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
 }
 
-.post-heading {
-  display: flex;
+.post .tag {
+  margin-right: 1rem;
+}
+
+.answer-info {
+  margin-left: 0.5rem;
+  display: inline-block;
+  height: 100%;
+}
+
+.answer-info .author {
+  margin: 5px 0;
+}
+
+.post.header>.material-icons,
+.post .topic {
+  cursor: pointer;
+}
+
+.mat-card-content .material-icons {
+  position: absolute;
+}
+
+.mat-card-action i.material-icons {
+  font-size: 1.5rem !important;
 }
