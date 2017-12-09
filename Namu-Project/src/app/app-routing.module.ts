@@ -5,6 +5,7 @@ import { LoginGuard } from './login/login.guard'
 import { LoginModule } from './login/login.module';
 import { LoginComponent } from './login/login.component';
 import { MainFeedComponent } from './main-feed/main-feed.component';
+
 // 라우트에 해당되는 것이 없을 때 나타나는 페이지
 import { NotFoundComponent } from './common/not-found/not-found.component';
 // import { QuestionFeedComponent } from './question-feed/question-feed.component';
@@ -15,7 +16,8 @@ import { NotFoundComponent } from './common/not-found/not-found.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login/main', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'main', component: MainFeedComponent, canActivate: [LoginGuard]  },
+  { path: 'main', component: MainFeedComponent },
+  //{ path: 'main', component: MainFeedComponent, canActivate: [LoginGuard]},
   { path: '**', component: NotFoundComponent},
 ];
 
