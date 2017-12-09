@@ -1,0 +1,107 @@
+.topic-info {
+  padding: 25px 0 25px 0;
+  border-bottom: 1px solid #e2e2e2;
+  line-height: 80px;
+  position: relative;
+}
+
+.topic-img {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: yellow;
+  border-radius: 3px;
+  margin-right: 15px;
+}
+
+.topic-name {
+  font-weight: bold;
+  font-size: 1.8rem;
+  line-height: 80px;
+  margin-left: 100px;
+}
+
+.topic-follow {
+  background-color: #424377;
+  color: white;
+  float: right;
+  right: 20px;
+  top: 22px;
+}
+
+.yellow-color {
+  background-color: yellow;
+  height: 300px;
+}
+
+/* profile img 공통 */
+.thumbnail {
+  border-radius: 50%;
+}
+
+.thumbnail.md {
+  width: 40px;
+  height: 40px;
+}
+
+.thumbnail.sm {
+  width: 30px;
+  height: 30px;
+}
+
+/* post 공통 */
+.mat-card.post {
+  margin-top: 1rem;
+}
+
+/* post 상단 공통*/
+.post.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.post mat-card-subtitle {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.post .tag {
+  margin-right: 1rem;
+}
+
+.answer-info {
+  margin-left: 0.5rem;
+  display: inline-block;
+  height: 100%;
+}
+
+.answer-info .author {
+  margin: 5px 0;
+}
+
+.mat-card-content,
+.post.header>.material-icons,
+.post .topic {
+  cursor: pointer;
+}
+
+.mat-card-content .material-icons {
+  position: absolute;
+}
+
+
+.hidden {
+  display: none;
+}
+
+.mat-card-footer {
+  background-color: #EBEBEB;
+  padding: 2rem;
+}
+
+.mat-card-footer .mat-card-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+}
