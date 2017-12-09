@@ -26,6 +26,7 @@ import { EditorComponent } from './common/editor/editor.component';
 import { TopicSelectComponent } from './main-feed/topic-select/topic-select.component';
 import { NavTabComponent } from './common/nav-tab/nav-tab.component';
 import { ProfileTopicModalComponent } from './profile/profile-topic-modal/profile-topic-modal.component';
+import { ProfileFollowModalComponent } from './profile/profile-follow-modal/profile-follow-modal.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { ProfileTopicModalComponent } from './profile/profile-topic-modal/profil
     CommentsComponent,
     EditorComponent,
     NavTabComponent,
-    ProfileTopicModalComponent
+    ProfileTopicModalComponent,
+    ProfileFollowModalComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,9 @@ import { ProfileTopicModalComponent } from './profile/profile-topic-modal/profil
   ],
   entryComponents: [
     AskModalComponent,
-    TopicSelectComponent
+    TopicSelectComponent,
+    ProfileTopicModalComponent,
+    ProfileFollowModalComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
