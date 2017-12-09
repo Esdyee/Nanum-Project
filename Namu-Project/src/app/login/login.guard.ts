@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
-import { CanActivate } from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 
 @Injectable()
 export class LoginGuard implements CanActivate {
    
-    checkAuth() : boolean{
-        const isAuth = Math.random() < 0.5;
-        //let isAuth;
-        //this.id == "superuser@super.com" && this.password == "superuse" ? isAuth = true : isAuth = false;
-        isAuth ? alert('인증된 사용자') : alert('인증되지 않은 사용자')
-        return isAuth;
-    }
+    constructor(private router:Router){}
 
     canActivate() {
-        return this.checkAuth();
+        if (localStorage.getItem('currentUser')) {
+            // logged in so return true
+            return true;
+        }
+
+        // not logged in so redirect to login page
+        this.router.navigate(['/login/main']);
+        return false;
     }
 }
 
