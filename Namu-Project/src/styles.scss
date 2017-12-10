@@ -18,7 +18,7 @@ html {
 
 html,
 body {
-  height: 100vh;
+  //height: 100vh;
   margin: 0;
   padding: 0;
   overflow: auto;
@@ -56,11 +56,11 @@ $custom-typography: mat-typography-config(
 
 
 html.cdk-global-scrollblock {
-  overflow-y: auto !important;
+  //overflow-y: auto !important;
 }
 
 .cdk-global-overlay-wrapper {
-  margin-left: -7px !important;
+  //margin-left: -7px !important;
 }
 
 /*
