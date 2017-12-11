@@ -31,7 +31,6 @@ export class NavigatorComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.mainTabLinks();
   }
 
   mainTabLinks() {
