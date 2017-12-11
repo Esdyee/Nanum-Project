@@ -1,34 +1,49 @@
-<div *ngIf="isShow" class="quill-container">
-  <div class="question-box">
-    <span class="question-name">질문 제목</span>
-  </div>
-  <div class="quill-editor">
-    <quill-editor [style]="{ height: '300px' }" [placeholder]="'Write your answer'">
-      <div quill-editor-toolbar>
-        <span class="ql-formats">
-          <button class="ql-bold" [title]="'Bold'"></button>
-          <button class="ql-italic" [title]="'Italic'"></button>
-          <button class="ql-underline" [title]="'Underline'"></button>
-        </span>
-        <span class="ql-formats">
-          <button class="ql-list" value="ordered" [title]="'Numbers'"></button>
-          <button class="ql-list" value="bullet" [title]="'Bullets'"></button>
-          <button class="ql-indent" value="+1" [title]="'Indent'"></button>
-          <button class="ql-indent" value="-1" [title]="'Unindent'"></button>
-        </span>
-        <span class="ql-formats">
-          <button class="ql-blockquote" [title]="'Blockquote'"></button>
-          <button class="ql-code-block" [title]="'Code'"></button>
-        </span>
-        <span class="ql-formats">
-          <button class="ql-image" [title]="'Image'"></button>
-          <button class="ql-video" [title]="'Video'"></button>
-          <button class="ql-link" [title]="'Link'"></button>
-        </span>
+<div class="wrapper">
+  <div class="header">
+    <div class="container_12">
+      <div class="grid_8 prefix_2 suffix_2">
+        <!--TODO: add question header area-->
+        <h2 class="mat-h1">Angular 프레임워크는 무엇인가요?</h2>
       </div>
-    </quill-editor>
+    </div>
+    <span><i class="material-icons">close</i></span>
   </div>
-  
-  <i (click)="close()" class="fa fa-times fa-2x"></i>
-  <button class="submit">Submit</button>
+  <div class="container_12">
+    <div class="grid_8 prefix_2 suffix_2">
+      <!--TODO: add user info area-->
+
+      <!--editor componenet-->
+      <div class="quill-container">
+        <div class="quill-editor">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <quill-editor [style]="{ height: '100%' }" [placeholder]="'답변을 입력하세요'"
+                          #editor formControlName="editor" (onEditorCreated)="setFocus($event)">
+              <div quill-editor-toolbar>
+                <span class="ql-formats">
+                  <button class="ql-bold" [title]="'Bold'"></button>
+                  <button class="ql-italic" [title]="'Italic'"></button>
+                </span>
+                <span class="ql-formats">
+                  <button class="ql-list" value="ordered" [title]="'Numbers'"></button>
+                  <button class="ql-list" value="bullet" [title]="'Bullets'"></button>
+                  <button class="ql-blockquote" [title]="'Blockquote'"></button>
+                  <button class="ql-code-block" [title]="'Code'"></button>
+                </span>
+                <span class="ql-formats">
+                  <button class="ql-image" [title]="'Image'"></button>
+                  <button class="ql-video" [title]="'Video'"></button>
+                  <button class="ql-link" [title]="'Link'"></button>
+                </span>
+              </div>
+            </quill-editor>
+            <div class="form-buttons">
+              <button mat-button type="submit" color="primary">확인</button>
+              <button mat-button type="button" (click)="getContent()">임시 저장</button>
+              <span>draft saved before...</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

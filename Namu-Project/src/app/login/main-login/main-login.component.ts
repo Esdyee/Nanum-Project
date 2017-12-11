@@ -11,6 +11,9 @@ export class MainLoginComponent implements OnInit {
   constructor(private route: ActivatedRoute, private navRoute: Router) { }
 
   ngOnInit() {
+    // if(localStorage.getItem('currentUser')){
+    //   this.navRoute.navigate(['/main']);
+    // }
   }
 
   findPassword(){

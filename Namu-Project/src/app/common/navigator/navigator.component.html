@@ -1,22 +1,44 @@
-<div class="nav">
-  <div class="nav-container">
-    <label class="logo">NANUM</label>
-    <input type="text">
-    <button mat-raised-button color="primary" (click)="openAskModal()">질문하기</button>
-    <button mat-icon-button color="primary">
-      <mat-icon>notifications</mat-icon>
-    </button>
-
-    <button mat-mini-fab color="primary" [matMenuTriggerFor]="menu">
-      <mat-icon>face</mat-icon>
-    </button>
+  <div class="nav">
+  <div class="container_12">
+    <div class="grid_3">
+      <label class="mat-h2 logo">NANUM</label>
+      <button (click)="mainTabLinks()">test</button>
+    </div>
+    <div class="grid_6">
+      <mat-form-field class="search-form-field">
+        <input matInput class="search-input" type="text" 
+              [(ngModel)]="inputText">
+        <button mat-button 
+                *ngIf="inputText" 
+                matSuffix mat-icon-button aria-label="Clear" 
+                (click)="inputText=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div class="grid_3 push_1">
+      <button mat-raised-button color="primary"
+              (click)="openAskModal()">
+              질문하기
+      </button>
+      <button mat-icon-button color="primary">
+        <mat-icon>notifications</mat-icon>
+      </button>
+      <button mat-mini-fab color="primary"
+              [matMenuTriggerFor]="menu">
+        <mat-icon>face</mat-icon>
+      </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
+      <button mat-menu-item (click)="profileTabLinks()">
         <span>내 프로필</span>
       </button>
       <button mat-menu-item>
         <span>로그아웃</span>
       </button>
     </mat-menu>
+    </div>
   </div>
-</div>
+  </div>
+  <app-nav-tab
+    [tabLinks]="tabLinks">
+  </app-nav-tab>
