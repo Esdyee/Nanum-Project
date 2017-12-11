@@ -9,19 +9,16 @@ import { MainFeedComponent } from './main-feed/main-feed.component';
 import { NotFoundComponent } from './common/not-found/not-found.component';
 import { QuestionFeedComponent } from './question-feed/question-feed.component';
 import { NavigatorComponent } from './common/navigator/navigator.component';
+import { AnswerComponent } from './answer/answer.component';
+import { EditorComponent } from './common/editor/editor.component';
 
 // 라우트 구성
 const routes: Routes = [
-  { path: '', redirectTo: '/login/main', pathMatch: 'full' },
+  { path: '', redirectTo: 'login/main', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'main', component: MainFeedComponent },
+  { path: 'main', component: MainFeedComponent, canActivate: [LoginGuard]  },
   { path: '**', component: NotFoundComponent},
-  // 필수 추가 요망
-  // 메인피드 임시 path 입니다
-  { path: 'main', component: MainFeedComponent, canActivate:[LoginGuard] },
-  { path: '**', component: NotFoundComponent}
 ];
-
 
 @NgModule({
   imports: [
