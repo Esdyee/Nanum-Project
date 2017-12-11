@@ -1,8 +1,10 @@
 import { User, users } from '../main-feed/user';
 
 export class Question {
-  id: number;
-  user: User;
+  // super-user: 2
+  // cmygray: 3
+  user: number;
+  topics: number[];
   content: string;
 }
 
@@ -21,3 +23,4 @@ export const questions = [
     question: '박찬호 선수에게 싸인을 받고 싶어요'
   },
 ];
+
