@@ -63,7 +63,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
     </form>
 
-    <button class="btn-signup" mat-raised-button routerLink="../main">회원가입</button>
+    <button class="btn-signup" mat-raised-button [disabled]="!signupForm.valid">회원가입</button>
   </section>
   `,
   styleUrls: ['./signup.component.css']
@@ -72,12 +72,10 @@ export class SignupComponent implements OnInit {
 
   signupForm: FormGroup;
   matcher = new MyErrorStateMatcher();
-  onInitSignal;
   
   constructor() {}
 
   ngOnInit() {
-    console.log(2);
     this.signupForm = new FormGroup({
       'nameFormControl': new FormControl('', [
         Validators.required
@@ -93,7 +91,6 @@ export class SignupComponent implements OnInit {
       'passwordFormControl': new FormControl('', Validators.required),
       'passwordConfFormControl': new FormControl('', [Validators.required, this.match])        
     });
-    console.log(3);
   }
 
 
