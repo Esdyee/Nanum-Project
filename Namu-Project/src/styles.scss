@@ -2,7 +2,7 @@
 
 /* web font load */
 
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+@import url(https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 // material customize
 @import '~@angular/material/theming';
 
@@ -35,11 +35,11 @@ $caption : mat-typography-level(1rem, 1.6, 300), $button : mat-typography-level(
 $input : mat-typography-level(1rem, 1.6, 400));
 @include mat-core($custom-typography);
 html.cdk-global-scrollblock {
-  overflow-y: auto !important;
+  //overflow-y: auto !important;
 }
 
 .cdk-global-overlay-wrapper {
-  margin-left: -7px !important;
+  //margin-left: -7px !important;
 }
 
 

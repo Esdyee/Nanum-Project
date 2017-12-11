@@ -126,15 +126,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 // 라우트에 해당되는 것이 없을 때 나타나는 페이지
 
-// import { QuestionFeedComponent } from './question-feed/question-feed.component';
-// import { NavigatorComponent } from './common/navigator/navigator.component';
-// import { AnswerComponent } from './answer/answer.component';
 // 라우트 구성
 var routes = [
-    { path: '', redirectTo: '/login/main', pathMatch: 'full' },
+    { path: '', redirectTo: 'login/main', pathMatch: 'full' },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_4__login_login_component__["a" /* LoginComponent */] },
-    { path: 'main', component: __WEBPACK_IMPORTED_MODULE_5__main_feed_main_feed_component__["a" /* MainFeedComponent */] },
-    //{ path: 'main', component: MainFeedComponent, canActivate: [LoginGuard]},
+    { path: 'main', component: __WEBPACK_IMPORTED_MODULE_5__main_feed_main_feed_component__["a" /* MainFeedComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_2__login_login_guard__["a" /* LoginGuard */]] },
     { path: '**', component: __WEBPACK_IMPORTED_MODULE_6__common_not_found_not_found_component__["a" /* NotFoundComponent */] },
 ];
 var AppRoutingModule = (function () {
@@ -194,7 +190,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-root',
-            //templateUrl: './app.component.html',
+            // templateUrl: './app.component.html',
             template: "\n  <router-outlet></router-outlet>\n  ",
             styles: [__webpack_require__("../../../../../src/app/app.component.css")]
         })
@@ -214,26 +210,26 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__module_material_module__ = __webpack_require__("../../../../../src/app/module/material.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ngx_quill__ = __webpack_require__("../../../../ngx-quill/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__login_login_component__ = __webpack_require__("../../../../../src/app/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__topic_topic_component__ = __webpack_require__("../../../../../src/app/topic/topic.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__main_feed_main_feed_component__ = __webpack_require__("../../../../../src/app/main-feed/main-feed.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__profile_profile_component__ = __webpack_require__("../../../../../src/app/profile/profile.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__common_main_feed_content_main_feed_content_component__ = __webpack_require__("../../../../../src/app/common/main-feed-content/main-feed-content.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__module_material_module__ = __webpack_require__("../../../../../src/app/module/material.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ngx_quill__ = __webpack_require__("../../../../ngx-quill/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__login_login_component__ = __webpack_require__("../../../../../src/app/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__topic_topic_component__ = __webpack_require__("../../../../../src/app/topic/topic.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__main_feed_main_feed_component__ = __webpack_require__("../../../../../src/app/main-feed/main-feed.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__profile_profile_component__ = __webpack_require__("../../../../../src/app/profile/profile.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__common_navigator_navigator_component__ = __webpack_require__("../../../../../src/app/common/navigator/navigator.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__answer_answer_component__ = __webpack_require__("../../../../../src/app/answer/answer.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__common_navigator_ask_modal_ask_modal_component__ = __webpack_require__("../../../../../src/app/common/navigator/ask-modal/ask-modal.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__common_not_found_not_found_component__ = __webpack_require__("../../../../../src/app/common/not-found/not-found.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__question_feed_question_feed_component__ = __webpack_require__("../../../../../src/app/question-feed/question-feed.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__common_question_feed_content_question_feed_content_component__ = __webpack_require__("../../../../../src/app/common/question-feed-content/question-feed-content.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__common_comments_comments_component__ = __webpack_require__("../../../../../src/app/common/comments/comments.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__common_editor_editor_component__ = __webpack_require__("../../../../../src/app/common/editor/editor.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__main_feed_topic_select_topic_select_component__ = __webpack_require__("../../../../../src/app/main-feed/topic-select/topic-select.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__common_nav_tab_nav_tab_component__ = __webpack_require__("../../../../../src/app/common/nav-tab/nav-tab.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__profile_profile_topic_modal_profile_topic_modal_component__ = __webpack_require__("../../../../../src/app/profile/profile-topic-modal/profile-topic-modal.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__common_comments_comments_component__ = __webpack_require__("../../../../../src/app/common/comments/comments.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__common_editor_editor_component__ = __webpack_require__("../../../../../src/app/common/editor/editor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__main_feed_topic_select_topic_select_component__ = __webpack_require__("../../../../../src/app/main-feed/topic-select/topic-select.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__common_nav_tab_nav_tab_component__ = __webpack_require__("../../../../../src/app/common/nav-tab/nav-tab.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__profile_profile_topic_modal_profile_topic_modal_component__ = __webpack_require__("../../../../../src/app/profile/profile-topic-modal/profile-topic-modal.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__question_feed_question_service__ = __webpack_require__("../../../../../src/app/question-feed/question.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -271,44 +267,44 @@ var AppModule = (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__login_login_component__["a" /* LoginComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__topic_topic_component__["a" /* TopicComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__main_feed_main_feed_component__["a" /* MainFeedComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__profile_profile_component__["a" /* ProfileComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__common_main_feed_content_main_feed_content_component__["a" /* MainFeedContentComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__login_login_component__["a" /* LoginComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__topic_topic_component__["a" /* TopicComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__main_feed_main_feed_component__["a" /* MainFeedComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__profile_profile_component__["a" /* ProfileComponent */],
                 __WEBPACK_IMPORTED_MODULE_12__common_navigator_navigator_component__["a" /* NavigatorComponent */],
                 __WEBPACK_IMPORTED_MODULE_14__common_navigator_ask_modal_ask_modal_component__["a" /* AskModalComponent */],
                 __WEBPACK_IMPORTED_MODULE_13__answer_answer_component__["a" /* AnswerComponent */],
                 __WEBPACK_IMPORTED_MODULE_14__common_navigator_ask_modal_ask_modal_component__["a" /* AskModalComponent */],
-                __WEBPACK_IMPORTED_MODULE_20__main_feed_topic_select_topic_select_component__["a" /* TopicSelectComponent */],
+                __WEBPACK_IMPORTED_MODULE_19__main_feed_topic_select_topic_select_component__["a" /* TopicSelectComponent */],
                 // MainLoginComponent,
                 // FindPasswordComponent,
                 __WEBPACK_IMPORTED_MODULE_15__common_not_found_not_found_component__["a" /* NotFoundComponent */],
                 __WEBPACK_IMPORTED_MODULE_16__question_feed_question_feed_component__["a" /* QuestionFeedComponent */],
-                __WEBPACK_IMPORTED_MODULE_17__common_question_feed_content_question_feed_content_component__["a" /* QuestionFeedContentComponent */],
-                __WEBPACK_IMPORTED_MODULE_18__common_comments_comments_component__["a" /* CommentsComponent */],
-                __WEBPACK_IMPORTED_MODULE_19__common_editor_editor_component__["a" /* EditorComponent */],
-                __WEBPACK_IMPORTED_MODULE_21__common_nav_tab_nav_tab_component__["a" /* NavTabComponent */],
-                __WEBPACK_IMPORTED_MODULE_22__profile_profile_topic_modal_profile_topic_modal_component__["a" /* ProfileTopicModalComponent */]
+                __WEBPACK_IMPORTED_MODULE_17__common_comments_comments_component__["a" /* CommentsComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__common_editor_editor_component__["a" /* EditorComponent */],
+                __WEBPACK_IMPORTED_MODULE_20__common_nav_tab_nav_tab_component__["a" /* NavTabComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__profile_profile_topic_modal_profile_topic_modal_component__["a" /* ProfileTopicModalComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_3__module_material_module__["a" /* MaterialModule */],
+                __WEBPACK_IMPORTED_MODULE_4__module_material_module__["a" /* MaterialModule */],
                 __WEBPACK_IMPORTED_MODULE_2__app_routing_module__["a" /* AppRoutingModule */],
-                __WEBPACK_IMPORTED_MODULE_5_ngx_quill__["a" /* QuillModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_forms__["f" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_forms__["k" /* ReactiveFormsModule */]
+                __WEBPACK_IMPORTED_MODULE_6_ngx_quill__["a" /* QuillModule */],
+                __WEBPACK_IMPORTED_MODULE_5__angular_forms__["f" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_5__angular_forms__["k" /* ReactiveFormsModule */]
             ],
             exports: [
-                __WEBPACK_IMPORTED_MODULE_3__module_material_module__["a" /* MaterialModule */]
+                __WEBPACK_IMPORTED_MODULE_4__module_material_module__["a" /* MaterialModule */]
             ],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_14__common_navigator_ask_modal_ask_modal_component__["a" /* AskModalComponent */],
-                __WEBPACK_IMPORTED_MODULE_20__main_feed_topic_select_topic_select_component__["a" /* TopicSelectComponent */]
+                __WEBPACK_IMPORTED_MODULE_19__main_feed_topic_select_topic_select_component__["a" /* TopicSelectComponent */]
             ],
-            providers: [],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_22__question_feed_question_service__["a" /* QuestionService */],
+                { provide: __WEBPACK_IMPORTED_MODULE_3__angular_common__["a" /* APP_BASE_HREF */], useValue: '/' },
+            ],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -336,7 +332,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var AppService = (function () {
     function AppService() {
-        this.api_path = "https://siwon.me/";
+        this.api_path = 'https://siwon.me/';
     }
     AppService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
@@ -419,7 +415,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".quill-container {\n  height: 550px;\n  font-size: 14px;\n  position: relative;\n  background-color: yellow;\n}\n\n.question-box {\n  height: 140px;\n  text-align: center;\n}\n\n.question-name {\n  font-size: 2em;\n  font-weight: bold;\n  line-height: 140px;\n}\n\n.fa-times {\n  position: absolute;\n  right: 20px;\n  top: 20px;\n  color: gray;\n}\n\n.submit {\n  width: 70px;\n  height: 30px;\n  background-color: #3E78AD;\n  color: white;\n  font-weight: bold;\n  outline: none;\n  margin-top: 10px;\n}\n", ""]);
+exports.push([module.i, ".wrapper {\r\n}\r\n\r\n.header {\r\n  background-color: rgba(235, 235, 235, 0.50);\r\n  border-bottom: 1px solid dimgray;\r\n}\r\n\r\n.header .material-icons {\r\n  position: fixed;\r\n  top: 0;\r\n  right: 0;\r\n}\r\n\r\n.quill-container {\r\n}\r\n\r\n.quill-editor {\r\n  display: block;\r\n  font-family: 'Spoqa Han Sans';\r\n}\r\n\r\n\r\n.form-buttons {\r\n  position: fixed;\r\n  bottom: 1rem;\r\n}\r\n", ""]);
 
 // exports
 
@@ -432,7 +428,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/common/editor/editor.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"isShow\" class=\"quill-container\">\n  <div class=\"question-box\">\n    <span class=\"question-name\">질문 제목</span>\n  </div>\n  <div class=\"quill-editor\">\n    <form>\n      <quill-editor [style]=\"{ height: '300px' }\" [placeholder]=\"'Write your answer'\">\n        <div quill-editor-toolbar>\n          <span class=\"ql-formats\">\n            <button class=\"ql-bold\" [title]=\"'Bold'\"></button>\n            <button class=\"ql-italic\" [title]=\"'Italic'\"></button>\n            <button class=\"ql-underline\" [title]=\"'Underline'\"></button>\n          </span>\n          <span class=\"ql-formats\">\n            <button class=\"ql-list\" value=\"ordered\" [title]=\"'Numbers'\"></button>\n            <button class=\"ql-list\" value=\"bullet\" [title]=\"'Bullets'\"></button>\n            <button class=\"ql-indent\" value=\"+1\" [title]=\"'Indent'\"></button>\n            <button class=\"ql-indent\" value=\"-1\" [title]=\"'Unindent'\"></button>\n          </span>\n          <span class=\"ql-formats\">\n            <button class=\"ql-blockquote\" [title]=\"'Blockquote'\"></button>\n            <button class=\"ql-code-block\" [title]=\"'Code'\"></button>\n          </span>\n          <span class=\"ql-formats\">\n            <button class=\"ql-image\" [title]=\"'Image'\"></button>\n            <button class=\"ql-video\" [title]=\"'Video'\"></button>\n            <button class=\"ql-link\" [title]=\"'Link'\"></button>\n          </span>\n        </div>\n      </quill-editor>\n      <button class=\"submit\">Submit</button>\n    </form>\n  </div>\n  <i (click)=\"close()\" class=\"fa fa-times fa-2x\"></i>\n</div>\n"
+module.exports = "<div class=\"wrapper\">\r\n  <div class=\"header\">\r\n    <div class=\"container_12\">\r\n      <div class=\"grid_8 prefix_2 suffix_2\">\r\n        <!--TODO: add question header area-->\r\n        <h2 class=\"mat-h1\">Angular 프레임워크는 무엇인가요?</h2>\r\n      </div>\r\n    </div>\r\n    <span><i class=\"material-icons\">close</i></span>\r\n  </div>\r\n  <div class=\"container_12\">\r\n    <div class=\"grid_8 prefix_2 suffix_2\">\r\n      <!--TODO: add user info area-->\r\n\r\n      <!--editor componenet-->\r\n      <div class=\"quill-container\">\r\n        <div class=\"quill-editor\">\r\n          <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\">\r\n            <quill-editor [style]=\"{ height: '100%' }\" [placeholder]=\"'답변을 입력하세요'\"\r\n                          #editor formControlName=\"editor\" (onEditorCreated)=\"setFocus($event)\">\r\n              <div quill-editor-toolbar>\r\n                <span class=\"ql-formats\">\r\n                  <button class=\"ql-bold\" [title]=\"'Bold'\"></button>\r\n                  <button class=\"ql-italic\" [title]=\"'Italic'\"></button>\r\n                </span>\r\n                <span class=\"ql-formats\">\r\n                  <button class=\"ql-list\" value=\"ordered\" [title]=\"'Numbers'\"></button>\r\n                  <button class=\"ql-list\" value=\"bullet\" [title]=\"'Bullets'\"></button>\r\n                  <button class=\"ql-blockquote\" [title]=\"'Blockquote'\"></button>\r\n                  <button class=\"ql-code-block\" [title]=\"'Code'\"></button>\r\n                </span>\r\n                <span class=\"ql-formats\">\r\n                  <button class=\"ql-image\" [title]=\"'Image'\"></button>\r\n                  <button class=\"ql-video\" [title]=\"'Video'\"></button>\r\n                  <button class=\"ql-link\" [title]=\"'Link'\"></button>\r\n                </span>\r\n              </div>\r\n            </quill-editor>\r\n            <div class=\"form-buttons\">\r\n              <button mat-button type=\"submit\" color=\"primary\">확인</button>\r\n              <button mat-button type=\"button\" (click)=\"getContent()\">임시 저장</button>\r\n              <span>draft saved before...</span>\r\n            </div>\r\n          </form>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -442,6 +438,12 @@ module.exports = "<div *ngIf=\"isShow\" class=\"quill-container\">\n  <div class
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditorComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__("../../../../rxjs/_esm5/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ngx_quill_src_quill_editor_component__ = __webpack_require__("../../../../ngx-quill/src/quill-editor.component.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_observable_from__ = __webpack_require__("../../../../rxjs/_esm5/add/observable/from.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_debounceTime__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/debounceTime.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/distinctUntilChanged.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -452,127 +454,59 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
+
+
 var EditorComponent = (function () {
-    function EditorComponent() {
-        this.isShow = true;
+    function EditorComponent(fb) {
+        this.form = fb.group({
+            // TODO: add Validator
+            editor: ['']
+        });
     }
     EditorComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var observable$ = __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["a" /* Observable */].from(this.editor.onContentChanged);
+        this.subscription = observable$.subscribe(function (data) {
+            console.log(data);
+            _this.content = data;
+        }, function (error) { return console.log(error); }, function () { return console.log('done'); });
+        this.editor
+            .onContentChanged.debounceTime(300) // 추후 자동저장 구현 시..
+            .distinctUntilChanged()
+            .subscribe(function (data) {
+            console.log(JSON.stringify(data.editor.getContents()));
+            // console.log('view child + directly subscription', data);
+        });
     };
-    EditorComponent.prototype.close = function () {
-        this.isShow = !this.isShow;
+    EditorComponent.prototype.ngOnDestroy = function () {
+        this.subscription.unsubscribe();
     };
+    EditorComponent.prototype.setFocus = function ($event) {
+        $event.focus();
+    };
+    EditorComponent.prototype.getContent = function () {
+    };
+    EditorComponent.prototype.onSubmit = function () {
+        // TODO: submit 시 스트리밍 공유하는 방법 모르겠음
+        console.log(this.content);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* ViewChild */])('editor'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_3_ngx_quill_src_quill_editor_component__["a" /* QuillEditorComponent */])
+    ], EditorComponent.prototype, "editor", void 0);
     EditorComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-editor',
             template: __webpack_require__("../../../../../src/app/common/editor/editor.component.html"),
             styles: [__webpack_require__("../../../../../src/app/common/editor/editor.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormBuilder */]])
     ], EditorComponent);
     return EditorComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "../../../../../src/app/common/main-feed-content/expanded-content.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return expandedContents; });
-var expandedContents = {
-    1: {
-        content: 'Angular는 SPA(Single Page Application) 개발을 위한 구글의 오픈소스 자바스크립트 프레임워크이다. 웹뿐만 아니라 모바일 웹, 네이티브 모바일과 데스크탑 애플리케이션까지 프론트엔드 개발에 필요한 대부분의 기능을 갖추고 있다. 정적 타입을 제공하는 TypeScript를 주력 언어로 채택하여 대규모 애플리케이션 개발에 보다 적합한 환경을 제공한다. 이전 버전인 AngularJS는 2009년 구글의 미스코 헤브리(Miško Hevery)가 시작한 개인 프로젝트로 시작하여 2012년 AngularJS 1.0이 공개되었으며 2017년 1.6.2이 공개되는 등 Angular 정식 버전이 공개된 이후에도 지속적으로 업데이트를 진행하고 있다. Angular는 AngularJS(version 1)의 후속 버전으로 2014년 ng 컨퍼런스에서 처음으로 소개되었다. 2016년 9월 14일 Angular 2 버전이 공개되었고 Angular 3을 뛰어 넘어 2017년 3월 23일 Angular 4, 2017년 11월 1일 Angular 5 정식 버전 pentagonal-donut이 출시되었다. Angular는 AngularJS의 후속 버전이지만 호환성이 없을 뿐아니라 알파, 베타, RC를 거치며 이전 버전과 호환성이 없는 변경인 Breaking Changes가 빈번하게 발생하여 많은 개발자를 혼란스럽게 하였다. 하지만 2016년 10월 발표된 이후 Angular 버저닝과 출시 계획에 따르면 개발자의 부담이 적은 방향으로 계획적인 버전업이 이루어질 듯하다. SemVer를 도입하여 버전 체계를 메이저, 마이너, 패치로 나누어 명확히 하고, 6개월간 1회의 메이저 릴리스(호환성이 없는 Breaking Change 포함), 3회의 마이너 릴리스(Breaking Change 없는 호환성이 있는 변경) 그리고 주단위의 패치 릴리스(버그 수정)가 실시될 예정이다. 이와 같이 Angular는 버전업이 빠르게 진행중이며 앞으로도 빈번한 변경이 예상된다. 특히 호환성이 없는 메이저 버전업에 대해서는 주의가 필요하다. 다행인 것은 Angular1에서 Angular2로의 버전업에서 나타난 것과 같은 큰 변경이 향후 버전에서는 없을 것이라는 것이다.'
-    },
-    2: {
-        content: 'Facebook 전반에 걸쳐 다양한 광고 형식을 사용할 수 있습니다. 사용할 수 있는 광고 형식은 선택한 광고 목표에 따라 달라지며 비즈니스 목표에 부합하는 광고 목표를 선택하는 것이 중요합니다. 광고 목표는 광고의 노출 위치에도 영향을 줄 수 있습니다. 즉, 선택한 목표에 따라 광고가 Instagram, Audience Network 또는 Facebook 뉴스피드 등 가장 적절한 Facebook의 플랫폼을 통해 사람들에게 노출될 수 있습니다. 광고 목표를 선택했으면 올바른 광고 형식을 선택해야 합니다. 동영상, 이미지, 문구를 개별적으로 사용하든 여러 유형의 자산을 결합하든 비즈니스 목표에 맞는 Facebook 광고 형식을 선택할 수 있습니다. 이미지 광고: Facebook과 Instagram의 모든 광고에는 이미지가 필요합니다. 제품 또는 서비스와 관련된 이미지를 추가하는 것만으로도 광고 성과에 직접적인 영향을 주게 됩니다. 이미지 광고는 브랜드 인지도, 참여, 도달, 매장 방문 목표에 사용할 수 있습니다. 단일 이미지 광고를 사용할 수도 있고, 슬라이드, 컬렉션, 슬라이드쇼, 캔버스 광고를 사용하여 광고에 여러 이미지와 동영상을 포함할 수도 있습니다.'
-    },
-    3: {
-        content: '1990년 고딩2때 청주에서 전국체전이 열렸다. 그리고 주간야구라는 당시 유일했던 야구잡지사에서 글을 쓰는 기자분이 그라운드안에서 내게 인사를 건냈다. 그리고 몇가지 질문을 하고나서 내게 훗날 좋은 선수가 되길바란다고했다. 그리고 다음해 1991년 여름, 국가대표로 미국에서 활약하고 돌아온 나는 공항에서 일년전 그기자형을 만났다. 당시 다른선수들과는 달리 서울에서 갈곳이 없었던 나를 집에 데리고가서 하루밤을 재워주셨다. 그기자형의 집에 도착해서 나는 기자형의 방안에 있던 책장속에 눈을 뗄수가 없었다. 책장속에는 온갓 영어로만된 미식축구, 농구,야구 잡지들이 가득했다. 그중에서 놀란라이언의 책은 나의 심장을 자극했다. 나는 기자형의 도움으로 대충 책속의 내용을 들으며 사진들을 관찰했다. 나의 그런모습을 보고는 그기자형은 내게 그책을 선물로 주셨다. 미국가서 좋은성적을 낸것보다 몇배 더 좋았다. 그뒤로 난 책속의 놀란라이언을 흉내내기시작했다. 놀란라이언처럼 강속구 투수가 되고싶었다. 그래서 런닝을 많이하고 웨이트트레이닝을 많이 한다는 책속의 내용과 사진들을 따라했다. 그리고 어느덧 난 강속구투구가 되어있었다. 꿈을 갖는다는것 그리고 꿈을 준다는것....그렇게 기자형님과 나는 꿈을 주고 받는 소중한 인연을 이어갔다. 훗날 나는 최초의 코리언 메이저리거가 되었고 그 기자형은 야구전문기자로써 최초의 야구단 사장이 되었다. 소중함과 고마운인연.'
-    }
-};
-
-
-/***/ }),
-
-/***/ "../../../../../src/app/common/main-feed-content/main-feed-content.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".post {\n  margin-top: 1rem;\n}\n\n.post.metadata {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n}\n\n.mat-caption .material-icons {\n  font-size: 1.25rem;\n  cursor: pointer;\n}\n\n.mat-card-content p {\n  cursor: pointer;\n}\n\n.mat-icon-button .material-icons {\n  font-size: 1.4rem;\n}\n\n.hidden {\n  display: none;\n}\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/common/main-feed-content/main-feed-content.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<!--answer-->\n<!--display: none은 최적의 방법은 아닌 것 같다...-->\n<mat-card class=\"post answer\" [style.display]=\"negative ? 'none' : 'block'\">\n  <div class=\"post metadata mat-caption\">\n    <span>답변<a href=\"#\">연관토픽</a><a href=\"#\">연관토픽</a></span>\n    <i (click)=\"negativeFeedback()\" class=\"material-icons\">&#xE5CD;</i>\n  </div>\n\n  <h2 class=\"mat-h2\">{{ answer.question }}</h2>\n\n  <mat-card-header>\n    <img mat-card-avatar [src]=\"answer.user.imgPath\" [alt]=\"answer.user.name\" width=\"50\" height=\"50\">\n    <mat-card-title class=\"mat-h3\">{{ answer.user.name }}, {{ answer.user.credential }}</mat-card-title>\n    <!--TODO: 답변시간 표시방법- 타임스탬프와 브라우저 시간차 계산(서버에서? 클라이언트에서?)-->\n    <mat-card-subtitle class=\"mat-caption\">답변 시간 표시란</mat-card-subtitle>\n  </mat-card-header>\n\n  <mat-card-content (click)=\"fetchExpandedContent(answer.id)\">\n    <p class=\"mat-body-1\">\n      {{ answer.content }} <a class=\"expand\">(더보기)</a>\n    </p>\n  </mat-card-content>\n  <div [hidden]=\"!isExpanded\">\n    <mat-card-actions>\n      <button mat-button><i class=\"material-icons\">&#xE83A;</i>{{ answer.stats.starHits }}</button>\n      <span class=\"mat-body-1\"><i class=\"material-icons\">&#xE0B9;</i>{{ answer.stats.comments }}</span>\n    </mat-card-actions>\n    <app-comments></app-comments>\n  </div>\n</mat-card>\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/common/main-feed-content/main-feed-content.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MainFeedContentComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__expanded_content__ = __webpack_require__("../../../../../src/app/common/main-feed-content/expanded-content.ts");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var MainFeedContentComponent = (function () {
-    function MainFeedContentComponent() {
-        this.negative = false;
-        this.isExpanded = false;
-    }
-    MainFeedContentComponent.prototype.test = function () {
-        console.log('done');
-    };
-    // 전체 답변내용은 각 컴포넌트가 독립적으로 통신해야함 => GET 완료 후 액션버튼 show
-    // 답변내용과 댓글 스레드를 함께 받아야
-    MainFeedContentComponent.prototype.fetchExpandedContent = function (id) {
-        this.getCommentThreads();
-        this.answer.content = __WEBPACK_IMPORTED_MODULE_1__expanded_content__["a" /* expandedContents */][id].content;
-        this.isExpanded = true;
-    };
-    MainFeedContentComponent.prototype.getCommentThreads = function () {
-        console.log('GET comments');
-    };
-    MainFeedContentComponent.prototype.negativeFeedback = function () {
-        this.negative = !this.negative;
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-        __metadata("design:type", Object)
-    ], MainFeedContentComponent.prototype, "answer", void 0);
-    MainFeedContentComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-main-feed-content',
-            template: __webpack_require__("../../../../../src/app/common/main-feed-content/main-feed-content.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/common/main-feed-content/main-feed-content.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], MainFeedContentComponent);
-    return MainFeedContentComponent;
 }());
 
 
@@ -864,69 +798,6 @@ var NotFoundComponent = (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/common/question-feed-content/question-feed-content.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".post {\n  margin-top: 1rem;\n}\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/common/question-feed-content/question-feed-content.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<!--question-->\n<mat-card class=\"post question\">\n  <div class=\"post metadata mat-caption\">답변\n    <!--TODO: nth child :before? 구분점 삽입-->\n    <span><a href=\"#\">연관토픽</a></span>\n    <span><a href=\"#\">연관토픽</a></span>\n  </div>\n\n  <h2 class=\"mat-h2\">{{ question.question }}</h2>\n\n  <mat-card-actions>\n    <button class=\"mat-button\" color=\"primary\">답변 달기</button>\n    <button class=\"mat-button\" color=\"primary\">팔로우</button>\n  </mat-card-actions>\n</mat-card>\n\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/common/question-feed-content/question-feed-content.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return QuestionFeedContentComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var QuestionFeedContentComponent = (function () {
-    function QuestionFeedContentComponent() {
-    }
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-        __metadata("design:type", Object)
-    ], QuestionFeedContentComponent.prototype, "question", void 0);
-    QuestionFeedContentComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-question-feed-content',
-            template: __webpack_require__("../../../../../src/app/common/question-feed-content/question-feed-content.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/common/question-feed-content/question-feed-content.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], QuestionFeedContentComponent);
-    return QuestionFeedContentComponent;
-}());
-
-
-
-/***/ }),
-
 /***/ "../../../../../src/app/login/auth.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1164,8 +1035,6 @@ var LoginConnectComponent = (function () {
                 _this.passwordError = JSON.parse(err._body).message;
                 _this.loginForm.patchValue({ passwordFormControl: "" });
             }
-            //this.loginForm.reset();
-            console.log(_this.loginForm);
         });
     };
     Object.defineProperty(LoginConnectComponent.prototype, "emailFormControl", {
@@ -1359,27 +1228,26 @@ var LoginGuard = (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__module_material_module__ = __webpack_require__("../../../../../src/app/module/material.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__login_routing_module__ = __webpack_require__("../../../../../src/app/login/login-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__main_login_main_login_component__ = __webpack_require__("../../../../../src/app/login/main-login/main-login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__find_password_find_password_component__ = __webpack_require__("../../../../../src/app/login/find-password/find-password.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__login_connect_login_connect_component__ = __webpack_require__("../../../../../src/app/login/login-connect/login-connect.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__signup_signup_component__ = __webpack_require__("../../../../../src/app/login/signup/signup.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_service__ = __webpack_require__("../../../../../src/app/app.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__auth_service__ = __webpack_require__("../../../../../src/app/login/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__module_material_module__ = __webpack_require__("../../../../../src/app/module/material.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__login_routing_module__ = __webpack_require__("../../../../../src/app/login/login-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__main_login_main_login_component__ = __webpack_require__("../../../../../src/app/login/main-login/main-login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__find_password_find_password_component__ = __webpack_require__("../../../../../src/app/login/find-password/find-password.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__login_connect_login_connect_component__ = __webpack_require__("../../../../../src/app/login/login-connect/login-connect.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__signup_signup_component__ = __webpack_require__("../../../../../src/app/login/signup/signup.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_service__ = __webpack_require__("../../../../../src/app/app.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__auth_service__ = __webpack_require__("../../../../../src/app/login/auth.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
+//import { BrowserModule } from '@angular/platform-browser';
 
 
 
@@ -1399,24 +1267,23 @@ var LoginModule = (function () {
     function LoginModule() {
     }
     LoginModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["K" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* NgModule */])({
             imports: [
-                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_common__["b" /* CommonModule */],
-                __WEBPACK_IMPORTED_MODULE_7__login_routing_module__["a" /* LoginRoutingModule */],
-                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["k" /* ReactiveFormsModule */],
-                __WEBPACK_IMPORTED_MODULE_4__module_material_module__["a" /* MaterialModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["b" /* HttpClientModule */],
-                __WEBPACK_IMPORTED_MODULE_6__angular_http__["c" /* HttpModule */]
+                __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
+                __WEBPACK_IMPORTED_MODULE_6__login_routing_module__["a" /* LoginRoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["k" /* ReactiveFormsModule */],
+                __WEBPACK_IMPORTED_MODULE_3__module_material_module__["a" /* MaterialModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_5__angular_http__["c" /* HttpModule */]
             ],
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_8__main_login_main_login_component__["a" /* MainLoginComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__find_password_find_password_component__["a" /* FindPasswordComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__login_connect_login_connect_component__["a" /* LoginConnectComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__signup_signup_component__["a" /* SignupComponent */]
+                __WEBPACK_IMPORTED_MODULE_7__main_login_main_login_component__["a" /* MainLoginComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__find_password_find_password_component__["a" /* FindPasswordComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__login_connect_login_connect_component__["a" /* LoginConnectComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__signup_signup_component__["a" /* SignupComponent */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_5__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_12__app_service__["a" /* AppService */], __WEBPACK_IMPORTED_MODULE_13__auth_service__["a" /* AuthService */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_4__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_11__app_service__["a" /* AppService */], __WEBPACK_IMPORTED_MODULE_12__auth_service__["a" /* AuthService */]]
         })
     ], LoginModule);
     return LoginModule;
@@ -1551,25 +1418,50 @@ var SignupComponent = (function () {
     }
     SignupComponent.prototype.ngOnInit = function () {
         this.signupForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormGroup */]({
-            nameFormControl: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */]('', [
+            'nameFormControl': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */]('', [
                 __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required
             ]),
-            emailFormControl: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */]('', [
+            'emailFormControl': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */]('', [
                 __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required,
                 __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].email
             ]),
-            passwordFormControl: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */]('', [
-                __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required
-            ]),
-            passwordConfFormControl: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */]('', [
-                __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required
-            ])
+            // passwordGroup: new FormGroup({
+            //   passwordFormControl: new FormControl('', Validators.required),
+            //   passwordConfFormControl: new FormControl('', Validators.required)
+            // })
+            'passwordFormControl': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required),
+            'passwordConfFormControl': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["l" /* Validators */].required, this.match])
         });
+    };
+    SignupComponent.prototype.match = function (control) {
+        // 매개변수로 전달받은 검증 대상 폼 모델에서 password와 confirmPassword을 취득
+        if (control.value != '') {
+            //console.log('password1', control.parent.value.passwordFormControl);
+            //console.log('password2', control.value);
+            var password = control.parent.value.passwordFormControl;
+            var confirmPassword = control.value;
+            // password와 confirmPassword의 값을 비교한다.
+            if (password !== confirmPassword) {
+                return { match: { password: password, confirmPassword: confirmPassword } };
+            }
+            else {
+                return null;
+            }
+        }
+    };
+    SignupComponent.prototype.onSubmit = function () {
     };
     Object.defineProperty(SignupComponent.prototype, "nameFormControl", {
         //Form Data Return
         get: function () {
             return this.signupForm.get('nameFormControl');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(SignupComponent.prototype, "passwordGroup", {
+        get: function () {
+            return this.signupForm.get('passwordGroup');
         },
         enumerable: true,
         configurable: true
@@ -1599,7 +1491,7 @@ var SignupComponent = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-signup',
             //templateUrl: './signup.component.html',
-            template: "\n    <section class=\"email-signup\">\n    <h1 class=\"tit-introduce\">NANUM</h1>\n\n    <form [formGroup]=\"signupForm\" (ngSubmit)=\"onSubmit()\" novalidate class=\"signup-form\">\n\n      <mat-form-field class=\"signup-full-width\">\n        <input matInput placeholder=\"Name\" [formControl]=\"nameFormControl\"\n               [errorStateMatcher]=\"matcher\">\n        <mat-hint>\uC774\uB984\uC744 \uC785\uB825\uD574\uC8FC\uC138\uC694.</mat-hint>\n        <mat-error *ngIf=\"nameFormControl.hasError('required')\">\n          <strong>\uC774\uB984</strong>\uC744 \uC785\uB825\uD574\uC8FC\uC2DC\uAE30 \uBC14\uB78D\uB2C8\uB2E4.\n        </mat-error>\n      </mat-form-field>\n\n      <mat-form-field class=\"signup-full-width\">\n        <input matInput placeholder=\"Email\" [formControl]=\"emailFormControl\"\n               [errorStateMatcher]=\"matcher\">\n        <mat-hint>\uC774\uBA54\uC77C\uC744 \uC785\uB825\uD574\uC8FC\uC138\uC694.</mat-hint>\n        <mat-error *ngIf=\"emailFormControl.hasError('email') && !emailFormControl.hasError('required')\">\n          \uC774\uBA54\uC77C\uC744 <strong>\uC785\uB825</strong>\uD574 \uC8FC\uC2DC\uAE30 \uBC14\uB78D\uB2C8\uB2E4.\n        </mat-error>\n        <mat-error *ngIf=\"emailFormControl.hasError('required')\">\n          <strong>\uC774\uBA54\uC77C \uC591\uC2DD</strong>\uC5D0 \uB9DE\uCD94\uC5B4\uC11C \uC785\uB825\uD574\uC8FC\uC2DC\uAE30 \uBC14\uB78D\uB2C8\uB2E4.\n        </mat-error>\n      </mat-form-field>\n\n      <mat-form-field class=\"signup-full-width\">\n        <input matInput placeholder=\"Password\" [formControl]=\"passwordFormControl\"\n               [errorStateMatcher]=\"matcher\">\n        <mat-hint>\uBE44\uBC00\uBC88\uD638\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.</mat-hint>\n        <mat-error *ngIf=\"passwordFormControl.hasError('required')\">\n          \uBE44\uBC00\uBC88\uD638\uB97C <strong>\uC785\uB825</strong>\uD574 \uC8FC\uC2DC\uAE30 \uBC14\uB78D\uB2C8\uB2E4.\n        </mat-error>\n      </mat-form-field>\n      \n      <mat-form-field class=\"login-full-width\">\n        <input type=\"password\" matInput placeholder=\"Password-conf\" [formControl]=\"passwordConfFormControl\"\n               [errorStateMatcher]=\"matcher\">\n        <mat-hint>\uBE44\uBC00\uBC88\uD638\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.</mat-hint>\n        <mat-error *ngIf=\"passwordFormControl.hasError('required')\">\n          \uBE44\uBC00\uBC88\uD638\uB97C <strong>\uC785\uB825</strong>\uD574 \uC8FC\uC2DC\uAE30 \uBC14\uB78D\uB2C8\uB2E4.\n        </mat-error>\n      </mat-form-field>\n    </form>\n\n    <button class=\"btn-signup\" mat-raised-button routerLink=\"../main\">\uD68C\uC6D0\uAC00\uC785</button>\n  </section>\n  ",
+            template: "\n    <section class=\"email-signup\">\n    <h1 class=\"tit-introduce\">NANUM</h1>\n\n    <form [formGroup]=\"signupForm\" (ngSubmit)=\"onSubmit()\" novalidate class=\"signup-form\">\n\n      <mat-form-field class=\"signup-full-width\">\n        <input matInput placeholder=\"Name\" [formControl]=\"nameFormControl\"\n               [errorStateMatcher]=\"matcher\">\n        <mat-hint>\uC774\uB984\uC744 \uC785\uB825\uD574\uC8FC\uC138\uC694.</mat-hint>\n        <mat-error *ngIf=\"nameFormControl.hasError('required')\">\n          <strong>\uC774\uB984</strong>\uC744 \uC785\uB825\uD574\uC8FC\uC2DC\uAE30 \uBC14\uB78D\uB2C8\uB2E4.\n        </mat-error>\n      </mat-form-field>\n    \n      <mat-form-field class=\"signup-full-width\">\n        <input matInput placeholder=\"Email\" [formControl]=\"emailFormControl\"\n               [errorStateMatcher]=\"matcher\">\n        <mat-hint>\uC774\uBA54\uC77C\uC744 \uC785\uB825\uD574\uC8FC\uC138\uC694.</mat-hint>\n        <mat-error *ngIf=\"emailFormControl.hasError('email') && !emailFormControl.hasError('required')\">\n          \uC774\uBA54\uC77C\uC744 <strong>\uC785\uB825</strong>\uD574 \uC8FC\uC2DC\uAE30 \uBC14\uB78D\uB2C8\uB2E4.\n        </mat-error>\n        <mat-error *ngIf=\"emailFormControl.hasError('required')\">\n          <strong>\uC774\uBA54\uC77C \uC591\uC2DD</strong>\uC5D0 \uB9DE\uCD94\uC5B4\uC11C \uC785\uB825\uD574\uC8FC\uC2DC\uAE30 \uBC14\uB78D\uB2C8\uB2E4.\n        </mat-error>\n      </mat-form-field>\n      \n      <mat-form-field class=\"signup-full-width\">\n        <input matInput placeholder=\"Password\" [formControl]=\"passwordFormControl\"\n                [errorStateMatcher]=\"matcher\" #password>\n        <mat-hint>\uBE44\uBC00\uBC88\uD638\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.</mat-hint>\n        <mat-error *ngIf=\"passwordFormControl.hasError('required')\">\n          \uBE44\uBC00\uBC88\uD638\uB97C <strong>\uC785\uB825</strong>\uD574 \uC8FC\uC2DC\uAE30 \uBC14\uB78D\uB2C8\uB2E4.\n        </mat-error>\n      </mat-form-field>\n      \n      <mat-form-field class=\"signup-full-width\">\n        <input type=\"password\" matInput placeholder=\"Password-conf\" [formControl]=\"passwordConfFormControl\"\n                [errorStateMatcher]=\"matcher\">\n        <mat-hint>\uD655\uC778\uC744 \uC704\uD574 \uBE44\uBC00\uBC88\uD638\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.</mat-hint>\n        <mat-error *ngIf=\"passwordConfFormControl.hasError('required')\">\n          \uBE44\uBC00\uBC88\uD638\uB97C <strong>\uC785\uB825</strong>\uD574 \uC8FC\uC2DC\uAE30 \uBC14\uB78D\uB2C8\uB2E4.\n        </mat-error>\n      </mat-form-field>\n      <pre>{{ signupForm.value | json }}</pre>\n      <pre>{{ signupForm.valid }}</pre>\n\n    </form>\n\n    <button class=\"btn-signup\" mat-raised-button [disabled]=\"!signupForm.valid\">\uD68C\uC6D0\uAC00\uC785</button>\n  </section>\n  ",
             styles: [__webpack_require__("../../../../../src/app/login/signup/signup.component.css")]
         }),
         __metadata("design:paramtypes", [])
@@ -1696,7 +1588,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/main-feed/main-feed.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--header: 범용 컴포넌트-->\n<!--<header class=\"app_header\">-->\n  <!--<div class=\"container_12\">-->\n    <!--<div class=\"grid_3\"><h1 class=\"mat-h2\">Nanum</h1></div>-->\n    <!--<div class=\"grid_6\"><input type=\"text\" class=\"mat-input\" placeholder=\"search-bar\"></div>-->\n    <!--<div class=\"grid_3\">-->\n      <!--<button mat-icon-button color=\"primary\">-->\n        <!--<mat-icon>notifications</mat-icon>-->\n      <!--</button>-->\n      <!--<button mat-mini-fab color=\"primary\">-->\n        <!--<mat-icon>face</mat-icon>-->\n      <!--</button></div>-->\n      <!--<button mat-raised-button color=\"primary\" (click)=\"openAskModal()\">-->\n        <!--<span class=\"mat-button\">질문하기</span>-->\n      <!--</button>-->\n  <!--</div>-->\n<!--</header>-->\n\n<app-navigator></app-navigator>\n\n<!--TODO: component 분리-->\n<div class=\"container_12\">\n  <nav class=\"nav\">\n    <div class=\"grid_2 prefix_4\">\n      <a href=\"#\"><span>읽기</span></a>\n    </div>\n    <div class=\"grid_2 suffix_4\">\n      <a href=\"#\"><span>답변하기</span></a>\n    </div>\n  </nav>\n</div>\n\n<!--main: 큰 레이아웃(2:8:2 그리드)만 공유가능-->\n<div class=\"main\">\n\n  <div class=\"container_12\">\n    <div class=\"grid_2\">\n      <!--TODO: component 분리-->\n        <div class=\"sidebar\">\n          <h1 class=\"sidebar_header mat-h1\">피드</h1>\n          <div class=\"sidebar_lists\">\n            <ul class=\"sidebar_filters mat-caption\">\n              <li><a href=\"#\"><i class=\"material-icons\">whatshot</i>인기글</a></li>\n              <li><a href=\"#\"><i class=\"material-icons\">bookmark_border</i>북마크한 답변</a></li>\n              <li><a href=\"#\"><i class=\"material-icons\">trending_up</i>최신 글</a></li>\n              <!--TODO: edit 링크 추가-->\n            </ul>\n            <div class=\"sidebar_edit mat-caption\">\n              <span><i class=\"material-icons\">folder_special</i>내 토픽</span><a href=\"#\">edit</a>\n            </div>\n            <ul class=\"sidebar_topics mat-caption\">\n              <li><a href=\"#\">토픽 1</a></li>\n              <li><a href=\"#\">토픽 2</a></li>\n              <li><a href=\"#\">토픽 3</a></li>\n            </ul>\n          </div>\n        </div>\n    </div>\n\n    <div class=\"grid_8\">\n\n      <!--welcome-->\n      <mat-card class=\"welcome\">\n        <!--TODO: routing to profile page-->\n        <div class=\"actions\">\n          <img class=\"thumbnail md\" [src]=\"me.imgPath\">\n          <!--TODO: event to askModal-->\n          <a class=\"ask mat-h1\" (click)=\"openAskModal(me.name)\">{{ me.name }}님, 질문이 무엇인가요?</a>\n        </div>\n      </mat-card>\n\n      <!--main-feed-content-->\n        <!--TODO: class: post answer 아닌지?-->\n      <mat-card *ngFor=\"let answer of answers\" class=\"post\">\n        <!--post action: topic links-->\n        <div class=\"post header\">\n          <span class=\"post metadata mat-caption\">답변<a href=\"#\" class=\"topic\">연관토픽</a></span>\n          <i (click)=\"negativeFeedback(answer.id)\" class=\"material-icons md-18\">close</i>\n        </div>\n        <!--TODO: routing to answer detail page-->\n        <mat-card-title>\n          {{ answer.question }}\n        </mat-card-title>\n        <mat-card-subtitle>\n          <img class=\"thumbnail md\" [src]=\"answer.user.imgPath\" [alt]=\"answer.user.name\" width=\"50\" height=\"50\">\n          <!--TODO: 답변시간 표시방법- 타임스탬프와 브라우저 시간차 계산(서버에서? 클라이언트에서?)-->\n          <div class=\"answer-info\">\n            <div class=\"author\">\n              {{ answer.user.name }}, {{ answer.user.credential }}\n            </div>\n            <div class=\"timestamp mat-caption\">\n              답변 시간 표시란\n            </div>\n          </div>\n        </mat-card-subtitle>\n        <mat-card-content (click)=\"fetchExpandedContent(answer.id)\">\n          <p class=\"mat-body-1\">\n            {{ answer.content }} <i class=\"material-icons md-18\">expand_more</i>\n          </p>\n        </mat-card-content>\n        <mat-card-actions>\n          <button mat-button><i class=\"material-icons\">star_border</i>{{ answer.stats.starHits }}</button>\n          <span class=\"mat-body-1\"><i class=\"material-icons\">chat_bubble_outline</i>{{ answer.stats.comments }}</span>\n        </mat-card-actions>\n\n        <!--확장 시 표시-->\n        <mat-card-footer *ngIf=\"true\">\n          <div class=\"comment-area\">\n            <div class=\"comment-input\">\n              <img class=\"thumbnail sm\" src=\"assets/images/me.png\">\n              <mat-form-field>\n              <textarea [(ngModel)]=\"commentText\" matInput placeholder=\"댓글을 입력하세요\" matTextareaAutosize matAutosizeMinRows=\"1\"\n                matAutosizeMaxRows=\"100\"></textarea>\n              </mat-form-field>\n              <button mat-button (click)=\"test()\" [disabled]=\"!commentText\">댓글달기</button>\n            </div>\n\n            <div class=\"comment-list\">\n              <div class=\"comment\">\n                <div class=\"comment_wrapper\">\n                  <img src=\"assets/images/zuckerberg.jpg\" class=\"thumbnail sm\">\n                  <div class=\"comment_header\">\n                    <div class=\"comment_user mat-caption\">user.name</div>\n                    <div class=\"comment_metadata mat-caption\">\"modified_at\"</div>\n                  </div>\n                  <div class=\"comment_content\">\n                    <p>Hello world</p>\n                  </div>\n                  <div class=\"comment_actions\">\n\n                  </div>\n                </div>\n                <div class=\"comment depth1\">\n                  <div class=\"comment_wrapper\">\n                    <img src=\"assets/images/zuckerberg.jpg\" class=\"thumbnail sm\">\n                    <div class=\"comment_header\">\n                      <div class=\"comment_user mat-caption\">\"user.name\"</div>\n                      <div class=\"comment_metadata mat-caption\">\"modified_at\"</div>\n                    </div>\n                    <div class=\"comment_content\">\n                      <p>Hello world</p>\n                    </div>\n                  </div>\n                  <div class=\"comment depth2\">\n                    <div class=\"comment_wrapper\">\n                      <img src=\"assets/images/zuckerberg.jpg\" class=\"thumbnail sm\">\n                      <div class=\"comment_header\">\n                        <div class=\"comment_user mat-caption\">user.name</div>\n                        <div class=\"comment_metadata mat-caption\">\"modified_at\"</div>\n                      </div>\n                      <div class=\"comment_content\">\n                        <p>Hello world</p>\n                      </div>\n                    </div>\n                  </div>\n                </div>\n              </div>\n              <span class=\"comment-list action\">댓글 더보기<i class=\"material-icons md-18\">expand_more</i></span>\n            </div>\n          </div>\n        </mat-card-footer>\n      </mat-card>\n\n    </div>\n    <!--우측 메뉴를 위해 남겨둔 공간-->\n    <div class=\"grid_2\">\n    </div>\n  </div>\n</div>\n"
+module.exports = "<!--header: 범용 컴포넌트-->\r\n<!--<header class=\"app_header\">-->\r\n  <!--<div class=\"container_12\">-->\r\n    <!--<div class=\"grid_3\"><h1 class=\"mat-h2\">Nanum</h1></div>-->\r\n    <!--<div class=\"grid_6\"><input type=\"text\" class=\"mat-input\" placeholder=\"search-bar\"></div>-->\r\n    <!--<div class=\"grid_3\">-->\r\n      <!--<button mat-icon-button color=\"primary\">-->\r\n        <!--<mat-icon>notifications</mat-icon>-->\r\n      <!--</button>-->\r\n      <!--<button mat-mini-fab color=\"primary\">-->\r\n        <!--<mat-icon>face</mat-icon>-->\r\n      <!--</button></div>-->\r\n      <!--<button mat-raised-button color=\"primary\" (click)=\"openAskModal()\">-->\r\n        <!--<span class=\"mat-button\">질문하기</span>-->\r\n      <!--</button>-->\r\n  <!--</div>-->\r\n<!--</header>-->\r\n\r\n<app-navigator></app-navigator>\r\n\r\n\r\n<!--TODO: component 분리-->\r\n<div class=\"container_12\">\r\n  <nav class=\"nav\">\r\n    <div class=\"grid_2 prefix_4\">\r\n      <a href=\"#\"><span>읽기</span></a>\r\n    </div>\r\n    <div class=\"grid_2 suffix_4\">\r\n      <a href=\"#\"><span>답변하기</span></a>\r\n    </div>\r\n  </nav>\r\n</div>\r\n\r\n<!--main: 큰 레이아웃(2:8:2 그리드)만 공유가능-->\r\n<div class=\"main\">\r\n\r\n  <div class=\"container_12\">\r\n    <div class=\"grid_2\">\r\n      <!--TODO: component 분리-->\r\n        <div class=\"sidebar\">\r\n          <h1 class=\"sidebar_header mat-h1\">피드</h1>\r\n          <div class=\"sidebar_lists\">\r\n            <ul class=\"sidebar_filters mat-caption\">\r\n              <li><a href=\"#\"><i class=\"material-icons\">whatshot</i>인기글</a></li>\r\n              <li><a href=\"#\"><i class=\"material-icons\">bookmark_border</i>북마크한 답변</a></li>\r\n              <li><a href=\"#\"><i class=\"material-icons\">trending_up</i>최신 글</a></li>\r\n            </ul>\r\n            <div class=\"sidebar_edit mat-caption\">\r\n              <span><i class=\"material-icons\">folder_special</i>내 토픽</span><a href=\"#\">edit</a>\r\n            </div>\r\n            <ul class=\"sidebar_topics mat-caption\">\r\n              <li><a href=\"#\">토픽 1</a></li>\r\n              <li><a href=\"#\">토픽 2</a></li>\r\n              <li><a href=\"#\">토픽 3</a></li>\r\n            </ul>\r\n          </div>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"grid_8\">\r\n\r\n      <!--welcome-->\r\n      <mat-card class=\"welcome\">\r\n        <!--TODO: routing to profile page-->\r\n        <div class=\"actions\">\r\n          <img class=\"thumbnail md\" [src]=\"me.imgPath\">\r\n          <!--TODO: event to askModal-->\r\n          <a class=\"ask mat-h1\" (click)=\"openAskModal(me.name)\">{{ me.name }}님, 질문이 무엇인가요?</a>\r\n        </div>\r\n      </mat-card>\r\n\r\n      <!--main-feed-content-->\r\n        <!--TODO: class: post answer 아닌지?-->\r\n      <mat-card *ngFor=\"let answer of answers\" class=\"post\">\r\n        <!--post action: topic links-->\r\n        <div class=\"post header\">\r\n          <span class=\"post metadata mat-caption\">답변<a href=\"#\" class=\"topic\">연관토픽</a></span>\r\n          <i (click)=\"negativeFeedback(answer.id)\" class=\"material-icons md-18\">close</i>\r\n        </div>\r\n        <!--TODO: routing to answer detail page-->\r\n        <mat-card-title>\r\n          {{ answer.question }}\r\n        </mat-card-title>\r\n        <mat-card-subtitle>\r\n          <img class=\"thumbnail md\" [src]=\"answer.user.imgPath\" [alt]=\"answer.user.name\" width=\"50\" height=\"50\">\r\n          <!--TODO: 답변시간 표시방법- 타임스탬프와 브라우저 시간차 계산(서버에서? 클라이언트에서?)-->\r\n          <div class=\"answer-info\">\r\n            <div class=\"author\">\r\n              {{ answer.user.name }}, {{ answer.user.credential }}\r\n            </div>\r\n            <div class=\"timestamp mat-caption\">\r\n              답변 시간 표시란\r\n            </div>\r\n          </div>\r\n        </mat-card-subtitle>\r\n        <mat-card-content (click)=\"fetchExpandedContent(answer.id)\">\r\n          <p class=\"mat-body-1\">\r\n            {{ answer.content }} <i class=\"material-icons md-18\">expand_more</i>\r\n          </p>\r\n        </mat-card-content>\r\n        <mat-card-actions>\r\n          <button mat-button><i class=\"material-icons\">star_border</i>{{ answer.stats.starHits }}</button>\r\n          <span class=\"mat-body-1\"><i class=\"material-icons\">chat_bubble_outline</i>{{ answer.stats.comments }}</span>\r\n        </mat-card-actions>\r\n\r\n        <!--확장 시 표시-->\r\n        <mat-card-footer *ngIf=\"true\">\r\n          <div class=\"comment-area\">\r\n            <div class=\"comment-input\">\r\n              <img class=\"thumbnail sm\" src=\"assets/images/me.png\">\r\n              <mat-form-field>\r\n              <textarea [(ngModel)]=\"commentText\" matInput placeholder=\"댓글을 입력하세요\" matTextareaAutosize matAutosizeMinRows=\"1\"\r\n                matAutosizeMaxRows=\"100\"></textarea>\r\n              </mat-form-field>\r\n              <button mat-button (click)=\"test()\" [disabled]=\"!commentText\">댓글달기</button>\r\n            </div>\r\n\r\n            <div class=\"comment-list\">\r\n              <div class=\"comment\">\r\n                <div class=\"comment_wrapper\">\r\n                  <img src=\"assets/images/zuckerberg.jpg\" class=\"thumbnail sm\">\r\n                  <div class=\"comment_header\">\r\n                    <div class=\"comment_user mat-caption\">user.name</div>\r\n                    <div class=\"comment_metadata mat-caption\">\"modified_at\"</div>\r\n                  </div>\r\n                  <div class=\"comment_content\">\r\n                    <p>Hello world</p>\r\n                  </div>\r\n                  <div class=\"comment_actions\">\r\n\r\n                  </div>\r\n                </div>\r\n                <div class=\"comment depth1\">\r\n                  <div class=\"comment_wrapper\">\r\n                    <img src=\"assets/images/zuckerberg.jpg\" class=\"thumbnail sm\">\r\n                    <div class=\"comment_header\">\r\n                      <div class=\"comment_user mat-caption\">\"user.name\"</div>\r\n                      <div class=\"comment_metadata mat-caption\">\"modified_at\"</div>\r\n                    </div>\r\n                    <div class=\"comment_content\">\r\n                      <p>Hello world</p>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"comment depth2\">\r\n                    <div class=\"comment_wrapper\">\r\n                      <img src=\"assets/images/zuckerberg.jpg\" class=\"thumbnail sm\">\r\n                      <div class=\"comment_header\">\r\n                        <div class=\"comment_user mat-caption\">user.name</div>\r\n                        <div class=\"comment_metadata mat-caption\">\"modified_at\"</div>\r\n                      </div>\r\n                      <div class=\"comment_content\">\r\n                        <p>Hello world</p>\r\n                      </div>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n              <span class=\"comment-list action\">댓글 더보기<i class=\"material-icons md-18\">expand_more</i></span>\r\n            </div>\r\n          </div>\r\n        </mat-card-footer>\r\n      </mat-card>\r\n\r\n    </div>\r\n    <!--우측 메뉴를 위해 남겨둔 공간-->\r\n    <div class=\"grid_2\">\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2252,7 +2144,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/question-feed/question-feed.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--header: 범용 컴포넌트-->\n<header class=\"app_header\">\n  <div class=\"container_12\">\n    <div class=\"grid_3\"><h1 class=\"mat-h2\">Nanum</h1></div>\n    <div class=\"grid_6\"><input type=\"text\" class=\"mat-input\" placeholder=\"search-bar\"></div>\n    <div class=\"grid_3\">\n      <button mat-icon-button color=\"primary\">\n        <mat-icon>notifications</mat-icon>\n      </button>\n      <button mat-mini-fab color=\"primary\">\n        <mat-icon>face</mat-icon>\n      </button></div>\n    <button mat-raised-button color=\"primary\" (click)=\"openAskModal()\">\n      <span class=\"mat-button\">질문하기</span>\n    </button>\n  </div>\n</header>\n\n<!--TODO: component 분리-->\n<nav class=\"nav\">\n  <div class=\"container_12\">\n    <div class=\"grid_2 prefix_4\">\n      <a href=\"#\"><span>읽기</span></a>\n    </div>\n    <div class=\"grid_2 suffix_4\">\n      <a href=\"#\"><span>답변하기</span></a>\n    </div>\n  </div>\n</nav>\n\n<div class=\"main\">\n\n  <div class=\"container_12\">\n    <div class=\"grid_2\">\n      <!--TODO: component 분리-->\n      <div class=\"sidebar\">\n        <h1 class=\"sidebar_header mat-h1\">피드</h1>\n        <div class=\"sidebar_lists\">\n          <ul class=\"sidebar_filters mat-caption\">\n            <li><a href=\"#\"><i class=\"material-icons\">bookmark_border</i>북마크한 질문</a></li>\n            <li><a href=\"#\"><i class=\"material-icons\">trending_up</i>최신 질문</a></li>\n            <!--TODO: edit 링크 추가-->\n          </ul>\n          <div class=\"sidebar_edit mat-caption\">\n            <span><i class=\"material-icons\">folder_special</i>내 토픽</span><a href=\"#\">edit</a>\n          </div>\n          <ul class=\"sidebar_topics mat-caption\">\n            <li><a href=\"#\">토픽 1</a></li>\n            <li><a href=\"#\">토픽 2</a></li>\n            <li><a href=\"#\">토픽 3</a></li>\n          </ul>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"grid_8\">\n      <mat-card *ngFor=\"let question of questions\" class=\"post question\">\n        <div class=\"post header\">\n          <span class=\"post metadata mat-caption\">질문<a href=\"#\" class=\"topic\">연관토픽</a></span>\n          <!--TODO: negativeFeedback answer feed에만 구현돼있음-->\n          <i (click)=\"negativeFeedback(question.id)\" class=\"material-icons md-18\">close</i>\n        </div>\n        <mat-card-title>\n          {{ question.question }}\n        </mat-card-title>\n        <div class=\"question-info\">\n          <div class=\"timestamp mat-caption\">\n            답변 시간 표시란(질문인 경우 답변, 팔로우 수, 경과시간 표시\n          </div>\n        </div>\n        <mat-card-actions>\n          <button class=\"mat-button\" color=\"primary\">답변 달기</button>\n          <button class=\"mat-button\" color=\"primary\">팔로우</button>\n        </mat-card-actions>\n      </mat-card>\n    </div>\n\n    <div class=\"grid_2\">\n    </div>\n  </div>\n</div>\n"
+module.exports = "<!--header: 범용 컴포넌트-->\r\n<!--<header class=\"app_header\">-->\r\n  <!--<div class=\"container_12\">-->\r\n    <!--<div class=\"grid_3\"><h1 class=\"mat-h2\">Nanum</h1></div>-->\r\n    <!--<div class=\"grid_6\"><input type=\"text\" class=\"mat-input\" placeholder=\"search-bar\"></div>-->\r\n    <!--<div class=\"grid_3\">-->\r\n      <!--<button mat-icon-button color=\"primary\">-->\r\n        <!--<mat-icon>notifications</mat-icon>-->\r\n      <!--</button>-->\r\n      <!--<button mat-mini-fab color=\"primary\">-->\r\n        <!--<mat-icon>face</mat-icon>-->\r\n      <!--</button></div>-->\r\n    <!--<button mat-raised-button color=\"primary\" (click)=\"openAskModal()\">-->\r\n      <!--<span class=\"mat-button\">질문하기</span>-->\r\n    <!--</button>-->\r\n  <!--</div>-->\r\n<!--</header>-->\r\n\r\n<!--TODO: component 분리-->\r\n<!--<nav class=\"nav\">-->\r\n  <!--<div class=\"container_12\">-->\r\n    <!--<div class=\"grid_2 prefix_4\">-->\r\n      <!--<a href=\"#\"><span>읽기</span></a>-->\r\n    <!--</div>-->\r\n    <!--<div class=\"grid_2 suffix_4\">-->\r\n      <!--<a href=\"#\"><span>답변하기</span></a>-->\r\n    <!--</div>-->\r\n  <!--</div>-->\r\n<!--</nav>-->\r\n\r\n<!--<app-navigator></app-navigator>-->\r\n\r\n<div class=\"main\">\r\n\r\n  <div class=\"container_12\">\r\n    <div class=\"grid_2\">\r\n      <!--TODO: component 분리-->\r\n      <div class=\"sidebar\">\r\n        <h1 class=\"sidebar_header mat-h1\">피드</h1>\r\n        <div class=\"sidebar_lists\">\r\n          <ul class=\"sidebar_filters mat-caption\">\r\n            <li><a href=\"#\"><i class=\"material-icons\">bookmark_border</i>북마크한 질문</a></li>\r\n            <li><a href=\"#\"><i class=\"material-icons\">trending_up</i>최신 질문</a></li>\r\n          </ul>\r\n          <div class=\"sidebar_edit mat-caption\">\r\n            <span><i class=\"material-icons\">folder_special</i>내 토픽</span><a href=\"#\">edit</a>\r\n          </div>\r\n          <ul class=\"sidebar_topics mat-caption\">\r\n            <li><a href=\"#\">토픽 1</a></li>\r\n            <li><a href=\"#\">토픽 2</a></li>\r\n            <li><a href=\"#\">토픽 3</a></li>\r\n          </ul>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"grid_8\">\r\n      <mat-card *ngFor=\"let question of questions\" class=\"post question\">\r\n        <div class=\"post header\">\r\n          <span class=\"post metadata mat-caption\">질문<a href=\"#\" class=\"topic\">연관토픽</a></span>\r\n          <!--TODO: negativeFeedback answer feed에만 구현돼있음-->\r\n          <i (click)=\"negativeFeedback(question.id)\" class=\"material-icons md-18\">close</i>\r\n        </div>\r\n        <mat-card-title>\r\n          {{ question.question }}\r\n        </mat-card-title>\r\n        <div class=\"question-info\">\r\n          <div class=\"timestamp mat-caption\">\r\n            답변 시간 표시란(질문인 경우 답변, 팔로우 수, 경과시간 표시\r\n          </div>\r\n        </div>\r\n        <mat-card-actions>\r\n          <!--TODO: (click)=\"callEditorWithQuestionPK(not for each !!!!important)\"-->\r\n          <button mat-button>답변 달기</button>\r\n          <button mat-button>팔로우</button>\r\n        </mat-card-actions>\r\n      </mat-card>\r\n    </div>\r\n\r\n    <div class=\"grid_2\">\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2262,7 +2154,8 @@ module.exports = "<!--header: 범용 컴포넌트-->\n<header class=\"app_header
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return QuestionFeedComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__question__ = __webpack_require__("../../../../../src/app/question-feed/question.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__question_service__ = __webpack_require__("../../../../../src/app/question-feed/question.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__question__ = __webpack_require__("../../../../../src/app/question-feed/question.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2273,16 +2166,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 // typings
 
 var QuestionFeedComponent = (function () {
-    function QuestionFeedComponent() {
+    function QuestionFeedComponent(http) {
+        this.http = http;
     }
     QuestionFeedComponent.prototype.ngOnInit = function () {
         this.getQuestions();
+        // this.http.getQuestionss()
+        //   .subscribe(
+        //     questions => {
+        //       console.log(questions);
+        //     },
+        //   error => {
+        //       console.log(error);
+        //   }
+        // );
     };
     QuestionFeedComponent.prototype.getQuestions = function () {
-        this.questions = __WEBPACK_IMPORTED_MODULE_1__question__["a" /* questions */];
+        this.questions = __WEBPACK_IMPORTED_MODULE_2__question__["a" /* questions */];
     };
     QuestionFeedComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -2290,9 +2194,50 @@ var QuestionFeedComponent = (function () {
             template: __webpack_require__("../../../../../src/app/question-feed/question-feed.component.html"),
             styles: [__webpack_require__("../../../../../src/app/question-feed/question-feed.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__question_service__["a" /* QuestionService */]])
     ], QuestionFeedComponent);
     return QuestionFeedComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/question-feed/question.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return QuestionService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var QuestionService = (function () {
+    function QuestionService(http) {
+        this.http = http;
+        this.HOST = 'https://siwon.me';
+    }
+    // TODO: 동일 url로 method만 다르게 사용할 경우 endpoint까지 통일할까?
+    QuestionService.prototype.getQuestionss = function () {
+        return this.http.get(this.HOST + "/post/question/?user=3"); // TODO: parametrize
+    };
+    QuestionService.prototype.addQuestion = function (payload) {
+        return this.http.post(this.HOST + "/post/question/", payload);
+    };
+    QuestionService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+    ], QuestionService);
+    return QuestionService;
 }());
 
 

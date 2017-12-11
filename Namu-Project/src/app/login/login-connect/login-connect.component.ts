@@ -104,10 +104,6 @@ export class LoginConnectComponent implements OnInit {
           this.passwordError = JSON.parse(err._body).message;
           this.loginForm.patchValue({ passwordFormControl: "" })
         }
-        
-        //this.loginForm.reset();
-        console.log(this.loginForm);
-        
       });
   }
 
