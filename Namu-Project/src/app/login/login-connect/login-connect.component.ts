@@ -80,17 +80,12 @@ export class LoginConnectComponent implements OnInit {
   }
 
   onSubmit(){
-    //this.loading = true;
     this.auth.login(this.emailFormControl.value, this.passwordFormControl.value)
       .subscribe(result => {
         if (result === true) {
           // login successful
           this.router.navigate(['/main']);
-        } else {
-          // login failed
-          //this.error = 'Username or password is incorrect';
-          //this.loading = false;
-        }
+        } 
       }, err => {
         console.log(err);
         if(err.status == 400){

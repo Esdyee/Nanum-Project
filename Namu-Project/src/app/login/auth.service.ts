@@ -1,8 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
+import { FormGroup } from '@angular/forms'
 import { Observable } from 'rxjs';
 import { AppService } from '../app.service';
+
 import 'rxjs/add/operator/map'
+
+export interface messageError {
+  emailError:string;
+  passwordError:string;
+  signupForm:string;
+}
 
 @Injectable()
 export class AuthService {
@@ -17,9 +25,9 @@ export class AuthService {
     this.token = currentUser && currentUser.token;
   }
 
-  login(email: string, password: string): Observable<boolean> {
-    return this.http.post("https://siwon.me/user/login/", JSON.stringify({ email: email, password: password })
-    , { headers : this.headers})
+  connect(api:string, email:string, password:string, password2?:string, name?:string){
+    return this.http.post(api, JSON.stringify({ email: email, password: password })
+      , { headers: this.headers })
       .map((response: Response) => {
         // login successful if there's a jwt token in the response
         let token = response.json() && response.json().token;
@@ -37,6 +45,30 @@ export class AuthService {
           return false;
         }
       });
+  }
+
+  login(email: string, password: string): Observable<boolean> {
+    return this.connect("https://siwon.me/user/login/", email, password);
+  }
+
+  signup(name: string, email: string, password: string, password2: string): Observable<boolean>{
+    return this.connect("https://siwon.me/user/signup/", email, password, password2, name);
+  }
+
+  connectError(err, form:FormGroup){
+    let messageError: messageError
+    if (err.status == 400) {
+      console.log(400)
+      //이메일 validation
+      messageError.emailError = JSON.parse(err._body).email[0];
+    } else {
+      console.log(401)
+      //this.error = JSON.parse(err._body)
+      console.log(err._body);
+      messageError.passwordError = JSON.parse(err._body).message;
+      form.patchValue({ passwordFormControl: "" })
+    }
+    return messageError;
   }
 
   logout(): void {

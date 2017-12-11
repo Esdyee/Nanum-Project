@@ -1,8 +1,11 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormGroupDirective, FormGroupName, NgForm, AbstractControl } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { PasswordValidator } from '../validator/password-validator';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
+import { AppService } from '../../app.service';
+import { AuthService } from '../auth.service';
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -33,6 +36,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
         <input matInput placeholder="Email" [formControl]="emailFormControl"
                [errorStateMatcher]="matcher">
         <mat-hint>이메일을 입력해주세요.</mat-hint>
+        <mat-error *ngIf="emailError && !emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          {{emailError}}
+        </mat-error>
         <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
           이메일을 <strong>입력</strong>해 주시기 바랍니다.
         </mat-error>
@@ -54,6 +60,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
         <input type="password" matInput placeholder="Password-conf" [formControl]="passwordConfFormControl"
                 [errorStateMatcher]="matcher">
         <mat-hint>확인을 위해 비밀번호를 입력해주세요.</mat-hint>
+        <mat-error *ngIf="passwordError && passwordConfFormControl.hasError('required')">
+          {{passwordError}}
+        </mat-error>
         <mat-error *ngIf="passwordConfFormControl.hasError('required')">
           비밀번호를 <strong>입력</strong>해 주시기 바랍니다.
         </mat-error>
@@ -63,17 +72,32 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
     </form>
 
-    <button class="btn-signup" mat-raised-button [disabled]="!signupForm.valid">회원가입</button>
+    <button type="submit" class="btn-signup" mat-raised-button [disabled]="!signupForm.valid">회원가입</button>
   </section>
   `,
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
   signupForm: FormGroup;
   matcher = new MyErrorStateMatcher();
+  emailError: string = '';
+  passwordError: string = '';
   
-  constructor() {}
+  constructor(private http: HttpClient, private path: AppService, private auth: AuthService, private router: Router) {}
+
+  onSubmit() {
+    this.auth.login(this.emailFormControl.value, this.passwordFormControl.value)
+      .subscribe(result => {
+        if (result === true) {
+          // login successful
+          this.router.navigate(['/main']);
+        }
+      }, err => {
+        const errorMessage = this.auth.connectError(err, this.signupForm);
+        this.emailError = errorMessage.emailError;
+        this.passwordError = errorMessage.passwordError;
+      });
+  }
 
   ngOnInit() {
     this.signupForm = new FormGroup({
@@ -109,10 +133,6 @@ export class SignupComponent implements OnInit {
           return null;
         }
       }
-  }
-
-  onSubmit(){
-
   }
 
   //Form Data Return
