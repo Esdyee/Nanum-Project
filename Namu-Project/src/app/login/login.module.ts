@@ -14,7 +14,7 @@ import { SignupComponent } from './signup/signup.component';
 
 //service
 import { AppService } from '../app.service';
-import { AuthService } from './auth.service'
+import { AuthService } from './auth.service';
 
 @NgModule({
     imports: [
