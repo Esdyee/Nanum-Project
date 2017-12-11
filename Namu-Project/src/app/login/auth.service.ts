@@ -9,7 +9,6 @@ import 'rxjs/add/operator/map'
 export interface messageError {
   emailError:string;
   passwordError:string;
-  signupForm:string;
 }
 
 @Injectable()
@@ -26,9 +25,16 @@ export class AuthService {
   }
 
   connect(api:string, email:string, password:string, password2?:string, name?:string){
-    return this.http.post(api, JSON.stringify({ email: email, password: password })
+    let paylord
+    if(password2 || name){
+      paylord = { name : name, email: email, password1:password, password2:password2 }
+    } else {
+      paylord = { email: email, password: password }
+    }
+    return this.http.post(api, JSON.stringify(paylord)
       , { headers: this.headers })
       .map((response: Response) => {
+        console.log("connect");
         // login successful if there's a jwt token in the response
         let token = response.json() && response.json().token;
         if (token) {
@@ -51,7 +57,7 @@ export class AuthService {
     return this.connect("https://siwon.me/user/login/", email, password);
   }
 
-  signup(name: string, email: string, password: string, password2: string): Observable<boolean>{
+  signup(email: string, password: string, password2: string, name: string): Observable<boolean>{
     return this.connect("https://siwon.me/user/signup/", email, password, password2, name);
   }
 

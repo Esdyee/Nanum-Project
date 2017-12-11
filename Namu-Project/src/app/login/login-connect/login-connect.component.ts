@@ -87,7 +87,6 @@ export class LoginConnectComponent implements OnInit {
           this.router.navigate(['/main']);
         } 
       }, err => {
-        console.log(err);
         if(err.status == 400){
           console.log(400)
           //이메일 validation
