@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from "@angular/common";
 
 import { MaterialModule } from './module/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -63,7 +64,10 @@ import { QuestionService } from './question-feed/question.service';
     AskModalComponent,
     TopicSelectComponent
   ],
-  providers: [QuestionService],
+  providers: [QuestionService, 
+    //{ provide: APP_BASE_HREF, useValue: '/' },
+    //{ provide: LocationStrategy, useClass: HashLocationStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
