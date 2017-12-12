@@ -48,7 +48,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
       </mat-form-field>
       
       <mat-form-field class="signup-full-width">
-        <input matInput placeholder="Password" [formControl]="passwordFormControl"
+        <input type="password" matInput placeholder="Password" [formControl]="passwordFormControl"
                 [errorStateMatcher]="matcher" #password>
         <mat-hint>비밀번호를 입력해주세요.</mat-hint>
         <mat-error *ngIf="passwordFormControl.hasError('required')">
@@ -67,12 +67,12 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
           비밀번호를 <strong>입력</strong>해 주시기 바랍니다.
         </mat-error>
       </mat-form-field>
-      <pre>{{ signupForm.value | json }}</pre>
-      <pre>{{ signupForm.valid }}</pre>
-
+      <button type="submit" class="btn-signup" mat-raised-button [disabled]="!signupForm.valid">회원가입</button>
+      <!--<pre>{{ signupForm.value | json }}</pre>
+      <pre>{{ signupForm.valid }}</pre>-->
     </form>
 
-    <button type="submit" class="btn-signup" mat-raised-button [disabled]="!signupForm.valid">회원가입</button>
+    
   </section>
   `,
   styleUrls: ['./signup.component.css']
@@ -86,16 +86,17 @@ export class SignupComponent implements OnInit {
   constructor(private http: HttpClient, private path: AppService, private auth: AuthService, private router: Router) {}
 
   onSubmit() {
-    this.auth.login(this.emailFormControl.value, this.passwordFormControl.value)
+    this.auth.signup(this.emailFormControl.value, this.passwordFormControl.value
+      , this.passwordConfFormControl.value, this.nameFormControl.value)
       .subscribe(result => {
         if (result === true) {
           // login successful
           this.router.navigate(['/main']);
         }
       }, err => {
-        const errorMessage = this.auth.connectError(err, this.signupForm);
-        this.emailError = errorMessage.emailError;
-        this.passwordError = errorMessage.passwordError;
+        if (err.status == 400) {
+          console.log(err);
+        } 
       });
   }
 
