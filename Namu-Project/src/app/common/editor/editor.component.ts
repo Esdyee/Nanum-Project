@@ -59,7 +59,6 @@ export class EditorComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    // TODO: submit 시 스트리밍 공유하는 방법 모르겠음
     console.log(this.content);
   }
 
