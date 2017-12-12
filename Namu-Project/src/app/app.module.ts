@@ -64,10 +64,7 @@ import { QuestionService } from './question-feed/question.service';
     AskModalComponent,
     TopicSelectComponent
   ],
-  providers: [QuestionService, 
-    //{ provide: APP_BASE_HREF, useValue: '/' },
-    //{ provide: LocationStrategy, useClass: HashLocationStrategy }
-  ],
+  providers: [QuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
