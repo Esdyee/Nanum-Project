@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { QuestionService } from './question.service';
 
 // typings
-import { Question, questions } from './question';
+import { Question } from './question';
 
 @Component({
   selector: 'app-question-feed',
@@ -10,25 +10,30 @@ import { Question, questions } from './question';
   styleUrls: ['./question-feed.component.css']
 })
 export class QuestionFeedComponent implements OnInit {
-  questions;
+  questions = [];
+  currentPage = 1;
 
   constructor(private http: QuestionService) { }
 
   ngOnInit() {
-    this.getQuestions();
-    // this.http.getQuestionss()
-    //   .subscribe(
-    //     questions => {
-    //       console.log(questions);
-    //     },
-    //   error => {
-    //       console.log(error);
-    //   }
-    // );
+    this.loadQuestions();
   }
 
-  getQuestions(): void {
-    this.questions = questions;
+  negativeFeedback(pk) {
+    console.log(pk);
   }
 
+  loadQuestions() {
+    this.http.getFeed(this.currentPage)
+    .subscribe(
+      res => {
+        this.questions = [...this.questions, ...res.results];
+        console.log(this.questions);
+        this.currentPage += 1;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
 }
