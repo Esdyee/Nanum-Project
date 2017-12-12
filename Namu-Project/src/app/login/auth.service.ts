@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
+import { FormGroup } from '@angular/forms'
 import { Observable } from 'rxjs';
 import { AppService } from '../app.service';
+
 import 'rxjs/add/operator/map'
 
 @Injectable()
@@ -17,10 +19,17 @@ export class AuthService {
     this.token = currentUser && currentUser.token;
   }
 
-  login(email: string, password: string): Observable<boolean> {
-    return this.http.post("https://siwon.me/user/login/", JSON.stringify({ email: email, password: password })
-    , { headers : this.headers})
+  connect(api:string, email:string, password:string, password2?:string, name?:string){
+    let paylord
+    if(password2 || name){
+      paylord = { name : name, email: email, password1:password, password2:password2 }
+    } else {
+      paylord = { email: email, password: password }
+    }
+    return this.http.post(api, JSON.stringify(paylord)
+      , { headers: this.headers })
       .map((response: Response) => {
+        console.log("connect");
         // login successful if there's a jwt token in the response
         let token = response.json() && response.json().token;
         if (token) {
@@ -37,6 +46,14 @@ export class AuthService {
           return false;
         }
       });
+  }
+
+  login(email: string, password: string): Observable<boolean> {
+    return this.connect("https://siwon.me/user/login/", email, password);
+  }
+
+  signup(email: string, password: string, password2: string, name: string): Observable<boolean>{
+    return this.connect("https://siwon.me/user/signup/", email, password, password2, name);
   }
 
   logout(): void {
