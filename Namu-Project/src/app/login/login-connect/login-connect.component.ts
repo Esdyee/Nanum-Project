@@ -93,6 +93,7 @@ export class LoginConnectComponent implements OnInit {
           this.emailError = JSON.parse(err._body).email[0];
         } else{
           console.log(401)
+          console.log(err)
           //this.error = JSON.parse(err._body)
           console.log(err._body);
           this.passwordError = JSON.parse(err._body).message;

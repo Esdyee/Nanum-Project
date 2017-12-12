@@ -6,11 +6,6 @@ import { AppService } from '../app.service';
 
 import 'rxjs/add/operator/map'
 
-export interface messageError {
-  emailError:string;
-  passwordError:string;
-}
-
 @Injectable()
 export class AuthService {
   public token: string;
@@ -59,22 +54,6 @@ export class AuthService {
 
   signup(email: string, password: string, password2: string, name: string): Observable<boolean>{
     return this.connect("https://siwon.me/user/signup/", email, password, password2, name);
-  }
-
-  connectError(err, form:FormGroup){
-    let messageError: messageError
-    if (err.status == 400) {
-      console.log(400)
-      //이메일 validation
-      messageError.emailError = JSON.parse(err._body).email[0];
-    } else {
-      console.log(401)
-      //this.error = JSON.parse(err._body)
-      console.log(err._body);
-      messageError.passwordError = JSON.parse(err._body).message;
-      form.patchValue({ passwordFormControl: "" })
-    }
-    return messageError;
   }
 
   logout(): void {
