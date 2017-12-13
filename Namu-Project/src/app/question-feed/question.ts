@@ -3,9 +3,9 @@ import { User, users } from '../main-feed/user';
 export class Question {
   // super-user: 2
   // cmygray: 3
-  user: number;
-  topics: number[];
+  // user: number;
   content: string;
+  topics: number[];
 }
 
 export const questions = [
