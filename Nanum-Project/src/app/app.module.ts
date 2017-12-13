@@ -47,7 +47,7 @@ import { QuestionService } from './question-feed/question.service';
     CommentsComponent,
     EditorComponent,
     NavTabComponent,
-    ProfileTopicModalComponent
+    ProfileTopicModalComponent,
   ],
   imports: [
     BrowserModule,
