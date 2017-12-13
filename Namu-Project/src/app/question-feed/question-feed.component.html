@@ -1,35 +1,3 @@
-<!--header: 범용 컴포넌트-->
-<!--<header class="app_header">-->
-  <!--<div class="container_12">-->
-    <!--<div class="grid_3"><h1 class="mat-h2">Nanum</h1></div>-->
-    <!--<div class="grid_6"><input type="text" class="mat-input" placeholder="search-bar"></div>-->
-    <!--<div class="grid_3">-->
-      <!--<button mat-icon-button color="primary">-->
-        <!--<mat-icon>notifications</mat-icon>-->
-      <!--</button>-->
-      <!--<button mat-mini-fab color="primary">-->
-        <!--<mat-icon>face</mat-icon>-->
-      <!--</button></div>-->
-    <!--<button mat-raised-button color="primary" (click)="openAskModal()">-->
-      <!--<span class="mat-button">질문하기</span>-->
-    <!--</button>-->
-  <!--</div>-->
-<!--</header>-->
-
-<!--TODO: component 분리-->
-<!--<nav class="nav">-->
-  <!--<div class="container_12">-->
-    <!--<div class="grid_2 prefix_4">-->
-      <!--<a href="#"><span>읽기</span></a>-->
-    <!--</div>-->
-    <!--<div class="grid_2 suffix_4">-->
-      <!--<a href="#"><span>답변하기</span></a>-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</nav>-->
-
-<!--<app-navigator></app-navigator>-->
-
 <div class="main">
 
   <div class="container_12">
@@ -57,16 +25,16 @@
     <div class="grid_8">
       <mat-card *ngFor="let question of questions" class="post question">
         <div class="post header">
-          <span class="post metadata mat-caption">질문<a href="#" class="topic">연관토픽</a></span>
+          <span class="post metadata mat-caption">질문<a href="#" class="topic">{{ question.topics }}</a></span>
           <!--TODO: negativeFeedback answer feed에만 구현돼있음-->
-          <i (click)="negativeFeedback(question.id)" class="material-icons md-18">close</i>
+          <i (click)="negativeFeedback(question.question.pk)" class="material-icons md-18">close</i>
         </div>
         <mat-card-title>
-          {{ question.question }}
+          {{ question.question.content }}
         </mat-card-title>
         <div class="question-info">
           <div class="timestamp mat-caption">
-            답변 시간 표시란(질문인 경우 답변, 팔로우 수, 경과시간 표시
+            {{ question.question.modified_at }}
           </div>
         </div>
         <mat-card-actions>
@@ -78,6 +46,7 @@
     </div>
 
     <div class="grid_2">
+      <button type="button" (click)="loadQuestions()">더보기(임시)</button>
     </div>
   </div>
 </div>
