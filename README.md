@@ -6,10 +6,9 @@
 
 질의응답 웹서비스 [Quora](https://www.quora.com)를 벤치마킹하였다. 사용자는 자신의 전문분야에 대한 답변과 관심분야에 대한 질문을 올리고, 이를 피드에서 확인할 수 있다.
 
-- 트렐로
+- [와이어프레임](https://xwklrd.axshare.com/)
 - [Scrumboard](https://docs.google.com/a/fastcampus.co.kr/spreadsheets/d/19hdWFqjpBN9AETtN86JAX6vFg2HuMkNaJL2H-JpIQmQ/edit?usp=sharing)
 - [웹 프로그래밍 스쿨 github 저장소(백엔드 담당)](https://github.com/namu617/nanum-project)
-- [와이어프레임](https://xwklrd.axshare.com/)
 
 ## 사용 기술
 
