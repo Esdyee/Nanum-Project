@@ -5,6 +5,23 @@ import { Observable } from 'rxjs';
 import { AppService } from '../app.service';
 import 'rxjs/add/operator/map';
 
+interface loginData {
+  email:string;
+  password: string;
+}
+
+interface signupData{
+  name:string;
+  email: string;
+  password1: string;
+  password2: string;
+}
+
+interface facebookData{
+  accessToken:string;
+  userid:string;
+}
+
 @Injectable()
 export class AuthService {
   public token: string;
@@ -18,13 +35,9 @@ export class AuthService {
     this.token = currentUser && currentUser.token;
   }
 
-  connect(api:string, email:string, password:string, password2?:string, name?:string){
-    let paylord
-    if(password2 || name){
-      paylord = { name : name, email: email, password1:password, password2:password2 }
-    } else {
-      paylord = { email: email, password: password }
-    }
+  connect(api:string, category:string, data){
+    let paylord = data
+
     return this.http.post(api, JSON.stringify(paylord)
       , { headers: this.headers })
       .map((response: Response) => {
@@ -36,7 +49,7 @@ export class AuthService {
           this.token = token;
 
           // store email and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('currentUser', JSON.stringify({ email: email, token: token }));
+          localStorage.setItem('currentUser', JSON.stringify({ token: token }));
 
           // return true to indicate successful login
           return true;
@@ -48,11 +61,20 @@ export class AuthService {
   }
 
   login(email: string, password: string): Observable<boolean> {
-    return this.connect("https://siwon.me/user/login/", email, password);
+    let data:loginData = {email:email, password:password}
+    return this.connect(this.path.api_path + "user/login/", 'login',  data);
   }
 
   signup(email: string, password: string, password2: string, name: string): Observable<boolean>{
-    return this.connect("https://siwon.me/user/signup/", email, password, password2, name);
+    let data: signupData = { email : email, password1 : password, password2 : password2, name : name}
+    
+    return this.connect(this.path.api_path + "user/signup/", 'signup', data);
+  }
+
+  facebooklogin(accessToken: string, userid: string, connectFunc){
+    console.log(accessToken);
+    let data:facebookData = {accessToken:accessToken, userid:userid}
+    return connectFunc("https://siwon.me/user/facebook/", 'facebook', data);
   }
 
   logout(): void {
