@@ -1,6 +1,8 @@
 # 지식공유서비스 Nanum
 
-패스트캠퍼스 프론트엔드개발 스쿨 6기 TEAM-2(member: [Esdyee](https://github.com/Esdyee), [cmygray](https://github.com/cmygray), [SJdub](https://github.com/SJdub), [TheFlow01](https://github.com/TheFlow01), [Alrin12](https://github.com/Alrin12)) 프로젝트 저장소
+패스트캠퍼스 프론트엔드개발 스쿨 6기 TEAM-2 프로젝트 저장소
+
+**Members:** [Esdyee](https://github.com/Esdyee), [cmygray](https://github.com/cmygray), [SJdub](https://github.com/SJdub), [TheFlow01](https://github.com/TheFlow01), [Alrin12](https://github.com/Alrin12)
 
 ## 프로젝트 소개
 
@@ -8,6 +10,7 @@
 
 - [와이어프레임](https://xwklrd.axshare.com/)
 - [Scrumboard](https://docs.google.com/a/fastcampus.co.kr/spreadsheets/d/19hdWFqjpBN9AETtN86JAX6vFg2HuMkNaJL2H-JpIQmQ/edit?usp=sharing)
+- [Wiki](https://github.com/Esdyee/Namu-Project/wiki/0.-README)
 - [웹 프로그래밍 스쿨 github 저장소(백엔드 담당)](https://github.com/namu617/nanum-project)
 
 ## 사용 기술
