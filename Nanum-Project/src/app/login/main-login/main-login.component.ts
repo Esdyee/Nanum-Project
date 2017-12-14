@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service'
 import { AppService } from '../../app.service';
-declare var FB:any;
+
+declare var FB: any;
 
 @Component({
   selector: 'app-main-login',
@@ -10,13 +11,13 @@ declare var FB:any;
   styleUrls: ['./main-login.component.css']
 })
 export class MainLoginComponent implements OnInit {
-  facebookLoginOK;
   obj:object = {}
   test:string;
 
   constructor(private route: ActivatedRoute, private navRoute: Router, private auth: AuthService, private path: AppService) {   }
 
   ngOnInit() {
+    console.log('[ONINIT]', this.auth)
     // if(localStorage.getItem('currentUser')){
     //   this.navRoute.navigate(['/main']);
     // }
@@ -26,15 +27,9 @@ export class MainLoginComponent implements OnInit {
     this.navRoute.navigate(['find']);
   }
   
-  connect(){
-    const obj = localStorage.getItem("fblogin");
-    console.log(obj);
-  }
-
   FBLogin(){
-    //let userid
-
-    let funcPost = function (fbtoken, userid){
+    
+    let funcPost = function (fbtoken, userid) {
       return new Promise((resolve, reject) => {
         let req = new XMLHttpRequest();
         req.open('POST', 'https://siwon.me/user/facebook-login/');
@@ -44,7 +39,7 @@ export class MainLoginComponent implements OnInit {
           if (req.readyState === XMLHttpRequest.DONE) {
             if (req.status == 200) {
               resolve(req.response);
-            } else{
+            } else {
               reject(req.response);
             }
           }
@@ -53,17 +48,25 @@ export class MainLoginComponent implements OnInit {
     }
 
     FB.login(function(response){
+      console.log('FB.LOGIN', this)
       if(response.status == "connected"){
+        console.log(response);
         const fbtoken = response.authResponse.accessToken;
         const userid = response.authResponse.userID;
         //localStorage.setItem("currentUser", JSON.stringify({ fbtoken: fbtoken, userid: userid }));
-
+        //this.auth.facebooklogin(fbtoken,userid);
         funcPost(fbtoken, userid)
         .then(res => {
           console.log(res);
         })
+        .then(res => {
+          console.log(res)
+        })
+        .catch(res => {console.log(res)})
       }
     })
+
+
   }
 
 
