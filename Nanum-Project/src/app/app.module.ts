@@ -25,7 +25,10 @@ import { EditorComponent } from './common/editor/editor.component';
 import { TopicSelectComponent } from './main-feed/topic-select/topic-select.component';
 import { NavTabComponent } from './common/nav-tab/nav-tab.component';
 import { ProfileTopicModalComponent } from './profile/profile-topic-modal/profile-topic-modal.component';
+import { ProfileFollowModalComponent } from './profile/profile-follow-modal/profile-follow-modal.component';
 import { QuestionService } from './question-feed/question.service';
+
+
 
 
 @NgModule({
@@ -48,6 +51,7 @@ import { QuestionService } from './question-feed/question.service';
     EditorComponent,
     NavTabComponent,
     ProfileTopicModalComponent,
+    ProfileFollowModalComponent
   ],
   imports: [
     BrowserModule,
