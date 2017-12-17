@@ -20,6 +20,13 @@ interface Answer {
   published: boolean;
 }
 
+interface Answers {
+  count: number;
+  next: string;
+  previous: string;
+  results: Object[];
+}
+
 @Injectable()
 export class QuestionService {
 
@@ -39,6 +46,11 @@ export class QuestionService {
   addQuestion(payload: Question) {
     return this.http.post<Question>(`${this.HOST}/post/question/`, payload,
       { headers: this.headers});
+  }
+
+  getAnswers(page) {
+    return this.http.get<Answers>(`${this.HOST}/post/answer/?ordering=-created_at&page=${page}`,
+      { headers: this.headers });
   }
 
   addAnswer(payload: Answer) {
