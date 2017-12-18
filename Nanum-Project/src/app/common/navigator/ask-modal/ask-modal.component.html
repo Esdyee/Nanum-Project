@@ -1,0 +1,33 @@
+<div class="ask-modal wrapper">
+  <button mat-mini-fab color="primary"><img class="thumbnail" src="assets/images/me.png"></button>
+  <h1 mat-dialog-title>
+    <!--TODO: button 삭제 및 이미지 레이아웃 조정-->
+    {{data.name}}님,
+  </h1>
+  <i class="material-icons" (click)="onNoClick()">close</i>
+  <div mat-dialog-content>
+    <form [formGroup]="questionForm" novalidate (ngSubmit)="onSubmit()">
+      <mat-form-field class="textField">
+        <textarea matInput placeholder="질문이 무엇인가요?" matTextareaAutosize matAutosizeMinRows="2"
+                  matAutosizeMaxRows="5" maxlength="150" formControlName="content"></textarea>
+      </mat-form-field>
+      <mat-form-field class="topicField">
+        <mat-chip-list #chipList formControlName="topics">
+          <mat-chip
+            *ngFor="let topic of topics" [selectable]="true" [removable]="true" (remove)="remove(topic)">
+            {{ topic }}
+            <mat-icon matChipRemove>cancel</mat-icon>
+          </mat-chip>
+          <input placeholder="연관 토픽을 입력하세요"
+                 [matChipInputFor]="chipList"
+                 [matChipInputSeparatorKeyCodes]="separatorKeyCodes"
+                 [matChipInputAddOnBlur]="true"
+                 (matChipInputTokenEnd)="add($event)"/>
+        </mat-chip-list>
+      </mat-form-field>
+      <div mat-dialog-actions>
+        <button mat-button type="submit" color="primary">확인</button>
+      </div>
+    </form>
+  </div>
+</div>

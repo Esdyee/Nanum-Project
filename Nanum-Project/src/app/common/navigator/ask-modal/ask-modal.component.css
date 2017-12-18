@@ -1,0 +1,34 @@
+.thumbnail {
+  margin-top: -20%;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.mat-dialog-title {
+  display: inline-block;
+  margin-left: 0.5rem;
+  margin-bottom: 0;
+}
+
+.ask-modal > .material-icons {
+  float: right;
+  cursor: pointer;
+}
+
+.mat-form-field.textField {
+  width: 100%;
+}
+
+.mat-form-field.topicField {
+  width: 50%;
+}
+
+.topicField .mat-input-wrapper .mat-form-field-underline {
+  height: 0;
+}
+
+.mat-input-element.mat-form-field-autofill-control {
+  font-size: 1.8rem;
+  font-weight: 700;
+}

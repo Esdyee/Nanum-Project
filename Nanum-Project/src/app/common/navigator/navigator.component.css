@@ -1,0 +1,39 @@
+.nav {
+ background-color: #25284c;
+     position: fixed;
+     top: 0;
+     width: 100%;
+     z-index: 1;
+
+}
+
+.logo {
+    color: white;
+    font-style: bold;
+    font-size: 1.5em;
+}
+
+
+.search-input {
+    background-color: #fff;
+    width: 100%;
+}
+
+
+.container_12 {
+}
+
+.mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: #FFFFFF !important;
+}
+.mat-focused .mat-form-field-label {
+  color: #FFFFFF !important;
+}
+
+.mat-form-field-ripple {
+  background-color: #FFFFFF !important;
+
+}
+
+
+
