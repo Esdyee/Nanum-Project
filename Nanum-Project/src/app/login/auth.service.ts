@@ -1,8 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { Observable, Observer, Subject } from 'rxjs';
+import { Subscription } from 'rxjs/Subscription';
 import { AppService } from '../app.service';
+import { MainLoginComponent } from './main-login/main-login.component';
 import 'rxjs/add/operator/map';
 
 declare var FB: any;
@@ -25,13 +28,20 @@ interface FacebookData {
 }
 
 @Injectable()
-export class AuthService {
+export class AuthService implements OnInit {
   public token: string;
+  // facebook login
+  public loginsign = new Subject<any>();
+  public login$ = this.loginsign.asObservable();
+  public sign = false;
+  private fbToken = [];
+  private tokensub: Subscription;
+
   headers = new Headers({
     'Content-Type': 'application/json'
   });
 
-  constructor(private http: Http, private path: AppService) {
+  constructor(private http: Http, private path: AppService, private router: Router ) {
     // set token if saved in local storage
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.token;
@@ -62,9 +72,15 @@ export class AuthService {
     // this.loadScript(initFunc);
   }
 
+  ngOnInit() {
+    if (FB) {
+      FB.XFBML.parse();
+    }
+  }
+
   connect(api: string, category: string, data) {
     const paylord = data;
-
+    console.log(api, data);
     return this.http.post(api, JSON.stringify(paylord)
       , { headers: this.headers })
       .map((response: Response) => {
@@ -78,10 +94,10 @@ export class AuthService {
           // store email and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify(response));
 
-          // return true to indicate successful login
           return true;
         } else {
           // return false to indicate failed login
+          console.log('connec fail');
           return false;
         }
       });
@@ -97,32 +113,40 @@ export class AuthService {
     return this.connect(this.path.api_path + 'user/signup/', 'signup', data);
   }
 
-  // loadScript(url) {
-  //   console.log('preparing to load...')
-  //   let node = document.createElement('script');
-  //   node.src = url;
-  //   node.type = 'text/javascript';
-  //   document.getElementsByTagName('head')[0].appendChild(node);
-  // }
-
   // facebooklogin(accessToken: string, userid: string, connectFunc) {
-  facebooklogin() {
-    const api_path = this.path.api_path;
-    const connect = this.connect;
-    const funcLogin = FB.login;
+  facebookCheck() {
+    FB.login();
 
-    funcLogin(function (response) {
-      console.log(this);
+    FB.Event.subscribe('auth.statusChange', (response => {
       if (response.status === 'connected') {
-        console.log(response);
         const fbtoken = response.authResponse.accessToken;
         const fbuserid = response.authResponse.userID;
         const data = { access_token: fbtoken, facebook_user_id: fbuserid };
-        return connect(api_path + 'user/facebook-login/', 'facebook', data);
+        this.fbToken = [[fbtoken, fbuserid]];
+        this.facebookLoginAuth();
       }
-    });
-    // FB.login();
-    // return connectFunc('https://siwon.me/user/facebook/', 'facebook', data);
+    }));
+  }
+
+  facebookLoginAuth() {
+    let data;
+    const observable$ = Observable.from(this.fbToken);
+    this.tokensub = observable$
+      .subscribe(result => {
+        data = { access_token: result[0], facebook_user_id: result[1] };
+        this.connect(this.path.api_path + 'user/facebook-login/', 'facebook', data)
+          .subscribe(res => {
+            if (res === true) {
+              this.sign = true;
+              this.setParams(res);
+            }
+          });
+      });
+  }
+
+  setParams(result) {
+    console.log('result');
+    this.loginsign.next(1);
   }
 
   logout(): void {
