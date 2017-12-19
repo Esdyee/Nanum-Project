@@ -13,7 +13,6 @@ import { TopicComponent } from './topic/topic.component';
 import { MainFeedComponent } from './main-feed/main-feed.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NavigatorComponent } from './common/navigator/navigator.component';
-import { AnswerComponent } from './answer/answer.component';
 import { AskModalComponent } from './common/navigator/ask-modal/ask-modal.component';
 // import { MainLoginComponent } from './login/main-login/main-login.component';
 // import { FindPasswordComponent } from './login/find-password/find-password.component';
@@ -43,7 +42,6 @@ import { MainLeftComponent } from './main/main-left/main-left.component';
     ProfileComponent,
     NavigatorComponent,
     AskModalComponent,
-    AnswerComponent,
     AskModalComponent,
     TopicSelectComponent,
     // MainLoginComponent,
