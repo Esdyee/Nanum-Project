@@ -1,0 +1,22 @@
+<mat-card class="post question">
+  <div class="post header">
+    <span class="post metadata mat-caption">질문
+      <ng-container *ngIf="topics.length">
+        <a *ngFor="let topic of topics" [href]="topic.url" class="topic">{{ topic.name }}</a>
+      </ng-container>
+    </span>
+    <i (click)="negativeFeedback(question.question.pk)" class="material-icons md-18">close</i>
+  </div>
+  <mat-card-title>
+    {{ question.question.content }}
+  </mat-card-title>
+  <div class="question-info">
+    <div class="timestamp mat-caption">
+      {{ question.question.modified_at }}
+    </div>
+  </div>
+  <mat-card-actions>
+    <button mat-button (click)="openEditor(question.question)">답변하기</button>
+    <button mat-button>팔로우</button>
+  </mat-card-actions>
+</mat-card>

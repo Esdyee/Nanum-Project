@@ -4,10 +4,10 @@
     이제 전문적인 정보를 찾으로 헤메지 마세요.<br> 지식 공유 네트워크, 나눔입니다.
   </p>
   <div class="btn-login">
-    <button class="email-login" routerLink="../connect">로그인</button>
+    <button class="email-login" routerLink="/login/connect">로그인</button>
     <button class="facebook-login" (click)="FBLogin()">페이스북으로 로그인</button>
   </div>
-  <pre style="color:white">{{obj}}</pre>
+  <pre style="color:white">login : {{loginOK | json}}</pre>
   <div class="account">
     <button class="find-password" routerLink="../find">비밀번호 찾기</button> |
     <button class="btn-signup" routerLink="../signup">회원가입</button>
