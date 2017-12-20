@@ -80,11 +80,13 @@ export class LoginConnectComponent implements OnInit {
   onSubmit() {
     this.auth.login(this.emailFormControl.value, this.passwordFormControl.value)
       .subscribe(result => {
+        console.log(result);
         if (result === true) {
           // login successful
           this.router.navigate(['/main']);
         }
       }, err => {
+        console.log(err);
         if (err.status === 400) {
           console.log(400);
           // 이메일 validation
