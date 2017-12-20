@@ -23,7 +23,6 @@ import { EditorComponent } from './common/editor/editor.component';
 
 import { TopicSelectComponent } from './main-feed/topic-select/topic-select.component';
 import { NavTabComponent } from './common/nav-tab/nav-tab.component';
-import { ProfileTopicModalComponent } from './profile/profile-topic-modal/profile-topic-modal.component';
 import { ProfileFollowModalComponent } from './profile/profile-follow-modal/profile-follow-modal.component';
 import { QuestionDetailComponent } from './question-detail/question-detail.component';
 import { MainComponent } from './main/main.component';
@@ -31,10 +30,14 @@ import { QuestionComponent } from './main/question/question.component';
 // 기존에 Answer가 있어서 ==> Answers로 지정
 import { AnswersComponent } from './main/answers/answers.component';
 import { MainLeftComponent } from './main/main-left/main-left.component';
+import { ProfileBottomModalComponent } from './profile/profile-bottom-modal/profile-bottom-modal.component';
+import { ProfileMiddleModalComponent } from './profile/profile-middle-modal/profile-middle-modal.component';
+import { ProfileTopModalComponent } from './profile/profile-top-modal/profile-top-modal.component';
 
 // Service
 import { QuestionService } from './question-feed/question.service';
 import { MenuService } from './service/menu.service';
+import { ProfileService } from './profile/profile.service';
 
 
 
@@ -56,13 +59,15 @@ import { MenuService } from './service/menu.service';
     CommentsComponent,
     EditorComponent,
     NavTabComponent,
-    ProfileTopicModalComponent,
     QuestionDetailComponent,
     ProfileFollowModalComponent,
     MainComponent,
     QuestionComponent,
     MainLeftComponent,
-    AnswersComponent
+    AnswersComponent,
+    ProfileBottomModalComponent,
+    ProfileMiddleModalComponent,
+    ProfileTopModalComponent
   ],
   imports: [
     BrowserModule,
@@ -77,9 +82,12 @@ import { MenuService } from './service/menu.service';
   ],
   entryComponents: [
     AskModalComponent,
-    TopicSelectComponent
+    TopicSelectComponent,
+    ProfileMiddleModalComponent,
+    ProfileBottomModalComponent,
+    ProfileTopModalComponent
   ],
-  providers: [QuestionService, MenuService],
+  providers: [QuestionService, ProfileService, MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

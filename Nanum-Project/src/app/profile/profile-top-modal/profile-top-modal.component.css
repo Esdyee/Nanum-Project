@@ -1,0 +1,38 @@
+img {
+  min-width: 180px;
+  min-height: 180px;
+  max-width: 180px;
+  max-height: 180px;
+  border-radius: 50%;
+  z-index: -99;
+}
+
+#avatar {
+  display: none;
+}
+
+.user-profile-image {
+  display: inline-block;
+}
+
+.user-profile-image:hover {
+  cursor: pointer;
+}
+
+/* .btn {
+  min-width: 80px;
+  border-radius: 2px;
+  font-size: 12px;
+  color: #fff;
+  margin-left: 10px;
+  border-color: transparent;
+}
+
+.btn .btn-cancel {
+  background-color: #ffdd57;
+  color: #3e3e3e;
+} */
+
+/* .btn .btn-save {
+  background-color: #23d160;
+} */
