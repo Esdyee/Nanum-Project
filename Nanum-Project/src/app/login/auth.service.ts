@@ -1,5 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable, Observer, Subject } from 'rxjs';
@@ -15,6 +16,11 @@ interface LoginData {
   password: string;
 }
 
+interface LoginAccessData {
+  token: string;
+  user: object;
+}
+
 interface SignupData {
   name: string;
   email: string;
@@ -26,6 +32,8 @@ interface FacebookData {
   access_token: string;
   facebook_user_id: string;
 }
+
+
 
 @Injectable()
 export class AuthService implements OnInit {
@@ -41,7 +49,7 @@ export class AuthService implements OnInit {
     'Content-Type': 'application/json'
   });
 
-  constructor(private http: Http, private path: AppService, private router: Router ) {
+  constructor(private http: HttpClient, private path: AppService, private router: Router ) {
     // set token if saved in local storage
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.token;
@@ -73,31 +81,30 @@ export class AuthService implements OnInit {
   }
 
   ngOnInit() {
-    if (FB) {
-      FB.XFBML.parse();
-    }
+
   }
 
   connect(api: string, category: string, data) {
     const paylord = data;
-    console.log(api, data);
-    return this.http.post(api, JSON.stringify(paylord)
-      , { headers: this.headers })
-      .map((response: Response) => {
+    // console.log(api, data);
+
+    return this.http.post(api, JSON.stringify(paylord), { headers: {'Content-Type': 'application/json'}})
+      .map((response: LoginAccessData) => {
         console.log('connect');
+
         // login successful if there's a jwt token in the response
-        const token = response.json() && response.json().token;
+        const token = response && response.token;
         if (token) {
           // set token property
           this.token = token;
+          this.path.test_user_data = response;
 
           // store email and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify(response));
-
           return true;
         } else {
           // return false to indicate failed login
-          console.log('connec fail');
+          console.log('connect fail');
           return false;
         }
       });
@@ -115,38 +122,26 @@ export class AuthService implements OnInit {
 
   // facebooklogin(accessToken: string, userid: string, connectFunc) {
   facebookCheck() {
-    FB.login();
-
-    FB.Event.subscribe('auth.statusChange', (response => {
-      if (response.status === 'connected') {
-        const fbtoken = response.authResponse.accessToken;
-        const fbuserid = response.authResponse.userID;
-        const data = { access_token: fbtoken, facebook_user_id: fbuserid };
-        this.fbToken = [[fbtoken, fbuserid]];
-        this.facebookLoginAuth();
-      }
-    }));
+    // FB.login(response => {
+    //   if (response.status === 'connected') {
+    //     const fbtoken = response.authResponse.accessToken;
+    //     const fbuserid = response.authResponse.userID;
+    //     const data = { access_token: fbtoken, facebook_user_id: fbuserid };
+    //     return this.connect(this.path.api_path + 'user/facebook-login/', 'facebook', data);
+    //     // this.sign = true;
+    //     // this.setParams(data);
+    //   } else {
+    //     this.connect(this.path.api_path + 'user/facebook-login/', 'facebook', data);
+    //   }
+    // });
   }
 
-  facebookLoginAuth() {
-    let data;
-    const observable$ = Observable.from(this.fbToken);
-    this.tokensub = observable$
-      .subscribe(result => {
-        data = { access_token: result[0], facebook_user_id: result[1] };
-        this.connect(this.path.api_path + 'user/facebook-login/', 'facebook', data)
-          .subscribe(res => {
-            if (res === true) {
-              this.sign = true;
-              this.setParams(res);
-            }
-          });
-      });
+  facebookLoginAuth(data): Observable<boolean> {
+    return this.connect(this.path.api_path + 'user/facebook-login/', 'facebook', data);
   }
 
-  setParams(result) {
-    console.log('result');
-    this.loginsign.next(1);
+  setParams(data) {
+    this.loginsign.next(data);
   }
 
   logout(): void {
