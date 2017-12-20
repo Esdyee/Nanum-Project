@@ -9,8 +9,9 @@ import { MainComponent } from './main/main.component';
 // 라우트에 해당되는 것이 없을 때 나타나는 페이지
 import { NotFoundComponent } from './common/not-found/not-found.component';
 import { NavigatorComponent } from './common/navigator/navigator.component';
-import { EditorComponent } from './common/editor/editor.component';
 import { MainLeftComponent } from './main/main-left/main-left.component';
+import { FeedModule } from './shared/feed/feed.module';
+import { FeedComponent } from './shared/feed/feed.component';
 
 // 라우트 구성
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: 'leftmenu', component: MainLeftComponent }
     ]
   },
+  { path: 'feed', component: FeedComponent, canActivate: [LoginGuard]},
   { path: 'maintest', component: MainComponent },
   { path: '**', component: NotFoundComponent},
 ];
@@ -28,6 +30,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     LoginModule,
+    FeedModule,
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],
