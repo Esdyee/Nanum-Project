@@ -22,6 +22,13 @@ interface Question {
   modified_at: string;
 }
 
+interface Answer {
+  question: number;
+  content: string;
+  content_html: string;
+  published: boolean;
+}
+
 interface QuestionDetail {
   question: Question;
   topics: string[];
@@ -98,5 +105,9 @@ export class FeedService {
 
   postComment(payload) {
     return this.http.post<Comment>(`${HOST}/post/comment/`, payload, { headers: this.headers });
+  }
+
+  postAnswer(payload) {
+    return this.http.post<Answer>(`${HOST}/post/answer/`, payload, { headers: this.headers });
   }
 }
