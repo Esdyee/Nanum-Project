@@ -1,5 +1,5 @@
 <div class="main">
-  <app-editor [answerMetaData]="answerHeader" *ngIf="isEditMode" (closed)="closeEditor($event)"></app-editor>
+  <!--<app-editor [answerMetaData]="answerHeader" *ngIf="isEditMode" (closed)="closeEditor($event)"></app-editor>-->
   <div class="container_12">
     <div class="grid_8">
       <div class="question-info">
@@ -11,11 +11,11 @@
           <button *ngIf="question.question.pk == this.currentPage" class="write-answer" mat-button (click)="openEditor(question.question)">답변 달기</button>
           <button *ngIf="question.question.pk == this.currentPage" class="follow" mat-button>팔로우</button>
         </div>
-        
+
       </div>
       <ng-container *ngIf="answers">
         <div class="answer-numbers">
-          <h2>답변 {{ answers.length }}</h2>        
+          <h2>답변 {{ answers.length }}</h2>
         </div>
         <mat-card *ngFor="let answer of answers" class="post">
           <!--post action: topic links-->
@@ -38,7 +38,7 @@
             <span class="mat-body-1">
               <i class="material-icons">chat_bubble_outline</i>{{ answer.comment_count }}</span>
           </mat-card-actions>
-        
+
           <!--확장 시 표시-->
           <mat-card-footer *ngIf="true">
             <div class="comment-area">
@@ -49,7 +49,7 @@
                 </mat-form-field>
                 <button mat-button (click)="test()" [disabled]="!commentText">댓글달기</button>
               </div>
-        
+
               <div class="comment-list">
                 <div class="comment">
                   <div class="comment_wrapper">
@@ -62,7 +62,7 @@
                       <p>Hello world</p>
                     </div>
                     <div class="comment_actions">
-        
+
                     </div>
                   </div>
                   <div class="comment depth1">
@@ -98,7 +98,7 @@
           </mat-card-footer>
         </mat-card>
       </ng-container>
-      
+
     </div>
   </div>
 </div>

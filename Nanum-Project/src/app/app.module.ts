@@ -18,8 +18,6 @@ import { AskModalComponent } from './common/navigator/ask-modal/ask-modal.compon
 // import { FindPasswordComponent } from './login/find-password/find-password.component';
 import { NotFoundComponent } from './common/not-found/not-found.component';
 import { QuestionFeedComponent } from './question-feed/question-feed.component';
-import { CommentsComponent } from './common/comments/comments.component';
-import { EditorComponent } from './common/editor/editor.component';
 
 import { TopicSelectComponent } from './main-feed/topic-select/topic-select.component';
 import { NavTabComponent } from './common/nav-tab/nav-tab.component';
@@ -56,8 +54,6 @@ import { ProfileService } from './profile/profile.service';
     // FindPasswordComponent,
     NotFoundComponent,
     QuestionFeedComponent,
-    CommentsComponent,
-    EditorComponent,
     NavTabComponent,
     QuestionDetailComponent,
     ProfileFollowModalComponent,

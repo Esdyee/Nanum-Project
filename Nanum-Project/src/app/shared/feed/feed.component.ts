@@ -10,7 +10,7 @@ import { FeedService } from './feed.service';
 export class FeedComponent implements OnInit {
   // TODO: set url parameter by parent component
   // type = 'question' || 'answer' (default: question)
-  type = 'answer';
+  type = 'question';
   nextURL: string;
   results = [];
 

@@ -1,23 +1,14 @@
-import {
-  Component,
-  ViewChild,
-  OnInit,
-  OnDestroy,
-  Input,
-  Output,
-  EventEmitter
-} from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
-
-import { QuillEditorComponent } from 'ngx-quill/src/quill-editor.component';
-
+import { QuillEditorComponent } from 'ngx-quill';
 import 'rxjs/add/observable/from';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
-import { QuestionService } from '../../question-feed/question.service';
 
+import { FeedService } from '../../feed.service';
 
 @Component({
   selector: 'app-editor',
@@ -26,14 +17,13 @@ import { QuestionService } from '../../question-feed/question.service';
 })
 export class EditorComponent implements OnInit, OnDestroy {
   @Input() answerMetaData;
-
   @Output() closed = new EventEmitter<boolean>();
 
   form: FormGroup;
   subscription: Subscription;
   content;
 
-  constructor(fb: FormBuilder, private questionService: QuestionService) {
+  constructor(fb: FormBuilder, private feedService: FeedService) {
     this.form = fb.group({
       // TODO: add Validator
       editor: ['']
@@ -47,14 +37,14 @@ export class EditorComponent implements OnInit, OnDestroy {
       data => {
         this.content = data;
       },
-        error => console.log(error),
+      error => console.log(error),
       () => console.log('done')
     );
     this.editor
-      .onContentChanged.debounceTime(300) // 추후 자동저장 구현 시..
+    .onContentChanged.debounceTime(300) // 추후 자동저장 구현 시..
       .distinctUntilChanged()
       .subscribe(data => {
-      });
+    });
   }
 
   ngOnDestroy() {
@@ -83,7 +73,7 @@ export class EditorComponent implements OnInit, OnDestroy {
       content_html: this.content.html,
       published: true
     };
-    this.questionService.addAnswer(payload).subscribe(
+    this.feedService.postAnswer(payload).subscribe(
       // TODO: repsonse로 완료 화면 그리기
       res => {
         this.closeEditor();
@@ -96,5 +86,6 @@ export class EditorComponent implements OnInit, OnDestroy {
   closeEditor() {
     this.closed.emit(false);
   }
+
 
 }
