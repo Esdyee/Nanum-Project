@@ -7,7 +7,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatSliderModule, MatIconModule,
   MatDialogModule, MatFormFieldModule, MatCardModule, MatInputModule, MatMenuModule,
   MatStepperModule, MatGridListModule, MatTabsModule, MatTabBody,
-  MatChipsModule, MatListModule } from '@angular/material';
+  MatChipsModule, MatListModule, MatExpansionModule } from '@angular/material';
 
 
 @NgModule({
@@ -27,7 +27,8 @@ import { MatButtonModule, MatCheckboxModule, MatSliderModule, MatIconModule,
     MatGridListModule,
     MatTabsModule,
     MatChipsModule,
-    MatListModule
+    MatListModule,
+    MatExpansionModule,
   ],
   declarations: []
 })
