@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from "@angular/common";
+import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/common/';
 
 import { MaterialModule } from './module/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -13,7 +13,6 @@ import { TopicComponent } from './topic/topic.component';
 import { MainFeedComponent } from './main-feed/main-feed.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NavigatorComponent } from './common/navigator/navigator.component';
-import { AnswerComponent } from './answer/answer.component';
 import { AskModalComponent } from './common/navigator/ask-modal/ask-modal.component';
 // import { MainLoginComponent } from './login/main-login/main-login.component';
 // import { FindPasswordComponent } from './login/find-password/find-password.component';
@@ -24,10 +23,21 @@ import { EditorComponent } from './common/editor/editor.component';
 
 import { TopicSelectComponent } from './main-feed/topic-select/topic-select.component';
 import { NavTabComponent } from './common/nav-tab/nav-tab.component';
-import { ProfileTopicModalComponent } from './profile/profile-topic-modal/profile-topic-modal.component';
 import { ProfileFollowModalComponent } from './profile/profile-follow-modal/profile-follow-modal.component';
-import { QuestionService } from './question-feed/question.service';
+import { QuestionDetailComponent } from './question-detail/question-detail.component';
+import { MainComponent } from './main/main.component';
+import { QuestionComponent } from './main/question/question.component';
+// 기존에 Answer가 있어서 ==> Answers로 지정
+import { AnswersComponent } from './main/answers/answers.component';
+import { MainLeftComponent } from './main/main-left/main-left.component';
+import { ProfileBottomModalComponent } from './profile/profile-bottom-modal/profile-bottom-modal.component';
+import { ProfileMiddleModalComponent } from './profile/profile-middle-modal/profile-middle-modal.component';
+import { ProfileTopModalComponent } from './profile/profile-top-modal/profile-top-modal.component';
 
+// Service
+import { QuestionService } from './question-feed/question.service';
+import { MenuService } from './service/menu.service';
+import { ProfileService } from './profile/profile.service';
 
 
 
@@ -40,7 +50,6 @@ import { QuestionService } from './question-feed/question.service';
     ProfileComponent,
     NavigatorComponent,
     AskModalComponent,
-    AnswerComponent,
     AskModalComponent,
     TopicSelectComponent,
     // MainLoginComponent,
@@ -50,8 +59,15 @@ import { QuestionService } from './question-feed/question.service';
     CommentsComponent,
     EditorComponent,
     NavTabComponent,
-    ProfileTopicModalComponent,
-    ProfileFollowModalComponent
+    QuestionDetailComponent,
+    ProfileFollowModalComponent,
+    MainComponent,
+    QuestionComponent,
+    MainLeftComponent,
+    AnswersComponent,
+    ProfileBottomModalComponent,
+    ProfileMiddleModalComponent,
+    ProfileTopModalComponent
   ],
   imports: [
     BrowserModule,
@@ -66,9 +82,12 @@ import { QuestionService } from './question-feed/question.service';
   ],
   entryComponents: [
     AskModalComponent,
-    TopicSelectComponent
+    TopicSelectComponent,
+    ProfileMiddleModalComponent,
+    ProfileBottomModalComponent,
+    ProfileTopModalComponent
   ],
-  providers: [QuestionService],
+  providers: [QuestionService, ProfileService, MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

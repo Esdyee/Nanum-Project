@@ -29,8 +29,12 @@
   top: 22px;
 }
 
-.yellow-color {
-  background-color: yellow;
+.grid_1 {
+  height: 300px;
+}
+
+
+.grid_3 {
   height: 300px;
 }
 

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionService } from './question.service';
 
-// typings
-import { Question } from './question';
 
 @Component({
   selector: 'app-question-feed',
@@ -10,30 +8,43 @@ import { Question } from './question';
   styleUrls: ['./question-feed.component.css']
 })
 export class QuestionFeedComponent implements OnInit {
+  isEditMode = false;
+  answerHeader;
+
   questions = [];
   currentPage = 1;
 
-  constructor(private http: QuestionService) { }
+  constructor(private questionService: QuestionService) { }
 
   ngOnInit() {
-    this.loadQuestions();
+    this.getNextPage();
   }
 
   negativeFeedback(pk) {
     console.log(pk);
   }
 
-  loadQuestions() {
-    this.http.getFeed(this.currentPage)
-    .subscribe(
+  getNextPage() {
+    this.questionService.getQuestions(this.currentPage).subscribe(
       res => {
         this.questions = [...this.questions, ...res.results];
+        // this.questions = [...this.questions, ...res.results];
         console.log(this.questions);
         this.currentPage += 1;
       },
-      error => {
-        console.log(error);
-      }
+      err => console.log(err)
     );
+  }
+
+  openEditor(question) {
+    this.answerHeader = {
+      pk: question.pk,
+      content: question.content
+    };
+    this.isEditMode = !this.isEditMode;
+  }
+
+  closeEditor(e) { // false value from editor component
+    this.isEditMode = e;
   }
 }
