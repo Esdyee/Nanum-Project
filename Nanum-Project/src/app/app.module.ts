@@ -38,6 +38,8 @@ import { ProfileTopModalComponent } from './profile/profile-top-modal/profile-to
 import { QuestionService } from './question-feed/question.service';
 import { MenuService } from './service/menu.service';
 import { ProfileService } from './profile/profile.service';
+import { AccountSettingsComponent } from './common/navigator/account-settings/account-settings.component';
+import { TabFilterPipe } from './common/navigator/tab-filter.pipe';
 
 
 
@@ -68,6 +70,10 @@ import { ProfileService } from './profile/profile.service';
     ProfileBottomModalComponent,
     ProfileMiddleModalComponent,
     ProfileTopModalComponent
+    ProfileTopicModalComponent,
+    ProfileFollowModalComponent,
+    AccountSettingsComponent,
+    TabFilterPipe
   ],
   imports: [
     BrowserModule,
