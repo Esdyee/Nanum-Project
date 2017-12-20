@@ -6,6 +6,7 @@ import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/
 import { MaterialModule } from './module/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
+import { FeedModule } from './shared/feed/feed.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -73,7 +74,8 @@ import { SharedModule } from './shared/shared.module';
     QuillModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    FeedModule
   ],
   exports: [
     MaterialModule

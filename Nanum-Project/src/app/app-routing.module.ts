@@ -14,6 +14,8 @@ import { FeedModule } from './shared/feed/feed.module';
 import { FeedComponent } from './shared/feed/feed.component';
 
 import { ProfileComponent } from './profile/profile.component';
+import { QuestionDetailComponent } from './question-detail/question-detail.component';
+import { TopicComponent } from './topic/topic.component';
 // 라우트 구성
 const routes: Routes = [
   { path: '', redirectTo: 'login/main', pathMatch: 'full' },
@@ -26,6 +28,8 @@ const routes: Routes = [
   { path: 'feed', component: FeedComponent, canActivate: [LoginGuard]},
   { path: 'profile', component: ProfileComponent, canActivate: [LoginGuard] },
   { path: 'maintest', component: MainComponent },
+  { path: 'detail', component: QuestionDetailComponent , canActivate: [LoginGuard] },
+  { path: 'topic', component: TopicComponent, canActivate: [LoginGuard] },
   { path: '**', component: NotFoundComponent},
   // 필수 추가 요망
   // 메인피드 임시 path 입니다
