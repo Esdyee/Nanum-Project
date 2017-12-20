@@ -1,8 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { Observable, Observer, Subject } from 'rxjs';
+import { Subscription } from 'rxjs/Subscription';
 import { AppService } from '../app.service';
+import { MainLoginComponent } from './main-login/main-login.component';
 import 'rxjs/add/operator/map';
 
 declare var FB: any;
@@ -10,6 +14,11 @@ declare var FB: any;
 interface LoginData {
   email: string;
   password: string;
+}
+
+interface LoginAccessData {
+  token: string;
+  user: object;
 }
 
 interface SignupData {
@@ -24,14 +33,23 @@ interface FacebookData {
   facebook_user_id: string;
 }
 
+
+
 @Injectable()
-export class AuthService {
+export class AuthService implements OnInit {
   public token: string;
+  // facebook login
+  public loginsign = new Subject<any>();
+  public login$ = this.loginsign.asObservable();
+  public sign = false;
+  private fbToken = [];
+  private tokensub: Subscription;
+
   headers = new Headers({
     'Content-Type': 'application/json'
   });
 
-  constructor(private http: Http, private path: AppService) {
+  constructor(private http: HttpClient, private path: AppService, private router: Router ) {
     // set token if saved in local storage
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.token;
@@ -62,29 +80,31 @@ export class AuthService {
     // this.loadScript(initFunc);
   }
 
+  ngOnInit() {
+
+  }
+
   connect(api: string, category: string, data) {
     const paylord = data;
+    // console.log(api, data);
 
-    return this.http.post(api, JSON.stringify(paylord)
-      , { headers: this.headers })
-      .map((response: Response) => {
+    return this.http.post(api, JSON.stringify(paylord), { headers: {'Content-Type': 'application/json'}})
+      .map((response: LoginAccessData) => {
         console.log('connect');
+
         // login successful if there's a jwt token in the response
-        const token = response.json() && response.json().token;
+        const token = response && response.token;
         if (token) {
           // set token property
           this.token = token;
-          console.log(token);
+          this.path.test_user_data = response;
 
           // store email and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify(response));
-
-          console.log(JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body).token);
-
-          // return true to indicate successful login
           return true;
         } else {
           // return false to indicate failed login
+          console.log('connect fail');
           return false;
         }
       });
@@ -100,32 +120,28 @@ export class AuthService {
     return this.connect(this.path.api_path + 'user/signup/', 'signup', data);
   }
 
-  // loadScript(url) {
-  //   console.log('preparing to load...')
-  //   let node = document.createElement('script');
-  //   node.src = url;
-  //   node.type = 'text/javascript';
-  //   document.getElementsByTagName('head')[0].appendChild(node);
-  // }
-
   // facebooklogin(accessToken: string, userid: string, connectFunc) {
-  facebooklogin() {
-    const api_path = this.path.api_path;
-    const connect = this.connect;
-    const funcLogin = FB.login;
+  facebookCheck() {
+    // FB.login(response => {
+    //   if (response.status === 'connected') {
+    //     const fbtoken = response.authResponse.accessToken;
+    //     const fbuserid = response.authResponse.userID;
+    //     const data = { access_token: fbtoken, facebook_user_id: fbuserid };
+    //     return this.connect(this.path.api_path + 'user/facebook-login/', 'facebook', data);
+    //     // this.sign = true;
+    //     // this.setParams(data);
+    //   } else {
+    //     this.connect(this.path.api_path + 'user/facebook-login/', 'facebook', data);
+    //   }
+    // });
+  }
 
-    funcLogin(function (response) {
-      console.log(this);
-      if (response.status === 'connected') {
-        console.log(response);
-        const fbtoken = response.authResponse.accessToken;
-        const fbuserid = response.authResponse.userID;
-        const data = { access_token: fbtoken, facebook_user_id: fbuserid };
-        return connect(api_path + 'user/facebook-login/', 'facebook', data);
-      }
-    });
-    // FB.login();
-    // return connectFunc('https://siwon.me/user/facebook/', 'facebook', data);
+  facebookLoginAuth(data): Observable<boolean> {
+    return this.connect(this.path.api_path + 'user/facebook-login/', 'facebook', data);
+  }
+
+  setParams(data) {
+    this.loginsign.next(data);
   }
 
   logout(): void {

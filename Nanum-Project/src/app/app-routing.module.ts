@@ -5,20 +5,25 @@ import { LoginGuard } from './login/login.guard';
 import { LoginModule } from './login/login.module';
 import { LoginComponent } from './login/login.component';
 import { MainFeedComponent } from './main-feed/main-feed.component';
+import { MainComponent } from './main/main.component';
 // 라우트에 해당되는 것이 없을 때 나타나는 페이지
 import { NotFoundComponent } from './common/not-found/not-found.component';
-import { QuestionFeedComponent } from './question-feed/question-feed.component';
 import { NavigatorComponent } from './common/navigator/navigator.component';
-import { AnswerComponent } from './answer/answer.component';
 import { EditorComponent } from './common/editor/editor.component';
+import { MainLeftComponent } from './main/main-left/main-left.component';
 
 import { ProfileComponent } from './profile/profile.component';
 // 라우트 구성
 const routes: Routes = [
   { path: '', redirectTo: 'login/main', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'main', component: MainFeedComponent, canActivate: [LoginGuard]  },
-  { path: 'profile', component: ProfileComponent, canActivate: [LoginGuard]  },
+  { path: 'main', component: MainFeedComponent, canActivate: [LoginGuard],
+    children: [
+      { path: 'leftmenu', component: MainLeftComponent }
+    ]
+  },
+  { path: 'profile', component: ProfileComponent, canActivate: [LoginGuard] },
+  { path: 'maintest', component: MainComponent },
   { path: '**', component: NotFoundComponent},
   // 필수 추가 요망
   // 메인피드 임시 path 입니다
