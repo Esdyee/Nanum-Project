@@ -75,9 +75,10 @@ interface Comment {
 @Injectable()
 export class FeedService {
   // 공용 헤더
-  private headers = new HttpHeaders().set('Authorization', `Token ${JSON.parse(JSON.parse(localStorage.currentUser)._body).token}`);
+  private headers = new HttpHeaders().set('Authorization', `Token ${JSON.parse(localStorage.currentUser).token
+    }`);
   // 로그인한 사용자 정보 보관
-  public user: User = JSON.parse(JSON.parse(localStorage.currentUser)._body).user;
+  public user: User = JSON.parse(localStorage.currentUser).user;
 
   constructor(private http: HttpClient) { }
 

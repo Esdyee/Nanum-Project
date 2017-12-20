@@ -36,6 +36,7 @@ import { ProfileTopModalComponent } from './profile/profile-top-modal/profile-to
 import { QuestionService } from './question-feed/question.service';
 import { MenuService } from './service/menu.service';
 import { ProfileService } from './profile/profile.service';
+import { SharedModule } from './shared/shared.module';
 
 
 
@@ -71,7 +72,8 @@ import { ProfileService } from './profile/profile.service';
     AppRoutingModule,
     QuillModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   exports: [
     MaterialModule
