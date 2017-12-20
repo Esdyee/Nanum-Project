@@ -25,6 +25,8 @@ import { TopicSelectComponent } from './main-feed/topic-select/topic-select.comp
 import { NavTabComponent } from './common/nav-tab/nav-tab.component';
 import { ProfileTopicModalComponent } from './profile/profile-topic-modal/profile-topic-modal.component';
 import { ProfileFollowModalComponent } from './profile/profile-follow-modal/profile-follow-modal.component';
+import { QuestionService } from './question-feed/question.service';
+import { QuestionDetailComponent } from './question-detail/question-detail.component';
 import { MainComponent } from './main/main.component';
 import { QuestionComponent } from './main/question/question.component';
 // 기존에 Answer가 있어서 ==> Answers로 지정
@@ -56,6 +58,7 @@ import { MenuService } from './service/menu.service';
     EditorComponent,
     NavTabComponent,
     ProfileTopicModalComponent,
+    QuestionDetailComponent,
     ProfileFollowModalComponent,
     MainComponent,
     QuestionComponent,
