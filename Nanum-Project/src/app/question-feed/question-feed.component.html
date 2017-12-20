@@ -1,5 +1,5 @@
 <div class="main">
-
+  <app-editor [answerMetaData]="answerHeader" *ngIf="isEditMode" (closed)="closeEditor($event)"></app-editor>
   <div class="container_12">
     <div class="grid_2">
       <!--TODO: component 분리-->
@@ -26,7 +26,6 @@
       <mat-card *ngFor="let question of questions" class="post question">
         <div class="post header">
           <span class="post metadata mat-caption">질문<a href="#" class="topic">{{ question.topics }}</a></span>
-          <!--TODO: negativeFeedback answer feed에만 구현돼있음-->
           <i (click)="negativeFeedback(question.question.pk)" class="material-icons md-18">close</i>
         </div>
         <mat-card-title>
@@ -38,15 +37,14 @@
           </div>
         </div>
         <mat-card-actions>
-          <!--TODO: (click)="callEditorWithQuestionPK(not for each !!!!important)"-->
-          <button mat-button>답변 달기</button>
+          <button mat-button (click)="openEditor(question.question)">답변하기</button>
           <button mat-button>팔로우</button>
         </mat-card-actions>
       </mat-card>
     </div>
 
     <div class="grid_2">
-      <button type="button" (click)="loadQuestions()">더보기(임시)</button>
+      <button type="button" (click)="getNextPage()">더보기(임시)</button>
     </div>
   </div>
 </div>

@@ -3,12 +3,12 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  //templateUrl: './login.component.html',
+  // templateUrl: './login.component.html',
   template: `
     <div class="back-image">
       <div class="layer">
         <router-outlet></router-outlet>
-      </div>  
+      </div>
     </div>
   `,
   styleUrls: ['./login.component.css']

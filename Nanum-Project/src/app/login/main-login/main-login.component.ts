@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from '../auth.service'
+import { Subscription } from 'rxjs/Subscription';
+import { Observable } from 'rxjs';
+import { AuthService } from '../auth.service';
 import { AppService } from '../../app.service';
 
 declare var FB: any;
@@ -11,65 +13,54 @@ declare var FB: any;
   styleUrls: ['./main-login.component.css']
 })
 export class MainLoginComponent implements OnInit {
-  obj:object = {}
-  test:string;
+  obj: {};
+  test: string;
+  loginOK: Observable<object>;
 
-  constructor(private route: ActivatedRoute, private navRoute: Router, private auth: AuthService, private path: AppService) {   }
+  constructor(private route: ActivatedRoute, private navRoute: Router, private auth: AuthService, private path: AppService
+  , private zone: NgZone) {
+    // facebook login 상태
+    this.auth.login$.takeWhile(() => this.auth.sign)
+      .finally(() => this.navigateMain())
+      .subscribe( name => {
+      console.log(name);
+      this.loginOK = name;
+      this.navigateMain();
+    } );
+  }
 
   ngOnInit() {
-    console.log('[ONINIT]', this.auth)
-    // if(localStorage.getItem('currentUser')){
     //   this.navRoute.navigate(['/main']);
+    // if(localStorage.getItem('currentUser')){
     // }
   }
 
-  findPassword(){
+  findPassword() {
     this.navRoute.navigate(['find']);
   }
-  
-  FBLogin(){
-    
-    let funcPost = function (fbtoken, userid) {
-      return new Promise((resolve, reject) => {
-        let req = new XMLHttpRequest();
-        req.open('POST', 'https://siwon.me/user/facebook-login/');
-        req.setRequestHeader('Content-type', 'application/json');
-        req.send(JSON.stringify({ access_token: fbtoken, facebook_user_id: userid }));
-        req.onreadystatechange = function () {
-          if (req.readyState === XMLHttpRequest.DONE) {
-            if (req.status == 200) {
-              resolve(req.response);
-            } else {
-              reject(req.response);
-            }
-          }
-        }
-      })
-    }
 
-    FB.login(function(response){
-      console.log('FB.LOGIN', this)
-      if(response.status == "connected"){
-        console.log(response);
-        const fbtoken = response.authResponse.accessToken;
-        const userid = response.authResponse.userID;
-        //localStorage.setItem("currentUser", JSON.stringify({ fbtoken: fbtoken, userid: userid }));
-        //this.auth.facebooklogin(fbtoken,userid);
-        funcPost(fbtoken, userid)
-        .then(res => {
-          console.log(res);
-        })
-        .then(res => {
-          console.log(res)
-        })
-        .catch(res => {console.log(res)})
+  FBLogin() {
+    FB.getLoginStatus(res => {
+      if (res.status !== 'connected') {
+        FB.login(response => {
+            const fbtoken = response.authResponse.accessToken;
+            const fbuserid = response.authResponse.userID;
+            const data = { access_token: fbtoken, facebook_user_id: fbuserid };
+            return this.auth.connect(this.path.api_path + 'user/facebook-login/', 'facebook', data);
+        });
+      } else {
+        const data = { access_token: res.authResponse.accessToken, facebook_user_id: res.authResponse.userID };
+        console.log(data);
+        this.auth.facebookLoginAuth(data)
+          .subscribe(result => {
+            console.log(result);
+            this.zone.run(() => this.navRoute.navigate(['/main']));
+          });
       }
-    })
-
-
+    });
   }
 
-
-
-
+  navigateMain() {
+    this.navRoute.navigate(['/main']);
+  }
 }
