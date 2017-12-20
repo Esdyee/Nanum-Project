@@ -9,7 +9,6 @@ import { MainComponent } from './main/main.component';
 // 라우트에 해당되는 것이 없을 때 나타나는 페이지
 import { NotFoundComponent } from './common/not-found/not-found.component';
 import { NavigatorComponent } from './common/navigator/navigator.component';
-import { AnswerComponent } from './answer/answer.component';
 import { EditorComponent } from './common/editor/editor.component';
 import { MainLoginComponent } from './login/main-login/main-login.component';
 import { FindPasswordComponent } from './login/find-password/find-password.component';
@@ -39,7 +38,6 @@ const routes: Routes = [
 @NgModule({
   imports: [
     LoginModule,
-    FeedModule,
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],
