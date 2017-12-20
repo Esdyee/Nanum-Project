@@ -91,13 +91,13 @@ export class AuthService implements OnInit {
     return this.http.post(api, JSON.stringify(paylord), { headers: {'Content-Type': 'application/json'}})
       .map((response: LoginAccessData) => {
         console.log('connect');
-
+        console.log(response);
         // login successful if there's a jwt token in the response
         const token = response && response.token;
         if (token) {
           // set token property
           this.token = token;
-          this.path.test_user_data = response;
+          // this.path.test_user_data = response;
 
           // store email and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify(response));
