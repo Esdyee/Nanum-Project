@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProfileTopicModalComponent } from './profile-topic-modal.component';
+import { ProfileTopModalComponent } from './profile-top-modal.component';
 
-describe('ProfileTopicModalComponent', () => {
-  let component: ProfileTopicModalComponent;
-  let fixture: ComponentFixture<ProfileTopicModalComponent>;
+describe('ProfileTopModalComponent', () => {
+  let component: ProfileTopModalComponent;
+  let fixture: ComponentFixture<ProfileTopModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProfileTopicModalComponent ]
+      declarations: [ ProfileTopModalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProfileTopicModalComponent);
+    fixture = TestBed.createComponent(ProfileTopModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

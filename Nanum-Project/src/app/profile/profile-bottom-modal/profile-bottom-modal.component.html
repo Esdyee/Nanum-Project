@@ -1,0 +1,15 @@
+<div class="profile-bottommodal-container">
+
+  <span class="profile-modal-interest" *ngIf="data.calledBy==1">
+    <strong class="mat-h2">관심분야</strong>
+  </span>
+  <span class="profile-modal-expert" *ngIf="data.calledBy==2">
+    <strong class="mat-h2">전문분야</strong>
+  </span>
+  <ul class="list-of-selected-container">
+    <li *ngFor="let list of selectedContainer()">
+      <div class="profile-list-box selected-box">{{ list.content }}</div>
+    </li>
+  </ul>
+
+</div>

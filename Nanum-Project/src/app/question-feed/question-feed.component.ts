@@ -28,6 +28,8 @@ export class QuestionFeedComponent implements OnInit {
     this.questionService.getQuestions(this.currentPage).subscribe(
       res => {
         this.questions = [...this.questions, ...res.results];
+        // this.questions = [...this.questions, ...res.results];
+        console.log(this.questions);
         this.currentPage += 1;
       },
       err => console.log(err)
