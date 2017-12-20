@@ -13,6 +13,7 @@ import { MainLeftComponent } from './main/main-left/main-left.component';
 import { FeedModule } from './shared/feed/feed.module';
 import { FeedComponent } from './shared/feed/feed.component';
 
+import { ProfileComponent } from './profile/profile.component';
 // 라우트 구성
 const routes: Routes = [
   { path: '', redirectTo: 'login/main', pathMatch: 'full' },
@@ -23,8 +24,13 @@ const routes: Routes = [
     ]
   },
   { path: 'feed', component: FeedComponent, canActivate: [LoginGuard]},
+  { path: 'profile', component: ProfileComponent, canActivate: [LoginGuard] },
   { path: 'maintest', component: MainComponent },
   { path: '**', component: NotFoundComponent},
+  // 필수 추가 요망
+  // 메인피드 임시 path 입니다
+  { path: 'main', component: MainFeedComponent, canActivate: [LoginGuard] },
+  { path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({
