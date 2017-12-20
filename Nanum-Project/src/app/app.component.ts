@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   // templateUrl: './app.component.html',
   template:`
   <router-outlet></router-outlet>
+  <!--<app-main-feed></app-main-feed>-->
   `,
   styleUrls: ['./app.component.css']
 })

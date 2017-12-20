@@ -1,0 +1,18 @@
+
+.profile-modal-interest, .profile-modal-expert {
+  display: block;
+}
+
+.list-of-selected-container {
+  margin-top: 30px;
+}
+
+.profile-list-box {
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  background-color: gray;
+  box-sizing: border-box;
+  float: left;
+  margin: 0 0 5px 5px;
+}
