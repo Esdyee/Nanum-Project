@@ -11,15 +11,19 @@ import { NotFoundComponent } from './common/not-found/not-found.component';
 import { NavigatorComponent } from './common/navigator/navigator.component';
 import { EditorComponent } from './common/editor/editor.component';
 import { MainLeftComponent } from './main/main-left/main-left.component';
+import { QuestionComponent } from './main/question/question.component';
+import { AnswersComponent } from './main/answers/answers.component';
 
 import { ProfileComponent } from './profile/profile.component';
 // 라우트 구성
 const routes: Routes = [
   { path: '', redirectTo: 'login/main', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'main', component: MainFeedComponent, canActivate: [LoginGuard],
+  { path: 'main', component: MainComponent, canActivate: [LoginGuard],
     children: [
-      { path: 'leftmenu', component: MainLeftComponent }
+      // { path: 'leftmenu', component: MainLeftComponent }
+      { path: 'main', component: QuestionComponent },
+      { path: 'answer', component: AnswersComponent }
     ]
   },
   { path: 'profile', component: ProfileComponent, canActivate: [LoginGuard] },

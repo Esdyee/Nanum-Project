@@ -39,15 +39,24 @@ export class MainLeftComponent implements OnInit {
   }
 
   getTopics() {
-    this.topics = [
-      { pk: 1, name: 'HTML' },
-      { pk: 2, name: 'CSS' },
-      { pk: 3, name: 'JavaScript' }
-    ];
+    if (this.menu.selMainMenu === 'Answer') {
+      this.topics = [
+        { pk: 4, name: 'angular' },
+        { pk: 5, name: 'react' },
+        { pk: 6, name: 'vue.js' }
+      ];
+    } else {
+      this.topics = [
+        { pk: 1, name: 'HTML' },
+        { pk: 2, name: 'CSS' },
+        { pk: 3, name: 'JavaScript' }
+      ];
+    }
   }
 
   clickGeneralMenu(event) {
-    this.menu.selLeftMenu = event.target.querySelector('i').textContent();
+    console.log(event.target.querySelector('i').textContent);
+    this.menu.selLeftMenu = event.target.querySelector('i').textContent;
   }
 
   clickTopicMenu(event) {
