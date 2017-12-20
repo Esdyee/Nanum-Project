@@ -1,0 +1,37 @@
+<mat-card class="post" *ngIf="answer">
+  <!--post action: topic links-->
+  <div class="post header">
+    <span class="post metadata mat-caption">답변
+      <ng-container *ngIf="topics.length">
+        <a *ngFor="let topic of topics" [href]="topic.url" class="topic">{{ topic.name }}</a>
+      </ng-container>
+    </span>
+    <i (click)="negativeFeedback(answer.id)" class="material-icons md-18">close</i>
+  </div>
+  <!--TODO: routing to answer detail page(답변상세 페이지 라우팅 생기면 할 일. 근데 스태틱 페이지라면 얘기가 다름-->
+  <mat-card-title>
+    {{ answer?.question?.question?.content }}
+  </mat-card-title>
+  <mat-card-subtitle>
+    <img class="thumbnail md" [src]="answer.user.thumbnail_image_200" [alt]="answer.user.name" width="50" height="50">
+    <!--TODO: 답변시간 표시방법- 타임스탬프와 브라우저 시간차 계산(별도 함수에서..)-->
+    <div class="answer-info">
+      <div class="author">
+        {{ answer.user.name }}
+      </div>
+      <div class="timestamp mat-caption">
+        {{ answer.created_at }}
+      </div>
+    </div>
+  </mat-card-subtitle>
+  <mat-card-content (click)="fetchExpandedContent(answer.id)" class="mat-body-1" [innerHTML]="answer.content_html">
+    <!--<p class="mat-body-1">-->
+    <!--{{ answer.content }} <i class="material-icons md-18">expand_more</i>-->
+    <!--</p>-->
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button><i class="material-icons">star_border</i>{{ answer.upvote_count }}</button>
+    <span class="mat-body-1"><i class="material-icons">chat_bubble_outline</i>{{ answer.comment_count }}</span>
+  </mat-card-actions>
+  <app-comment [pk]="answer.pk"></app-comment>
+</mat-card>

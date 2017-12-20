@@ -32,7 +32,7 @@ export class QuestionService {
 
   private HOST = 'https://siwon.me';
   private headers = new HttpHeaders()
-    .set('Authorization', `Token ${JSON.parse(JSON.parse(localStorage.currentUser)._body).token}`);
+    .set('Authorization', `Token ${JSON.parse(localStorage.currentUser).token}`);
 
   constructor(private http: HttpClient) { }
 

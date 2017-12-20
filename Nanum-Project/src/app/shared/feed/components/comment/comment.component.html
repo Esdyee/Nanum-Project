@@ -1,0 +1,55 @@
+<mat-card-footer *ngIf="true">
+  <div class="comment-area">
+    <div class="comment-input">
+      <img class="thumbnail sm" [src]="user.thumbnail_image_25">
+      <mat-form-field>
+        <textarea [(ngModel)]="commentText" matInput placeholder="댓글을 입력하세요" matTextareaAutosize matAutosizeMinRows="1"
+                  matAutosizeMaxRows="100"></textarea>
+      </mat-form-field>
+      <button mat-button (click)="submitComment()" [disabled]="!commentText">댓글달기</button>
+    </div>
+
+    <div class="comment-list" *ngIf="comments">
+      <div *ngFor="let comment of comments" class="comment">
+        <div class="comment_wrapper">
+          <img [src]="comment.user.thumbnail_image_200" class="thumbnail sm">
+          <div class="comment_header">
+            <div class="comment_user mat-caption">{{ comment.user.name }}</div>
+            <div class="comment_metadata mat-caption">"{{ comment.created_at }}"</div>
+          </div>
+          <div class="comment_content">
+            {{ comment.content }}
+          </div>
+          <div class="comment_actions">
+
+          </div>
+        </div>
+        <!--<div class="comment depth1">-->
+          <!--<div class="comment_wrapper">-->
+            <!--<img src="assets/images/zuckerberg.jpg" class="thumbnail sm">-->
+            <!--<div class="comment_header">-->
+              <!--<div class="comment_user mat-caption">"user.name"</div>-->
+              <!--<div class="comment_metadata mat-caption">"modified_at"</div>-->
+            <!--</div>-->
+            <!--<div class="comment_content">-->
+              <!--<p>Hello world</p>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="comment depth2">-->
+            <!--<div class="comment_wrapper">-->
+              <!--<img src="assets/images/zuckerberg.jpg" class="thumbnail sm">-->
+              <!--<div class="comment_header">-->
+                <!--<div class="comment_user mat-caption">user.name</div>-->
+                <!--<div class="comment_metadata mat-caption">"modified_at"</div>-->
+              <!--</div>-->
+              <!--<div class="comment_content">-->
+                <!--<p>Hello world</p>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      </div>
+      <span class="comment-list action">댓글 더보기<i class="material-icons md-18">expand_more</i></span>
+    </div>
+  </div>
+</mat-card-footer>
