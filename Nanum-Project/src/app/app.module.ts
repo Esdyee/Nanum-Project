@@ -24,14 +24,17 @@ import { EditorComponent } from './common/editor/editor.component';
 
 import { TopicSelectComponent } from './main-feed/topic-select/topic-select.component';
 import { NavTabComponent } from './common/nav-tab/nav-tab.component';
-import { ProfileTopicModalComponent } from './profile/profile-topic-modal/profile-topic-modal.component';
 import { ProfileFollowModalComponent } from './profile/profile-follow-modal/profile-follow-modal.component';
-import { QuestionService } from './question-feed/question.service';
 import { MainComponent } from './main/main.component';
 import { QuestionComponent } from './main/question/question.component';
 // 기존에 Answer가 있어서 ==> Answers로 지정
 import { AnswersComponent } from './main/answers/answers.component';
 import { MainLeftComponent } from './main/main-left/main-left.component';
+import { QuestionService } from './question-feed/question.service';
+import { ProfileBottomModalComponent } from './profile/profile-bottom-modal/profile-bottom-modal.component';
+import { ProfileMiddleModalComponent } from './profile/profile-middle-modal/profile-middle-modal.component';
+import { ProfileService } from './profile/profile.service';
+import { ProfileTopModalComponent } from './profile/profile-top-modal/profile-top-modal.component';
 
 
 @NgModule({
@@ -53,12 +56,14 @@ import { MainLeftComponent } from './main/main-left/main-left.component';
     CommentsComponent,
     EditorComponent,
     NavTabComponent,
-    ProfileTopicModalComponent,
     ProfileFollowModalComponent,
     MainComponent,
     QuestionComponent,
     MainLeftComponent,
-    AnswersComponent
+    AnswersComponent,
+    ProfileBottomModalComponent,
+    ProfileMiddleModalComponent,
+    ProfileTopModalComponent
   ],
   imports: [
     BrowserModule,
@@ -73,9 +78,12 @@ import { MainLeftComponent } from './main/main-left/main-left.component';
   ],
   entryComponents: [
     AskModalComponent,
-    TopicSelectComponent
+    TopicSelectComponent,
+    ProfileMiddleModalComponent,
+    ProfileBottomModalComponent,
+    ProfileTopModalComponent
   ],
-  providers: [QuestionService],
+  providers: [QuestionService, ProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

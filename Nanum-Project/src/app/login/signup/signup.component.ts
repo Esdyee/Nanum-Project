@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators, FormGroupDirective, FormGroupName, 
 import { ErrorStateMatcher } from '@angular/material/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+// import { PasswordValidator } from '../validator/password-validator';
 
 import { AppService } from '../../app.service';
 import { AuthService } from '../auth.service';
