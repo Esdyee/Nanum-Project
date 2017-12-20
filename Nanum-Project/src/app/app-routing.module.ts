@@ -10,22 +10,12 @@ import { MainComponent } from './main/main.component';
 import { NotFoundComponent } from './common/not-found/not-found.component';
 import { NavigatorComponent } from './common/navigator/navigator.component';
 import { EditorComponent } from './common/editor/editor.component';
-import { MainLoginComponent } from './login/main-login/main-login.component';
-import { FindPasswordComponent } from './login/find-password/find-password.component';
-import { LoginConnectComponent } from './login/login-connect/login-connect.component';
-import { SignupComponent } from './login/signup/signup.component';
 import { MainLeftComponent } from './main/main-left/main-left.component';
+
 // 라우트 구성
 const routes: Routes = [
   { path: '', redirectTo: 'login/main', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent,
-    children: [
-      { path: 'main', component: MainLoginComponent },
-      { path: 'find', component: FindPasswordComponent },
-      { path: 'connect', component: LoginConnectComponent },
-      { path: 'signup', component: SignupComponent },
-      { path: '**', component: NotFoundComponent },
-    ] },
+  { path: 'login', component: LoginComponent },
   { path: 'main', component: MainFeedComponent, canActivate: [LoginGuard],
     children: [
       { path: 'leftmenu', component: MainLeftComponent }
