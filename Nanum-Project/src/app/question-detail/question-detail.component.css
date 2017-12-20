@@ -1,0 +1,147 @@
+.question-info {
+  padding: 1rem 0 0 0;
+}
+
+.topic {
+  font-size: 1.2rem;
+}
+
+.question-name {
+  margin: 1.2rem 0 0.8rem 0;
+  font-size: 2rem;
+  line-height: 1.5;
+  width: 500px;
+}
+
+.write-answer, .follow {
+  margin-bottom: 1rem;
+}
+
+.answer-numbers {
+  font-size: 1.4rem;
+  border-bottom: 1px solid #e2e2e2;
+  padding-bottom: 1rem;  
+}
+
+/* profile img 공통 */
+.thumbnail {
+  border-radius: 50%;
+}
+
+.thumbnail.md {
+  width: 40px;
+  height: 40px;
+}
+
+.thumbnail.sm {
+  width: 30px;
+  height: 30px;
+}
+
+/* post 공통 */
+.mat-card.post {
+  margin-top: 1rem;
+}
+
+/* post 상단 공통*/
+/* TODO: cursor: pointer 속성 일괄적용하기(preview 클래스, action 클래스 등으로) */
+.post.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.post mat-card-subtitle {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.post .tag {
+  margin-right: 1rem;
+}
+
+.answer-info {
+  margin-left: 0.5rem;
+  display: inline-block;
+  height: 100%;
+}
+
+.answer-info .author {
+  margin: 5px 0;
+}
+
+.mat-card-content,
+.post.header>.material-icons,
+.post .topic {
+  cursor: pointer;
+}
+
+.mat-card-content .material-icons {
+  position: absolute;
+}
+
+.mat-card-action i.material-icons {
+  font-size: 1.5rem !important;
+}
+
+
+.hidden {
+  display: none;
+}
+
+.mat-card-footer {
+  background-color: rgba(235, 235, 235, 0.50);
+  padding: 2rem;
+}
+
+.comment-input {
+  position: relative;
+}
+
+.mat-card-footer .thumbnail {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.mat-card-footer .mat-form-field {
+  margin: 0 1rem 0 3rem;
+  width: 75%;
+}
+
+.mat-card-footer .mat-button {
+  position: absolute;
+  top: 8px;
+}
+
+
+
+/*comment*/
+
+.comment {
+  position: relative;
+  padding-left: 3rem;
+}
+
+.comment_wrapper {
+  padding: 3px 0;
+}
+
+.comment_header,
+.comment_content {
+  color: #100c08;
+  margin-bottom: 0.5rem;
+}
+
+.comment_user {
+  font-weight: 700;
+}
+
+.comment_content {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

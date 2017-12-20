@@ -1,0 +1,104 @@
+<div class="main">
+  <app-editor [answerMetaData]="answerHeader" *ngIf="isEditMode" (closed)="closeEditor($event)"></app-editor>
+  <div class="container_12">
+    <div class="grid_8">
+      <div class="question-info">
+        <div *ngFor="let question of questions">
+          <span *ngIf="question.question.pk == this.currentPage" class="topic">{{ question.topics }}</span>
+          <h1 *ngIf="question.question.pk == this.currentPage" class="question-name">
+            {{ question.question.content }}
+          </h1>
+          <button *ngIf="question.question.pk == this.currentPage" class="write-answer" mat-button (click)="openEditor(question.question)">답변 달기</button>
+          <button *ngIf="question.question.pk == this.currentPage" class="follow" mat-button>팔로우</button>
+        </div>
+        
+      </div>
+      <ng-container *ngIf="answers">
+        <div class="answer-numbers">
+          <h2>답변 {{ answers.length }}</h2>        
+        </div>
+        <mat-card *ngFor="let answer of answers" class="post">
+          <!--post action: topic links-->
+          <mat-card-subtitle>
+            <img class="thumbnail md" [src]="answer.user.imgPath" [alt]="answer.user.name" width="50" height="50">
+            <div class="answer-info">
+              <div class="author">
+                {{ answer.user }}
+              </div>
+              <div class="timestamp mat-caption">
+                {{ answer.created_at }}
+              </div>
+            </div>
+          </mat-card-subtitle>
+          <mat-card-content (click)="fetchExpandedContent(answer.id)" class="mat-body-1" [innerHTML]="answer.content_html">
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>
+              <i class="material-icons">star_border</i>{{ answer.upvote_count }}</button>
+            <span class="mat-body-1">
+              <i class="material-icons">chat_bubble_outline</i>{{ answer.comment_count }}</span>
+          </mat-card-actions>
+        
+          <!--확장 시 표시-->
+          <mat-card-footer *ngIf="true">
+            <div class="comment-area">
+              <div class="comment-input">
+                <img class="thumbnail sm" src="assets/images/me.png">
+                <mat-form-field>
+                  <textarea [(ngModel)]="commentText" matInput placeholder="댓글을 입력하세요" matTextareaAutosize matAutosizeMinRows="1" matAutosizeMaxRows="100"></textarea>
+                </mat-form-field>
+                <button mat-button (click)="test()" [disabled]="!commentText">댓글달기</button>
+              </div>
+        
+              <div class="comment-list">
+                <div class="comment">
+                  <div class="comment_wrapper">
+                    <img src="assets/images/zuckerberg.jpg" class="thumbnail sm">
+                    <div class="comment_header">
+                      <div class="comment_user mat-caption">user.name</div>
+                      <div class="comment_metadata mat-caption">"modified_at"</div>
+                    </div>
+                    <div class="comment_content">
+                      <p>Hello world</p>
+                    </div>
+                    <div class="comment_actions">
+        
+                    </div>
+                  </div>
+                  <div class="comment depth1">
+                    <div class="comment_wrapper">
+                      <img src="assets/images/zuckerberg.jpg" class="thumbnail sm">
+                      <div class="comment_header">
+                        <div class="comment_user mat-caption">"user.name"</div>
+                        <div class="comment_metadata mat-caption">"modified_at"</div>
+                      </div>
+                      <div class="comment_content">
+                        <p>Hello world</p>
+                      </div>
+                    </div>
+                    <div class="comment depth2">
+                      <div class="comment_wrapper">
+                        <img src="assets/images/zuckerberg.jpg" class="thumbnail sm">
+                        <div class="comment_header">
+                          <div class="comment_user mat-caption">user.name</div>
+                          <div class="comment_metadata mat-caption">"modified_at"</div>
+                        </div>
+                        <div class="comment_content">
+                          <p>Hello world</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <span class="comment-list action">댓글 더보기
+                  <i class="material-icons md-18">expand_more</i>
+                </span>
+              </div>
+            </div>
+          </mat-card-footer>
+        </mat-card>
+      </ng-container>
+      
+    </div>
+  </div>
+</div>
