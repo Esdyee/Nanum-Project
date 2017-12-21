@@ -91,7 +91,6 @@ interface UserStats {
 @Injectable()
 export class ProfileService {
   HOST = 'https://siwon.me';
-
   user_pk = JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body).user.pk;
 
   userProfileImage: object;

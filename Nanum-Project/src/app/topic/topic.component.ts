@@ -23,7 +23,7 @@ export class TopicComponent implements OnInit {
   apiUrl = 'https://siwon.me/';
   isFollowing = false;
   private headers = new HttpHeaders()
-    .set('Authorization', `Token ${JSON.parse(JSON.parse(localStorage.currentUser)._body).token}`);
+    .set('Authorization', `Token ${JSON.parse(localStorage.currentUser).token}`);
   
   // 로그인 사용자 정보 (dummy)
   // 사용처: 메인피드의 질문하기 버튼, 댓글달기, 질문피드의 답변달기
@@ -43,7 +43,7 @@ export class TopicComponent implements OnInit {
   }
 
   getTopics() {
-    this.http.get<Topic[]>(`${this.apiUrl}/topic/5`, { headers: this.headers })
+    this.http.get<Topic[]>(`${this.apiUrl}/topic/2`, { headers: this.headers })
       .subscribe(topics => this.topics = topics);
   }
 
