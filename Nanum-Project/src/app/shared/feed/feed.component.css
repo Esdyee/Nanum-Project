@@ -1,0 +1,37 @@
+/* profile img 공통 */
+.thumbnail {
+  border-radius: 50%;
+}
+
+.thumbnail.md {
+  width: 40px;
+  height: 40px;
+}
+
+.thumbnail.sm {
+  width: 30px;
+  height: 30px;
+}
+
+/* welcome card */
+
+.mat-card.welcome {
+  margin-top: 2rem;
+}
+
+.mat-card.welcome mat-card-title {
+  display: inline-block;
+}
+
+.welcom.actions {
+  vertical-align: middle;
+}
+
+.welcome .ask {
+  color: #999999;
+}
+
+.welcome .ask:hover {
+  /*color: #25274D;*/
+  color: #5256AA;
+}
