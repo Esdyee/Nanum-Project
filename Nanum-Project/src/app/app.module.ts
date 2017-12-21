@@ -17,11 +17,16 @@ import { ProfileFollowModalComponent } from './profile/profile-follow-modal/prof
 import { ProfileBottomModalComponent } from './profile/profile-bottom-modal/profile-bottom-modal.component';
 import { ProfileMiddleModalComponent } from './profile/profile-middle-modal/profile-middle-modal.component';
 import { ProfileTopModalComponent } from './profile/profile-top-modal/profile-top-modal.component';
+import { AccountSettingsComponent } from './common/navigator/account-settings/account-settings.component';
+
+// Service
 import { MenuService } from './service/menu.service';
 import { ProfileService } from './profile/profile.service';
 import { SharedModule } from './shared/shared.module';
 import { QuestionService } from './service/question.service';
 
+// pipe
+import { TabFilterPipe } from './common/navigator/tab-filter.pipe';
 
 
 @NgModule({
@@ -36,7 +41,9 @@ import { QuestionService } from './service/question.service';
     ProfileFollowModalComponent,
     ProfileBottomModalComponent,
     ProfileMiddleModalComponent,
-    ProfileTopModalComponent
+    ProfileTopModalComponent,
+    ProfileFollowModalComponent,
+    AccountSettingsComponent
   ],
   imports: [
     BrowserModule,
