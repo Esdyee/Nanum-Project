@@ -83,7 +83,7 @@ export class FeedService {
   constructor(private http: HttpClient) { }
 
   // type = question || answer || comment
-  getFirstPage(type = 'question', parm?: string) {
+  getFirstPage(type = 'answer', parm?: string) {
     return this.http.get<Page>(`${HOST}/post/${type}/?ordering=-created_at${parm ? parm : ''}`, { headers: this.headers });
   }
 
