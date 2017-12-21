@@ -9,6 +9,10 @@ import { NavigatorComponent } from '../common/navigator/navigator.component';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../module/material.module';
 import { NavTabComponent } from '../common/nav-tab/nav-tab.component';
+import { AnswersComponent } from '../main/answers/answers.component';
+import { QuestionComponent } from '../main/question/question.component';
+import { QuestionDetailComponent } from '../question-detail/question-detail.component';
+
 
 import { TabFilterPipe } from '../common/navigator/tab-filter.pipe';
 
@@ -25,6 +29,9 @@ import { TabFilterPipe } from '../common/navigator/tab-filter.pipe';
     MainLeftComponent,
     NavigatorComponent,
     NavTabComponent,
+    AnswersComponent,
+    QuestionComponent,
+    QuestionDetailComponent,
     TabFilterPipe
   ]
 })
