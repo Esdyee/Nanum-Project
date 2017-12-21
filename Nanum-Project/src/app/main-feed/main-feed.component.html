@@ -1,26 +1,25 @@
-
 <div class="main">
   <div class="container_12">
     <div class="grid_2">
       <!--TODO: component 분리(ASAP)-->
-        <div class="sidebar">
-          <h1 class="sidebar_header mat-h1">피드</h1>
-          <div class="sidebar_lists">
-            <ul class="sidebar_filters mat-caption">
-              <li><a href="#"><i class="material-icons">whatshot</i>인기글</a></li>
-              <li><a href="#"><i class="material-icons">bookmark_border</i>북마크한 답변</a></li>
-              <li><a href="#"><i class="material-icons">timeline</i>최신 글</a></li>
-            </ul>
-            <div class="sidebar_edit mat-caption">
-              <span><i class="material-icons">folder_special</i>내 토픽</span><a href="#">edit</a>
-            </div>
-            <ul class="sidebar_topics mat-caption">
-              <li><a href="#">토픽 1</a></li>
-              <li><a href="#">토픽 2</a></li>
-              <li><a href="#">토픽 3</a></li>
-            </ul>
+      <div class="sidebar">
+        <h1 class="sidebar_header mat-h1">피드</h1>
+        <div class="sidebar_lists">
+          <ul class="sidebar_filters mat-caption">
+            <li><a href="#"><i class="material-icons">whatshot</i>인기글</a></li>
+            <li><a href="#"><i class="material-icons">bookmark_border</i>북마크한 답변</a></li>
+            <li><a href="#"><i class="material-icons">timeline</i>최신 글</a></li>
+          </ul>
+          <div class="sidebar_edit mat-caption">
+            <span><i class="material-icons">folder_special</i>내 토픽</span><a href="#">edit</a>
           </div>
+          <ul class="sidebar_topics mat-caption">
+            <li><a href="#">토픽 1</a></li>
+            <li><a href="#">토픽 2</a></li>
+            <li><a href="#">토픽 3</a></li>
+          </ul>
         </div>
+      </div>
     </div>
 
     <div class="grid_8">
@@ -34,7 +33,7 @@
       </mat-card>
 
       <!--main-feed-content-->
-        <!--TODO: class: post answer 아닌지? 메인과 비교해서 일관성있게 고치기-->
+      <!--TODO: class: post answer 아닌지? 메인과 비교해서 일관성있게 고치기-->
       <ng-container *ngIf="answers">
 
         <mat-card *ngFor="let answer of answers" class="post">
@@ -61,7 +60,7 @@
           </mat-card-subtitle>
           <mat-card-content (click)="fetchExpandedContent(answer.id)" class="mat-body-1" [innerHTML]="answer.content_html">
             <!--<p class="mat-body-1">-->
-              <!--{{ answer.content }} <i class="material-icons md-18">expand_more</i>-->
+            <!--{{ answer.content }} <i class="material-icons md-18">expand_more</i>-->
             <!--</p>-->
           </mat-card-content>
           <mat-card-actions>
@@ -75,8 +74,7 @@
               <div class="comment-input">
                 <img class="thumbnail sm" src="assets/images/me.png">
                 <mat-form-field>
-                <textarea [(ngModel)]="commentText" matInput placeholder="댓글을 입력하세요" matTextareaAutosize matAutosizeMinRows="1"
-                  matAutosizeMaxRows="100"></textarea>
+                  <textarea [(ngModel)]="commentText" matInput placeholder="댓글을 입력하세요" matTextareaAutosize matAutosizeMinRows="1" matAutosizeMaxRows="100"></textarea>
                 </mat-form-field>
                 <button mat-button (click)="test()" [disabled]="!commentText">댓글달기</button>
               </div>

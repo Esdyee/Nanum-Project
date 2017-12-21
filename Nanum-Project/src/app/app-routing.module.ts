@@ -4,33 +4,28 @@ import { LoginGuard } from './login/login.guard';
 
 import { LoginModule } from './login/login.module';
 import { LoginComponent } from './login/login.component';
-import { MainFeedComponent } from './main-feed/main-feed.component';
+import { MainModule } from './main/main.module';
 import { MainComponent } from './main/main.component';
-// 라우트에 해당되는 것이 없을 때 나타나는 페이지
 import { NotFoundComponent } from './common/not-found/not-found.component';
-import { NavigatorComponent } from './common/navigator/navigator.component';
-import { EditorComponent } from './common/editor/editor.component';
-import { MainLeftComponent } from './main/main-left/main-left.component';
 
 import { ProfileComponent } from './profile/profile.component';
+import { TopicComponent } from './topic/topic.component';
 // 라우트 구성
 const routes: Routes = [
   { path: '', redirectTo: 'login/main', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'main', component: MainComponent, canActivate: [LoginGuard],
-    children: [
-      { path: 'leftmenu', component: MainLeftComponent }
-    ]
-  },
+  { path: 'answer', component: MainComponent, canActivate: [LoginGuard]},
+  { path: 'question', component: MainComponent, canActivate: [LoginGuard]},
   { path: 'profile', component: ProfileComponent, canActivate: [LoginGuard] },
-  { path: 'maintest', component: MainComponent },
-  { path: '**', component: NotFoundComponent},
+  { path: 'topic', component: TopicComponent, canActivate: [LoginGuard] },
+  { path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({
   imports: [
     LoginModule,
-    RouterModule.forRoot(routes)
+    MainModule,
+    RouterModule.forRoot(routes),
   ],
   exports: [RouterModule],
   providers: [LoginGuard]

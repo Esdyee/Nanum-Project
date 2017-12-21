@@ -1,4 +1,4 @@
-  <div class="nav">
+<div class="nav">
   <div class="container_12">
     <div class="grid_3">
       <a class="mat-h2 logo" routerLink="/main" (click)="test($event)">NANUM</a>
@@ -30,10 +30,10 @@
       <button mat-menu-item routerLink="/main" (click)="test($event)">
         내 프로필
       </button>
-      <button mat-menu-item>
+        <button mat-menu-item>
         <span>로그아웃</span>
       </button>
-    </mat-menu>
+      </mat-menu>
     </div>
   </div>
   </div>
@@ -41,4 +41,3 @@
     [tabLinks]="tabLinks"
     [tabStatus]="tabStatus">
   </app-nav-tab>
-<router-outlet></router-outlet>
