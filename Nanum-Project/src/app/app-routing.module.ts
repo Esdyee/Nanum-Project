@@ -10,7 +10,7 @@ import { NotFoundComponent } from './common/not-found/not-found.component';
 
 import { ProfileComponent } from './profile/profile.component';
 import { TopicComponent } from './topic/topic.component';
-// 라우트 구성
+
 const routes: Routes = [
   { path: '', redirectTo: 'login/main', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
