@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
+// import { TabFilterPipe } from '../navigator/tab-filter.pipe';
 
 interface TabLink {
   label: string;

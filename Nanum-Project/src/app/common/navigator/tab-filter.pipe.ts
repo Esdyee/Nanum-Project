@@ -10,8 +10,9 @@ export class TabFilterPipe implements PipeTransform {
 
     return tabLinks.filter(tabLink => {
       switch (status) {
-        case 'main' || 'answer': return tabLink.status === 'feed';
-        case 'profile' || '': return tabLink.status === 'profile';
+        case 'answer': return tabLink.status === 'feed';
+        case 'question': return tabLink.status === 'feed';
+        case 'profile': return tabLink.status === 'profile';
         default: return;
       }
     });

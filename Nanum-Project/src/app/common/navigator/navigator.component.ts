@@ -45,30 +45,9 @@ export class NavigatorComponent implements OnInit {
       { label: '읽기', link: '/answer', status: 'feed' },
       { label: '답변하기', link: '/question', status: 'feed'  },
       { label: '프로필', link: '/profile', status: 'profile'  },
-      { label: '포스트', link: '', status: 'profile'  }
+      { label: '포스트', link: '/post', status: 'profile'  }
     ];
   }
-
-  test(is) {
-    const routerValue = is.target.attributes.routerlink.nodeValue;
-    this.tabStatus = routerValue;
-    console.log(is.target.attributes.routerlink.nodeValue);
-  }
-
-  // checkTabStatus() {
-  //   if (this.tabStatus === 'main') {
-  //     this.tabLinks = [
-  //       { label: '읽기', link: 'main' },
-  //       { label: '답변하기', link: 'answer' }
-  //     ];
-  //   } else if (this.tabStatus === 'question') {
-  //     this.tabLinks = [
-  //       { label: '프로필', link: 'question' },
-  //       { label: '포스트', link: 'login/main' }
-  //     ];
-  //   } else {
-  //   }
-  // }
 
   // 모달 오픈
   openAskModal(): void {

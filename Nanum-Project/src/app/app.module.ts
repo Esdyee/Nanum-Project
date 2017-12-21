@@ -42,8 +42,7 @@ import { TabFilterPipe } from './common/navigator/tab-filter.pipe';
     ProfileMiddleModalComponent,
     ProfileTopModalComponent,
     ProfileFollowModalComponent,
-    AccountSettingsComponent,
-    TabFilterPipe
+    AccountSettingsComponent
   ],
   imports: [
     BrowserModule,
