@@ -1,4 +1,4 @@
-import { User, users } from '../main-feed/user';
+import { User, users } from './user';
 
 export class Question {
   // super-user: 2

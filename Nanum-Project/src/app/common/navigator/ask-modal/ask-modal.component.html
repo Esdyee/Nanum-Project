@@ -1,8 +1,8 @@
 <div class="ask-modal wrapper">
-  <button mat-mini-fab color="primary"><img class="thumbnail" src="assets/images/me.png"></button>
+  <button mat-mini-fab color="primary"><img class="thumbnail" [src]="user.thumbnail_image_50"></button>
   <h1 mat-dialog-title>
     <!--TODO: button 삭제 및 이미지 레이아웃 조정-->
-    {{data.name}}님,
+    {{user.name}}님,
   </h1>
   <i class="material-icons" (click)="onNoClick()">close</i>
   <div mat-dialog-content>
