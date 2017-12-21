@@ -88,11 +88,11 @@
       margin-top: 20px;
     }
     
-    .user-resume-list-container .user-resume-icon {
+    .user-resume-list-container .user-resume-icon, .user-education-icon {
       float: left;
     }
 
-    .user-resume-list-container .user-resume-content {
+    .user-resume-list-container .user-resume-content, .user-education-content {
       line-height: 2rem;
       margin-left: 5px;
     }

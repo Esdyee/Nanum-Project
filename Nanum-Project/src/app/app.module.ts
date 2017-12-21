@@ -61,7 +61,8 @@ import { TabFilterPipe } from './common/navigator/tab-filter.pipe';
     TopicSelectComponent,
     ProfileMiddleModalComponent,
     ProfileBottomModalComponent,
-    ProfileTopModalComponent
+    ProfileTopModalComponent,
+    ProfileFollowModalComponent
   ],
   providers: [ProfileService, MenuService, QuestionService],
   bootstrap: [AppComponent]
