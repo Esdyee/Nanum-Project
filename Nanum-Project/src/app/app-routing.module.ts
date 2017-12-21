@@ -17,7 +17,7 @@ import { ProfileComponent } from './profile/profile.component';
 const routes: Routes = [
   { path: '', redirectTo: 'login/main', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'main', component: MainFeedComponent, canActivate: [LoginGuard],
+  { path: 'main', component: MainComponent, canActivate: [LoginGuard],
     children: [
       { path: 'leftmenu', component: MainLeftComponent }
     ]
@@ -25,10 +25,6 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [LoginGuard] },
   { path: 'maintest', component: MainComponent },
   { path: '**', component: NotFoundComponent},
-  // 필수 추가 요망
-  // 메인피드 임시 path 입니다
-  { path: 'main', component: MainFeedComponent, canActivate: [LoginGuard] },
-  { path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({

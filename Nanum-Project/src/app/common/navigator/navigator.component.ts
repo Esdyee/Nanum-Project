@@ -32,7 +32,7 @@ export class NavigatorComponent implements OnInit {
 
   tabLinks: TabLink[];
 
- // RouterStatus = this.route.snapshot.pathFromRoot[0].children[0].routeConfig.path;
+  routerStatus = this.route.snapshot.url.join();
 
 
   constructor(public dialog: MatDialog,
@@ -40,11 +40,12 @@ export class NavigatorComponent implements OnInit {
     }
 
   ngOnInit() {
+    this.tabStatus = this.routerStatus;
     this.tabLinks = [
-      { label: '읽기', link: 'main', status: 'feed' },
-      { label: '답변하기', link: 'answer', status: 'feed'  },
-      { label: '프로필', link: 'question', status: 'profile'  },
-      { label: '포스트', link: 'login/main', status: 'profile'  }
+      { label: '읽기', link: '/answer', status: 'feed' },
+      { label: '답변하기', link: '/question', status: 'feed'  },
+      { label: '프로필', link: '/profile', status: 'profile'  },
+      { label: '포스트', link: '', status: 'profile'  }
     ];
   }
 
@@ -52,10 +53,6 @@ export class NavigatorComponent implements OnInit {
     const routerValue = is.target.attributes.routerlink.nodeValue;
     this.tabStatus = routerValue;
     console.log(is.target.attributes.routerlink.nodeValue);
-  }
-
-  test2() {
-    console.log(this.route.firstChild.routeConfig.path);
   }
 
   // checkTabStatus() {
