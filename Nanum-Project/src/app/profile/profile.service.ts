@@ -91,8 +91,6 @@ interface UserStats {
 @Injectable()
 export class ProfileService {
   HOST = 'https://siwon.me';
-
-  // user_pk = JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body).user.pk;
   user_pk = JSON.parse(localStorage.getItem('currentUser')).user.pk;
 
   userProfileImage: object;
@@ -113,7 +111,7 @@ export class ProfileService {
   // .set('Authorization', `Token ${JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body).token}`);
 
   private headers = new HttpHeaders()
-    .set('Authorization', `Token ${JSON.parse(localStorage.currentUser).token}`);
+    .set('Authorization', `Token ${JSON.parse(localStorage.getItem('currentUser')).token}`);
 
 
 

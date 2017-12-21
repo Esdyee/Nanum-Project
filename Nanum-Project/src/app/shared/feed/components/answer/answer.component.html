@@ -14,7 +14,7 @@
   </mat-card-title>
   <mat-card-subtitle>
     <img class="thumbnail md" [src]="answer.user.thumbnail_image_200" [alt]="answer.user.name" width="50" height="50">
-    <!--TODO: 답변시간 표시방법- 타임스탬프와 브라우저 시간차 계산(서버에서? 클라이언트에서?)-->
+    <!--TODO: 답변시간 표시방법- 타임스탬프와 브라우저 시간차 계산(별도 함수에서..)-->
     <div class="answer-info">
       <div class="author">
         {{ answer.user.name }}
@@ -33,4 +33,5 @@
     <button mat-button><i class="material-icons">star_border</i>{{ answer.upvote_count }}</button>
     <span class="mat-body-1"><i class="material-icons">chat_bubble_outline</i>{{ answer.comment_count }}</span>
   </mat-card-actions>
+  <app-comment [pk]="answer.pk"></app-comment>
 </mat-card>

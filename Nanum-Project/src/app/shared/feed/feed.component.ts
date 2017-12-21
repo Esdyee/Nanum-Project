@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { FeedService } from './feed.service';
 
@@ -10,11 +11,11 @@ import { FeedService } from './feed.service';
 export class FeedComponent implements OnInit {
   // TODO: set url parameter by parent component
   // type = 'question' || 'answer' (default: question)
-  type = 'question';
+  type = this.route.snapshot.url.join();
   nextURL: string;
   results = [];
 
-  constructor(private feedService: FeedService) { }
+  constructor(private feedService: FeedService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.feedService.getFirstPage(this.type).subscribe(
