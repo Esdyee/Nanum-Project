@@ -85,7 +85,8 @@ import { ProfileService } from './profile/profile.service';
     TopicSelectComponent,
     ProfileMiddleModalComponent,
     ProfileBottomModalComponent,
-    ProfileTopModalComponent
+    ProfileTopModalComponent,
+    ProfileFollowModalComponent
   ],
   providers: [QuestionService, ProfileService, MenuService],
   bootstrap: [AppComponent]
