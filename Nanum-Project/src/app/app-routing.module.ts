@@ -19,13 +19,8 @@ import { ProfileComponent } from './profile/profile.component';
 const routes: Routes = [
   { path: '', redirectTo: 'login/main', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'main', component: MainComponent, canActivate: [LoginGuard],
-    children: [
-      // { path: 'leftmenu', component: MainLeftComponent }
-      { path: 'main', component: QuestionComponent },
-      { path: 'answer', component: AnswersComponent }
-    ]
-  },
+  { path: 'main', component: MainComponent, canActivate: [LoginGuard] },
+  { path: 'question', component: MainComponent, canActivate: [LoginGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [LoginGuard] },
   { path: 'maintest', component: MainComponent },
   { path: '**', component: NotFoundComponent}

@@ -37,11 +37,12 @@ export class NavigatorComponent implements OnInit {
 
   ngOnInit() {
     this.tabLinks = [
-      { label: '읽기', link: 'main' },
-      { label: '답변하기', link: 'answer' },
-      { label: '프로필', link: 'question' },
-      { label: '포스트', link: 'login/main' }
+      { label: '읽기', link: '/main' },
+      { label: '답변하기', link: '/question' },
+      // { label: '프로필', link: 'question' },
+      // { label: '포스트', link: 'login/main' }
     ];
+    console.log(this.router.routerState.snapshot.url.split('/')[1]);
   }
 
   checkTabStatus() {

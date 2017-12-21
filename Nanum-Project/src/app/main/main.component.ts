@@ -29,9 +29,8 @@ import { MenuService } from '../service/menu.service';
 
       <!--메인 컴포넌트-->
       <div class="grid_8">
-        <!--<app-answers *ngIf="mainComponent=='answer'"></app-answers>
-        <app-question *ngIf="mainComponent=='question'"></app-question>-->
-        <router-outlet></router-outlet>
+        <app-answers *ngIf="mainComponent=='answer'"></app-answers>
+        <app-question *ngIf="mainComponent=='question'"></app-question>
       </div>
       <!--우측 메뉴를 위해 남겨둔 공간-->
       <div class="grid_2">
