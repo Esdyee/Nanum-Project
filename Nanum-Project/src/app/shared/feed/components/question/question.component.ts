@@ -8,6 +8,9 @@ import { FeedService } from '../../feed.service';
   styleUrls: ['./question.component.css']
 })
 export class QuestionComponent implements OnChanges {
+  isEditMode = false;
+  answerHeader;
+
   topics = [];
 
   constructor(private feedService: FeedService) { }
@@ -23,5 +26,17 @@ export class QuestionComponent implements OnChanges {
         this.topics.push(res);
       }
     );
+  }
+
+  openEditor(question) {
+    this.answerHeader = {
+      pk: question.pk,
+      content: question.content
+    };
+    this.isEditMode = !this.isEditMode;
+  }
+
+  closeEditor(e) { // false value from editor component
+    this.isEditMode = e;
   }
 }

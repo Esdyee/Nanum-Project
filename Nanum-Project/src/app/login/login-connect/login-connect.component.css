@@ -10,9 +10,9 @@
 
 .login-form {
   margin-top: 2.5rem;
-  background-color: white;
+  background-color: #fafafa;
   font-size: 1.5rem;
-  padding: 0rem 2.5rem 2.5rem 2.5rem;
+  padding: 1.5rem 2.5rem 2.5rem 2.5rem;
 }
 
 mat-form-field {
@@ -52,5 +52,6 @@ mat-form-field {
 .btn-login {
   display: block;
   width: 20rem;
-  margin: 2rem auto;
+  margin: 0rem auto;
+  margin-top: 4rem;
 }
