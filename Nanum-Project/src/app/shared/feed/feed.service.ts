@@ -84,7 +84,8 @@ export class FeedService {
 
   // type = question || answer || comment
   getFirstPage(type = 'answer', parm?: string) {
-    return this.http.get<Page>(`${HOST}/post/${type}/?ordering=-created_at${parm ? parm : ''}`, { headers: this.headers });
+    return this.http.get<Page>(`${HOST}/post/${type === 'topic' ? 'question' : type }/?ordering=-created_at${parm ? parm : ''}`,
+      { headers: this.headers });
   }
 
   // question, answer, comment 공통
