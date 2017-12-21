@@ -13,6 +13,7 @@ import { TopicSelectComponent } from '../../main-feed/topic-select/topic-select.
 interface TabLink {
   label: string;
   link: string;
+  status: string;
 }
 
 @Component({
@@ -27,37 +28,25 @@ export class NavigatorComponent implements OnInit {
 
   isShow: boolean;
 
-  tabStatus: any;
+  tabStatus: string;
 
   tabLinks: TabLink[];
 
+  routerStatus = this.route.snapshot.url.join();
+
+
   constructor(public dialog: MatDialog,
-    private router: Router) {
+    private router: Router, private route: ActivatedRoute) {
     }
 
   ngOnInit() {
+    this.tabStatus = this.routerStatus;
     this.tabLinks = [
-      { label: '읽기', link: '/main' },
-      { label: '답변하기', link: '/question' },
-      // { label: '프로필', link: 'question' },
-      // { label: '포스트', link: 'login/main' }
+      { label: '읽기', link: '/answer', status: 'feed' },
+      { label: '답변하기', link: '/question', status: 'feed'  },
+      { label: '프로필', link: '/profile', status: 'profile'  },
+      { label: '포스트', link: '/post', status: 'profile'  }
     ];
-    // console.log(this.router.routerState.snapshot.url.split('/')[1]);
-  }
-
-  checkTabStatus() {
-    if (this.tabStatus === 'main') {
-      this.tabLinks = [
-        { label: '읽기', link: 'main' },
-        { label: '답변하기', link: 'answer' }
-      ];
-    } else if (this.tabStatus === 'question') {
-      this.tabLinks = [
-        { label: '프로필', link: 'question' },
-        { label: '포스트', link: 'login/main' }
-      ];
-    } else {
-    }
   }
 
   // 모달 오픈

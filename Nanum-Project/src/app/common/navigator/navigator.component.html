@@ -1,27 +1,34 @@
 <div class="nav">
   <div class="container_12">
     <div class="grid_3">
-      <label class="mat-h2 logo">NANUM</label>
-      <button (click)="checkTabStatus()">test</button>
+      <a class="mat-h2 logo" routerLink="/answer">NANUM</a>
     </div>
-    <div class="grid_6">
+    <div class="grid_4">
       <mat-form-field class="search-form-field">
-        <input matInput class="search-input" type="text" [(ngModel)]="inputText">
-        <button mat-button *ngIf="inputText" matSuffix mat-icon-button aria-label="Clear" (click)="inputText=''">
+        <input matInput type="text" class="search-input"
+              [(ngModel)]="inputText">
+        <button mat-button 
+                *ngIf="inputText" 
+                matSuffix mat-icon-button aria-label="Clear" 
+                (click)="inputText=''">
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
     </div>
-    <div class="grid_3 push_1">
-      <button mat-raised-button color="primary" (click)="openAskModal()">
+    <div class="grid_2">
+      <button mat-raised-button color="primary"
+              (click)="openAskModal()">
               질문하기
       </button>
-      <button mat-mini-fab color="primary" [matMenuTriggerFor]="menu">
+    </div>
+    <div class="grid_3">
+      <button mat-mini-fab color="primary"
+              [matMenuTriggerFor]="menu">
         <mat-icon>face</mat-icon>
       </button>
-      <mat-menu #menu="matMenu" overlapTrigger="false">
-        <button routerLink="/profile" mat-menu-item (click)="checkTabStatus()">
-        <span>내 프로필</span>
+    <mat-menu #menu="matMenu" overlapTrigger="false">
+      <button mat-menu-item routerLink="/profile">
+        내 프로필
       </button>
         <button mat-menu-item>
         <span>로그아웃</span>
@@ -29,6 +36,8 @@
       </mat-menu>
     </div>
   </div>
-</div>
-<app-nav-tab [tabLinks]="tabLinks">
-</app-nav-tab>
+  </div>
+  <app-nav-tab
+    [tabLinks]="tabLinks"
+    [tabStatus]="tabStatus">
+  </app-nav-tab>
