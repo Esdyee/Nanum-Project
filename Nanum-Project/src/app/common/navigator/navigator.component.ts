@@ -5,10 +5,10 @@ import { Router, ActivatedRoute, RouterState } from '@angular/router';
 import { AskModalComponent } from './ask-modal/ask-modal.component';
 
 // 더미 유저 import
-import { users } from '../../main-feed/user';
+import { users } from '../../mocks/user';
 
 // test 나중에 main-feed로 이동
-import { TopicSelectComponent } from '../../main-feed/topic-select/topic-select.component';
+import { TopicSelectComponent } from '../../topic-select/topic-select.component';
 
 interface TabLink {
   label: string;
