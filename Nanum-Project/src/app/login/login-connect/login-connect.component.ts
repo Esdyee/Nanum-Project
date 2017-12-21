@@ -88,15 +88,11 @@ export class LoginConnectComponent implements OnInit {
       }, err => {
         console.log(err);
         if (err.status === 400) {
-          console.log(400);
           // 이메일 validation
-          this.emailError = JSON.parse(err._body).email[0];
+          this.emailError = err.error.error;
         } else {
-          console.log(401);
-          console.log(err);
-          // this.error = JSON.parse(err._body);
-          console.log(err._body);
-          this.passwordError = JSON.parse(err._body).error;
+          // this.error = JSON.parse(err);
+          this.passwordError = err.error.error;
           this.loginForm.patchValue({ passwordFormControl: '' });
         }
       });
