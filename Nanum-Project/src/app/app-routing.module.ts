@@ -9,7 +9,6 @@ import { MainComponent } from './main/main.component';
 import { NotFoundComponent } from './common/not-found/not-found.component';
 
 import { ProfileComponent } from './profile/profile.component';
-import { QuestionDetailComponent } from './question-detail/question-detail.component';
 import { TopicComponent } from './topic/topic.component';
 // 라우트 구성
 const routes: Routes = [
