@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators, FormGroupDirective, FormGroupName, 
 import { ErrorStateMatcher } from '@angular/material/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+// import { PasswordValidator } from '../validator/password-validator';
 
 import { AppService } from '../../app.service';
 import { AuthService } from '../auth.service';
@@ -16,8 +17,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 @Component({
   selector: 'app-signup',
-  //templateUrl: './signup.component.html',
-  template:`
+  // templateUrl: './signup.component.html',
+  template: `
     <section class="email-signup">
     <h1 class="tit-introduce">NANUM</h1>
 
@@ -31,7 +32,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
           <strong>이름</strong>을 입력해주시기 바랍니다.
         </mat-error>
       </mat-form-field>
-    
+
       <mat-form-field class="signup-full-width">
         <input matInput placeholder="Email" [formControl]="emailFormControl"
                [errorStateMatcher]="matcher">
@@ -46,7 +47,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
           <strong>이메일 양식</strong>에 맞추어서 입력해주시기 바랍니다.
         </mat-error>
       </mat-form-field>
-      
+
       <mat-form-field class="signup-full-width">
         <input type="password" matInput placeholder="Password" [formControl]="passwordFormControl"
                 [errorStateMatcher]="matcher" #password>
@@ -55,7 +56,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
           비밀번호를 <strong>입력</strong>해 주시기 바랍니다.
         </mat-error>
       </mat-form-field>
-      
+
       <mat-form-field class="signup-full-width">
         <input type="password" matInput placeholder="Password-conf" [formControl]="passwordConfFormControl"
                 [errorStateMatcher]="matcher">
@@ -68,11 +69,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
         </mat-error>
       </mat-form-field>
       <button type="submit" class="btn-signup" mat-raised-button [disabled]="!signupForm.valid">회원가입</button>
-      <!--<pre>{{ signupForm.value | json }}</pre>
-      <pre>{{ signupForm.valid }}</pre>-->
     </form>
-
-    
   </section>
   `,
   styleUrls: ['./signup.component.css']
@@ -80,9 +77,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   matcher = new MyErrorStateMatcher();
-  emailError: string = '';
-  passwordError: string = '';
-  
+  emailError = '';
+  passwordError = '';
+
   constructor(private http: HttpClient, private path: AppService, private auth: AuthService, private router: Router) {}
 
   onSubmit() {
@@ -91,12 +88,12 @@ export class SignupComponent implements OnInit {
       .subscribe(result => {
         if (result === true) {
           // login successful
-          this.router.navigate(['/main']);
+          this.router.navigate(['/answer']);
         }
       }, err => {
-        if (err.status == 400) {
+        if (err.status === 400) {
           console.log(err);
-        } 
+        }
       });
   }
 
@@ -114,17 +111,15 @@ export class SignupComponent implements OnInit {
       //   passwordConfFormControl: new FormControl('', Validators.required)
       // })
       'passwordFormControl': new FormControl('', Validators.required),
-      'passwordConfFormControl': new FormControl('', [Validators.required, this.match])        
+      'passwordConfFormControl': new FormControl('', [Validators.required, this.match])
     });
   }
 
 
-  match(control:AbstractControl) {
+  match(control: AbstractControl) {
     // 매개변수로 전달받은 검증 대상 폼 모델에서 password와 confirmPassword을 취득
-      if(control.value != ''){
-        //console.log('password1', control.parent.value.passwordFormControl);
-        //console.log('password2', control.value);
-        let password = control.parent.value.passwordFormControl
+      if (control.value !== '') {
+        const password = control.parent.value.passwordFormControl;
         const confirmPassword = control.value;
 
         // password와 confirmPassword의 값을 비교한다.
@@ -136,7 +131,7 @@ export class SignupComponent implements OnInit {
       }
   }
 
-  //Form Data Return
+  // Form Data Return
   get nameFormControl() {
     return this.signupForm.get('nameFormControl');
   }

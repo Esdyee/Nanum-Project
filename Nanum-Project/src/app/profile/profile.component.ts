@@ -1,7 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
+import { ProfileTopModalComponent } from './profile-top-modal/profile-top-modal.component';
+import { ProfileBottomModalComponent } from './profile-bottom-modal/profile-bottom-modal.component';
+import { ProfileMiddleModalComponent } from './profile-middle-modal/profile-middle-modal.component';
+import { ProfileService } from './profile.service';
+import { ProfileFollowModalComponent } from './profile-follow-modal/profile-follow-modal.component';
 
-import { ProfileTopicModalComponent } from './profile-topic-modal/profile-topic-modal.component';
+interface Resume {
+  pk: number;
+  type: string;
+  content: string;
+}
+
+interface Interest {
+  pk: number;
+  type: string;
+  content: string;
+}
+
+interface Experts {
+  pk: number;
+  type: string;
+  content: string;
+}
+
+
+
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +34,12 @@ import { ProfileTopicModalComponent } from './profile-topic-modal/profile-topic-
 })
 
 export class ProfileComponent implements OnInit {
+
+  constructor(public dialog: MatDialog, public profileService: ProfileService) { }
+
+
   // TEST_DUMMY_USER_DATA ---> 페이지 구성 각 부분별로 API가 있다.
+
   DUMMY_USER_PROFILE = {
     Name: '김경훈',
     Article: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor.',
@@ -35,7 +64,7 @@ export class ProfileComponent implements OnInit {
       { pk: 5, type: 'Interest', content: 'Interest-test4' },
       { pk: 6, type: 'Interest', content: 'Interest-test5' },
       { pk: 7, type: 'Interest', content: 'Interest-test6' },
-      { pk: 8, type: 'Interest', content: 'Interest-test7' }
+      { pk: 8, type: 'Interest', content: 'Interest-test7' },
     ],
 
     Experts: [
@@ -46,11 +75,9 @@ export class ProfileComponent implements OnInit {
       { pk: 5, type: 'Experts', content: 'Experts-test4' },
       { pk: 6, type: 'Experts', content: 'Experts-test5' },
       { pk: 7, type: 'Experts', content: 'Experts-test6' },
-      { pk: 8, type: 'Experts', content: 'Experts-test7' }
+      { pk: 8, type: 'Experts', content: 'Experts-test7' },
     ]
   };
-
-  constructor(public dialog: MatDialog) { }
 
 
 
@@ -58,112 +85,125 @@ export class ProfileComponent implements OnInit {
   // Test Logic
 
   userArticle: string;
-  userResume: object;
-  isArticleOvered: boolean;
-  isClicked: boolean;
+  userResume: any[];
+  // isArticleOvered: boolean; / 더보기 기능 삭제로 주석처리
+  // isClicked: boolean; / 더보기 기능 삭제로 주석처리
   isSignIn: boolean;
+  isOnMouse_TopContent: boolean;
+  isOnMouse_MiddleContent: boolean;
+  isOnMouse_BottomContent: boolean;
   // 사진 업로드 테스트!
-  dataUrl: any[] = [];
+  dataUrl: string[] = [];
   // 하단부 사진 컨테이너
-  interestContainer: any[] = [];
-  expertContainer: any[] = [];
+  interestContainer: Interest[] = [];
+  expertContainer: Experts[] = [];
 
   // 테스팅 페이지 조작 로직
   TEST_userName: string;
   TEST_userArticle: string;
 
+  // Server 통신 테스트 로직
+  userProfile: object[];
+  userPk = 1;
+
 
   ngOnInit() {
-    this.userArticle = this.DUMMY_USER_PROFILE.Article;
+    // this.userArticle = this.DUMMY_USER_PROFILE.Article;
     this.userResume = this.DUMMY_USER_PROFILE.Resume;
-    this.isArticleOvered = false;
-    this.isClicked = false;
+    this.isOnMouse_TopContent = false;
+    this.isOnMouse_MiddleContent = false;
+    this.isOnMouse_BottomContent = false;
     this.isSignIn = true; // 추후에 로그인 관련 컴포넌트가 개발 완료되면 기본값으로 false를 부여할 예정
     // 하단부 테스트
     this.interestContainer = [...this.DUMMY_USER_PROFILE.Interest];
     this.expertContainer = [...this.DUMMY_USER_PROFILE.Experts];
-    // 테스팅 페이지 조작용
-    this.TEST_userName = '';
-    this.TEST_userArticle = '';
   }
+
 
   // 사진 업로드 테스트!
-  readUrl(event) {
-    const reader = new FileReader();
-    reader.onload = (loadEvent: any) => {
-      this.dataUrl.push(loadEvent.target.result);
-    };
-    reader.readAsDataURL(event.target.files[0]);
-  }
+  // readUrl(event) {
+  //   const reader = new FileReader();
+  //   reader.onload = (loadEvent: any) => {
+  //     this.dataUrl.push(loadEvent.target.result);
+  //   };
+  //   reader.readAsDataURL(event.target.files[0]);
+  // }
 
 
 
-  getUserName(): string {
-    return this.DUMMY_USER_PROFILE.Name;
-  }
+  // getUserName(): string {
+  //   return this.DUMMY_USER_PROFILE.Name;
+  // }
 
-  getUserArticle(): string {
-    // this.userArticle = this.DUMMY_UserArticle;
-    const _userArticle = this.DUMMY_USER_PROFILE.Article;
+  // getUserArticle(): string {
+  //   const _userArticle = this.profileService.userProfile.description;
 
-    // is Article.length > 200 ?
-    // if (this.DUMMY_USER_PROFILE.Article.length > 200) {
-    //   const _userArticle_COPY: string[] = _userArticle.slice(0, 200);
+  //   return _userArticle;
+  // }
 
-    //   this.isArticleOvered = true;
-    //   return _userArticle_COPY;
-    // }
-    return _userArticle;
-  }
-
-  toggleShowArticle() {
-    this.isClicked = !this.isClicked;
-  }
 
   // 여기까지 상단
 
-  getUserResumeIcon(resume) {
-    switch (resume) {
-      case 'Job':
-        return 'business_center';
-      case 'School':
-        return 'school';
+  getUserResumeIcon(resume: object): string {
+    if ('company' in resume) {
+      return 'business_center';
     }
+    if ('school' in resume) {
+      return 'school';
+    }
+    return;
   }
 
-  // 여기까지 중단
-
-
-
-
-
-
-  // 테스트 조작용 로직
-  TEST_modifyUserName() {
-    if (this.TEST_userName) {
-      this.DUMMY_USER_PROFILE.Name = this.TEST_userName;
-      this.TEST_userName = '';
-    }
+  openProfileTopModal(): void {
+    const dialogRef = this.dialog.open(ProfileTopModalComponent, {
+      width: '620px'
+    });
   }
 
-  TEST_modifyUserArticle() {
-    if (this.TEST_userArticle) {
-      this.userArticle = this.TEST_userArticle;
-      this.DUMMY_USER_PROFILE.Article = this.TEST_userArticle;
-      this.TEST_userArticle = '';
-    }
-  }
-  
-  openProfileTopicModal(): void {
-    const dialogRef = this.dialog.open(ProfileTopicModalComponent, {
+  openProfileMiddleModal(): void {
+    const dialogRef = this.dialog.open(ProfileMiddleModalComponent, {
       width: '620px',
-      // 이름 참조해서 사용
-      data: { }
+      data: {
+        Resume: this.DUMMY_USER_PROFILE.Resume
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
   }
+  // 여기까지 중단
+
+  // TEST_modifyUserArticle() {
+  //   if (this.TEST_userArticle) {
+  //     this.userArticle = this.TEST_userArticle;
+  //     this.DUMMY_USER_PROFILE.Article = this.TEST_userArticle;
+  //     this.TEST_userArticle = '';
+  //   }
+  // }
+
+
+  ProfileFollowModalComponent(): void {
+    const dialogRef = this.dialog.open(ProfileFollowModalComponent, {
+      width: '380px',
+      data: { interestContainer: this.interestContainer }
+    });
+  }
+
+  openProfileBottomModal(calledBy: number): void {
+    const dialogRef = this.dialog.open(ProfileBottomModalComponent, {
+      width: '620px',
+      data: {
+        calledBy,
+        UserSelectedInterests: this.interestContainer,
+        UserSelectedExperts: this.expertContainer
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
 
 }

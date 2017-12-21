@@ -1,0 +1,71 @@
+<div class="container_9">
+
+<!-- <div class="grid_9"> -->
+
+  <span class="main-title">
+    <strong class="mat-h2">내 정보</strong>
+  </span>
+
+  <hr>
+  <br>
+  <div class="alpha">
+  <div class="user-name">
+    <span><strong class="mat-h4">{{ profileService.userProfile.name }} / {{ profileService.userProfile.main_credential }}</strong></span>
+  </div>
+
+  <form class="profile-image-form" [formGroup]="form" (ngSubmit)="onSubmit(fileInput.files)">
+  <div class="form-group user-profile-image" (click)="fileInput.click()">
+
+    <input type="file" id="avatar" accept="image/*" (change)="onFileChange(fileInput.files)" #fileInput>
+
+    <img *ngIf="profileImage" [src]="profileImage">
+  </div>
+
+  <br>
+
+  <div class="submit-button">
+  <button mat-button color="primary" type="submit" class="btn btn-save">적용하기 <i class="fa fa-spinner fa-fw" *ngIf="loading"></i></button>
+  <button mat-button color="accent" type="button" class="btn btn-cancel" (click)="clearFile(fileInput)">되돌리기</button>
+  </div>
+  </form>
+
+</div>
+
+<br>
+<hr>
+<br>
+
+  <div class="omega user-input">
+    <div class="short-introduction">
+      <span>
+        <strong class="mat-h3">한줄 자기 소개</strong>
+      </span>
+
+      <mat-form-field class="edit-introduction">
+        <input class="short-introduce-input" [(ngModel)]="minimalIntroduction" matInput placeholder="글을 입력해주세요">
+      </mat-form-field>
+    </div>
+
+
+    <br>
+
+
+    <div class="main-introduction">
+      <span>
+        <strong class="mat-h3">자기소개</strong>
+      </span>
+      <mat-form-field class="add-concentration-input">
+        <input [(ngModel)]="mainIntroduction" matInput placeholder="description">
+      </mat-form-field>
+    </div>
+
+
+  </div>
+      <div class="save-button">
+        <button mat-button (click)="onSubmitArticle()" type="button">작성한 글 저장하기</button>
+      </div>
+
+
+<!-- </div> -->
+
+</div>

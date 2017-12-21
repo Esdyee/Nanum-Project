@@ -1,0 +1,176 @@
+<div class="profile-middle-modal-container">
+
+
+
+
+  <div class="edit-credential-container" *ngIf="!isJobClicked && !isSchoolClicked">
+    <span class="main-title">
+      <strong class="mat-h2">Edit credentials</strong>
+    </span>
+    <hr>
+    <br>
+    <div class="edit-credential">
+      <br>
+      <button mat-button [matMenuTriggerFor]="credentialOptions">
+        <mat-icon>add</mat-icon>
+        <span class="edit-credential-button">
+          <strong class="mat-h2">Add a credential</strong>
+        </span>
+        <mat-menu class="credential-options" #credentialOptions="matMenu" yPosition="below" [overlapTrigger]="false">
+          <button mat-menu-item id="job" (click)="toggleMatMenu($event.target.id)">
+            <mat-icon>business_center</mat-icon>직장</button>
+          <button mat-menu-item id="school" (click)="toggleMatMenu($event.target.id)">
+            <mat-icon>school</mat-icon>학업</button>
+          <button mat-menu-item>
+            <mat-icon>location_on</mat-icon>지역</button>
+          <button mat-menu-item>
+            <mat-icon>subject</mat-icon>주제</button>
+          <button mat-menu-item>
+            <mat-icon>language</mat-icon>언어</button>
+        </mat-menu>
+      </button>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <br>
+
+    <span>
+      <strong class="mat-h2">경력사항</strong>
+    </span>
+    <br>
+    <br>
+    <br>
+    <ul class="user-resume-list-container">
+      <li *ngFor="let resume of profileService.userEmploymentCredentialList" [id]="resume.pk" #resumeEdit>
+        <mat-icon>{{ getUserResumeIcon(resume) }}</mat-icon>
+        <span>
+          <strong class="mat-h3">{{ resume.company.name }}</strong>
+        </span>
+        <button mat-icon-button color="accent" (click)="profileService.deleteEmploymentCredential(resumeEdit.id)" id="delete-button">
+          <mat-icon>cancel</mat-icon>
+        </button>
+        <hr>
+      </li>
+      <li *ngFor="let education of profileService.userEducationCredentialList" [id]="education.pk" #educationEdit>
+        <mat-icon>{{ getUserResumeIcon(education) }}</mat-icon>
+        <span>
+          <strong class="mat-h3">{{ education.school.name }}</strong>
+        </span>
+        <button mat-icon-button color="accent" (click)="profileService.deleteEducationCredential(educationEdit.id)">
+          <mat-icon>cancel</mat-icon>
+        </button>
+        <hr>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="add-credential" *ngIf="isJobClicked" [@enterAnimation]>
+    <span class="main-title">
+      <strong class="mat-h2">Add credentials</strong>
+    </span>
+    <hr>
+    <!-- <form class="add-credential-input"> -->
+      <span>
+        <strong class="mat-h3">Position</strong>
+      </span>
+      <mat-form-field class="add-position-input">
+        <input matInput [(ngModel)]="position" placeholder="Furniture Designer">
+      </mat-form-field>
+
+      <br>
+      <span>
+        <strong class="mat-h3">Company / Organization</strong>
+      </span>
+      <mat-form-field class="add-company-input">
+        <input matInput [(ngModel)]="companyOrganization" placeholder="Toyota">
+      </mat-form-field>
+    
+    <br>
+
+    <p>
+      <span>
+        <strong class="mat-h3">Start Year</strong>
+      </span>
+      <select (change)="settingYearsOfCredential($event.target)" id="startYear">
+        <option *ngFor="let year of yearBox.reverse()" [value]="year">{{ year }}</option>
+      </select>
+    </p>
+    <p> 
+      <span>
+        <strong class="mat-h3">End Year</strong>
+      </span>
+      <select (change)="settingYearsOfCredential($event.target)" id="endYear">
+        <option *ngFor="let year of yearBox" [value]="year">{{ year }}</option>
+      </select>
+    </p>
+
+    <p>
+      <span>
+        <strong class="mat-h3">I currently work here</strong>
+      </span>
+      <mat-checkbox (change)="toggleIsWorkHere()" class="example-margin"></mat-checkbox>
+      <button mat-button color="primary" (click)="sendEmploymentCredentialPayload()" type="button">추가하기</button>
+    </p>
+    <!-- </form> -->
+  </div>
+
+
+
+  <div class="add-education-credential" *ngIf="isSchoolClicked" [@enterAnimation]>
+    <span class="main-title">
+      <strong class="mat-h2">Add education credentials</strong>
+    </span>
+    <hr>
+    <!-- <form class="add-education-credential-input"> -->
+      <span>
+        <strong class="mat-h3">School</strong>
+      </span>
+      <mat-form-field class="add-school-input">
+        <input [(ngModel)]="schoolName" matInput placeholder="University of Oxford">
+      </mat-form-field>
+
+      <br>
+
+      <span>
+        <strong class="mat-h3">Concentration</strong>
+      </span>
+      <mat-form-field class="add-concentration-input">
+        <input [(ngModel)]="concentrationName" matInput placeholder="Computer Science">
+      </mat-form-field>
+<!-- 
+      <br>
+
+      <span>
+        <strong class="mat-h3">Secondary Concentration</strong>
+      </span>
+      <mat-form-field class="add-concentration-input">
+        <input matInput placeholder="Computer Science">
+      </mat-form-field> -->
+
+      <br>
+
+      <span>
+        <strong class="mat-h3">Degree Type</strong>
+      </span>
+      <mat-form-field class="add-degree-type-input">
+        <input [(ngModel)]="degreeType" matInput placeholder="BA">
+      </mat-form-field>
+    <!-- </form> -->
+
+    <br>
+
+    <p>
+      <span>
+        <strong class="mat-h3">Graduation Year</strong>
+      </span>
+      <select (change)="settingYearsOfCredential($event.target)" id="graduationYear">
+        <option *ngFor="let year of yearBox.reverse()" [value]="year">{{ year }}</option>
+      </select>
+      <button (click)="sendEducationCredentialPayload()" type="button">추가하기</button>
+
+  </div>
+
+
+</div>

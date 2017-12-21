@@ -18,7 +18,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 @Component({
   selector: 'app-login-connect',
-  //templateUrl: './login-connect.component.html',
+  // templateUrl: './login-connect.component.html',
   template: `
   <section class="email-login">
     <h1 class="tit-introduce">NANUM</h1>
@@ -28,7 +28,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
         <input matInput placeholder="Email" [formControl]="emailFormControl"
                [errorStateMatcher]="matcher">
         <mat-hint>이메일을 입력해주세요.</mat-hint>
-        
         <mat-error *ngIf="emailError && !emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
           {{emailError}}
         </mat-error>
@@ -51,10 +50,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
           비밀번호를 <strong>입력</strong>해 주시기 바랍니다.
         </mat-error>
       </mat-form-field>
-      <button type="submit" class="btn-login" mat-raised-button 
+      <button type="submit" class="btn-login" mat-raised-button
       [disabled]="!(emailFormControl.valid && passwordFormControl.valid)">로그인</button>
     </form>
-    
   </section>
   `,
   styleUrls: ['./login-connect.component.css']
@@ -62,10 +60,10 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class LoginConnectComponent implements OnInit {
   loginForm: FormGroup;
   matcher = new MyErrorStateMatcher();
-  emailError:string = '';
-  passwordError:string = '';
+  emailError = '';
+  passwordError = '';
 
-  constructor(private http: HttpClient, private path: AppService, private auth: AuthService, private router:Router) { }
+  constructor(private http: HttpClient, private path: AppService, private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -79,30 +77,28 @@ export class LoginConnectComponent implements OnInit {
     });
   }
 
-  onSubmit(){
+  onSubmit() {
     this.auth.login(this.emailFormControl.value, this.passwordFormControl.value)
       .subscribe(result => {
+        console.log(result);
         if (result === true) {
           // login successful
-          this.router.navigate(['/main']);
-        } 
+          this.router.navigate(['/answer']);
+        }
       }, err => {
-        if(err.status == 400){
-          console.log(400)
-          //이메일 validation
-          this.emailError = JSON.parse(err._body).email[0];
-        } else{
-          console.log(401)
-          console.log(err)
-          //this.error = JSON.parse(err._body)
-          console.log(err._body);
-          this.passwordError = JSON.parse(err._body).error;
-          this.loginForm.patchValue({ passwordFormControl: "" })
+        console.log(err);
+        if (err.status === 400) {
+          // 이메일 validation
+          this.emailError = err.error.error;
+        } else {
+          // this.error = JSON.parse(err);
+          this.passwordError = err.error.error;
+          this.loginForm.patchValue({ passwordFormControl: '' });
         }
       });
   }
 
-  //Form Data Return
+  // Form Data Return
   get emailFormControl() {
     return this.loginForm.get('emailFormControl');
   }
