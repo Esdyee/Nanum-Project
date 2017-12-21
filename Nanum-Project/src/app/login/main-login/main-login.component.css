@@ -25,24 +25,26 @@
   text-align: center;
 }
 
-.txt-introduce {
-  color: #dddddd;
-}
-
 .btn-login button {
   width: 20rem;
-  height: 2.5rem;
+  height: 3rem;
   margin: 1.5rem auto;
+}
+
+.txt-introduce {
+  color: #dddddd;
 }
 
 .account {
   margin-top: 2.5rem;
   text-align: center;
   color: #dddddd;
+  ;
 }
 
 .account button {
   background-color: rgba(0, 0, 0, 0);
   border: 0px;
   color: #dddddd;
+  cursor: pointer
 }

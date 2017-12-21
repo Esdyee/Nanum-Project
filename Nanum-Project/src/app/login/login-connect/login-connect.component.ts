@@ -50,7 +50,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
           비밀번호를 <strong>입력</strong>해 주시기 바랍니다.
         </mat-error>
       </mat-form-field>
-      <button type="submit" class="btn-login" mat-raised-button 
+      <button type="submit" class="btn-login" mat-raised-button
       [disabled]="!(emailFormControl.valid && passwordFormControl.valid)">로그인</button>
     </form>
   </section>
@@ -83,7 +83,7 @@ export class LoginConnectComponent implements OnInit {
         console.log(result);
         if (result === true) {
           // login successful
-          this.router.navigate(['/main']);
+          this.router.navigate(['/answer']);
         }
       }, err => {
         console.log(err);

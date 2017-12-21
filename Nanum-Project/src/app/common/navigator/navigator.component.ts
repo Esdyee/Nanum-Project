@@ -42,7 +42,7 @@ export class NavigatorComponent implements OnInit {
       // { label: '프로필', link: 'question' },
       // { label: '포스트', link: 'login/main' }
     ];
-    console.log(this.router.routerState.snapshot.url.split('/')[1]);
+    // console.log(this.router.routerState.snapshot.url.split('/')[1]);
   }
 
   checkTabStatus() {

@@ -25,7 +25,6 @@ import { NavTabComponent } from './common/nav-tab/nav-tab.component';
 import { ProfileFollowModalComponent } from './profile/profile-follow-modal/profile-follow-modal.component';
 import { QuestionDetailComponent } from './question-detail/question-detail.component';
 import { MainComponent } from './main/main.component';
-import { QuestionComponent } from './main/question/question.component';
 // 기존에 Answer가 있어서 ==> Answers로 지정
 import { AnswersComponent } from './main/answers/answers.component';
 import { MainLeftComponent } from './main/main-left/main-left.component';
@@ -60,7 +59,6 @@ import { SharedModule } from './shared/shared.module';
     QuestionDetailComponent,
     ProfileFollowModalComponent,
     MainComponent,
-    QuestionComponent,
     MainLeftComponent,
     AnswersComponent,
     ProfileBottomModalComponent,

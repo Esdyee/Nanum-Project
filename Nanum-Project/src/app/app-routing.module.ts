@@ -22,7 +22,7 @@ import { TopicComponent } from './topic/topic.component';
 const routes: Routes = [
   { path: '', redirectTo: 'login/main', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'main', component: MainComponent, canActivate: [LoginGuard] },
+  { path: 'answer', component: MainComponent, canActivate: [LoginGuard] },
   { path: 'question', component: MainComponent, canActivate: [LoginGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [LoginGuard] },
   { path: 'maintest', component: MainComponent },
