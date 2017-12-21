@@ -6,6 +6,7 @@ import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/
 import { MaterialModule } from './module/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
+import { FeedModule } from './shared/feed/feed.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -18,8 +19,6 @@ import { AskModalComponent } from './common/navigator/ask-modal/ask-modal.compon
 // import { FindPasswordComponent } from './login/find-password/find-password.component';
 import { NotFoundComponent } from './common/not-found/not-found.component';
 import { QuestionFeedComponent } from './question-feed/question-feed.component';
-import { CommentsComponent } from './common/comments/comments.component';
-import { EditorComponent } from './common/editor/editor.component';
 
 import { TopicSelectComponent } from './main-feed/topic-select/topic-select.component';
 import { NavTabComponent } from './common/nav-tab/nav-tab.component';
@@ -38,6 +37,7 @@ import { ProfileTopModalComponent } from './profile/profile-top-modal/profile-to
 import { QuestionService } from './question-feed/question.service';
 import { MenuService } from './service/menu.service';
 import { ProfileService } from './profile/profile.service';
+import { SharedModule } from './shared/shared.module';
 
 
 
@@ -56,8 +56,6 @@ import { ProfileService } from './profile/profile.service';
     // FindPasswordComponent,
     NotFoundComponent,
     QuestionFeedComponent,
-    CommentsComponent,
-    EditorComponent,
     NavTabComponent,
     QuestionDetailComponent,
     ProfileFollowModalComponent,
@@ -75,7 +73,9 @@ import { ProfileService } from './profile/profile.service';
     AppRoutingModule,
     QuillModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule,
+    FeedModule
   ],
   exports: [
     MaterialModule
