@@ -1,5 +1,5 @@
 import { User, users } from './user';
-import { questions } from '../mocks/question';
+import { questions } from '../question-feed/question';
 
 export class Answer {
   id: number;

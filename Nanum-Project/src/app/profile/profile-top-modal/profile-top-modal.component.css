@@ -1,13 +1,8 @@
-.user-name {
-  float: right;
-  margin-right: 20px;
-}
-
 img {
-  min-width: 200px;
-  min-height: 200px;
-  max-width: 200px;
-  max-height: 200px;
+  min-width: 180px;
+  min-height: 180px;
+  max-width: 180px;
+  max-height: 180px;
   border-radius: 50%;
   z-index: -99;
 }
@@ -18,48 +13,12 @@ img {
 
 .user-profile-image {
   display: inline-block;
-  margin-left: 30%;
 }
 
 .user-profile-image:hover {
   cursor: pointer;
 }
 
-/* .user-profile-image {
-  margin-left: 30%;
-} */
-
-.submit-button {
-  margin-left: 50px;
-}
-
-.submit-button .btn-save, .btn-cancel {
-  width: 45%;
-}
-
-.save-button button {
-  width: 100%;
-}
-
-
-.short-introduction, .main-introduction {
-  display: inline-block;
-  padding-left: 20px;
-}
-
-
-
-.edit-introduction {
-  margin-left: 65px;
-}
-
-.add-concentration-input {
-  margin-left: 100px;
-}
-
-.user-input {
-  margin-left: 70px;
-}
 /* .btn {
   min-width: 80px;
   border-radius: 2px;

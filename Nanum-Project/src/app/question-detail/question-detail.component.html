@@ -1,23 +1,24 @@
 <div class="main">
+  <!--<app-editor [answerMetaData]="answerHeader" *ngIf="isEditMode" (closed)="closeEditor($event)"></app-editor>-->
   <div class="container_12">
     <div class="grid_8">
-      <!-- <div class="question-info">
+      <div class="question-info">
         <div *ngFor="let question of questions">
-          <span class="topic">{{ question.topics }}</span>
-          <h1 class="question-name">
+          <span *ngIf="question.question.pk == this.currentPage" class="topic">{{ question.topics }}</span>
+          <h1 *ngIf="question.question.pk == this.currentPage" class="question-name">
             {{ question.question.content }}
           </h1>
-          <button class="write-answer" mat-button (click)="openEditor(question.question)">답변 달기</button>
-          <button class="follow" mat-button>팔로우</button>
+          <button *ngIf="question.question.pk == this.currentPage" class="write-answer" mat-button (click)="openEditor(question.question)">답변 달기</button>
+          <button *ngIf="question.question.pk == this.currentPage" class="follow" mat-button>팔로우</button>
         </div>
 
-      </div> -->
-      <app-feed></app-feed>
+      </div>
       <ng-container *ngIf="answers">
         <div class="answer-numbers">
           <h2>답변 {{ answers.length }}</h2>
         </div>
         <mat-card *ngFor="let answer of answers" class="post">
+          <!--post action: topic links-->
           <mat-card-subtitle>
             <img class="thumbnail md" [src]="answer.user.imgPath" [alt]="answer.user.name" width="50" height="50">
             <div class="answer-info">
@@ -38,6 +39,7 @@
               <i class="material-icons">chat_bubble_outline</i>{{ answer.comment_count }}</span>
           </mat-card-actions>
 
+          <!--확장 시 표시-->
           <mat-card-footer *ngIf="true">
             <div class="comment-area">
               <div class="comment-input">

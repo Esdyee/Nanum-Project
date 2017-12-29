@@ -82,10 +82,9 @@ export class FeedService {
 
   constructor(private http: HttpClient) { }
 
-  // type = question | answer | comment
-  getFirstPage(type = 'answer', urlParameters: string[] = ['ordering=-created_at']) {
-    return this.http.get<Page>(`${HOST}/post/${type === 'topic' ? 'question' : type }/?${urlParameters.join('&')}`,
-      { headers: this.headers });
+  // type = question || answer || comment
+  getFirstPage(type = 'question', parm?: string) {
+    return this.http.get<Page>(`${HOST}/post/${type}/?ordering=-created_at${parm ? parm : ''}`, { headers: this.headers });
   }
 
   // question, answer, comment 공통
