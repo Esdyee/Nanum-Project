@@ -18,7 +18,7 @@ export class CommentComponent implements OnInit {
   constructor(private feedService: FeedService) { }
 
   ngOnInit() {
-    this.feedService.getFirstPage('comment', [`answer=${this.pk}`]).subscribe(
+    this.feedService.getFirstPage('comment', `&answer=${this.pk}`).subscribe(
       res => {
         this.comments = [...this.comments, ...res.results];
         this.nextURL = res.next;

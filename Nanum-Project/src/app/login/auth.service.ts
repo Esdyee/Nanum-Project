@@ -91,7 +91,7 @@ export class AuthService implements OnInit {
     return this.http.post(api, JSON.stringify(paylord), { headers: {'Content-Type': 'application/json'}})
       .map((response: LoginAccessData) => {
         console.log('connect');
-        // console.log(response);
+        console.log(response);
         // login successful if there's a jwt token in the response
         const token = response && response.token;
         if (token) {
@@ -148,6 +148,5 @@ export class AuthService implements OnInit {
     // clear token remove user from local storage to log user out
     this.token = null;
     localStorage.removeItem('currentUser');
-    this.router.navigate(['/login/main']);
   }
 }

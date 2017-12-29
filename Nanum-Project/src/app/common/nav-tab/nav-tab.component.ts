@@ -1,10 +1,8 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-// import { TabFilterPipe } from '../navigator/tab-filter.pipe';
 
 interface TabLink {
   label: string;
   link: string;
-  status: string;
 }
 
 @Component({
@@ -14,7 +12,6 @@ interface TabLink {
 })
 export class NavTabComponent implements OnInit {
   @Input() tabLinks: TabLink[];
-  @Input() tabStatus: string;
 
   constructor() { }
 
