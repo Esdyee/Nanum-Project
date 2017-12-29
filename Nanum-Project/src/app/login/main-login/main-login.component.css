@@ -9,13 +9,12 @@
 }
 
 .tit-introduce {
-  color: #dddddd;
-  font-size: 4rem;
+  color: #fafafa;
   text-align: center;
 }
 
 .txt-introduce {
-  color: #dddddd;
+  color: #fafafa;
   font-size: 2rem;
   margin: 2.5rem 0px;
   text-align: center;
@@ -25,24 +24,26 @@
   text-align: center;
 }
 
-.txt-introduce {
-  color: #dddddd;
-}
-
 .btn-login button {
   width: 20rem;
-  height: 2.5rem;
+  height: 3rem;
   margin: 1.5rem auto;
+}
+
+.txt-introduce {
+  color: #fafafa;
 }
 
 .account {
   margin-top: 2.5rem;
   text-align: center;
-  color: #dddddd;
+  color: #fafafa;
+  ;
 }
 
 .account button {
   background-color: rgba(0, 0, 0, 0);
   border: 0px;
-  color: #dddddd;
+  color: #fafafa;
+  cursor: pointer
 }

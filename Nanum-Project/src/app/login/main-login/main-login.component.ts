@@ -30,7 +30,7 @@ export class MainLoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    //   this.navRoute.navigate(['/main']);
+    //   this.navRoute.navigate(['/answer']);
     // if(localStorage.getItem('currentUser')){
     // }
   }
@@ -54,13 +54,13 @@ export class MainLoginComponent implements OnInit {
         this.auth.facebookLoginAuth(data)
           .subscribe(result => {
             console.log(result);
-            this.zone.run(() => this.navRoute.navigate(['/main']));
+            this.zone.run(() => this.navRoute.navigate(['/answer']));
           });
       }
     });
   }
 
   navigateMain() {
-    this.navRoute.navigate(['/main']);
+    this.navRoute.navigate(['/answer']);
   }
 }

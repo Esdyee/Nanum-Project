@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { QuestionService } from '../question-feed/question.service';
+import { QuestionService } from '../service/question.service';
+import { FeedService } from '../shared/feed/feed.service';
+import { FeedComponent } from '../shared/feed/feed.component';
 
 @Component({
   selector: 'app-question-detail',
@@ -14,13 +16,17 @@ export class QuestionDetailComponent implements OnInit {
   questions = [];
   currentPage = 1;
 
-  constructor(private questionService: QuestionService) { }
+  constructor(private questionService: QuestionService, private feedService: FeedService) { }
 
   ngOnInit() {
     this.getQuestion();
     this.getAnswer();
+    this.getFirstPage();
   }
 
+  getFirstPage() {
+    this.feedService.getFirstPage();
+  }
 
   getQuestion() {
     this.questionService.getQuestions(this.currentPage).subscribe(

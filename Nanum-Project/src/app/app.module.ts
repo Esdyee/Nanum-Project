@@ -12,15 +12,22 @@ import { TopicComponent } from './topic/topic.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AskModalComponent } from './common/navigator/ask-modal/ask-modal.component';
 import { NotFoundComponent } from './common/not-found/not-found.component';
-import { TopicSelectComponent } from './main-feed/topic-select/topic-select.component';
+import { TopicSelectComponent } from './topic-select/topic-select.component';
 import { ProfileFollowModalComponent } from './profile/profile-follow-modal/profile-follow-modal.component';
 import { ProfileBottomModalComponent } from './profile/profile-bottom-modal/profile-bottom-modal.component';
 import { ProfileMiddleModalComponent } from './profile/profile-middle-modal/profile-middle-modal.component';
 import { ProfileTopModalComponent } from './profile/profile-top-modal/profile-top-modal.component';
+import { AccountSettingsComponent } from './common/navigator/account-settings/account-settings.component';
+
+// Service
 import { MenuService } from './service/menu.service';
 import { ProfileService } from './profile/profile.service';
 import { SharedModule } from './shared/shared.module';
+import { QuestionService } from './service/question.service';
 
+// pipe
+import { TabFilterPipe } from './common/navigator/tab-filter.pipe';
+import { FeedModule } from './shared/feed/feed.module';
 
 
 @NgModule({
@@ -35,7 +42,9 @@ import { SharedModule } from './shared/shared.module';
     ProfileFollowModalComponent,
     ProfileBottomModalComponent,
     ProfileMiddleModalComponent,
-    ProfileTopModalComponent
+    ProfileTopModalComponent,
+    ProfileFollowModalComponent,
+    AccountSettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +52,8 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    FeedModule
   ],
   exports: [
     MaterialModule
@@ -53,9 +63,10 @@ import { SharedModule } from './shared/shared.module';
     TopicSelectComponent,
     ProfileMiddleModalComponent,
     ProfileBottomModalComponent,
-    ProfileTopModalComponent
+    ProfileTopModalComponent,
+    ProfileFollowModalComponent
   ],
-  providers: [ProfileService, MenuService],
+  providers: [ProfileService, MenuService, QuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

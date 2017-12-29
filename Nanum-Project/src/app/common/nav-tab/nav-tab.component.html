@@ -2,7 +2,7 @@
   <div class="container_12">
     <div class="gird_2 prefix_4">
       <a class="tab" mat-tab-link 
-        *ngFor="let tabLink of tabLinks; let i = index" 
+        *ngFor="let tabLink of (tabLinks | tabFilter: tabStatus)" 
         [routerLink]="tabLink.link" 
         routerLinkActive 
         #rla="routerLinkActive"
@@ -13,4 +13,3 @@
   </div>
 </nav>
 <div class="block"></div>
-

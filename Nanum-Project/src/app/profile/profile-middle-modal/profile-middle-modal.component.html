@@ -47,7 +47,9 @@
         <span>
           <strong class="mat-h3">{{ resume.company.name }}</strong>
         </span>
-        <span (click)="profileService.deleteEmploymentCredential(resumeEdit.id)">X</span>
+        <button mat-icon-button color="accent" (click)="profileService.deleteEmploymentCredential(resumeEdit.id)" id="delete-button">
+          <mat-icon>cancel</mat-icon>
+        </button>
         <hr>
       </li>
       <li *ngFor="let education of profileService.userEducationCredentialList" [id]="education.pk" #educationEdit>
@@ -55,14 +57,16 @@
         <span>
           <strong class="mat-h3">{{ education.school.name }}</strong>
         </span>
-        <span (click)="profileService.deleteEducationCredential(educationEdit.id)">X</span>
+        <button mat-icon-button color="accent" (click)="profileService.deleteEducationCredential(educationEdit.id)">
+          <mat-icon>cancel</mat-icon>
+        </button>
         <hr>
       </li>
     </ul>
   </div>
 
 
-  <div class="add-credential" *ngIf="isJobClicked">
+  <div class="add-credential" *ngIf="isJobClicked" [@enterAnimation]>
     <span class="main-title">
       <strong class="mat-h2">Add credentials</strong>
     </span>
@@ -107,14 +111,14 @@
         <strong class="mat-h3">I currently work here</strong>
       </span>
       <mat-checkbox (change)="toggleIsWorkHere()" class="example-margin"></mat-checkbox>
-      <button (click)="sendEmploymentCredentialPayload()" type="button">추가하기</button>
+      <button mat-button color="primary" (click)="sendEmploymentCredentialPayload()" type="button">추가하기</button>
     </p>
     <!-- </form> -->
   </div>
 
 
 
-  <div class="add-education-credential" *ngIf="isSchoolClicked">
+  <div class="add-education-credential" *ngIf="isSchoolClicked" [@enterAnimation]>
     <span class="main-title">
       <strong class="mat-h2">Add education credentials</strong>
     </span>

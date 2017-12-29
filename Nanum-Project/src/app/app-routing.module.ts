@@ -6,17 +6,19 @@ import { LoginModule } from './login/login.module';
 import { LoginComponent } from './login/login.component';
 import { MainModule } from './main/main.module';
 import { MainComponent } from './main/main.component';
-import { NavigatorComponent } from './common/navigator/navigator.component';
 import { NotFoundComponent } from './common/not-found/not-found.component';
 
 import { ProfileComponent } from './profile/profile.component';
-// 라우트 구성
+import { TopicComponent } from './topic/topic.component';
+
 const routes: Routes = [
   { path: '', redirectTo: 'login/main', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'main', component: MainComponent, canActivate: [LoginGuard]},
+  { path: 'answer', component: MainComponent, canActivate: [LoginGuard]},
+  { path: 'question', component: MainComponent, canActivate: [LoginGuard]},
   { path: 'profile', component: ProfileComponent, canActivate: [LoginGuard] },
-  { path: '**', component: NotFoundComponent},
+  { path: 'topic', component: TopicComponent, canActivate: [LoginGuard] },
+  { path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({

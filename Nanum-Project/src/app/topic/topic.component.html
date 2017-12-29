@@ -2,7 +2,7 @@
   <div class="container_12">
     <div class="grid_12">
       <div class="topic-info">
-        <img src="../../assets/images/leewoongmo.jpg" class="topic-img">
+        <img [src]="topics.image" class="topic-img">
         <span class="topic-name">{{ topics.name }}</span>
         <button mat-raised-button class="topic-follow" (click)="following()">{{ isFollowing ? '팔로우 취소' : '팔로우' }}</button>
       </div>
@@ -10,65 +10,12 @@
     <div class="grid_8">
       <mat-tab-group>
         <mat-tab label="읽기">
-          <mat-card *ngFor="let answer of answers" class="post">
-            <!--post action: topic links-->
-            <div class="post header">
-              <span class="post metadata mat-caption">
-                <a class="tag">답변</a>
-                <a class="topic">연관토픽</a>
-              </span>
-              <i (click)="negativeFeedback(answer.id)" class="material-icons md-18">close</i>
-            </div>
-            <!--TODO: routing to answer detail page-->
-            <mat-card-title>
-              {{ answer.question }}
-            </mat-card-title>
-            <mat-card-subtitle>
-              <img class="thumbnail md" [src]="answer.user.imgPath" [alt]="answer.user.name" width="50" height="50">
-              <!--TODO: 답변시간 표시방법- 타임스탬프와 브라우저 시간차 계산(서버에서? 클라이언트에서?)-->
-              <div class="answer-info">
-                <div class="author">
-                  {{ answer.user.name }}, {{ answer.user.credential }}
-                </div>
-                <div class="timestamp">
-                  답변 시간 표시란
-                </div>
-              </div>
-            </mat-card-subtitle>
-            <mat-card-content (click)="fetchExpandedContent(answer.id)">
-              <p class="mat-body-1">
-                {{ answer.content }}
-                <i class="material-icons md-18">expand_more</i>
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>
-                <i class="material-icons md-18">star_border</i>{{ answer.stats.starHits }}</button>
-              <span class="mat-body-1">
-                <i class="material-icons md-18">chat_bubble_outline</i>{{ answer.stats.comments }}</span>
-            </mat-card-actions>
-          
-            <!--확장 시 표시-->
-            <mat-card-footer *ngIf="false">
-              <div class="comment-area">
-                <div class="comment-input">
-                  <img class="thumbnail sm" src="assets/images/me.png">
-                  <mat-form-field>
-                    <textarea [(ngModel)]="commentText" matInput placeholder="댓글을 입력하세요" matTextareaAutosize matAutosizeMinRows="1" matAutosizeMaxRows="100"></textarea>
-                  </mat-form-field>
-                  <button mat-button (click)="test()" [disabled]="!commentText">댓글달기</button>
-                </div>
-                <div class="comment-list">
-                  <!--<div class="comment level-1">-->
-                  <!--<img mat-card-avatar src="assets/images/me.png">-->
-                  <!--</div>-->
-                </div>
-              </div>
-            </mat-card-footer>
-          </mat-card>
+          <app-feed></app-feed>
         </mat-tab>
-        <mat-tab label="답변하기">Content 2</mat-tab>
-      </mat-tab-group> 
+        <mat-tab label="답변하기">
+          <app-feed></app-feed>
+        </mat-tab>
+      </mat-tab-group>
     </div>
     <div class="grid_1"></div>
     <div class="grid_3">

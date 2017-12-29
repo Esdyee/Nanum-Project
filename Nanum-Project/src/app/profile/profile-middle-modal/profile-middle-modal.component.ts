@@ -1,12 +1,27 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ProfileService } from '../profile.service';
+import { trigger, style, animate, transition } from '@angular/animations';
 
 
 @Component({
   selector: 'app-profile-middle-modal',
   templateUrl: './profile-middle-modal.component.html',
-  styleUrls: ['./profile-middle-modal.component.css']
+  styleUrls: ['./profile-middle-modal.component.css'],
+  animations: [
+    trigger(
+      'enterAnimation', [
+        transition(':enter', [
+          style({ transform: 'translateX(100%)', opacity: 0 }),
+          animate('300ms', style({ transform: 'translateX(0)', opacity: 1 }))
+        ]),
+        transition(':leave', [
+          style({ transform: 'translateX(0)', opacity: 1 }),
+          animate('300ms', style({ transform: 'translateX(100%)', opacity: 0 }))
+        ])
+      ]
+    )
+  ],
 })
 export class ProfileMiddleModalComponent implements OnInit {
 
@@ -99,18 +114,16 @@ export class ProfileMiddleModalComponent implements OnInit {
 
   toggleIsWorkHere(): void {
     this.isWorkHere = !this.isWorkHere;
-    console.log(this.isWorkHere);
   }
 
   sendEducationCredentialPayload(): void {
     const payload = {
-      school_id: 3,
-      concentration_id: 3,
+      school_id: 5,
+      concentration_id: 5,
       degree_type: this.degreeType,
       graduation_year: this.graduationYear
     };
     this.profileService.createEducationCredential(payload);
-    // console.log(payload);
   }
 
   sendEmploymentCredentialPayload(): void {

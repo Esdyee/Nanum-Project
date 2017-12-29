@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MenuService } from '../../service/menu.service';
+import { AppService } from '../../app.service';
 
 interface Topic {
-  pk: number;
-  name: string;
+  topics: {
+    pk: number;
+    name: string;
+  };
 }
 
 @Component({
@@ -23,7 +26,9 @@ interface Topic {
       <span><i class="material-icons">folder_special</i>내 토픽</span>
     </div>
     <ul class="sidebar_topics mat-caption" (click)="clickTopicMenu($event)">
-      <li *ngFor="let topic of topics; let i = index"><a href="#" >{{topic.name}}</a></li>
+      <li *ngFor="let topic of topics; let i = index" [attr.data-id]="topic.topics.pk">
+        <a href="#" [routerLink]="[]">{{topic.topics.name}}</a>
+      </li>
     </ul>
   </div>
 </div>
@@ -32,25 +37,27 @@ interface Topic {
 })
 export class MainLeftComponent implements OnInit {
   topics: Topic[];
-  constructor(private menu: MenuService, private http: HttpClient) { }
+  private headers = new HttpHeaders()
+    .set('Authorization', `Token ${JSON.parse(localStorage.getItem('currentUser')).token}`);
+
+  constructor(private menu: MenuService, private http: HttpClient, private path: AppService) {
+   }
 
   ngOnInit() {
     this.getTopics();
   }
 
   getTopics() {
-    this.topics = [
-      { pk: 1, name: 'HTML' },
-      { pk: 2, name: 'CSS' },
-      { pk: 3, name: 'JavaScript' }
-    ];
+    // question과 answer를 분기 해야 하지만 answer관련해서 api가 존재하지 않음
+    this.http.get(this.path.api_path + '/post/question/filter/', { headers: this.headers })
+      .subscribe((res: Topic[]) => { this.topics = res; });
   }
 
   clickGeneralMenu(event) {
-    this.menu.selLeftMenu = event.target.querySelector('i').textContent();
+    this.menu.selLeftMenu = event.target.querySelector('i').textContent;
   }
 
   clickTopicMenu(event) {
-
+    this.menu.selLeftMenu = 'topic';
   }
 }
