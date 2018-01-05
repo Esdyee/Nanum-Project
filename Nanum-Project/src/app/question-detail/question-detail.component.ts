@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { QuestionService } from '../question-feed/question.service';
+import { QuestionService } from '../service/question.service';
 import { FeedService } from '../shared/feed/feed.service';
 import { FeedComponent } from '../shared/feed/feed.component';
 
@@ -23,7 +23,7 @@ export class QuestionDetailComponent implements OnInit {
     this.getAnswer();
     this.getFirstPage();
   }
-  
+
   getFirstPage() {
     this.feedService.getFirstPage();
   }

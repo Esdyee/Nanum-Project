@@ -1,6 +1,12 @@
 <!--<button type="button" (click)="onScrollBottom()">more</button>-->
 <!--<button type="button" (click)="typeChange()">typechanger</button>-->
 <ng-container *ngIf="type === 'question' && results">
+  <mat-card class="welcome">
+    <div class="actions">
+      <img class="thumbnail md" [src]="user.thumbnail_image_50">
+      <a class="ask mat-h1" (click)="openAskModal(user.name)">{{ user.name }}님, 질문이 무엇인가요?</a>
+    </div>
+  </mat-card>
   <app-question *ngFor="let question of results" [question]="question"></app-question>
 </ng-container>
 <ng-container *ngIf="type === 'answer' && results">
