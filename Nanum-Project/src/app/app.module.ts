@@ -19,7 +19,7 @@ import { ProfileBottomModalComponent } from './profile/profile-bottom-modal/prof
 import { ProfileMiddleModalComponent } from './profile/profile-middle-modal/profile-middle-modal.component';
 import { ProfileTopModalComponent } from './profile/profile-top-modal/profile-top-modal.component';
 import { AccountSettingsComponent } from './common/navigator/account-settings/account-settings.component';
-// import { NavigatorComponent } from './common/navigator/navigator.component';
+
 
 // Service
 import { MenuService } from './service/menu.service';
@@ -30,6 +30,7 @@ import { QuestionService } from './service/question.service';
 
 // pipe
 import { TabFilterPipe } from './common/navigator/tab-filter.pipe';
+import { FeedModule } from './shared/feed/feed.module';
 
 
 
@@ -57,7 +58,7 @@ import { TabFilterPipe } from './common/navigator/tab-filter.pipe';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    // MainModule
+    FeedModule
   ],
   exports: [
     MaterialModule
