@@ -1,9 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { QuestionService } from '../../../question-feed/question.service';
+import { QuestionService } from '../../../service/question.service';
 
 import { MatDialogRef, MAT_DIALOG_DATA, MatChipInputEvent } from '@angular/material';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ENTER } from '@angular/cdk/keycodes';
+import { FeedService } from '../../../shared/feed/feed.service';
 
 class Question {
   content: string;
@@ -24,11 +25,14 @@ export class AskModalComponent {
   separatorKeyCodes = [ENTER];
   topics = [];
 
+  user = this.feedService.user;
+
   constructor(
     public thisdialogRef: MatDialogRef<AskModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private fb: FormBuilder,
-    private http: QuestionService) {
+    private http: QuestionService,
+    private feedService: FeedService) {
 
     this.questionForm = fb.group({
       content: [''],
