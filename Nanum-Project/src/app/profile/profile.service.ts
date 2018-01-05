@@ -88,6 +88,26 @@ interface UserStats {
   following_count: 0;
 }
 
+interface TopicList {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: {
+    pk: number;
+    url: string;
+    creator: string;
+    name: string;
+    description: string;
+    image: string;
+    answer_count: string;
+    question_count: number;
+    expert_count: number;
+    interest_count: number;
+    created_at: string;
+    modified_at: string;
+  }[];
+}
+
 @Injectable()
 export class ProfileService {
   HOST = 'https://siwon.me';
@@ -107,6 +127,7 @@ export class ProfileService {
   userEducationCredentialList: UserEducationCredential[];
   retrieveUserEducation: UserEducationCredential;
 
+  topicList: TopicList;
 
   // .set('Authorization', `Token ${JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body).token}`);
 
@@ -262,6 +283,15 @@ export class ProfileService {
       .subscribe(response => {
         this.userEducation = response;
         this.getUserEducationCredentialList();
+      });
+  }
+
+  getTopicList() {
+    return this.http.get<TopicList>(`${this.HOST}/topic/?page_size=100`,
+      { headers: this.headers })
+      .subscribe(response => {
+        this.topicList = response;
+        console.log(response);
       });
   }
 }

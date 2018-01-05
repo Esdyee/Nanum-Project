@@ -29,6 +29,16 @@ button.mat-menu-item {
   margin-left: 50px;
 }
 
-#delete-button {
+.delete-button {
   float: right;
+  bottom: 7px;
+}
+
+.user-resume-list-container .user-resume-icon, .user-education-icon {
+  float: left;
+}
+
+.user-resume-list-container .user-resume-content, .user-education-content {
+  line-height: 2rem;
+  margin-left: 5px;
 }

@@ -41,7 +41,7 @@
         <strong class="mat-h3">한줄 자기 소개</strong>
       </span>
 
-      <mat-form-field class="edit-introduction">
+      <mat-form-field class="edit-short-introduction">
         <input class="short-introduce-input" [(ngModel)]="minimalIntroduction" matInput placeholder="글을 입력해주세요">
       </mat-form-field>
     </div>
@@ -54,8 +54,8 @@
       <span>
         <strong class="mat-h3">자기소개</strong>
       </span>
-      <mat-form-field class="add-concentration-input">
-        <input [(ngModel)]="mainIntroduction" matInput placeholder="description">
+      <mat-form-field class="edit-main-introduction">
+        <textarea [(ngModel)]="mainIntroduction" matInput placeholder="description"></textarea>
       </mat-form-field>
     </div>
 

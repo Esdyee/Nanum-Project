@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './module/material.module';
 import { AppRoutingModule } from './app-routing.module';
 
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { TopicComponent } from './topic/topic.component';
@@ -18,6 +19,7 @@ import { ProfileBottomModalComponent } from './profile/profile-bottom-modal/prof
 import { ProfileMiddleModalComponent } from './profile/profile-middle-modal/profile-middle-modal.component';
 import { ProfileTopModalComponent } from './profile/profile-top-modal/profile-top-modal.component';
 import { AccountSettingsComponent } from './common/navigator/account-settings/account-settings.component';
+// import { NavigatorComponent } from './common/navigator/navigator.component';
 
 // Service
 import { MenuService } from './service/menu.service';
@@ -25,8 +27,11 @@ import { ProfileService } from './profile/profile.service';
 import { SharedModule } from './shared/shared.module';
 import { QuestionService } from './service/question.service';
 
+
 // pipe
 import { TabFilterPipe } from './common/navigator/tab-filter.pipe';
+
+
 
 
 @NgModule({
@@ -43,7 +48,7 @@ import { TabFilterPipe } from './common/navigator/tab-filter.pipe';
     ProfileMiddleModalComponent,
     ProfileTopModalComponent,
     ProfileFollowModalComponent,
-    AccountSettingsComponent
+    AccountSettingsComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +56,8 @@ import { TabFilterPipe } from './common/navigator/tab-filter.pipe';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    // MainModule
   ],
   exports: [
     MaterialModule

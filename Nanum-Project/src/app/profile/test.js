@@ -7,3 +7,4 @@ const userEmploymentCredential = {
 };
 
 console.log(Object.getOwnPropertyNames(userEmploymentCredential));
+console.log(Object.keys(userEmploymentCredential));
