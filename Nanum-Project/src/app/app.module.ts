@@ -27,6 +27,7 @@ import { QuestionService } from './service/question.service';
 
 // pipe
 import { TabFilterPipe } from './common/navigator/tab-filter.pipe';
+import { FeedModule } from './shared/feed/feed.module';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { TabFilterPipe } from './common/navigator/tab-filter.pipe';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    FeedModule
   ],
   exports: [
     MaterialModule
