@@ -1,5 +1,6 @@
 
-<ng-container *ngIf="profileService.requestCounter >= 4"> <!-- profile page 렌더링 시 서버 response가 늦어 콘솔 에러가 나는걸 방지하기 위함 -->
+<ng-container *ngIf="profileService.requestCounter >= 4">
+  <!-- profile page 렌더링 시 서버 response가 늦어 콘솔 에러가 나는걸 방지하기 위함 -->
 
   <div class="container_12">
 
@@ -63,7 +64,7 @@
       <mat-card class="profile profile-middle" id="middle" (mouseenter)="isOnMouse_MiddleContent=true" (mouseleave)="isOnMouse_MiddleContent=false">
 
         <div class="edit-button" *ngIf="isOnMouse_MiddleContent">
-          <span class="Edit" (click)="openProfileMiddleModal()">
+          <span class="Edit" (click)="openProfileMiddleModal()" (click)="profileService.getTopicList()">
             <strong class="mat-h3">Edit</strong>
           </span>
         </div>
@@ -74,13 +75,13 @@
               <strong class="mat-h2">직업 및 학력</strong>
             </span>
             <ul class="user-resume-list-container">
-              <li *ngFor="let resume of profileService.userEmploymentCredentialList">
+              <li *ngFor="let resume of profileService.userEmploymentCredentialList.slice(0,4)">
                 <mat-icon class="user-resume-icon">{{ getUserResumeIcon(resume) }}</mat-icon>
-                <span class="user-resume-content">{{ resume.company.name }}</span>
+                <span class="user-resume-content">{{ resume.company.name }}에서 {{ resume.position }}으로 근무</span>
               </li>
               <li *ngFor="let education of profileService.userEducationCredentialList.slice(0,4)">
                 <mat-icon class="user-education-icon">{{ getUserResumeIcon(education) }}</mat-icon>
-                <span class="user-education-content">{{ education.school.name }}</span>
+                <span class="user-education-content">{{ education.school.name }}에서 {{ education.concentration.name }}을 전공</span>
               </li>
             </ul>
           </div>
