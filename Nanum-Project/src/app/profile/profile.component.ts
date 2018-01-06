@@ -6,6 +6,7 @@ import { ProfileMiddleModalComponent } from './profile-middle-modal/profile-midd
 import { ProfileService } from './profile.service';
 import { ProfileFollowModalComponent } from './profile-follow-modal/profile-follow-modal.component';
 
+
 interface Resume {
   pk: number;
   type: string;

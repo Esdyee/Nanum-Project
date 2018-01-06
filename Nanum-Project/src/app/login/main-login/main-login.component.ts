@@ -1,9 +1,12 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { AuthService } from '../auth.service';
 import { AppService } from '../../app.service';
+
+import 'rxjs/add/operator/takeWhile';
+import 'rxjs/add/operator/finally';
 
 declare var FB: any;
 
@@ -30,7 +33,7 @@ export class MainLoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    //   this.navRoute.navigate(['/main']);
+    //   this.navRoute.navigate(['/answer']);
     // if(localStorage.getItem('currentUser')){
     // }
   }
@@ -54,13 +57,13 @@ export class MainLoginComponent implements OnInit {
         this.auth.facebookLoginAuth(data)
           .subscribe(result => {
             console.log(result);
-            this.zone.run(() => this.navRoute.navigate(['/main']));
+            this.zone.run(() => this.navRoute.navigate(['/answer']));
           });
       }
     });
   }
 
   navigateMain() {
-    this.navRoute.navigate(['/main']);
+    this.navRoute.navigate(['/answer']);
   }
 }

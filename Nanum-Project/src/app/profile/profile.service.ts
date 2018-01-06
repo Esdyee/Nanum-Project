@@ -88,11 +88,30 @@ interface UserStats {
   following_count: 0;
 }
 
+interface TopicList {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: {
+    pk: number;
+    url: string;
+    creator: string;
+    name: string;
+    description: string;
+    image: string;
+    answer_count: string;
+    question_count: number;
+    expert_count: number;
+    interest_count: number;
+    created_at: string;
+    modified_at: string;
+  }[];
+}
+
 @Injectable()
 export class ProfileService {
   HOST = 'https://siwon.me';
-
-  user_pk = JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body).user.pk;
+  user_pk = JSON.parse(localStorage.getItem('currentUser')).user.pk;
 
   userProfileImage: object;
 
@@ -108,10 +127,12 @@ export class ProfileService {
   userEducationCredentialList: UserEducationCredential[];
   retrieveUserEducation: UserEducationCredential;
 
+  topicList: TopicList;
 
+  // .set('Authorization', `Token ${JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body).token}`);
 
   private headers = new HttpHeaders()
-    .set('Authorization', `Token ${JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body).token}`);
+    .set('Authorization', `Token ${JSON.parse(localStorage.getItem('currentUser')).token}`);
 
 
 
@@ -227,7 +248,8 @@ export class ProfileService {
       });
   }
 
-  createEducationCredential(payload): object {
+  createEducationCredential(payload: UserEducationCredentialPayload): object {
+    console.log(payload);
     return this.http.post<UserEducationCredential>(`${this.HOST}/user/${this.user_pk}/profile/edu-credentials/`, payload,
       { headers: this.headers })
       .subscribe(response => {
@@ -261,6 +283,15 @@ export class ProfileService {
       .subscribe(response => {
         this.userEducation = response;
         this.getUserEducationCredentialList();
+      });
+  }
+
+  getTopicList() {
+    return this.http.get<TopicList>(`${this.HOST}/topic/?page_size=100`,
+      { headers: this.headers })
+      .subscribe(response => {
+        this.topicList = response;
+        console.log(response);
       });
   }
 }

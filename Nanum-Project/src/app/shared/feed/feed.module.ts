@@ -1,29 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 import { MaterialModule } from '../../module/material.module';
 
 import { FeedComponent } from './feed.component';
 import { FeedService } from './feed.service';
-import { AnswerComponent } from './components/answer/answer.component';
-import { QuestionComponent } from './components/question/question.component';
-import { CommentComponent } from './components/comment/comment.component';
+import { SharedModule } from '../shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
   ],
   exports: [
-    FeedComponent
+    FeedComponent,
   ],
   declarations: [
-    FeedComponent,
-    AnswerComponent,
-    QuestionComponent,
-    CommentComponent
+    FeedComponent
   ],
   providers: [
     FeedService

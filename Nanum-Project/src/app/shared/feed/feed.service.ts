@@ -22,6 +22,13 @@ interface Question {
   modified_at: string;
 }
 
+interface Answer {
+  question: number;
+  content: string;
+  content_html: string;
+  published: boolean;
+}
+
 interface QuestionDetail {
   question: Question;
   topics: string[];
@@ -68,35 +75,48 @@ interface Comment {
 @Injectable()
 export class FeedService {
   // 공용 헤더
-  private headers = new HttpHeaders().set('Authorization', `Token ${JSON.parse(JSON.parse(localStorage.currentUser)._body).token}`);
+  private headers = new HttpHeaders().set('Authorization', `Token ${JSON.parse(localStorage.currentUser).token
+    }`);
   // 로그인한 사용자 정보 보관
-  public user: User = JSON.parse(JSON.parse(localStorage.currentUser)._body).user;
+  public user: User = JSON.parse(localStorage.currentUser).user;
 
   constructor(private http: HttpClient) { }
 
-  // type = question || answer || comment
-  getFirstPage(type = 'question', parm?: string) {
-    return this.http.get<Page>(`${HOST}/post/${type}/?ordering=-created_at${parm ? parm : ''}`, { headers: this.headers });
+  // type = question | answer | comment
+  getFirstPage(type: string = 'answer', urlParameters: string[] = ['ordering=-created_at']) {
+    return this.http.get<Page>(
+      `${HOST}/post/${type === 'topic' ? 'question' : type }/?${urlParameters.join('&')}`,
+      { headers: this.headers });
   }
 
   // question, answer, comment 공통
   fetchNextPage(nextURL) {
-    return this.http.get<Page>(nextURL, { headers: this.headers });
+    return this.http.get<Page>(
+      nextURL, { headers: this.headers });
   }
 
   getParentQuestion(url) {
-    return this.http.get<QuestionDetail>(url, { headers: this.headers });
+    return this.http.get<QuestionDetail>(
+      url, { headers: this.headers });
   }
 
   getTopicDetail(url) {
-    return this.http.get<Topic>(url, { headers: this.headers });
+    return this.http.get<Topic>(
+      url, { headers: this.headers });
   }
 
   getAuthorProfile(url) {
-    return this.http.get<Profile>(url, { headers: this.headers });
+    return this.http.get<Profile>(
+      url, { headers: this.headers });
   }
 
   postComment(payload) {
-    return this.http.post<Comment>(`${HOST}/post/comment/`, payload, { headers: this.headers });
+    return this.http.post<Comment>(
+      `${HOST}/post/comment/`, payload, { headers: this.headers });
+  }
+
+  postAnswer(payload) {
+    return this.http.post<Answer>(
+      `${HOST}/post/answer/`, payload, { headers: this.headers });
   }
 }

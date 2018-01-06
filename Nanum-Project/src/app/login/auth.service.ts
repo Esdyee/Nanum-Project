@@ -3,7 +3,9 @@ import { Http, Headers, Response } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable, Observer, Subject } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import { Observer } from 'rxjs/Observer';
+import { Subject } from 'rxjs/Subject';
 import { Subscription } from 'rxjs/Subscription';
 import { AppService } from '../app.service';
 import { MainLoginComponent } from './main-login/main-login.component';
@@ -91,7 +93,7 @@ export class AuthService implements OnInit {
     return this.http.post(api, JSON.stringify(paylord), { headers: {'Content-Type': 'application/json'}})
       .map((response: LoginAccessData) => {
         console.log('connect');
-        console.log(response);
+        // console.log(response);
         // login successful if there's a jwt token in the response
         const token = response && response.token;
         if (token) {
@@ -148,5 +150,6 @@ export class AuthService implements OnInit {
     // clear token remove user from local storage to log user out
     this.token = null;
     localStorage.removeItem('currentUser');
+    this.router.navigate(['/login/main']);
   }
 }

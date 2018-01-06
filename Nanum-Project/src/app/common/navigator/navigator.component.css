@@ -1,39 +1,43 @@
+.container_12 {
+  height: 54px;
+}
+
+.grid_1,
+.grid_2,
+.grid_3,
+.grid_4,
+.grid_5,
+.grid_6,
+.grid_7,
+.grid_8,
+.grid_9,
+.grid_10,
+.grid_11,
+.grid_12 {
+  height: inherit;
+}
+
+
 .nav {
  background-color: #25284c;
      position: fixed;
      top: 0;
      width: 100%;
      z-index: 1;
-
 }
 
 .logo {
     color: white;
     font-style: bold;
-    font-size: 1.5em;
+    font-size: 2.5em;
+    text-decoration: none;
 }
 
-
-.search-input {
+.search-input,
+.clear {
     background-color: #fff;
-    width: 100%;
 }
 
-
-.container_12 {
+.search-form-field {
+  width: 100%;
 }
-
-.mat-form-field.mat-focused.mat-primary .mat-select-arrow {
-  color: #FFFFFF !important;
-}
-.mat-focused .mat-form-field-label {
-  color: #FFFFFF !important;
-}
-
-.mat-form-field-ripple {
-  background-color: #FFFFFF !important;
-
-}
-
-
-

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { AskModalComponent } from '../common/navigator/ask-modal/ask-modal.component';
-import { Answer, answers, expandedContents } from '../main-feed/answer';
+import { Answer, answers, expandedContents } from '../mocks/answer';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 class Topic {
@@ -23,8 +23,8 @@ export class TopicComponent implements OnInit {
   apiUrl = 'https://siwon.me/';
   isFollowing = false;
   private headers = new HttpHeaders()
-    .set('Authorization', `Token ${JSON.parse(JSON.parse(localStorage.currentUser)._body).token}`);
-  
+    .set('Authorization', `Token ${JSON.parse(localStorage.currentUser).token}`);
+
   // 로그인 사용자 정보 (dummy)
   // 사용처: 메인피드의 질문하기 버튼, 댓글달기, 질문피드의 답변달기
   // 메인페이지, 질문피드 페이지 로드 시 전역에서 쥐고 있어야 하는 || 또는 토큰정보를 참조해야하는 데이터
@@ -43,7 +43,7 @@ export class TopicComponent implements OnInit {
   }
 
   getTopics() {
-    this.http.get<Topic[]>(`${this.apiUrl}/topic/5`, { headers: this.headers })
+    this.http.get<Topic[]>(`${this.apiUrl}/topic/2`, { headers: this.headers })
       .subscribe(topics => this.topics = topics);
   }
 

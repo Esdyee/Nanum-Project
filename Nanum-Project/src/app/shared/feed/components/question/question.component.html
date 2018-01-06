@@ -1,3 +1,5 @@
+<app-editor [answerMetaData]="answerHeader" *ngIf="isEditMode" (closed)="closeEditor($event)"></app-editor>
+
 <mat-card class="post question">
   <div class="post header">
     <span class="post metadata mat-caption">질문
