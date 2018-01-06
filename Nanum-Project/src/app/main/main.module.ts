@@ -10,8 +10,6 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../module/material.module';
 import { NavTabComponent } from '../common/nav-tab/nav-tab.component';
 
-import { TabFilterPipe } from '../common/navigator/tab-filter.pipe';
-
 @NgModule({
   imports: [
     CommonModule,
@@ -24,8 +22,7 @@ import { TabFilterPipe } from '../common/navigator/tab-filter.pipe';
     MainComponent,
     MainLeftComponent,
     NavigatorComponent,
-    NavTabComponent,
-    TabFilterPipe
+    NavTabComponent
   ]
 })
 export class MainModule { }

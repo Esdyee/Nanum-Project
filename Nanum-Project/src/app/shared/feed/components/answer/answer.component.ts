@@ -1,8 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
 
-import { MatDialog } from '@angular/material';
-
-import { AskModalComponent } from '../../../../common/navigator/ask-modal/ask-modal.component';
 import { FeedService } from '../../feed.service';
 
 
@@ -13,9 +10,8 @@ import { FeedService } from '../../feed.service';
 })
 export class AnswerComponent implements OnChanges {
   topics = [];
-  user = this.feedService.user;
 
-  constructor(private feedService: FeedService, public dialog: MatDialog) { }
+  constructor(private feedService: FeedService) { }
   @Input() answer;
 
   ngOnChanges() {
