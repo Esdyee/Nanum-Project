@@ -34,13 +34,14 @@
           <div class="profile-top-content">
             <span>
               <mat-card-title class="profile-title">
-                <strong class="mat-h2">{{ profileService.userProfile.name }} / {{ profileService.userProfile.main_credential }}</strong>
+                <strong class="mat-h2">{{ profileService.userProfile.name }}</strong>
               </mat-card-title>
             </span>
             <br>
 
             <mat-card-content>
-
+              <span class="profile-top-user-introduction">{{ profileService.userProfile.main_credential }}</span>
+              <hr>
               <span class="profile-top-user-article">{{ profileService.userProfile.description }}</span>
 
               <div class="profile-top-chips-container">

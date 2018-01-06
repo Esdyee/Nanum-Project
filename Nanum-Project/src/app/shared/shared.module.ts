@@ -20,13 +20,13 @@ import { QuillModule } from 'ngx-quill';
     QuestionComponent,
     AnswerComponent,
     CommentComponent,
-    EditorComponent,
+    EditorComponent
   ],
   exports: [
     QuestionComponent,
     AnswerComponent,
     CommentComponent,
-    EditorComponent,
+    EditorComponent
   ]
 })
 export class SharedModule { }
