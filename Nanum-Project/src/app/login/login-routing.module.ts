@@ -18,7 +18,7 @@ const routes: Routes = [{
         { path: 'find', component: FindPasswordComponent },
         { path: 'connect', component: LoginConnectComponent},
         { path: 'signup', component: SignupComponent },
-        { path: 'settings', component: SettingsComponent },
+        { path: 'settings/:code/:uid', component: SettingsComponent },
     ]
 }];
 

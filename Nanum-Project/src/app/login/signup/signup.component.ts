@@ -28,21 +28,6 @@ export class SignupComponent implements OnInit {
 
   constructor(private http: HttpClient, private path: AppService, private auth: AuthService, private router: Router) {}
 
-  onSubmit() {
-    this.auth.signup(this.emailFormControl.value, this.passwordFormControl.value
-      , this.passwordConfFormControl.value, this.nameFormControl.value)
-      .subscribe(result => {
-        if (result === true) {
-          // login successful
-          this.router.navigate(['/answer']);
-        }
-      }, err => {
-        if (err.status === 400) {
-          console.log(err);
-        }
-      });
-  }
-
   ngOnInit() {
     this.signupForm = new FormGroup({
       'nameFormControl': new FormControl('', [
@@ -61,6 +46,20 @@ export class SignupComponent implements OnInit {
     });
   }
 
+  onSubmit() {
+    this.auth.signup(this.emailFormControl.value, this.passwordFormControl.value
+      , this.passwordConfFormControl.value, this.nameFormControl.value)
+      .subscribe(result => {
+        if (result === true) {
+          // login successful
+          this.router.navigate(['/answer']);
+        }
+      }, err => {
+        if (err.status === 400) {
+          console.log(err);
+        }
+      });
+  }
 
   match(control: AbstractControl) {
     // 매개변수로 전달받은 검증 대상 폼 모델에서 password와 confirmPassword을 취득
