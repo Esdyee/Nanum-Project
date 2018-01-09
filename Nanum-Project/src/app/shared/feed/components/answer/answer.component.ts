@@ -14,12 +14,14 @@ import { FeedService } from '../../feed.service';
 export class AnswerComponent implements OnChanges {
   topics = [];
   user = this.feedService.user;
+  timeStamp: string;
 
   constructor(private feedService: FeedService, public dialog: MatDialog) { }
   @Input() answer;
 
   ngOnChanges() {
     this.getDetails();
+    this.timeStamp = this.feedService.getTimeStamp(new Date(this.answer.modified_at));
   }
 
   getDetails() {

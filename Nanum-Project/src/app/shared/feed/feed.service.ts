@@ -89,6 +89,20 @@ export class FeedService {
       { headers: this.headers });
   }
 
+  getTimeStamp(originTime: Date): string {
+    const NOW = new Date();
+    const DATE_DIFF = Math.ceil((Date.now() - originTime.getTime()) / (1000 * 60 * 60 * 24));
+    if (DATE_DIFF === 1) {
+      const HOUR = NOW.getHours() - originTime.getHours();
+      return HOUR > 1 ? `${HOUR}시간 전` : `방금 전`;
+    } else if (DATE_DIFF < 7) {
+      const DATES = NOW.getDate() - originTime.getDate();
+      return `${DATES}일 전`;
+    } else {
+      return `${originTime.getFullYear()}-${originTime.getMonth() + 1}-${originTime.getDate()}`;
+    }
+  }
+
   // question, answer, comment 공통
   fetchNextPage(nextURL) {
     return this.http.get<Page>(

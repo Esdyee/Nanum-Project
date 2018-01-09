@@ -15,7 +15,7 @@
           <img [src]="comment.user.thumbnail_image_200" class="thumbnail sm">
           <div class="comment_header">
             <div class="comment_user mat-caption">{{ comment.user.name }}</div>
-            <div class="comment_metadata mat-caption">"{{ comment.created_at }}"</div>
+            <div class="comment_metadata mat-caption">{{ comment.created_at | timeStamp }}</div>
           </div>
           <div class="comment_content">
             {{ comment.content }}

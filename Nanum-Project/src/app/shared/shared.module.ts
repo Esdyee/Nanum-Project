@@ -7,6 +7,7 @@ import { EditorComponent } from './feed/components/editor/editor.component';
 import { MaterialModule } from '../module/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
+import { TimeStampPipe } from './feed/time-stamp.pipe';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { QuillModule } from 'ngx-quill';
     AnswerComponent,
     CommentComponent,
     EditorComponent,
+    TimeStampPipe
   ],
   exports: [
     QuestionComponent,

@@ -24,7 +24,14 @@ export class CommentComponent implements OnInit {
         this.nextURL = res.next;
       },
       err => console.log(err),
-      () => this.comments.forEach(comment => this.getAuthor(comment))
+      () => {
+        this.comments.forEach(comment => this.getAuthor(comment));
+        /*this.comments = this.comments.map(comment => {
+          Object.assign(comment, {
+            created_at: this.feedService.getTimeStamp(new Date(comment.created_at))
+          });
+        });*/
+      }
     );
   }
 
