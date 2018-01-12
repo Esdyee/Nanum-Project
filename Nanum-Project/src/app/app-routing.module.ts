@@ -6,7 +6,7 @@ import { LoginModule } from './login/login.module';
 import { LoginComponent } from './login/login.component';
 import { MainModule } from './main/main.module';
 import { MainComponent } from './main/main.component';
-import { NotFoundComponent } from './common/not-found/not-found.component';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 import { ProfileComponent } from './profile/profile.component';
 import { TopicComponent } from './topic/topic.component';

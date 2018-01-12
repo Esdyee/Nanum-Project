@@ -1,3 +1,4 @@
+<app-navigator></app-navigator>
 
 <ng-container *ngIf="profileService.requestCounter >= 4">
   <!-- profile page 렌더링 시 서버 response가 늦어 콘솔 에러가 나는걸 방지하기 위함 -->
@@ -166,7 +167,7 @@
 
 
     <!-- Test Page용 템플릿 -->
-    <!-- 
+    <!--
 <div class="test-container grid_8">
   <br>
   <br>
@@ -177,7 +178,7 @@
         [(ngModel)]="TEST_userName"
         (keyup.enter)="TEST_modifyUserName()">
       </mat-form-field>
-      
+
       <br>
 
       <mat-form-field class="TEST-UserArticleInput">
@@ -185,7 +186,7 @@
           <mat-hint align="end">{{testArticle.value?.length || 0}}/200</mat-hint>
         </mat-form-field>
         <button type="button" (click)="TEST_modifyUserArticle()">유저 소개글 입력하기</button>
-        
+
   </mat-card>
 </div> -->
 

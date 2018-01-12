@@ -8,7 +8,6 @@ import { LoginConnectComponent } from './login-connect/login-connect.component';
 import { SignupComponent } from './signup/signup.component';
 import { SettingsComponent } from './settings/settings.component';
 
-import { NotFoundComponent } from 'app/common/not-found/not-found.component';
 
 const routes: Routes = [{
     path: 'login',

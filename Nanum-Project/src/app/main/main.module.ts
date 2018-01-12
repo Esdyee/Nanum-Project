@@ -5,12 +5,10 @@ import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from './main.component';
 import { FeedModule } from '../shared/feed/feed.module';
 import { MainLeftComponent } from './main-left/main-left.component';
-import { NavigatorComponent } from '../common/navigator/navigator.component';
 import { FormsModule } from '@angular/forms';
-import { MaterialModule } from '../module/material.module';
-import { NavTabComponent } from '../common/nav-tab/nav-tab.component';
+import { MaterialModule } from '../shared/material.module';
 
-import { TabFilterPipe } from '../common/navigator/tab-filter.pipe';
+import { NavigatorModule } from '../shared/navigator/navigator.module';
 
 @NgModule({
   imports: [
@@ -18,14 +16,12 @@ import { TabFilterPipe } from '../common/navigator/tab-filter.pipe';
     MainRoutingModule,
     FeedModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    NavigatorModule
   ],
   declarations: [
     MainComponent,
     MainLeftComponent,
-    NavigatorComponent,
-    NavTabComponent,
-    TabFilterPipe
   ]
 })
 export class MainModule { }
