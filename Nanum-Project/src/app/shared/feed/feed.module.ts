@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MaterialModule } from '../../module/material.module';
+import { MaterialModule } from '../material.module';
 
 import { FeedComponent } from './feed.component';
 import { FeedService } from './feed.service';
@@ -17,7 +17,7 @@ import { SharedModule } from '../shared.module';
     FeedComponent,
   ],
   declarations: [
-    FeedComponent
+    FeedComponent,
   ],
   providers: [
     FeedService

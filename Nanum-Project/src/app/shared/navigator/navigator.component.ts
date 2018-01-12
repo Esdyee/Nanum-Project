@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { Router, ActivatedRoute, RouterState } from '@angular/router';
 
-import { AskModalComponent } from './ask-modal/ask-modal.component';
+import { AskModalComponent } from '../components/ask-modal/ask-modal.component';
+// test 나중에 main-feed로 이동
+import { TopicSelectComponent } from '../../topic-select/topic-select.component';
 
 // 더미 유저 import
 import { users } from '../../mocks/user';
 
-// test 나중에 main-feed로 이동
-import { TopicSelectComponent } from '../../topic-select/topic-select.component';
 
 interface TabLink {
   label: string;
@@ -19,7 +19,7 @@ interface TabLink {
 @Component({
   selector: 'app-navigator',
   templateUrl: './navigator.component.html',
-  styleUrls: ['./navigator.component.css']
+  styleUrls: ['./navigator.component.css'],
 })
 export class NavigatorComponent implements OnInit {
   inputText: string;
@@ -58,7 +58,7 @@ export class NavigatorComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
     });
   }
 

@@ -8,7 +8,7 @@ import 'rxjs/add/observable/from';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 
-import { FeedService } from '../../feed.service';
+import { FeedService } from '../../feed/feed.service';
 
 @Component({
   selector: 'app-editor',

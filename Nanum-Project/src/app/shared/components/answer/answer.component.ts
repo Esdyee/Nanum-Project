@@ -2,8 +2,8 @@ import { Component, Input, OnChanges } from '@angular/core';
 
 import { MatDialog } from '@angular/material';
 
-import { AskModalComponent } from '../../../../common/navigator/ask-modal/ask-modal.component';
-import { FeedService } from '../../feed.service';
+import { AskModalComponent } from '../ask-modal/ask-modal.component';
+import { FeedService } from '../../feed/feed.service';
 
 
 @Component({
