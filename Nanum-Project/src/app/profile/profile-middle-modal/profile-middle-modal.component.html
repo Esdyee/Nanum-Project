@@ -41,7 +41,7 @@
       <li *ngFor="let resume of profileService.userEmploymentCredentialList" [id]="resume.pk" #resumeEdit>
         <mat-icon class="user-resume-icon">{{ getUserResumeIcon(resume) }}</mat-icon>
         <span class="user-resume-content">
-          <strong class="mat-h3">{{ resume.company.name }}에서 {{ resume.position }}으로 근무</strong>
+          <strong class="mat-h3">{{ resume.company?.name }}에서 {{ resume.position }}으로 근무</strong>
         </span>
         <button mat-icon-button color="accent" (click)="profileService.deleteEmploymentCredential(resumeEdit.id)" class="delete-button">
           <mat-icon>cancel</mat-icon>
@@ -51,7 +51,7 @@
       <li *ngFor="let education of profileService.userEducationCredentialList" [id]="education.pk" #educationEdit>
         <mat-icon class="user-education-icon">{{ getUserResumeIcon(education) }}</mat-icon>
         <span class="user-education-content">
-          <strong class="mat-h3">{{ education.school.name }}에서 {{ education.concentration.name }}을 전공</strong>
+          <strong class="mat-h3">{{ education.school?.name }}에서 {{ education.concentration?.name }}을 전공</strong>
         </span>
         <button mat-icon-button color="accent" (click)="profileService.deleteEducationCredential(educationEdit.id)" class="delete-button">
           <mat-icon>cancel</mat-icon>
@@ -87,7 +87,7 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-    
+
     <br>
 
     <p>
@@ -98,7 +98,7 @@
         <option *ngFor="let year of yearBox.reverse()" [value]="year">{{ year }}</option>
       </select>
     </p>
-    <p> 
+    <p>
       <span>
         <strong class="mat-h3">퇴사 연도</strong>
       </span>

@@ -1,9 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { HttpClientModule } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
 import { AppService } from '../app.service';
-import { HttpParams } from '@angular/common/http';
 
 
 interface UserProfile {
@@ -83,9 +80,9 @@ interface UserEducation {
 
 interface UserStats {
   answer_count: number;
-  upvote_count: any;
+  upvote_count: number;
   follower_count: number;
-  following_count: 0;
+  following_count: number;
 }
 
 interface TopicList {
@@ -117,7 +114,6 @@ export class ProfileService {
 
   userProfile: UserProfile;
   userStats: UserStats;
-  requestCounter = 0;
 
   userEmployment: UserEmploymentCredential;
   userEmploymentCredentialList: UserEmploymentCredential[];
@@ -136,46 +132,35 @@ export class ProfileService {
 
 
 
-  constructor(private http: HttpClient, private appService: AppService) {
-    this.renderProfilePage();
-    console.log(this.user_pk);
+  constructor(private http: HttpClient, private appService: AppService) { }
+
+  getUserProfile() {
+    return this.http.get<UserProfile>(
+      `${this.HOST}/user/${this.user_pk}/profile/main-detail/`,
+      { headers: this.headers }).subscribe(
+        res => this.userProfile = res,
+      err => console.log(err)
+    );
   }
 
-
-
-  renderProfilePage(): object {
-    return this.http.get<UserProfile>(`${this.HOST}/user/${this.user_pk}/profile/main-detail/`,
-      { headers: this.headers }) // TODO: parametrize
-      .subscribe(userProfile => {
-        this.userProfile = userProfile;
-        this.requestCounter++;
-        this.getUserStats();
-      });
+  getUserStats() {
+    return this.http.get<UserStats>(
+      `${this.HOST}/user/${this.user_pk}/profile/stats/`,
+      { headers: this.headers }
+    ).subscribe(
+      res => this.userStats = res,
+      err => console.log(err)
+    );
   }
-
-
-
-  getUserStats(): object {
-    return this.http.get<UserStats>(`${this.HOST}/user/${this.user_pk}/profile/stats/`,
-      { headers: this.headers })
-      .subscribe(userStats => {
-        this.userStats = userStats;
-        this.requestCounter++;
-        this.getUserEmploymentCredentialList();
-        this.getUserEducationCredentialList();
-      });
-  }
-
-
 
   editProfileImage(payload) {
     console.log(payload);
     return this.http.patch<UserProfile>(`${this.HOST}/user/${this.user_pk}/profile/main-detail/`, payload,
       { headers: this.headers })
-      .subscribe(response => {
-        this.userProfile = response;
-        console.log(this.userProfile);
-      });
+      .subscribe(
+        response => this.userProfile = response,
+      err => console.log(err)
+      );
   }
 
   editProfileArticle(payload) {
@@ -187,15 +172,14 @@ export class ProfileService {
       });
   }
 
-
-
   getUserEmploymentCredentialList(): object {
     return this.http.get<UserEmploymentCredential[]>(`${this.HOST}/user/${this.user_pk}/profile/empl-credentials/`,
       { headers: this.headers })
-      .subscribe(response => {
-        this.userEmploymentCredentialList = response;
-        this.requestCounter++;
-      });
+      .subscribe(
+        response => this.userEmploymentCredentialList = response,
+      err => console.log(err),
+      () => console.log(this.userEmploymentCredentialList)
+      );
   }
 
   createEmploymentCredential(payload: UserEmploymentCredentialPayload): object {
@@ -219,7 +203,8 @@ export class ProfileService {
   }
 
   updateEmploymentCredential(payload: object): object {
-    return this.http.put<UserEmploymentCredential>(`${this.HOST}/user/${this.user_pk}/profile/empl-credentials/${this.userEmployment.pk}/`, payload,
+    return this.http.put<UserEmploymentCredential>(
+      `${this.HOST}/user/${this.user_pk}/profile/empl-credentials/${this.userEmployment.pk}/`, payload,
       { headers: this.headers })
       .subscribe(response => {
         this.userEmployment = response;
@@ -244,7 +229,6 @@ export class ProfileService {
       { headers: this.headers })
       .subscribe(response => {
         this.userEducationCredentialList = response;
-        this.requestCounter++;
       });
   }
 

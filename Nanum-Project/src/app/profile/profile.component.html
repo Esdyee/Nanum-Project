@@ -1,64 +1,48 @@
 <app-navigator></app-navigator>
 
-<ng-container *ngIf="profileService.requestCounter >= 4">
-  <!-- profile page 렌더링 시 서버 response가 늦어 콘솔 에러가 나는걸 방지하기 위함 -->
-
   <div class="container_12">
 
     <div class="grid_2">
       <!-- 왼쪽 nav 영역-->
     </div>
 
-
     <div class="grid_8">
       <!-- Top -->
-      <mat-card class="profile user-profile-top" id="top" (mouseenter)="isOnMouse_TopContent=true" (mouseleave)="isOnMouse_TopContent=false">
-
-        <div class="edit-button" *ngIf="isOnMouse_TopContent">
-          <span class="Edit" (click)="openProfileTopModal()">
-            <strong class="mat-h3">Edit</strong>
-          </span>
-        </div>
-
-        <div class="grid_2 alpha">
-
-          <!--<div class="user-profile-img" (click)="imgUpload.click()">-->
-          <div class="user-profile-img">
-            <!--<input id="img-upload" type='file' accept="image/*" (change)="readUrl($event)" #imgUpload>-->
-            <!--<img *ngFor="let img of dataUrl" [src]="img">-->
-            <img [src]="profileService.userProfile.thumbnail_image_200">
-          </div>
-          <!-- 사진 업로드 구현 테스트용! -->
-        </div>
-
-        <div class="grid_6 omega">
-          <div class="profile-top-content">
-            <span>
-              <mat-card-title class="profile-title">
-                <strong class="mat-h2">{{ profileService.userProfile.name }} / {{ profileService.userProfile.main_credential }}</strong>
-              </mat-card-title>
+      <ng-container *ngIf="profileService.userProfile">
+        <mat-card class="profile user-profile-top" id="top" (mouseenter)="isOnMouse_TopContent=true" (mouseleave)="isOnMouse_TopContent=false">
+          <div class="edit-button" *ngIf="isOnMouse_TopContent">
+            <span class="Edit" (click)="openProfileTopModal()">
+              <strong class="mat-h3">Edit</strong>
             </span>
-            <br>
-
-            <mat-card-content>
-
-              <span class="profile-top-user-article">{{ profileService.userProfile.description }}</span>
-
-              <div class="profile-top-chips-container">
-                <div class="profile-top-chips">
-                  <button *ngIf="isSignIn" class="profile-top-chip-follow">팔로워</button>
-                  <!-- 자기 자신 프로필이면 *ngIf로 안보이도록 설정하기-->
-                  <button class="profile-top-chip-ask">질문하기</button>
-                </div>
-              </div>
-            </mat-card-content>
           </div>
-        </div>
-      </mat-card>
+          <div class="grid_2 alpha">
+            <div class="user-profile-img">
+              <img [src]="profileService.userProfile.thumbnail_image_200">
+            </div>
+          </div>
+          <div class="grid_6 omega">
+            <div class="profile-top-content">
+              <span>
+                <mat-card-title class="profile-title">
+                  <strong class="mat-h2">{{ profileService.userProfile.name }} / {{ profileService.userProfile.main_credential }}</strong>
+                </mat-card-title>
+              </span>
+              <br>
+              <mat-card-content>
+                <span class="profile-top-user-article">{{ profileService.userProfile.description }}</span>
+                <div class="profile-top-chips-container">
+                  <div class="profile-top-chips">
+                    <button *ngIf="isSignIn" class="profile-top-chip-follow">팔로워</button>
+                    <!-- 자기 자신 프로필이면 *ngIf로 안보이도록 설정하기-->
+                    <button class="profile-top-chip-ask">질문하기</button>
+                  </div>
+                </div>
+              </mat-card-content>
+            </div>
+          </div>
+        </mat-card>
+      </ng-container>
     </div>
-
-
-
 
     <!-- Middle -->
     <div class="grid_8">
@@ -76,13 +60,13 @@
               <strong class="mat-h2">직업 및 학력</strong>
             </span>
             <ul class="user-resume-list-container">
-              <li *ngFor="let resume of profileService.userEmploymentCredentialList.slice(0,4)">
+              <li *ngFor="let resume of profileService.userEmploymentCredentialList">
                 <mat-icon class="user-resume-icon">{{ getUserResumeIcon(resume) }}</mat-icon>
-                <span class="user-resume-content">{{ resume.company.name }}에서 {{ resume.position }}으로 근무</span>
+                <span class="user-resume-content">{{ resume.company?.name }}에서 {{ resume.position }}으로 근무</span>
               </li>
-              <li *ngFor="let education of profileService.userEducationCredentialList.slice(0,4)">
+              <li *ngFor="let education of profileService.userEducationCredentialList">
                 <mat-icon class="user-education-icon">{{ getUserResumeIcon(education) }}</mat-icon>
-                <span class="user-education-content">{{ education.school.name }}에서 {{ education.concentration.name }}을 전공</span>
+                <span class="user-education-content">{{ education.school?.name }}에서 {{ education.concentration.name }}을 전공</span>
               </li>
             </ul>
           </div>
@@ -95,7 +79,7 @@
 
 
 
-            <ul class="user-activity-summary-list-container">
+            <ul *ngIf="profileService.userStats" class="user-activity-summary-list-container">
               <li>
                 <mat-icon class="user-activity-icon">remove_red_eye</mat-icon>
                 <span class="user-activity-content">{{ profileService.userStats.answer_count }}건의 답변 뷰</span>
@@ -123,7 +107,6 @@
     </div>
 
 
-<button (click)="ProfileFollowModalComponent()">TEST</button>
     <!-- Bottom -->
     <div class="grid_8">
       <mat-card class="profile profile-bottom" id="bottom">
@@ -198,5 +181,3 @@
     </div>
 
   </div>
-
-</ng-container>
