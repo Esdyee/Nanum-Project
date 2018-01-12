@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './module/material.module';
 import { AppRoutingModule } from './app-routing.module';
 
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { TopicComponent } from './topic/topic.component';
@@ -19,15 +20,19 @@ import { ProfileMiddleModalComponent } from './profile/profile-middle-modal/prof
 import { ProfileTopModalComponent } from './profile/profile-top-modal/profile-top-modal.component';
 import { AccountSettingsComponent } from './common/navigator/account-settings/account-settings.component';
 
+
 // Service
 import { MenuService } from './service/menu.service';
 import { ProfileService } from './profile/profile.service';
 import { SharedModule } from './shared/shared.module';
 import { QuestionService } from './service/question.service';
 
+
 // pipe
 import { TabFilterPipe } from './common/navigator/tab-filter.pipe';
 import { FeedModule } from './shared/feed/feed.module';
+
+
 
 
 @NgModule({
@@ -44,7 +49,7 @@ import { FeedModule } from './shared/feed/feed.module';
     ProfileMiddleModalComponent,
     ProfileTopModalComponent,
     ProfileFollowModalComponent,
-    AccountSettingsComponent
+    AccountSettingsComponent,
   ],
   imports: [
     BrowserModule,

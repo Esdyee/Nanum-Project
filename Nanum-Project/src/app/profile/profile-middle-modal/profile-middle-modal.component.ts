@@ -36,6 +36,13 @@ export class ProfileMiddleModalComponent implements OnInit {
     { id: 5, type: 'Language' },
   ];
 
+  degreeTypeContainer = [
+    { id: 1, type: 'HS', description: '고등학교'},
+    { id: 1, type: 'BA', description: '학사'},
+    { id: 1, type: 'MA', description: '석사'},
+    { id: 1, type: 'PHD', description: '박사'},
+  ];
+
   yearBox: number[] = [];
   isJobClicked: boolean;
   isSchoolClicked: boolean;
@@ -45,11 +52,16 @@ export class ProfileMiddleModalComponent implements OnInit {
   companyOrganization: string;
   startYear: number;
   endYear: number;
+  companyId: number;
+
 
   degreeType: string;
   graduationYear: number;
   schoolName: string;
   concentrationName: string;
+  schoolId: number;
+  concentrationId: number;
+
 
   ngOnInit(): void {
     this.isJobClicked = false;
@@ -118,8 +130,8 @@ export class ProfileMiddleModalComponent implements OnInit {
 
   sendEducationCredentialPayload(): void {
     const payload = {
-      school_id: 5,
-      concentration_id: 5,
+      school_id: this.schoolId,
+      concentration_id: this.concentrationId,
       degree_type: this.degreeType,
       graduation_year: this.graduationYear
     };
@@ -127,8 +139,9 @@ export class ProfileMiddleModalComponent implements OnInit {
   }
 
   sendEmploymentCredentialPayload(): void {
+    console.log(this.companyId);
     const payload = {
-      company_id: 5,
+      company_id: this.companyId,
       position: this.position,
       start_year: this.startYear,
       end_year: this.endYear,
@@ -137,4 +150,6 @@ export class ProfileMiddleModalComponent implements OnInit {
     this.profileService.createEmploymentCredential(payload);
     // console.log(payload);
   }
+
+
 }
