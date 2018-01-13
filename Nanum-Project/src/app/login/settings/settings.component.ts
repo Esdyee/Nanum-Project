@@ -17,7 +17,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 }
 
 // 유저정보 Interface
-
 interface UserData {
   pk: number;
   token: string;
@@ -51,7 +50,7 @@ interface UserData {
         비밀번호를 <strong>입력</strong>해 주시기 바랍니다.
       </mat-error>
     </mat-form-field>
-    <button type="submit" class="btn-settings" mat-raised-button [disabled]="!settingsForm.valid">회원가입</button>
+    <button type="submit" class="btn-settings" mat-raised-button [disabled]="!settingsForm.valid">비밀번호 변경</button>
   </form>
 </section>
   `,
@@ -68,18 +67,17 @@ export class SettingsComponent implements OnInit {
     , private active: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log('connect');
+    // paylord
     const codeData = this.active.snapshot.paramMap.get('code');
     const uidData = this.active.snapshot.paramMap.get('uid');
     const userdata = { code: codeData, uid: uidData};
-    // console.log(this.path.api_path + 'user/password-reset/confirm/');
-    // console.log(JSON.stringify(userdata));
 
+    // 이메일로 해당 페이지에 접속한 것인지 확인
     this.http.post(this.path.api_path + 'user/password-reset/confirm/',
     JSON.stringify(userdata), { headers: { 'Content-Type': 'application/json' } })
       .subscribe((response: UserData) => {
         if (response.pk && response.token) {
-          console.log('connect');
+          localStorage.setItem('findPassword', JSON.stringify(response));
         } else {
           this.router.navigate(['/login/find']);
         }
@@ -90,20 +88,27 @@ export class SettingsComponent implements OnInit {
 
     console.log('formSettings');
     this.settingsForm = new FormGroup({
-      'nameFormControl': new FormControl('', [
-        Validators.required
-      ]),
-      'emailFormControl': new FormControl('', [
-        Validators.required,
-        Validators.email
-      ]),
       'passwordFormControl': new FormControl('', Validators.required),
       'passwordConfFormControl': new FormControl('', [Validators.required, this.match])
     });
   }
 
   onSubmit() {
+    // Paylord 생성
+    const data: UserData = JSON.parse(localStorage.getItem('findPassword'));
+    const paylord = { pk: data.pk, token: data.token
+      , password1: this.passwordFormControl.value, password2: this.passwordConfFormControl.value };
 
+    // 변경할 Password 전송
+    this.http.post(this.path.api_path + 'user/password-reset/', paylord)
+    .subscribe(res => {
+      // 결과처리
+      alert('비밀번호 변경이 완료되었습니다. \n다시 로그인해 주시기 바랍니다.');
+      this.router.navigate(['/login/main']);
+    }, err => {
+      // 에러 처리
+      console.dir(err);
+    });
   }
 
   match(control: AbstractControl) {
@@ -122,7 +127,6 @@ export class SettingsComponent implements OnInit {
   }
 
   // Form Data Return
-
   get passwordGroup() {
     return this.settingsForm.get('passwordGroup');
   }
