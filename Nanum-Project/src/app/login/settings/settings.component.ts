@@ -77,6 +77,7 @@ export class SettingsComponent implements OnInit {
     JSON.stringify(userdata), { headers: { 'Content-Type': 'application/json' } })
       .subscribe((response: UserData) => {
         if (response.pk && response.token) {
+          console.log(response);
           localStorage.setItem('findPassword', JSON.stringify(response));
         } else {
           this.router.navigate(['/login/find']);
@@ -86,7 +87,7 @@ export class SettingsComponent implements OnInit {
       }
     );
 
-    console.log('formSettings');
+    // settingsForm 구성
     this.settingsForm = new FormGroup({
       'passwordFormControl': new FormControl('', Validators.required),
       'passwordConfFormControl': new FormControl('', [Validators.required, this.match])
@@ -107,7 +108,11 @@ export class SettingsComponent implements OnInit {
       this.router.navigate(['/login/main']);
     }, err => {
       // 에러 처리
-      console.dir(err);
+      if (err.non_field_errors) {
+        alert(err.non_field_errors);
+      } else {
+        alert('비밀번호 변경에 실패하였습니다.');
+      }
     });
   }
 
