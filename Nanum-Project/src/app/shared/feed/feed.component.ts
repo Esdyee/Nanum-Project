@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material';
 
 import { AskModalComponent } from '../components/ask-modal/ask-modal.component';
 import { FeedService } from './feed.service';
+import { ScrollEvent } from './window-scroll.directive';
 
 @Component({
   selector: 'app-feed',
@@ -54,7 +55,9 @@ export class FeedComponent implements OnInit {
     }
   }
 
-  typeChange() {
-    this.type = 'questions' ? 'answers' : 'questions';
+  handleScroll(event: ScrollEvent) {
+    if (event.isReachingBottom) {
+      this.onScrollBottom();
+    }
   }
 }
