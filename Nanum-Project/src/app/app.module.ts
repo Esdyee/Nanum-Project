@@ -13,7 +13,6 @@ import { NavigatorModule } from './shared/navigator/navigator.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { TopicComponent } from './topic/topic.component';
-import { ProfileComponent } from './profile/profile.component';
 import { TopicSelectComponent } from './topic-select/topic-select.component';
 import { ProfileFollowModalComponent } from './profile/profile-follow-modal/profile-follow-modal.component';
 import { ProfileBottomModalComponent } from './profile/profile-bottom-modal/profile-bottom-modal.component';
@@ -26,6 +25,7 @@ import { MenuService } from './service/menu.service';
 import { ProfileService } from './profile/profile.service';
 import { QuestionService } from './service/question.service';
 import { AskModalComponent } from './shared/components/ask-modal/ask-modal.component';
+import { ProfileModule } from './profile/profile.module';
 
 
 
@@ -34,7 +34,6 @@ import { AskModalComponent } from './shared/components/ask-modal/ask-modal.compo
     AppComponent,
     LoginComponent,
     TopicComponent,
-    ProfileComponent,
     TopicSelectComponent,
     ProfileFollowModalComponent,
     ProfileBottomModalComponent,
@@ -50,7 +49,8 @@ import { AskModalComponent } from './shared/components/ask-modal/ask-modal.compo
     ReactiveFormsModule,
     SharedModule,
     FeedModule,
-    NavigatorModule
+    NavigatorModule,
+    ProfileModule
   ],
   entryComponents: [
     TopicSelectComponent,
