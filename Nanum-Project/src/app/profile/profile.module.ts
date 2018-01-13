@@ -20,9 +20,6 @@ import { ProfileService } from './profile.service';
     SharedModule,
     NavigatorModule
   ],
-  exports: [
-    ProfileComponent,
-  ],
   declarations: [
     ProfileComponent,
     ProfileTopModalComponent,
