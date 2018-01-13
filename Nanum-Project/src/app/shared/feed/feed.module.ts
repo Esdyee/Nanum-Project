@@ -6,6 +6,7 @@ import { MaterialModule } from '../material.module';
 import { FeedComponent } from './feed.component';
 import { FeedService } from './feed.service';
 import { SharedModule } from '../shared.module';
+import { WindowScrollDirective } from './window-scroll.directive';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { SharedModule } from '../shared.module';
   ],
   declarations: [
     FeedComponent,
+    WindowScrollDirective,
   ],
   providers: [
     FeedService
