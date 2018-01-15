@@ -7,9 +7,9 @@
       <mat-form-field class="search-form-field">
         <input matInput type="text" class="search-input"
               [(ngModel)]="inputText">
-        <button mat-button 
-                *ngIf="inputText" 
-                matSuffix mat-icon-button aria-label="Clear" 
+        <button mat-button
+                *ngIf="inputText"
+                matSuffix mat-icon-button aria-label="Clear"
                 (click)="inputText=''">
           <mat-icon>close</mat-icon>
         </button>
@@ -30,7 +30,7 @@
       <button mat-menu-item routerLink="/profile">
         내 프로필
       </button>
-        <button mat-menu-item>
+      <button mat-menu-item (click)="logOut()">
         <span>로그아웃</span>
       </button>
       </mat-menu>
