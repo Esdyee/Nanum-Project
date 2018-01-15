@@ -43,7 +43,7 @@ export class TopicComponent implements OnInit {
   }
 
   getTopics() {
-    this.http.get<Topic[]>(`${this.apiUrl}/topic/2`, { headers: this.headers })
+    this.http.get<Topic[]>(`${this.apiUrl}/topic/7`, { headers: this.headers })
       .subscribe(topics => this.topics = topics);
   }
 

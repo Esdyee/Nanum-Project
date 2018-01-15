@@ -26,6 +26,7 @@ import { ProfileService } from './profile/profile.service';
 import { QuestionService } from './service/question.service';
 import { AskModalComponent } from './shared/components/ask-modal/ask-modal.component';
 import { ProfileModule } from './profile/profile.module';
+import { QuestionDetailComponent } from './question-detail/question-detail.component';
 
 
 
@@ -40,6 +41,7 @@ import { ProfileModule } from './profile/profile.module';
     ProfileMiddleModalComponent,
     ProfileTopModalComponent,
     ProfileFollowModalComponent,
+    QuestionDetailComponent
   ],
   imports: [
     BrowserModule,
