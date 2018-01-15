@@ -1,17 +1,17 @@
 <h1 mat-dialog-title>관심사 설정하기</h1>
-<mat-horizontal-stepper>  
+<mat-horizontal-stepper>
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>관심 분야</ng-template>
-      <p>나눔에 오신것을 환영합니다! 당신이 관심가질만한 포스트들을 찾아드리기 위해 밑에서 관심이 가는 주제중 3가지를 골라주세요.</p>        
+      <p>나눔에 오신것을 환영합니다! 당신이 관심가질만한 포스트들을 찾아드리기 위해 밑에서 관심이 가는 주제중 3가지를 골라주세요.</p>
       <div mat-dialog-content class="topic-container">
         <mat-grid-list cols="5" rowHeight="1:1" gutterSize="7px">
-          
-          <mat-grid-tile *ngFor="let topic of topics">
-            <img class="topic-img" [src]="topic.imge">
+
+          <mat-grid-tile *ngFor="let topic of topicSeletService.topics">
+            <img class="topic-img" [src]="topic.image">
             <mat-grid-tile-footer>
-              <mat-checkbox [checked]="topic.follow">{{topic.name}}</mat-checkbox>
-             </mat-grid-tile-footer>
+              <mat-checkbox [value]="topic.pk" (change)="createInterestList($event.source.value, $event.checked)">{{topic.name}}</mat-checkbox>
+            </mat-grid-tile-footer>
           </mat-grid-tile>
 
         </mat-grid-list>
@@ -21,34 +21,34 @@
       </div>
     </form>
   </mat-step>
-    
-    <mat-step [stepControl]="secondFormGroup">
-      <form [formGroup]="secondFormGroup">
-        <ng-template matStepLabel>전문 분야</ng-template>
-        <p>에 관심있으시군요! 그렇다면 전문분야는 어떻게 되시나요? 다음 중 자신이 답변할 수 있는 것을 1~3가지를 선택해주세요</p>
-        <div mat-dialog-content class="topic-container">
-          <mat-grid-list cols="5" rowHeight="1:1" gutterSize="7px">
 
-            <mat-grid-tile *ngFor="let topic of topics">
-              <img class="topic-img" [src]="topic.imge">
-              <mat-grid-tile-footer>
-                <mat-checkbox [checked]="topic.follow">{{topic.name}}</mat-checkbox>
-              </mat-grid-tile-footer>
-            </mat-grid-tile>
-            
-          </mat-grid-list>
-        </div>      
-        <div>
-          <button mat-button matStepperNext>다음</button>
-        </div>
-      </form>
-    </mat-step>
-    
-    <mat-step>
-      <ng-template matStepLabel>완료</ng-template>
-      <p>관심사 설정이 완료되었습니다. 나눔 회원이 되신것을 환영합니다!</p>
-      <div>
-        <button mat-button (click)="onNoClick()">선택 완료</button>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>전문 분야</ng-template>
+      <p>전문분야는 어떻게 되시나요? 다음 중 자신이 답변할 수 있는 것을 1~3가지를 선택해주세요</p>
+      <div mat-dialog-content class="topic-container">
+        <mat-grid-list cols="5" rowHeight="1:1" gutterSize="7px">
+
+          <mat-grid-tile *ngFor="let topic of topicSeletService.topics">
+            <img class="topic-img" [src]="topic.image">
+            <mat-grid-tile-footer>
+              <mat-checkbox [value]="topic.pk" (change)="createExpertiseList($event.source.value, $event.checked)">{{topic.name}}</mat-checkbox>
+            </mat-grid-tile-footer>
+          </mat-grid-tile>
+
+        </mat-grid-list>
       </div>
-    </mat-step>
+      <div>
+        <button mat-button matStepperNext>다음</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>완료</ng-template>
+    <p>관심사 설정이 완료되었습니다. 나눔 회원이 되신것을 환영합니다!</p>
+    <div>
+      <button mat-button (click)="submitTopicFollow()">선택 완료</button>
+    </div>
+  </mat-step>
 </mat-horizontal-stepper>
