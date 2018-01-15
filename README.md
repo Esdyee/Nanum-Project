@@ -36,6 +36,19 @@
 
 - 토픽 페이지
 
+## 실행
+
+localhost에서 보기
+
+```
+$ cd Nanum-Project
+$ npm install
+$ npm i -g @angular/cli
+$ ng serve --port <port-number=4200>
+```
+
+https://nanum-192014.firebaseapp.com 접속 가능하지만 현재 CORS 문제로 로그인이 안됩니다.
+
 ## Timeline
 
 2017-11-27 (Kick off)
