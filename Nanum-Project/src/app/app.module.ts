@@ -24,7 +24,6 @@ import { ProfileTopModalComponent } from './profile/profile-top-modal/profile-to
 import { MenuService } from './service/menu.service';
 import { ProfileService } from './profile/profile.service';
 import { QuestionService } from './service/question.service';
-import { TopicSeletService } from './topic-select/topic-selet.service';
 import { AskModalComponent } from './shared/components/ask-modal/ask-modal.component';
 import { ProfileModule } from './profile/profile.module';
 
@@ -61,12 +60,7 @@ import { ProfileModule } from './profile/profile.module';
     ProfileTopModalComponent,
     ProfileFollowModalComponent,
   ],
-  providers: [
-    ProfileService,
-    MenuService,
-    QuestionService,
-    TopicSeletService
-  ],
+  providers: [ProfileService, MenuService, QuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

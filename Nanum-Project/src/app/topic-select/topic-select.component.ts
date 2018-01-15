@@ -2,11 +2,12 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
-import { TopicSeletService } from './topic-selet.service';
-
-interface TopicFollow {
-  topics: number[];
+export interface Topic {
+  name: string;
+  imge: string;
+  follow: boolean;
 }
+
 
 @Component({
   selector: 'app-topic-select',
@@ -14,16 +15,45 @@ interface TopicFollow {
   styleUrls: ['./topic-select.component.css']
 })
 export class TopicSelectComponent implements OnInit {
+
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
-  topicInterestList: TopicFollow = { topics: [] };
-  topicExpertiseList: TopicFollow = { topics: [] };
+  topics: Topic[] = [
+    { name: 'shiba1', imge: 'https://material.angular.io/assets/img/examples/shiba1.jpg', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: false },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'shina2', imge: 'https://material.angular.io/assets/img/examples/shiba2.jpg', follow: false },
+    { name: 'shiba1', imge: 'https://material.angular.io/assets/img/examples/shiba1.jpg', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: false },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'shina2', imge: 'https://material.angular.io/assets/img/examples/shiba2.jpg', follow: false },
+    { name: 'shiba1', imge: 'https://material.angular.io/assets/img/examples/shiba1.jpg', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: false },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'shina2', imge: 'https://material.angular.io/assets/img/examples/shiba2.jpg', follow: false },
+    { name: 'shiba1', imge: 'https://material.angular.io/assets/img/examples/shiba1.jpg', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: false },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'shina2', imge: 'https://material.angular.io/assets/img/examples/shiba2.jpg', follow: false },
+    { name: 'shiba1', imge: 'https://material.angular.io/assets/img/examples/shiba1.jpg', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: false },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'shina2', imge: 'https://material.angular.io/assets/img/examples/shiba2.jpg', follow: false },
+    { name: 'shiba1', imge: 'https://material.angular.io/assets/img/examples/shiba1.jpg', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: false },
+    { name: 'topic name', imge: 'http://via.placeholder.com/135x135', follow: true },
+    { name: 'shina2', imge: 'https://material.angular.io/assets/img/examples/shiba2.jpg', follow: false }
+  ];
 
-  constructor(
-    public topicSeletService: TopicSeletService,
-    private _formBuilder: FormBuilder,
-    public thisdialogRef: MatDialogRef<TopicSelectComponent>
-  ) {}
+  constructor(private _formBuilder: FormBuilder,
+    public thisdialogRef: MatDialogRef<TopicSelectComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -34,39 +64,8 @@ export class TopicSelectComponent implements OnInit {
     });
   }
 
-  createInterestList(pk: number, chkStatus: boolean) {
-    if (chkStatus === true) {
-      this.topicInterestList.topics = Object.assign(
-        this.topicInterestList.topics,
-        this.topicInterestList.topics.splice(Number.MAX_VALUE, 0, pk)
-      );
-    } else {
-      this.topicInterestList.topics = this.topicInterestList.topics.filter(
-        pkArr => pkArr !== pk
-      );
-    }
-  }
-
-  createExpertiseList(pk: number, chkStatus: boolean) {
-    if (chkStatus === true) {
-      this.topicExpertiseList.topics = Object.assign(
-        this.topicExpertiseList.topics,
-        this.topicExpertiseList.topics.splice(Number.MAX_VALUE, 0, pk)
-      );
-    } else {
-      this.topicExpertiseList.topics = this.topicExpertiseList.topics.filter(
-        pkArr => pkArr !== pk
-      );
-    }
-  }
-
-  submitTopicFollow() {
-    this.topicSeletService
-      .postInterestFollow(this.topicInterestList)
-      .subscribe(res => {}, err => console.log(err));
-    this.topicSeletService
-      .postExpertiseFollow(this.topicExpertiseList)
-      .subscribe(res => {}, err => console.log(err));
+  onNoClick(): void {
     this.thisdialogRef.close();
   }
+
 }
