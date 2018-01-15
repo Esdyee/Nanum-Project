@@ -3,12 +3,10 @@ import { MatDialog } from '@angular/material';
 import { Router, ActivatedRoute, RouterState } from '@angular/router';
 
 import { AskModalComponent } from '../components/ask-modal/ask-modal.component';
-// test 나중에 main-feed로 이동
+import { FeedService } from '../../shared/feed/feed.service';
+// feed로 이동
 import { TopicSelectComponent } from '../../topic-select/topic-select.component';
-
-// 더미 유저 import
-import { users } from '../../mocks/user';
-
+import { TopicSeletService } from '../../topic-select/topic-selet.service';
 
 interface TabLink {
   label: string;
@@ -22,22 +20,19 @@ interface TabLink {
   styleUrls: ['./navigator.component.css'],
 })
 export class NavigatorComponent implements OnInit {
+  user = this.feedService.user;
   inputText: string;
-  // 더미에서 me(김경훈)만 가져오기
-  user = users.me;
-
-  isShow: boolean;
-
   tabStatus: string;
-
   tabLinks: TabLink[];
-
   routerStatus = this.route.snapshot.url.join();
 
-
-  constructor(public dialog: MatDialog,
-    private router: Router, private route: ActivatedRoute) {
-    }
+  constructor(
+    private topicSeletService: TopicSeletService,
+    private feedService: FeedService,
+    public dialog: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.tabStatus = this.routerStatus;
@@ -47,31 +42,33 @@ export class NavigatorComponent implements OnInit {
       { label: '프로필', link: '/profile', status: 'profile'  },
       { label: '포스트', link: '/post', status: 'profile'  }
     ];
+    this.openTopicSelectModal();
   }
 
-  // 모달 오픈
   openAskModal(): void {
     const dialogRef = this.dialog.open(AskModalComponent, {
       width: '620px',
-      // 이름 참조해서 사용
-      data: { name: this.user.name }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      // console.log('The dialog was closed');
+      data: { name: this.user.name },
     });
   }
 
-  // test 사용자가 토픽 선택 정보가 없을시 작동해야함 나중에 main-feed로 이동
-  openTopicSelectModal(): void {
+  openTopicSelectModal() {
+    this.topicSeletService.getFollowTopicList().subscribe(
+      res => {
+        if (res.results.length === 0) {
+          this.topicSelectModal();
+        }
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
+  topicSelectModal(): void {
     const dialogRef = this.dialog.open(TopicSelectComponent, {
       width: '800px',
-    //  height: '600px',
       disableClose: true
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
     });
   }
 
@@ -79,5 +76,4 @@ export class NavigatorComponent implements OnInit {
     localStorage.removeItem('currentUser');
     location.reload();
   }
-
 }
