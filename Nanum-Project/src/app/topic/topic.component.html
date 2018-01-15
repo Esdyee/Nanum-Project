@@ -1,11 +1,11 @@
 <div class="main">
   <div class="container_12">
     <div class="grid_12">
-      <div class="topic-info">
+      <div class="topic-info" *ngIf="topics">
         <img [src]="topics?.image || ''" class="topic-img">
         <span class="topic-name">{{ topics.name }}</span>
         <button mat-raised-button class="topic-follow" (click)="following()">{{ isFollowing ? '팔로우 취소' : '팔로우' }}</button>
-      </div>
+      </div>w
     </div>
     <div class="grid_8">
       <mat-tab-group>

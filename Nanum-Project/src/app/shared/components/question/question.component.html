@@ -7,7 +7,7 @@
         <a *ngFor="let topic of topics" [href]="topic.url" class="topic">{{ topic.name }}</a>
       </ng-container>
     </span>
-    <i (click)="negativeFeedback(question.question.pk)" class="material-icons md-18">close</i>
+    <i class="material-icons md-18">close</i>
   </div>
   <mat-card-title>
     {{ question.question.content }}

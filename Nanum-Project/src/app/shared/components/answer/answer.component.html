@@ -6,7 +6,7 @@
         <a *ngFor="let topic of topics" [href]="topic.url" class="topic">{{ topic.name }}</a>
       </ng-container>
     </span>
-    <i (click)="negativeFeedback(answer.id)" class="material-icons md-18">close</i>
+    <i class="material-icons md-18">close</i>
   </div>
   <!--TODO: routing to answer detail page(답변상세 페이지 라우팅 생기면 할 일. 근데 스태틱 페이지라면 얘기가 다름-->
   <mat-card-title>
