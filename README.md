@@ -12,6 +12,7 @@
 - [Scrumboard(google spreadsheet 초대링크)](https://docs.google.com/spreadsheets/d/19hdWFqjpBN9AETtN86JAX6vFg2HuMkNaJL2H-JpIQmQ/edit?usp=sharing)
 - [Wiki](https://github.com/Esdyee/Namu-Project/wiki/0.-README)
 - [웹 프로그래밍 스쿨 github 저장소(백엔드 담당)](https://github.com/namu617/nanum-project)
+- [서비스 이용 동영상](https://youtu.be/xmQ2I6U2aY4)
 
 ## 사용 기술
 
