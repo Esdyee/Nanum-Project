@@ -17,61 +17,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 @Component({
   selector: 'app-signup',
-  // templateUrl: './signup.component.html',
-  template: `
-    <section class="email-signup">
-    <h1 class="tit-introduce">NANUM</h1>
-
-    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" novalidate class="signup-form">
-
-      <mat-form-field class="signup-full-width">
-        <input matInput placeholder="Name" [formControl]="nameFormControl"
-               [errorStateMatcher]="matcher">
-        <mat-hint>이름을 입력해주세요.</mat-hint>
-        <mat-error *ngIf="nameFormControl.hasError('required')">
-          <strong>이름</strong>을 입력해주시기 바랍니다.
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field class="signup-full-width">
-        <input matInput placeholder="Email" [formControl]="emailFormControl"
-               [errorStateMatcher]="matcher">
-        <mat-hint>이메일을 입력해주세요.</mat-hint>
-        <mat-error *ngIf="emailError && !emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-          {{emailError}}
-        </mat-error>
-        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-          이메일을 <strong>입력</strong>해 주시기 바랍니다.
-        </mat-error>
-        <mat-error *ngIf="emailFormControl.hasError('required')">
-          <strong>이메일 양식</strong>에 맞추어서 입력해주시기 바랍니다.
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field class="signup-full-width">
-        <input type="password" matInput placeholder="Password" [formControl]="passwordFormControl"
-                [errorStateMatcher]="matcher" #password>
-        <mat-hint>비밀번호를 입력해주세요.</mat-hint>
-        <mat-error *ngIf="passwordFormControl.hasError('required')">
-          비밀번호를 <strong>입력</strong>해 주시기 바랍니다.
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field class="signup-full-width">
-        <input type="password" matInput placeholder="Password-conf" [formControl]="passwordConfFormControl"
-                [errorStateMatcher]="matcher">
-        <mat-hint>확인을 위해 비밀번호를 입력해주세요.</mat-hint>
-        <mat-error *ngIf="passwordError && passwordConfFormControl.hasError('required')">
-          {{passwordError}}
-        </mat-error>
-        <mat-error *ngIf="passwordConfFormControl.hasError('required')">
-          비밀번호를 <strong>입력</strong>해 주시기 바랍니다.
-        </mat-error>
-      </mat-form-field>
-      <button type="submit" class="btn-signup" mat-raised-button [disabled]="!signupForm.valid">회원가입</button>
-    </form>
-  </section>
-  `,
+  templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
@@ -81,21 +27,6 @@ export class SignupComponent implements OnInit {
   passwordError = '';
 
   constructor(private http: HttpClient, private path: AppService, private auth: AuthService, private router: Router) {}
-
-  onSubmit() {
-    this.auth.signup(this.emailFormControl.value, this.passwordFormControl.value
-      , this.passwordConfFormControl.value, this.nameFormControl.value)
-      .subscribe(result => {
-        if (result === true) {
-          // login successful
-          this.router.navigate(['/answer']);
-        }
-      }, err => {
-        if (err.status === 400) {
-          console.log(err);
-        }
-      });
-  }
 
   ngOnInit() {
     this.signupForm = new FormGroup({
@@ -115,6 +46,20 @@ export class SignupComponent implements OnInit {
     });
   }
 
+  onSubmit() {
+    this.auth.signup(this.emailFormControl.value, this.passwordFormControl.value
+      , this.passwordConfFormControl.value, this.nameFormControl.value)
+      .subscribe(result => {
+        if (result === true) {
+          // login successful
+          this.router.navigate(['/answer']);
+        }
+      }, err => {
+        if (err.status === 400) {
+          console.log(err);
+        }
+      });
+  }
 
   match(control: AbstractControl) {
     // 매개변수로 전달받은 검증 대상 폼 모델에서 password와 confirmPassword을 취득

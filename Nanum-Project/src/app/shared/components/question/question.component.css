@@ -1,0 +1,44 @@
+.mat-card.post {
+  margin-top: 2rem;
+}
+
+.mat-caption .topic {
+  margin-left: 0.5em;
+}
+
+.post.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.post .tag {
+  margin-right: 1rem;
+}
+
+.answer-info {
+  margin-left: 0.5rem;
+  display: inline-block;
+  height: 100%;
+}
+
+.answer-info .author {
+  margin: 5px 0;
+}
+
+.post.header>.material-icons,
+.post .topic {
+  cursor: pointer;
+}
+
+mat-card-title.mat-card-title {
+  line-height: 150%;
+}
+
+.mat-card-content .material-icons {
+  position: absolute;
+}
+
+.mat-card-action i.material-icons {
+  font-size: 1.5rem !important;
+}

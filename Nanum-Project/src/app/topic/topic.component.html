@@ -5,13 +5,15 @@
         <!--<img [src]="topics.image" class="topic-img">-->
         <!--<span class="topic-name">{{ topics.name }}</span>-->
         <button mat-raised-button class="topic-follow" (click)="following()">{{ isFollowing ? '팔로우 취소' : '팔로우' }}</button>
-      </div>
+      </div>w
     </div>
     <div class="grid_8">
       <mat-tab-group>
         <mat-tab label="읽기">
+          <app-feed></app-feed>
         </mat-tab>
         <mat-tab label="답변하기">
+          <app-feed></app-feed>
         </mat-tab>
       </mat-tab-group>
     </div>

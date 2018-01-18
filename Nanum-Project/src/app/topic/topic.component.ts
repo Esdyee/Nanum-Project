@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { AskModalComponent } from '../common/navigator/ask-modal/ask-modal.component';
+import { AskModalComponent } from '../shared/components/ask-modal/ask-modal.component';
 import { Answer, answers, expandedContents } from '../mocks/answer';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -43,7 +43,7 @@ export class TopicComponent implements OnInit {
   }
 
   getTopics() {
-    this.http.get<Topic[]>(`${this.apiUrl}/topic/2`, { headers: this.headers })
+    this.http.get<Topic[]>(`${this.apiUrl}/topic/7`, { headers: this.headers })
       .subscribe(topics => this.topics = topics);
   }
 

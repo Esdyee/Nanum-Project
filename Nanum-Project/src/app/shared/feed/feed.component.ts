@@ -3,13 +3,14 @@ import { ActivatedRoute } from '@angular/router';
 
 import { MatDialog } from '@angular/material';
 
-import { AskModalComponent } from '../../common/navigator/ask-modal/ask-modal.component';
+import { AskModalComponent } from '../components/ask-modal/ask-modal.component';
 import { FeedService } from './feed.service';
+import { ScrollEvent } from './window-scroll.directive';
 
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.css']
+  styleUrls: ['./feed.component.css'],
 })
 export class FeedComponent implements OnInit {
   user = this.feedService.user;
@@ -38,7 +39,7 @@ export class FeedComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
     });
   }
 
@@ -54,7 +55,9 @@ export class FeedComponent implements OnInit {
     }
   }
 
-  typeChange() {
-    this.type = 'questions' ? 'answers' : 'questions';
+  handleScroll(event: ScrollEvent) {
+    if (event.isReachingBottom) {
+      this.onScrollBottom();
+    }
   }
 }

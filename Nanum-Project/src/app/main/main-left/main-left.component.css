@@ -1,1 +1,93 @@
-@import '../main.component.css';
+.sidebar {
+  position: fixed;
+  width: 140px;
+}
+
+.sidebar * {
+  box-sizing: border-box;
+}
+
+.sidebar,
+.welcome {
+  margin-top: 1rem;
+}
+
+.sidebar_header {
+  padding-left: 1rem;
+  background-color: #383d72;
+  width: 100%;
+  line-height: 4rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  color: #F2F3F4;
+  margin-bottom: 0;
+}
+
+.sidebar_lists {
+  background-color: rgba(235, 235, 235, 0.50);
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.sidebar_lists li {
+  border-radius: 0.5rem;
+}
+
+.sidebar_lists i {
+  font-size: 1.5rem;
+  float: left;
+}
+
+.sidebar_lists a {
+  color: #44403E;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.sidebar_lists a:hover {
+  color: #5256AA;
+}
+
+.sidebar_filters a {
+  display: inline-block;
+  padding: 0.7rem 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar_lists li:hover {
+  /*background-color: #E2E3F1;*/
+}
+
+.sidebar_edit {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  color: #44403E;
+  padding: 0.7rem 1rem;
+}
+
+.sidebar_edit a:hover {
+  text-decoration: underline;
+}
+
+.sidebar_topics li {
+  position: relative;
+}
+
+.sidebar_topics li::before {
+  position: absolute;
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #5256AA;
+  top: calc(50% - 0.25rem);
+  left: 1rem;
+}
+
+.sidebar_topics a {
+  margin-left: 1rem;
+  display: inline-block;
+  padding: 0.5rem 0 0.5rem 1rem;
+  width: calc(100% - 1rem);
+  height: 100%;
+}

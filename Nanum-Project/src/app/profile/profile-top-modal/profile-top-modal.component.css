@@ -35,26 +35,36 @@ img {
 
 .submit-button .btn-save, .btn-cancel {
   width: 45%;
+  margin-top: 20px;
 }
 
 .save-button button {
+  margin-top: 20px;
   width: 100%;
 }
-
 
 .short-introduction, .main-introduction {
   display: inline-block;
   padding-left: 20px;
 }
 
-
-
-.edit-introduction {
-  margin-left: 65px;
+.short-introduction {
+  margin-top: 20px;
 }
 
-.add-concentration-input {
+.main-introduction {
+  margin-top: 10px;
+}
+
+.edit-short-introduction {
+  margin-left: 65px;
+  width: 250px;
+}
+
+.edit-main-introduction {
   margin-left: 100px;
+  width: 250px;
+
 }
 
 .user-input {

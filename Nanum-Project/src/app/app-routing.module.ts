@@ -6,13 +6,13 @@ import { LoginModule } from './login/login.module';
 import { LoginComponent } from './login/login.component';
 import { MainModule } from './main/main.module';
 import { MainComponent } from './main/main.component';
-import { NotFoundComponent } from './common/not-found/not-found.component';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 import { ProfileComponent } from './profile/profile.component';
 import { TopicComponent } from './topic/topic.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login/main', pathMatch: 'full' },
+  { path: '', redirectTo: 'answer', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'answer', component: MainComponent, canActivate: [LoginGuard]},
   { path: 'question', component: MainComponent, canActivate: [LoginGuard]},

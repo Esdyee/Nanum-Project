@@ -82,33 +82,55 @@ export class FeedService {
 
   constructor(private http: HttpClient) { }
 
-  // type = question || answer || comment
-  getFirstPage(type = 'answer', parm?: string) {
-    return this.http.get<Page>(`${HOST}/post/${type}/?ordering=-created_at${parm ? parm : ''}`, { headers: this.headers });
+  // type = question | answer | comment
+  getFirstPage(type: string = 'answer', urlParameters: string[] = ['ordering=-created_at']) {
+    return this.http.get<Page>(
+      `${HOST}/post/${type === 'topic' ? 'question' : type }/?${urlParameters.join('&')}`,
+      { headers: this.headers });
+  }
+
+  getTimeStamp(originTime: Date): string {
+    const NOW = new Date();
+    const DATE_DIFF = Math.ceil((Date.now() - originTime.getTime()) / (1000 * 60 * 60 * 24));
+    if (DATE_DIFF === 1) {
+      const HOUR = Math.round(DATE_DIFF / (1000 * 60 * 60));
+      return HOUR > 1 ? `${HOUR}시간 전` : `방금 전`;
+    } else if (DATE_DIFF < 7) {
+      const DATES = NOW.getDate() - originTime.getDate();
+      return `${DATES}일 전`;
+    } else {
+      return `${originTime.getFullYear()}-${originTime.getMonth() + 1}-${originTime.getDate()}`;
+    }
   }
 
   // question, answer, comment 공통
   fetchNextPage(nextURL) {
-    return this.http.get<Page>(nextURL, { headers: this.headers });
+    return this.http.get<Page>(
+      nextURL, { headers: this.headers });
   }
 
   getParentQuestion(url) {
-    return this.http.get<QuestionDetail>(url, { headers: this.headers });
+    return this.http.get<QuestionDetail>(
+      url, { headers: this.headers });
   }
 
   getTopicDetail(url) {
-    return this.http.get<Topic>(url, { headers: this.headers });
+    return this.http.get<Topic>(
+      url, { headers: this.headers });
   }
 
   getAuthorProfile(url) {
-    return this.http.get<Profile>(url, { headers: this.headers });
+    return this.http.get<Profile>(
+      url, { headers: this.headers });
   }
 
   postComment(payload) {
-    return this.http.post<Comment>(`${HOST}/post/comment/`, payload, { headers: this.headers });
+    return this.http.post<Comment>(
+      `${HOST}/post/comment/`, payload, { headers: this.headers });
   }
 
   postAnswer(payload) {
-    return this.http.post<Answer>(`${HOST}/post/answer/`, payload, { headers: this.headers });
+    return this.http.post<Answer>(
+      `${HOST}/post/answer/`, payload, { headers: this.headers });
   }
 }

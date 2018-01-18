@@ -6,6 +6,7 @@ import { ProfileMiddleModalComponent } from './profile-middle-modal/profile-midd
 import { ProfileService } from './profile.service';
 import { ProfileFollowModalComponent } from './profile-follow-modal/profile-follow-modal.component';
 
+
 interface Resume {
   pk: number;
   type: string;
@@ -24,8 +25,13 @@ interface Experts {
   content: string;
 }
 
-
-
+interface UserProfile {
+  thumbnail_image_200?: string;
+  name?: string;
+  main_credential?: string;
+  description?: string;
+  follow_relation_pk?: number;
+}
 
 @Component({
   selector: 'app-profile',
@@ -103,12 +109,14 @@ export class ProfileComponent implements OnInit {
   TEST_userArticle: string;
 
   // Server 통신 테스트 로직
-  userProfile: object[];
-  userPk = 1;
 
 
   ngOnInit() {
     // this.userArticle = this.DUMMY_USER_PROFILE.Article;
+    this.profileService.getUserProfile();
+    this.profileService.getUserStats();
+    this.profileService.getUserEmploymentCredentialList();
+    this.profileService.getUserEducationCredentialList();
     this.userResume = this.DUMMY_USER_PROFILE.Resume;
     this.isOnMouse_TopContent = false;
     this.isOnMouse_MiddleContent = false;
@@ -118,31 +126,6 @@ export class ProfileComponent implements OnInit {
     this.interestContainer = [...this.DUMMY_USER_PROFILE.Interest];
     this.expertContainer = [...this.DUMMY_USER_PROFILE.Experts];
   }
-
-
-  // 사진 업로드 테스트!
-  // readUrl(event) {
-  //   const reader = new FileReader();
-  //   reader.onload = (loadEvent: any) => {
-  //     this.dataUrl.push(loadEvent.target.result);
-  //   };
-  //   reader.readAsDataURL(event.target.files[0]);
-  // }
-
-
-
-  // getUserName(): string {
-  //   return this.DUMMY_USER_PROFILE.Name;
-  // }
-
-  // getUserArticle(): string {
-  //   const _userArticle = this.profileService.userProfile.description;
-
-  //   return _userArticle;
-  // }
-
-
-  // 여기까지 상단
 
   getUserResumeIcon(resume: object): string {
     if ('company' in resume) {
@@ -172,16 +155,6 @@ export class ProfileComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
-  // 여기까지 중단
-
-  // TEST_modifyUserArticle() {
-  //   if (this.TEST_userArticle) {
-  //     this.userArticle = this.TEST_userArticle;
-  //     this.DUMMY_USER_PROFILE.Article = this.TEST_userArticle;
-  //     this.TEST_userArticle = '';
-  //   }
-  // }
-
 
   ProfileFollowModalComponent(): void {
     const dialogRef = this.dialog.open(ProfileFollowModalComponent, {
@@ -204,6 +177,4 @@ export class ProfileComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
-
-
 }
