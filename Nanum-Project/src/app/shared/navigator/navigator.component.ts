@@ -75,4 +75,9 @@ export class NavigatorComponent implements OnInit {
     });
   }
 
+  logOut() {
+    localStorage.removeItem('currentUser');
+    location.reload();
+  }
+
 }
