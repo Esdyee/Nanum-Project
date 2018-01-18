@@ -6,14 +6,9 @@ import { MainComponent } from './main.component';
 import { FeedModule } from '../shared/feed/feed.module';
 import { MainLeftComponent } from './main-left/main-left.component';
 import { FormsModule } from '@angular/forms';
-import { MaterialModule } from '../module/material.module';
-import { NavTabComponent } from '../common/nav-tab/nav-tab.component';
-import { AnswersComponent } from '../main/answers/answers.component';
-import { QuestionComponent } from '../main/question/question.component';
-import { QuestionDetailComponent } from '../question-detail/question-detail.component';
+import { MaterialModule } from '../shared/material.module';
 
-
-import { TabFilterPipe } from '../common/navigator/tab-filter.pipe';
+import { NavigatorModule } from '../shared/navigator/navigator.module';
 
 @NgModule({
   imports: [
@@ -27,12 +22,6 @@ import { TabFilterPipe } from '../common/navigator/tab-filter.pipe';
   declarations: [
     MainComponent,
     MainLeftComponent,
-    NavigatorComponent,
-    NavTabComponent,
-    AnswersComponent,
-    QuestionComponent,
-    QuestionDetailComponent,
-    TabFilterPipe
   ]
 })
 export class MainModule { }
