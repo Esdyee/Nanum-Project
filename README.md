@@ -12,7 +12,6 @@
 - [Scrumboard(google spreadsheet 초대링크)](https://docs.google.com/spreadsheets/d/19hdWFqjpBN9AETtN86JAX6vFg2HuMkNaJL2H-JpIQmQ/edit?usp=sharing)
 - [Wiki](https://github.com/Esdyee/Namu-Project/wiki/0.-README)
 - [웹 프로그래밍 스쿨 github 저장소(백엔드 담당)](https://github.com/namu617/nanum-project)
-- [서비스 이용 동영상](https://youtu.be/xmQ2I6U2aY4)
 
 ## 사용 기술
 
@@ -26,29 +25,17 @@
 
 - 이메일 회원가입
 - 소셜 로그인
-- 로컬스토리지 기반 DRF 토큰 로그인
+- 로컬스토리지 토큰 기반 로그인
 - 토픽 선택하기(전문분야, 관심분야)
 - 질문 올리기(연관토픽 선택)
-- 답변하기
-- 댓글달기
-- 프로필 페이지 정보 수정
+- 프로필 페이지
+- 토픽 페이지
 
 ## 구현 중인 기능
 
-- 토픽 페이지
-
-## 실행
-
-localhost에서 보기
-
-```
-$ cd Nanum-Project
-$ npm install
-$ npm i -g @angular/cli
-$ ng serve --port <port-number=4200>
-```
-
-https://nanum-192014.firebaseapp.com 접속 가능하지만 현재 CORS 문제로 로그인이 안됩니다.
+- 피드
+- 답변 올리기
+- 댓글 달기
 
 ## Timeline
 
