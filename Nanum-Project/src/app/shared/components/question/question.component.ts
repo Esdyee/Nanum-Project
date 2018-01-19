@@ -10,7 +10,6 @@ import { FeedService } from '../../feed/feed.service';
 export class QuestionComponent implements OnChanges {
   isEditMode = false;
   answerHeader;
-  timeStamp: string;
 
   topics = [];
 
@@ -19,7 +18,6 @@ export class QuestionComponent implements OnChanges {
 
   ngOnChanges() {
     this.question.topics.forEach(topicURL => this.getDetails(topicURL));
-    this.timeStamp = this.feedService.getTimeStamp(new Date(this.question.question.modified_at));
   }
 
   getDetails(url) {

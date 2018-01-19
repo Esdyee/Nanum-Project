@@ -2,7 +2,6 @@ import { Component, Input, OnChanges } from '@angular/core';
 
 import { MatDialog } from '@angular/material';
 
-import { AskModalComponent } from '../ask-modal/ask-modal.component';
 import { FeedService } from '../../feed/feed.service';
 
 
@@ -14,14 +13,12 @@ import { FeedService } from '../../feed/feed.service';
 export class AnswerComponent implements OnChanges {
   topics = [];
   user = this.feedService.user;
-  timeStamp: string;
 
   constructor(private feedService: FeedService, public dialog: MatDialog) { }
   @Input() answer;
 
   ngOnChanges() {
     this.getDetails();
-    this.timeStamp = this.feedService.getTimeStamp(new Date(this.answer.modified_at));
   }
 
   getDetails() {
