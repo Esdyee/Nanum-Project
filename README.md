@@ -2,7 +2,7 @@
 
 패스트캠퍼스 프론트엔드개발 스쿨 6기 TEAM-2 프로젝트 저장소
 
-**Members:** [Esdyee](https://github.com/Esdyee), [cmygray](https://github.com/cmygray), [SJdub](https://github.com/SJdub), [TheFlow01](https://github.com/TheFlow01), [Alrin12](https://github.com/Alrin12)
+**Members:** [Esdyee](https://github.com/Esdyee), [cmygray](https://github.com/cmygray), [SJdub](https://github.com/SJdub), [Changyu2](https://github.com/Changyu2), [Alrin12](https://github.com/Alrin12)
 
 ## 프로젝트 소개
 
